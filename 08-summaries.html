@@ -76,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-664e88c2e30ea4214729cb615bfd1c94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-df8e7534cb4cb7c4e956089768985eef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -219,7 +219,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-scenarios.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Factorial Vignette Analysis Overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scenario Analysis Overview</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -281,7 +281,6 @@ window.Quarto = {
   <li><a href="#sec-sum-q3" id="toc-sec-sum-q3" class="nav-link" data-scroll-target="#sec-sum-q3"><span class="header-section-number">8.3</span> Q3: Normative Preferences</a></li>
   <li><a href="#sec-sum-delta" id="toc-sec-sum-delta" class="nav-link" data-scroll-target="#sec-sum-delta"><span class="header-section-number">8.4</span> Delta (Q2 - Q3): Law–Preference Gap</a></li>
   <li><a href="#sec-sum-price" id="toc-sec-sum-price" class="nav-link" data-scroll-target="#sec-sum-price"><span class="header-section-number">8.5</span> Q4: License Price Estimates</a></li>
-  <li><a href="#sec-corrections" id="toc-sec-corrections" class="nav-link" data-scroll-target="#sec-corrections"><span class="header-section-number">8.6</span> Corrections from Article Draft</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/ludist/cc-survey/edit/main/08-summaries.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ludist/cc-survey/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
 </nav>
@@ -290,7 +289,7 @@ window.Quarto = {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -311,14 +310,15 @@ window.Quarto = {
 </header>
 
 
-<p>This Chapter consolidates the per-scenario results from <a href="./_scenarios/pd.html">Chapters 7.1–7.7</a> into cross-scenario summary tables for each question type. The tables replicate the Article’s summary tables programmatically from the underlying data; any discrepancies from the Article’s hardcoded values are documented in the <a href="#sec-corrections">Corrections</a> section below.</p>
+<p>This Chapter consolidates the per-scenario results from <a href="./_scenarios/pd.html">Chapters 7.1–7.7</a> into cross-scenario summary tables for each question type. The tables replicate the Article’s summary tables programmatically from the underlying data.</p>
 <p><strong>Format conventions:</strong></p>
 <ul>
-<li><strong>Q1–Q3 summary tables:</strong> Mean (SD) by group. Treatment groups additionally show [% difference from control]. <strong>Bold</strong> brackets indicate a significant pairwise difference from control (Dunn’s test, Holm-adjusted, <em>p</em> &lt; .05).</li>
-<li><strong>Delta summary table:</strong> Mean (SD) by group. Brackets show the mean delta as a percentage of the group’s Q2 mean — the fraction of perceived consequences that exceeds respondent preferences. <strong>Bold</strong> brackets indicate a significant difference from control.</li>
-<li><strong>Q4 summary table:</strong> Median (SD) after 99th-percentile outlier trimming. Treatment groups show [% difference from control median]. <strong>Bold</strong> brackets indicate a significant difference from control.</li>
-<li><strong>VDA tables:</strong> Pairwise Vargha &amp; Delaney’s A effect sizes with significance markers from Dunn’s post-hoc tests (Holm-adjusted). VDA = .50 indicates no group difference; VDA &gt; .50 indicates the first-named group scored higher; VDA &lt; .50 indicates the second-named group scored higher. Effect size thresholds follow Vargha &amp; Delaney (2000): (S)mall <span class="math inline">\(\geq\)</span> .56, (M)edium <span class="math inline">\(\geq\)</span> .64, (L)arge <span class="math inline">\(\geq\)</span> .71.</li>
+<li><strong>Q1–Q3 summary tables:</strong> One row per scenario and group. Mean, SD, and Median in separate columns. Treatment groups show [% difference from control] after the mean with significance stars from Dunn’s post-hoc tests (Holm-adjusted).</li>
+<li><strong>Delta summary table:</strong> Same format. Brackets show the mean delta as a percentage of the group’s Q2 mean — the fraction of perceived consequences that exceeds respondent preferences.</li>
+<li><strong>Q4 summary table:</strong> One row per scenario and group. Median and SD after 99th-percentile outlier trimming. Treatment groups show [% difference from control median] with significance stars.</li>
+<li><strong>VDA tables:</strong> One row per scenario and pairwise comparison. P(1st &gt; 2nd) is the probability that a randomly selected observation from the first-named group exceeds one from the second-named group (Vargha &amp; Delaney’s A, expressed as a percentage). 50% indicates no difference. Effect size thresholds follow Vargha &amp; Delaney (2000): small <span class="math inline">\(\geq\)</span> .56, moderate <span class="math inline">\(\geq\)</span> .64, large <span class="math inline">\(\geq\)</span> .71.</li>
 </ul>
+<p><strong>Significance notation:</strong> * <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001; n.s. = not significant. Stars appear after [% difference] in summary tables and in the Sig. column of VDA and Wilcoxon tables.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -332,9 +332,9 @@ window.Quarto = {
 <p>Rows marked with a dagger (†) use supplemental Group B1 (n = 97) in place of Group B. See <a href="./02-codebook.html#sec-b1">§3.1</a> for the B1 substitution.</p>
 </div>
 </div>
-<section id="sec-sum-q1" class="level2" data-number="8.1">
+<section id="sec-sum-q1" class="level2 page-columns page-full" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="sec-sum-q1"><span class="header-section-number">8.1</span> Q1: Likelihood of Legal Consequences</h2>
-<p>:::</p>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-q1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -342,179 +342,359 @@ window.Quarto = {
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
+<col style="width: 30%">
 <col style="width: 26%">
-<col style="width: 14%">
-<col style="width: 29%">
-<col style="width: 29%">
+<col style="width: 26%">
+<col style="width: 6%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control (C)</th>
-<th style="text-align: center;">Short (A)</th>
-<th style="text-align: center;">Full+Primer (B)</th>
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Median</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">2.95 (2.06)</td>
-<td style="text-align: center;">2.50 (2.09) <strong>[-15.1%]</strong></td>
-<td style="text-align: center;">1.47 (1.31) <strong>[-49.9%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">2.95</td>
+<td style="text-align: right;">2.06</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">2.50 [-15.3%]***</td>
+<td style="text-align: right;">2.09</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">1.47 [-50.2%]***</td>
+<td style="text-align: right;">1.31</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">1.56 (1.29)</td>
-<td style="text-align: center;">1.39 (1.11) [-10.9%]</td>
-<td style="text-align: center;">1.40 (1.05) [-10.6%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">1.56</td>
+<td style="text-align: right;">1.29</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">1.39 [-10.9%]</td>
+<td style="text-align: right;">1.11</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">1.40 [-10.3%]</td>
+<td style="text-align: right;">1.05</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">5.62 (1.76)</td>
-<td style="text-align: center;">6.07 (1.52) <strong>[+8.1%]</strong></td>
-<td style="text-align: center;">5.33 (1.98) [-5.1%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">5.62</td>
+<td style="text-align: right;">1.76</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">6.07 [+8.0%]***</td>
+<td style="text-align: right;">1.52</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Full + Primer (B1)†</td>
+<td style="text-align: right;">5.33 [-5.2%]</td>
+<td style="text-align: right;">1.98</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">3.25 (1.95)</td>
-<td style="text-align: center;">3.27 (1.87) [+0.6%]</td>
-<td style="text-align: center;">4.09 (1.92) <strong>[+25.7%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.25</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">3.27 [+0.6%]</td>
+<td style="text-align: right;">1.87</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">4.09 [+25.8%]***</td>
+<td style="text-align: right;">1.92</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">5.87 (1.36)</td>
-<td style="text-align: center;">5.71 (1.62) [-2.6%]</td>
-<td style="text-align: center;">6.11 (1.45) <strong>[+4.1%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">5.87</td>
+<td style="text-align: right;">1.36</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">5.71 [-2.7%]</td>
+<td style="text-align: right;">1.62</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">6.11 [+4.1%]***</td>
+<td style="text-align: right;">1.45</td>
+<td style="text-align: right;">7</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">3.94 (2.06)</td>
-<td style="text-align: center;">4.48 (2.01) <strong>[+13.8%]</strong></td>
-<td style="text-align: center;">4.92 (1.93) <strong>[+24.9%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.94</td>
+<td style="text-align: right;">2.06</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">4.48 [+13.7%]***</td>
+<td style="text-align: right;">2.01</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">4.92 [+24.9%]***</td>
+<td style="text-align: right;">1.93</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">4.71 (1.98)</td>
-<td style="text-align: center;">4.19 (2.20) <strong>[-11.1%]</strong></td>
-<td style="text-align: center;">3.35 (2.24) <strong>[-29.0%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">4.71</td>
+<td style="text-align: right;">1.98</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">4.19 [-11.0%]***</td>
+<td style="text-align: right;">2.20</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">3.35 [-28.9%]***</td>
+<td style="text-align: right;">2.24</td>
+<td style="text-align: right;">3</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.1: Q1 — Perceived likelihood of legal consequences: Mean (SD) by scenario and treatment group. Treatment groups show [% difference from control]; <strong>bold</strong> brackets indicate significant pairwise difference from control (Dunn’s test, Holm-adjusted, <em>p</em> &lt; .05).
+Table&nbsp;8.1: <strong>Q1: Perceived Likelihood of Legal Consequences</strong> by scenario and treatment group. Treatment groups show [% difference from control] with significance stars
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>:::</p>
+</div>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-vda-q1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-sum-vda-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 13%">
-<col style="width: 9%">
-<col style="width: 18%">
-<col style="width: 9%">
-<col style="width: 16%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control–Short</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Control–Full+Primer</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Short–Full+Primer</th>
-<th style="text-align: left;"></th>
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: right;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">0.581</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.736</td>
-<td style="text-align: left;">*** (L)</td>
-<td style="text-align: center;">0.644</td>
-<td style="text-align: left;">*** (M)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 58.1%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 73.6%</td>
+<td style="text-align: left;">large</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 64.4%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">0.530</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.520</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.489</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 53.0%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 52.0%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 48.9%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">0.415</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.538</td>
-<td style="text-align: left;">†</td>
-<td style="text-align: center;">0.622</td>
-<td style="text-align: left;">*** (S)†</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 41.5%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">C &gt; B1</td>
+<td style="text-align: right;"> 53.8%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">A &gt; B1</td>
+<td style="text-align: right;"> 62.2%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">0.492</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.383</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.381</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 49.2%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 38.3%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 38.1%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">0.510</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.422</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.414</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 51.0%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 42.2%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 41.4%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">0.425</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.365</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.437</td>
-<td style="text-align: left;">** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 42.5%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 36.5%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 43.7%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">**</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">0.566</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.674</td>
-<td style="text-align: left;">*** (M)</td>
-<td style="text-align: center;">0.606</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 56.6%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 67.4%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 60.6%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-vda-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.2: Q1 — Pairwise Vargha &amp; Delaney’s A effect sizes (Dunn’s post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. <em>p &lt; .05, <strong>p &lt; .01, </strong></em>p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge.
+Table&nbsp;8.2: <strong>Q1: Pairwise Effect Sizes.</strong> P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
+</div>
 </section>
-<section id="sec-sum-q2" class="level2" data-number="8.2">
+<section id="sec-sum-q2" class="level2 page-columns page-full" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="sec-sum-q2"><span class="header-section-number">8.2</span> Q2: Perceived Consequences Under Current Law</h2>
-<p>:::</p>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-q2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -522,179 +702,359 @@ Table&nbsp;8.2: Q1 — Pairwise Vargha &amp; Delaney’s A effect sizes (Dunn’
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
+<col style="width: 30%">
 <col style="width: 26%">
-<col style="width: 14%">
-<col style="width: 29%">
-<col style="width: 29%">
+<col style="width: 26%">
+<col style="width: 6%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control (C)</th>
-<th style="text-align: center;">Short (A)</th>
-<th style="text-align: center;">Full+Primer (B)</th>
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Median</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">2.78 (1.70)</td>
-<td style="text-align: center;">2.37 (1.77) <strong>[-14.8%]</strong></td>
-<td style="text-align: center;">1.40 (1.00) <strong>[-49.5%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">2.78</td>
+<td style="text-align: right;">1.70</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">2.37 [-14.7%]***</td>
+<td style="text-align: right;">1.77</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">1.40 [-49.6%]***</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">2.00 (1.25)</td>
-<td style="text-align: center;">1.73 (1.08) <strong>[-13.4%]</strong></td>
-<td style="text-align: center;">1.61 (1.04) <strong>[-19.4%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">2.00</td>
+<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">1.73 [-13.5%]**</td>
+<td style="text-align: right;">1.08</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">1.61 [-19.5%]***</td>
+<td style="text-align: right;">1.04</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">4.91 (1.58)</td>
-<td style="text-align: center;">5.21 (1.39) <strong>[+6.0%]</strong></td>
-<td style="text-align: center;">4.31 (1.36) <strong>[-12.3%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">4.91</td>
+<td style="text-align: right;">1.58</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">5.21 [+6.1%]*</td>
+<td style="text-align: right;">1.39</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Full + Primer (B1)†</td>
+<td style="text-align: right;">4.31 [-12.2%]***</td>
+<td style="text-align: right;">1.36</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">3.15 (1.39)</td>
-<td style="text-align: center;">3.08 (1.45) [-2.1%]</td>
-<td style="text-align: center;">3.46 (1.44) <strong>[+9.9%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">1.39</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">3.08 [-2.2%]</td>
+<td style="text-align: right;">1.45</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">3.46 [+9.8%]**</td>
+<td style="text-align: right;">1.44</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">5.21 (1.25)</td>
-<td style="text-align: center;">5.08 (1.37) [-2.6%]</td>
-<td style="text-align: center;">5.37 (1.30) <strong>[+3.0%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">5.21</td>
+<td style="text-align: right;">1.25</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">5.08 [-2.5%]</td>
+<td style="text-align: right;">1.37</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">5.37 [+3.1%]*</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">3.56 (1.61)</td>
-<td style="text-align: center;">3.88 (1.55) <strong>[+9.0%]</strong></td>
-<td style="text-align: center;">4.11 (1.54) <strong>[+15.6%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.56</td>
+<td style="text-align: right;">1.61</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">3.88 [+9.0%]**</td>
+<td style="text-align: right;">1.55</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">4.11 [+15.4%]***</td>
+<td style="text-align: right;">1.54</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">4.51 (1.49)</td>
-<td style="text-align: center;">3.96 (1.73) <strong>[-12.3%]</strong></td>
-<td style="text-align: center;">3.08 (1.86) <strong>[-31.7%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">4.51</td>
+<td style="text-align: right;">1.49</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">3.96 [-12.2%]***</td>
+<td style="text-align: right;">1.73</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">3.08 [-31.7%]***</td>
+<td style="text-align: right;">1.86</td>
+<td style="text-align: right;">3</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-q2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.3: Q2 — Perceived legal consequences under current law: Mean (SD) by scenario and treatment group. Treatment groups show [% difference from control]; <strong>bold</strong> brackets indicate significant pairwise difference from control (Dunn’s test, Holm-adjusted, <em>p</em> &lt; .05).
+Table&nbsp;8.3: <strong>Q2: Perceived Legal Consequences Under Current Law</strong> by scenario and treatment group. Treatment groups show [% difference from control] with significance stars
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>:::</p>
+</div>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-vda-q2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-sum-vda-q2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 13%">
-<col style="width: 9%">
-<col style="width: 18%">
-<col style="width: 10%">
-<col style="width: 16%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control–Short</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Control–Full+Primer</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Short–Full+Primer</th>
-<th style="text-align: left;"></th>
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: right;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">0.582</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.749</td>
-<td style="text-align: left;">*** (L)</td>
-<td style="text-align: center;">0.652</td>
-<td style="text-align: left;">*** (M)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 58.2%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 74.9%</td>
+<td style="text-align: left;">large</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 65.2%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">0.556</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 55.6%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">**</td>
-<td style="text-align: center;">0.588</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.534</td>
-<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 58.8%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 53.4%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">0.453</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 45.3%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
-<td style="text-align: center;">0.639</td>
-<td style="text-align: left;">*** (S)†</td>
-<td style="text-align: center;">0.690</td>
-<td style="text-align: left;">*** (M)†</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">C &gt; B1</td>
+<td style="text-align: right;"> 63.9%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">A &gt; B1</td>
+<td style="text-align: right;"> 69.0%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">0.515</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.437</td>
-<td style="text-align: left;">** (S)</td>
-<td style="text-align: center;">0.424</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 51.5%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 43.7%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 42.4%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">0.520</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.455</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 52.0%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 45.5%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
-<td style="text-align: center;">0.436</td>
-<td style="text-align: left;">** (S)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 43.6%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">**</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">0.443</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 44.3%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">**</td>
-<td style="text-align: center;">0.401</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.456</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 40.1%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 45.6%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">0.584</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.716</td>
-<td style="text-align: left;">*** (L)</td>
-<td style="text-align: center;">0.635</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 58.4%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 71.6%</td>
+<td style="text-align: left;">large</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 63.5%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-vda-q2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.4: Q2 — Pairwise Vargha &amp; Delaney’s A effect sizes (Dunn’s post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. <em>p &lt; .05, <strong>p &lt; .01, </strong></em>p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge.
+Table&nbsp;8.4: <strong>Q2: Pairwise Effect Sizes.</strong> P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
+</div>
 </section>
-<section id="sec-sum-q3" class="level2" data-number="8.3">
+<section id="sec-sum-q3" class="level2 page-columns page-full" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="sec-sum-q3"><span class="header-section-number">8.3</span> Q3: Normative Preferences</h2>
-<p>:::</p>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-q3" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -702,180 +1062,360 @@ Table&nbsp;8.4: Q2 — Pairwise Vargha &amp; Delaney’s A effect sizes (Dunn’
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
+<col style="width: 30%">
 <col style="width: 26%">
-<col style="width: 14%">
-<col style="width: 29%">
-<col style="width: 29%">
+<col style="width: 26%">
+<col style="width: 6%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control (C)</th>
-<th style="text-align: center;">Short (A)</th>
-<th style="text-align: center;">Full+Primer (B)</th>
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Median</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">2.60 (1.67)</td>
-<td style="text-align: center;">2.21 (1.70) <strong>[-14.9%]</strong></td>
-<td style="text-align: center;">1.38 (1.02) <strong>[-47.0%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">2.60</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">2.21 [-15.0%]***</td>
+<td style="text-align: right;">1.70</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">1.38 [-46.9%]***</td>
+<td style="text-align: right;">1.02</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">1.83 (1.21)</td>
-<td style="text-align: center;">1.53 (1.00) <strong>[-15.9%]</strong></td>
-<td style="text-align: center;">1.46 (0.95) <strong>[-20.1%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">1.83</td>
+<td style="text-align: right;">1.21</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">1.53 [-16.4%]***</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">1.46 [-20.2%]***</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">5.04 (1.61)</td>
-<td style="text-align: center;">5.50 (1.36) <strong>[+9.0%]</strong></td>
-<td style="text-align: center;">4.52 (1.60) <strong>[-10.4%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">5.04</td>
+<td style="text-align: right;">1.61</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">5.50 [+9.1%]***</td>
+<td style="text-align: right;">1.36</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Full + Primer (B1)†</td>
+<td style="text-align: right;">4.52 [-10.3%]***</td>
+<td style="text-align: right;">1.60</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">3.03 (1.49)</td>
-<td style="text-align: center;">3.05 (1.46) [+0.4%]</td>
-<td style="text-align: center;">3.33 (1.47) <strong>[+9.8%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.03</td>
+<td style="text-align: right;">1.49</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">3.05 [+0.7%]</td>
+<td style="text-align: right;">1.46</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">3.33 [+9.9%]*</td>
+<td style="text-align: right;">1.47</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">5.38 (1.26)</td>
-<td style="text-align: center;">5.25 (1.38) [-2.3%]</td>
-<td style="text-align: center;">5.43 (1.30) [+0.9%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">5.38</td>
+<td style="text-align: right;">1.26</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">5.25 [-2.4%]</td>
+<td style="text-align: right;">1.38</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">5.43 [+0.9%]</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">3.34 (1.67)</td>
-<td style="text-align: center;">3.73 (1.63) <strong>[+11.9%]</strong></td>
-<td style="text-align: center;">4.00 (1.59) <strong>[+19.9%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.34</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">3.73 [+11.7%]**</td>
+<td style="text-align: right;">1.63</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">4.00 [+19.8%]***</td>
+<td style="text-align: right;">1.59</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">4.15 (1.58)</td>
-<td style="text-align: center;">4.09 (2.02) [-1.4%]</td>
-<td style="text-align: center;">2.88 (1.84) <strong>[-30.6%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">4.15</td>
+<td style="text-align: right;">1.58</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">4.09 [-1.4%]</td>
+<td style="text-align: right;">2.02</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">2.88 [-30.6%]***</td>
+<td style="text-align: right;">1.84</td>
+<td style="text-align: right;">2</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-q3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.5: Q3 — Respondent preferences for legal consequences: Mean (SD) by scenario and treatment group. Treatment groups show [% difference from control]; <strong>bold</strong> brackets indicate significant pairwise difference from control (Dunn’s test, Holm-adjusted, <em>p</em> &lt; .05).
+Table&nbsp;8.5: <strong>Q3: Normative Preferences for Legal Consequences</strong> by scenario and treatment group. Treatment groups show [% difference from control] with significance stars
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>:::</p>
+</div>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-vda-q3" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-sum-vda-q3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 13%">
-<col style="width: 9%">
-<col style="width: 18%">
-<col style="width: 10%">
-<col style="width: 16%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control–Short</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Control–Full+Primer</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Short–Full+Primer</th>
-<th style="text-align: left;"></th>
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: right;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">0.576</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.721</td>
-<td style="text-align: left;">*** (L)</td>
-<td style="text-align: center;">0.639</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 57.6%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 72.1%</td>
+<td style="text-align: left;">large</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 63.9%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">0.563</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.581</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.518</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 56.3%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 58.1%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 51.8%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">0.419</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.608</td>
-<td style="text-align: left;">*** (S)†</td>
-<td style="text-align: center;">0.689</td>
-<td style="text-align: left;">*** (M)†</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 41.9%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">C &gt; B1</td>
+<td style="text-align: right;"> 60.8%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">A &gt; B1</td>
+<td style="text-align: right;"> 68.9%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">0.499</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.445</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 49.9%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 44.5%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
-<td style="text-align: center;">0.444</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 44.4%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">0.517</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.483</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.466</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 51.7%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 48.3%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 46.6%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">0.432</td>
-<td style="text-align: left;">** (S)</td>
-<td style="text-align: center;">0.388</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.454</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 43.2%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 38.8%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 45.4%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">0.486</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.694</td>
-<td style="text-align: left;">*** (M)</td>
-<td style="text-align: center;">0.676</td>
-<td style="text-align: left;">*** (M)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 48.6%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 69.4%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 67.6%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-vda-q3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.6: Q3 — Pairwise Vargha &amp; Delaney’s A effect sizes (Dunn’s post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. <em>p &lt; .05, <strong>p &lt; .01, </strong></em>p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge.
+Table&nbsp;8.6: <strong>Q3: Pairwise Effect Sizes.</strong> P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
+</div>
 </section>
-<section id="sec-sum-delta" class="level2" data-number="8.4">
+<section id="sec-sum-delta" class="level2 page-columns page-full" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="sec-sum-delta"><span class="header-section-number">8.4</span> Delta (Q2 - Q3): Law–Preference Gap</h2>
 <p>Delta = Q2 - Q3. Positive values indicate the law is perceived as stricter than preferred; negative values indicate the law is perceived as more lenient than preferred; zero indicates alignment.</p>
-<p>:::</p>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-delta" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -883,378 +1423,589 @@ Table&nbsp;8.6: Q3 — Pairwise Vargha &amp; Delaney’s A effect sizes (Dunn’
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 22%">
+<col style="width: 30%">
 <col style="width: 26%">
 <col style="width: 26%">
+<col style="width: 6%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control (C)</th>
-<th style="text-align: center;">Short (A)</th>
-<th style="text-align: center;">Full+Primer (B)</th>
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Median</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">0.18 (0.93) [+6.4%]</td>
-<td style="text-align: center;">0.15 (0.69) [+6.6%]</td>
-<td style="text-align: center;">0.02 (0.48) [+1.6%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">0.18 [+6.5%]</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">0.15 [+6.8%]</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">0.02 [+1.4%]</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">0.17 (0.80) [+8.6%]</td>
-<td style="text-align: center;">0.20 (0.73) [+11.3%]</td>
-<td style="text-align: center;">0.15 (0.64) [+9.4%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">0.17 [+8.5%]</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">0.20 [+11.6%]</td>
+<td style="text-align: right;">0.73</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">0.15 [+9.3%]</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">-0.13 (0.81) [-2.6%]</td>
-<td style="text-align: center;">-0.29 (0.78) <strong>[-5.6%]</strong></td>
-<td style="text-align: center;">-0.21 (1.20) [-4.8%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">-0.13 [-2.6%]</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">-0.29 [-5.6%]*</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Full + Primer (B1)†</td>
+<td style="text-align: right;">-0.21 [-4.9%]</td>
+<td style="text-align: right;">1.20</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">0.11 (0.89) [+3.6%]</td>
-<td style="text-align: center;">0.04 (0.78) [+1.1%]</td>
-<td style="text-align: center;">0.13 (0.74) [+3.7%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">0.11 [+3.5%]</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">0.04 [+1.3%]</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">0.13 [+3.8%]</td>
+<td style="text-align: right;">0.74</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">-0.16 (0.85) [-3.2%]</td>
-<td style="text-align: center;">-0.18 (0.72) [-3.5%]</td>
-<td style="text-align: center;">-0.06 (0.68) <strong>[-1.0%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">-0.16 [-3.1%]</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">-0.18 [-3.5%]</td>
+<td style="text-align: right;">0.72</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">-0.06 [-1.1%]*</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">0.22 (0.95) [+6.2%]</td>
-<td style="text-align: center;">0.14 (0.83) [+3.7%]</td>
-<td style="text-align: center;">0.11 (0.82) [+2.7%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">0.22 [+6.2%]</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">0.14 [+3.6%]</td>
+<td style="text-align: right;">0.83</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">0.11 [+2.7%]</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">0.37 (1.18) [+8.1%]</td>
-<td style="text-align: center;">-0.13 (1.36) <strong>[-3.3%]</strong></td>
-<td style="text-align: center;">0.21 (0.91) [+6.7%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">0.37 [+8.2%]</td>
+<td style="text-align: right;">1.18</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">-0.13 [-3.3%]***</td>
+<td style="text-align: right;">1.36</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">0.21 [+6.8%]</td>
+<td style="text-align: right;">0.91</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-delta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.7: Delta (Q2 - Q3) — Law–preference gap: Mean (SD) by scenario and treatment group. Brackets show [delta/Q2 × 100]; <strong>bold</strong> brackets indicate significant pairwise difference from control (Dunn’s test, Holm-adjusted, <em>p</em> &lt; .05).
+Table&nbsp;8.7: <strong>Delta (Q2 - Q3): Law-Preference Gap</strong> by scenario and treatment group. Brackets show [delta/Q2 × 100] with significance stars
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>:::</p>
+</div>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-vda-delta" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-sum-vda-delta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
-<colgroup>
-<col style="width: 22%">
-<col style="width: 14%">
-<col style="width: 10%">
-<col style="width: 20%">
-<col style="width: 2%">
-<col style="width: 18%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control–Short</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Control–Full+Primer</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Short–Full+Primer</th>
-<th style="text-align: left;"></th>
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: right;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">0.494</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.521</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.530</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 49.4%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 52.1%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 53.0%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">0.491</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.509</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.519</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 49.1%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 50.9%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 51.9%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">0.547</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 54.7%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
-<td style="text-align: center;">0.533</td>
-<td style="text-align: left;">†</td>
-<td style="text-align: center;">0.491</td>
-<td style="text-align: left;">†</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">C &gt; B1</td>
+<td style="text-align: right;"> 53.3%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">A &gt; B1</td>
+<td style="text-align: right;"> 49.1%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">0.527</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.496</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.468</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 52.7%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 49.6%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 46.8%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">0.495</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.458</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 49.5%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 45.8%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
-<td style="text-align: center;">0.462</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 46.2%</td>
+<td style="text-align: left;">negligible</td>
 <td style="text-align: left;">*</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">0.517</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.527</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.510</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 51.7%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 52.7%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 51.0%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">0.648</td>
-<td style="text-align: left;">*** (M)</td>
-<td style="text-align: center;">0.542</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.366</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 64.8%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 54.2%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 36.6%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-vda-delta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.8: Delta — Pairwise Vargha &amp; Delaney’s A effect sizes (Dunn’s post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. <em>p &lt; .05, <strong>p &lt; .01, </strong></em>p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge.
+Table&nbsp;8.8: <strong>Delta: Pairwise Effect Sizes.</strong> P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
-<section id="sec-sum-wilcoxon" class="level3" data-number="8.4.1">
+</div>
+<section id="sec-sum-wilcoxon" class="level3 page-columns page-full" data-number="8.4.1">
 <h3 data-number="8.4.1" class="anchored" data-anchor-id="sec-sum-wilcoxon"><span class="header-section-number">8.4.1</span> Within-Group Wilcoxon Signed-Rank Tests</h3>
 <p>For each scenario and group, a one-sample Wilcoxon signed-rank test evaluates whether the median delta is significantly different from zero. A significant result indicates a gap between respondents’ perception of current law and their normative preference.</p>
-<p>:::</p>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-wilcoxon" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-sum-wilcoxon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 26%">
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 6%">
+<col style="width: 9%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
 <th style="text-align: left;">Group</th>
 <th style="text-align: right;">n</th>
 <th style="text-align: right;">V</th>
+<th style="text-align: left;">Non-Zero</th>
+<th style="text-align: left;">Dir.</th>
 <th style="text-align: left;">Sig.</th>
-<th style="text-align: left;">Conclusion</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: left;">A</td>
+<td style="text-align: left;">Short (A)</td>
 <td style="text-align: right;">400</td>
 <td style="text-align: right;">2886.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: left;">B</td>
+<td style="text-align: left;">Full + Primer (B)</td>
 <td style="text-align: right;">394</td>
 <td style="text-align: right;">480.0</td>
-<td style="text-align: left;">n.s.</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: left;">C</td>
+<td style="text-align: left;">Control (C)</td>
 <td style="text-align: right;">408</td>
 <td style="text-align: right;">5677.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: left;">A</td>
+<td style="text-align: left;">Short (A)</td>
 <td style="text-align: right;">400</td>
 <td style="text-align: right;">4419.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: left;">B</td>
+<td style="text-align: left;">Full + Primer (B)</td>
 <td style="text-align: right;">395</td>
 <td style="text-align: right;">2704.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: left;">C</td>
+<td style="text-align: left;">Control (C)</td>
 <td style="text-align: right;">408</td>
 <td style="text-align: right;">4787.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: left;">A</td>
+<td style="text-align: left;">Short (A)</td>
 <td style="text-align: right;">400</td>
 <td style="text-align: right;">1317.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">−</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: left;">B1†</td>
+<td style="text-align: left;">Full + Primer (B1)†</td>
 <td style="text-align: right;">97</td>
 <td style="text-align: right;">329.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">−</td>
 <td style="text-align: left;">*</td>
-<td style="text-align: left;">Gap ≠ 0 (*)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: left;">C</td>
+<td style="text-align: left;">Control (C)</td>
 <td style="text-align: right;">408</td>
 <td style="text-align: right;">2380.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">−</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: left;">A</td>
+<td style="text-align: left;">Short (A)</td>
 <td style="text-align: right;">399</td>
 <td style="text-align: right;">4682.5</td>
-<td style="text-align: left;">n.s.</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: left;">B</td>
+<td style="text-align: left;">Full + Primer (B)</td>
 <td style="text-align: right;">396</td>
 <td style="text-align: right;">4669.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: left;">C</td>
+<td style="text-align: left;">Control (C)</td>
 <td style="text-align: right;">408</td>
 <td style="text-align: right;">5972.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">**</td>
-<td style="text-align: left;">Gap ≠ 0 (**)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: left;">A</td>
+<td style="text-align: left;">Short (A)</td>
 <td style="text-align: right;">400</td>
 <td style="text-align: right;">2022.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">−</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: left;">B</td>
+<td style="text-align: left;">Full + Primer (B)</td>
 <td style="text-align: right;">395</td>
 <td style="text-align: right;">1724.5</td>
-<td style="text-align: left;">n.s.</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">−</td>
 <td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: left;">C</td>
+<td style="text-align: left;">Control (C)</td>
 <td style="text-align: right;">408</td>
 <td style="text-align: right;">3065.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">−</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: left;">A</td>
+<td style="text-align: left;">Short (A)</td>
 <td style="text-align: right;">400</td>
 <td style="text-align: right;">6133.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: left;">B</td>
+<td style="text-align: left;">Full + Primer (B)</td>
 <td style="text-align: right;">394</td>
 <td style="text-align: right;">4076.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">*</td>
-<td style="text-align: left;">Gap ≠ 0 (*)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: left;">C</td>
+<td style="text-align: left;">Control (C)</td>
 <td style="text-align: right;">408</td>
 <td style="text-align: right;">8324.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: left;">A</td>
+<td style="text-align: left;">Short (A)</td>
 <td style="text-align: right;">400</td>
 <td style="text-align: right;">16037.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">−</td>
 <td style="text-align: left;">*</td>
-<td style="text-align: left;">Gap ≠ 0 (*)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: left;">B</td>
+<td style="text-align: left;">Full + Primer (B)</td>
 <td style="text-align: right;">394</td>
 <td style="text-align: right;">4472.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: left;">C</td>
+<td style="text-align: left;">Control (C)</td>
 <td style="text-align: right;">408</td>
 <td style="text-align: right;">13047.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
 <td style="text-align: left;">***</td>
-<td style="text-align: left;">Gap ≠ 0 (***)</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-wilcoxon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.9: Delta — Wilcoxon signed-rank tests (H<sub>0</sub>: median delta = 0) by scenario and group. V = test statistic. <em>p &lt; .05, <strong>p &lt; .01, </strong></em>p &lt; .001.
+Table&nbsp;8.9: <strong>Delta: Wilcoxon Signed-Rank Tests.</strong> H<sub>0</sub>: median delta = 0, by scenario and group. V = test statistic
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
+</div>
 </section>
 </section>
-<section id="sec-sum-price" class="level2" data-number="8.5">
+<section id="sec-sum-price" class="level2 page-columns page-full" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="sec-sum-price"><span class="header-section-number">8.5</span> Q4: License Price Estimates</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1269,7 +2020,7 @@ Table&nbsp;8.9: Delta — Wilcoxon signed-rank tests (H<sub>0</sub>: median delt
 <p>Price estimates are right-skewed and occasionally extreme. The top 1% of responses within each group are trimmed before computing statistics. <strong>Median</strong> (not mean) is reported as the central tendency because it is robust to the remaining skew. Treatment groups show percentage difference from the control group’s median.</p>
 </div>
 </div>
-<p>:::</p>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-price" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1277,202 +2028,332 @@ Table&nbsp;8.9: Delta — Wilcoxon signed-rank tests (H<sub>0</sub>: median delt
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 19%">
-<col style="width: 30%">
+<col style="width: 31%">
+<col style="width: 27%">
 <col style="width: 29%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control (C)</th>
-<th style="text-align: center;">Short (A)</th>
-<th style="text-align: center;">Full+Primer (B)</th>
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">SD</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">100.00 (49050.90)</td>
-<td style="text-align: center;">10.00 (9474.39) <strong>[-90.0%]</strong></td>
-<td style="text-align: center;">0.00 (5260.55) <strong>[-100.0%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">$100</td>
+<td style="text-align: right;">$49,051</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">$10 [-90.0%]***</td>
+<td style="text-align: right;">$9,474</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">$0 [-100.0%]***</td>
+<td style="text-align: right;">$5,261</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">25.00 (2965.84)</td>
-<td style="text-align: center;">15.00 (572.24) <strong>[-40.0%]</strong></td>
-<td style="text-align: center;">19.00 (290.27) <strong>[-24.0%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">$25</td>
+<td style="text-align: right;">$2,966</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">$15 [-40.0%]**</td>
+<td style="text-align: right;">$572</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">$19 [-24.0%]***</td>
+<td style="text-align: right;">$290</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">10000.00 (511858.70)</td>
-<td style="text-align: center;">10000.00 (329920.58) [+0.0%]</td>
-<td style="text-align: center;">10000.00 (249532.21) [+0.0%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">$10,000</td>
+<td style="text-align: right;">$511,859</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">$10,000 [+0.0%]</td>
+<td style="text-align: right;">$329,921</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">Full + Primer (B1)†</td>
+<td style="text-align: right;">$10,000 [+0.0%]</td>
+<td style="text-align: right;">$249,532</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">100.00 (11214.42)</td>
-<td style="text-align: center;">100.00 (2469.81) [+0.0%]</td>
-<td style="text-align: center;">100.00 (2960.75) [+0.0%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">$100</td>
+<td style="text-align: right;">$11,214</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">$100 [+0.0%]</td>
+<td style="text-align: right;">$2,470</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">$100 [+0.0%]</td>
+<td style="text-align: right;">$2,961</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">5000.00 (44592.79)</td>
-<td style="text-align: center;">5000.00 (34785.17) [+0.0%]</td>
-<td style="text-align: center;">5000.00 (27474.87) [+0.0%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">$5,000</td>
+<td style="text-align: right;">$44,593</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">$5,000 [+0.0%]</td>
+<td style="text-align: right;">$34,785</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">$5,000 [+0.0%]</td>
+<td style="text-align: right;">$27,475</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">400.00 (22799.75)</td>
-<td style="text-align: center;">500.00 (55498.88) [+25.0%]</td>
-<td style="text-align: center;">500.00 (26614.02) [+25.0%]</td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">$400</td>
+<td style="text-align: right;">$22,800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">$500 [+25.0%]</td>
+<td style="text-align: right;">$55,499</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">$500 [+25.0%]</td>
+<td style="text-align: right;">$26,614</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">1500.00 (135942.25)</td>
-<td style="text-align: center;">1000.00 (106843.63) <strong>[-33.3%]</strong></td>
-<td style="text-align: center;">300.00 (133013.94) <strong>[-80.0%]</strong></td>
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">$1,500</td>
+<td style="text-align: right;">$135,942</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">$1,000 [-33.3%]***</td>
+<td style="text-align: right;">$106,844</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">$300 [-80.0%]***</td>
+<td style="text-align: right;">$133,014</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-price-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.10: Q4 — Non-exclusive license price estimates: Median (SD) by scenario and treatment group (top 1% trimmed per group). Treatment groups show [% difference from control]; <strong>bold</strong> brackets indicate significant pairwise difference from control (Dunn’s test, Holm-adjusted, <em>p</em> &lt; .05).
+Table&nbsp;8.10: <strong>Q4: Non-Exclusive License Price Estimates</strong> by scenario and treatment group (top 1% trimmed per group). Treatment groups show [% difference from control] with significance stars
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
-<p>:::</p>
+</div>
+<div class="column-page-right">
 <div class="cell" data-layout-align="center">
 <div id="tbl-sum-vda-price" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-sum-vda-price-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 13%">
-<col style="width: 9%">
-<col style="width: 18%">
-<col style="width: 9%">
-<col style="width: 17%">
-<col style="width: 9%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Scenario</th>
-<th style="text-align: center;">Control–Short</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Control–Full+Primer</th>
-<th style="text-align: left;"></th>
-<th style="text-align: center;">Short–Full+Primer</th>
-<th style="text-align: left;"></th>
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: right;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Public Domain</td>
-<td style="text-align: center;">0.595</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.679</td>
-<td style="text-align: left;">*** (M)</td>
-<td style="text-align: center;">0.579</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 59.5%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 67.9%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public Domain</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 57.9%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Personal Use</td>
-<td style="text-align: center;">0.571</td>
-<td style="text-align: left;">** (S)</td>
-<td style="text-align: center;">0.578</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.509</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 57.1%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 57.8%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Personal Use</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 50.9%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Educational Use†</td>
-<td style="text-align: center;">0.489</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.495</td>
-<td style="text-align: left;">†</td>
-<td style="text-align: center;">0.505</td>
-<td style="text-align: left;">†</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 48.9%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">C &gt; B1</td>
+<td style="text-align: right;"> 49.5%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Educational Use†</td>
+<td style="text-align: left;">A &gt; B1</td>
+<td style="text-align: right;"> 50.5%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Commercial Advertising</td>
-<td style="text-align: center;">0.538</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.522</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.484</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 53.8%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 52.2%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Commercial Advertising</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 48.4%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Large Scale Copying</td>
-<td style="text-align: center;">0.508</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.522</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.514</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 50.8%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 52.2%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Large Scale Copying</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 51.4%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Wikipedia Image Search</td>
-<td style="text-align: center;">0.476</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.455</td>
-<td style="text-align: left;"></td>
-<td style="text-align: center;">0.478</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 47.6%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 45.5%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wikipedia Image Search</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 47.8%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Filesharing</td>
-<td style="text-align: center;">0.577</td>
-<td style="text-align: left;">*** (S)</td>
-<td style="text-align: center;">0.653</td>
-<td style="text-align: left;">*** (M)</td>
-<td style="text-align: center;">0.581</td>
-<td style="text-align: left;">*** (S)</td>
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: right;"> 57.7%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: right;"> 65.3%</td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Filesharing</td>
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: right;"> 58.1%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sum-vda-price-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.11: Q4 — Pairwise Vargha &amp; Delaney’s A effect sizes on trimmed price data (Dunn’s post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. <em>p &lt; .05, <strong>p &lt; .01, </strong></em>p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge.
+Table&nbsp;8.11: <strong>Q4: Pairwise Effect Sizes</strong> (trimmed). P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second
 </figcaption>
 </figure>
 </div>
 </div>
-<p>:::</p>
-</section>
-<section id="sec-corrections" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="sec-corrections"><span class="header-section-number">8.6</span> Corrections from Article Draft</h2>
-<p>The tables above are computed programmatically from the survey data. The article’s summary tables were constructed manually from per-scenario output. Any discrepancies — typically minor rounding differences or sign errors in percentage calculations — are documented here after comparison with the article draft.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Pending Verification
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This section will be populated after rendering and comparison with the article’s hardcoded values. To complete the comparison:</p>
-<ol type="1">
-<li>Render this chapter: <code>quarto render 08-summaries.qmd --to html</code></li>
-<li>Compare computed values against the article tables</li>
-<li>Record discrepancies in the table below</li>
-</ol>
-</div>
-</div>
-<!-- Uncomment and populate after verification:
-| Scenario | Question | Article Value | Computed Value | Discrepancy |
-|----------|----------|---------------|----------------|-------------|
-| | | | | |
--->
 
 
 <!-- -->
@@ -1515,7 +2396,7 @@ Table&nbsp;8.11: Q4 — Pairwise Vargha &amp; Delaney’s A effect sizes on trim
 
     var authorDiv = document.createElement('div');
     authorDiv.className = 'sidebar-author';
-    authorDiv.innerHTML = 'Thomas H. Rousse<br>J.D., Ph.D.';
+    authorDiv.innerHTML = '<span class="sidebar-author-label">inquiry by</span><br>Thomas H. Rousse<br>J.D., Ph.D.';
 
     // Insert between subtitle/title and search bar (equidistant)
     var search = sidebar.querySelector('#quarto-search');
@@ -1602,59 +2483,194 @@ Table&nbsp;8.11: Q4 — Pairwise Vargha &amp; Delaney’s A effect sizes on trim
 </script>
 <script>
 /*
- * scenario-numbering.js — CC Survey Online Appendix
+ * section-numbering.js — CC Survey Online Appendix
  *
- * Renumbers tables, figures, and cross-reference links in unnumbered
- * scenario sub-chapters from bare sequential numbers (Table 1, Figure 1)
- * to 3-level format (Table 7.1.1, Figure 7.1.1).
+ * Renumbers ALL tables and figures to use section-level numbering:
+ *   Table 7.1.1.1 = Chapter 7, Scenario 1, Subsection 1, Table 1
+ *   Figure 3.2.1  = Chapter 3, Section 2, Figure 1
  *
- * Parent chapter: 07-scenarios.qmd = Chapter 7
- * Sub-chapters: pd=1, pu=2, eu=3, ca=4, ls=5, wn=6, fs=7
+ * Works on ALL pages:
+ *   - Numbered chapters: reads Quarto's .header-section-number spans
+ *   - Unnumbered scenario chapters: parses manual section numbers from
+ *     heading text (e.g., "## 7.1.1 Q1: ...")
  *
- * Runs after DOM load. Only modifies scenario pages.
+ * Fixes both same-page AND cross-page cross-reference links.
+ * Cross-page xrefs are resolved by fetching the target page, computing
+ * its section-level numbering, and patching the link text. Each target
+ * page is fetched at most once (results are cached per session).
+ *
+ * Replaces the original scenario-numbering.html (which only handled
+ * 3-level numbering for figures on scenario pages).
+ *
+ * Runs after DOM load.
  */
 document.addEventListener('DOMContentLoaded', function() {
-  var scenarios = {pd:1, pu:2, eu:3, ca:4, ls:5, wn:6, fs:7};
-  var path = window.location.pathname;
-  var scenarioIdx = null;
 
-  for (var code in scenarios) {
-    if (path.match(new RegExp('[/\\\\]' + code + '\\.html$'))) {
-      scenarioIdx = scenarios[code];
-      break;
+  // ── Shared: compute section-level numbering for a root element ──
+  // Returns { elementId: { type: 'Table'|'Figure', number: '6.3.1' } }
+  // If mutate=true, also rewrites captions and wraps manual heading
+  // numbers in .header-section-number spans (only for the live page).
+  function computeNumbering(root, mutate) {
+    var nodes = root.querySelectorAll(
+      'h1, h2, h3, h4, [id^="tbl-"], [id^="fig-"]'
+    );
+
+    var currentSection = '';
+    var tblCount = {};
+    var figCount = {};
+    var map = {};
+
+    nodes.forEach(function(el) {
+      var tag = el.tagName;
+
+      // ── Heading: update current section number ───────────────
+      if (/^H[1-4]$/i.test(tag)) {
+        var numSpan = el.querySelector('.header-section-number');
+        if (numSpan) {
+          currentSection = numSpan.textContent.trim();
+          return;
+        }
+        var m = el.textContent.trim().match(/^(\d+(?:\.\d+)*)/);
+        if (m) {
+          currentSection = m[1];
+          if (mutate) {
+            var secId = el.querySelector('.quarto-section-identifier');
+            var target = secId || el;
+            var html = target.innerHTML;
+            if (html.indexOf('header-section-number') === -1) {
+              target.innerHTML = html.replace(
+                /^(\d+(?:\.\d+)*)\s*/,
+                '<span class="header-section-number">$1</span> '
+              );
+            }
+          }
+        }
+        return;
+      }
+
+      // ── Float container: compute new number ─────────────────
+      if (!currentSection) return;
+
+      var cap = el.querySelector('figcaption') || el.querySelector('caption');
+      if (!cap) return;
+
+      var id = (el.id || '').toLowerCase();
+      var type, counter;
+      if (id.startsWith('tbl-')) {
+        type = 'Table';
+        counter = tblCount;
+      } else if (id.startsWith('fig-')) {
+        type = 'Figure';
+        counter = figCount;
+      } else {
+        return;
+      }
+
+      if (!counter[currentSection]) counter[currentSection] = 0;
+      counter[currentSection]++;
+      var newNum = currentSection + '.' + counter[currentSection];
+
+      map[el.id] = { type: type, number: newNum };
+
+      if (mutate) {
+        var re = new RegExp(
+          '(' + type + ')(&#160;|&nbsp;|\\u00A0|\\s)(\\d+(?:\\.\\d+)*)'
+        );
+        cap.innerHTML = cap.innerHTML.replace(
+          re, '<span class="float-label">$1$2' + newNum + '</span>'
+        );
+        el.setAttribute('data-section-num', newNum);
+        el.setAttribute('data-section-type', type);
+      }
+    });
+
+    return map;
+  }
+
+  // ── Helper: update a cross-reference link with new numbering ──
+  function patchXrefLink(link, info) {
+    var spans = link.querySelectorAll('span');
+    if (spans.length > 0) {
+      spans[spans.length - 1].textContent = info.number;
+    } else {
+      link.innerHTML = info.type + '&nbsp;' + info.number;
     }
   }
 
-  if (!scenarioIdx) return;
+  // ══════════════════════════════════════════════════════════════
+  // 1. Renumber the current page (mutate captions + headings)
+  // ══════════════════════════════════════════════════════════════
+  var main = document.getElementById('quarto-document-content');
+  if (!main) return;
 
-  var prefix = '7.' + scenarioIdx + '.';
+  var localMap = computeNumbering(main, true);
 
-  // ── Figure captions ──────────────────────────────────────────
-  // Quarto renders: Figure&nbsp;N: caption text
-  document.querySelectorAll('figcaption').forEach(function(cap) {
-    cap.innerHTML = cap.innerHTML.replace(
-      /Figure(&nbsp;|\u00A0|\s)(\d+)(?![\d.])/g,
-      function(m, sp, n) { return 'Figure' + sp + prefix + n; }
-    );
+  // ══════════════════════════════════════════════════════════════
+  // 2. Fix same-page cross-reference links
+  // ══════════════════════════════════════════════════════════════
+  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+
+    var targetId = href.substring(1);
+    var info = localMap[targetId];
+    if (!info) return;
+
+    patchXrefLink(link, info);
   });
 
-  // ── Cross-reference links ────────────────────────────────────
-  // Quarto renders: <a class="quarto-xref">Table&nbsp;<span>N</span></a>
-  // or:             <a class="quarto-xref">Figure&nbsp;<span>N</span></a>
-  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
-    var spans = link.querySelectorAll('span');
-    if (spans.length === 0) return;
+  // ══════════════════════════════════════════════════════════════
+  // 3. Fix cross-page cross-reference links
+  //    Group by target page URL, fetch each once, compute
+  //    numbering on the fetched DOM, patch all links to that page.
+  // ══════════════════════════════════════════════════════════════
+  var crossPageGroups = {};   // pageUrl → [{link, targetId}]
 
-    // The last span contains the bare number
-    var numSpan = spans[spans.length - 1];
-    var num = numSpan.textContent.trim();
-    if (/^\d+$/.test(num) && !num.includes('.')) {
-      // Check the text before the span is "Table" or "Figure"
-      var text = link.textContent;
-      if (/^(Table|Figure)/.test(text)) {
-        numSpan.textContent = prefix + num;
-      }
-    }
+  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+
+    var hashIdx = href.indexOf('#');
+    if (hashIdx === -1) return;
+
+    var pageUrl  = href.substring(0, hashIdx);
+    var targetId = href.substring(hashIdx + 1);
+
+    // Skip if target ID doesn't look like a table/figure
+    if (!targetId.startsWith('tbl-') && !targetId.startsWith('fig-')) return;
+
+    if (!crossPageGroups[pageUrl]) crossPageGroups[pageUrl] = [];
+    crossPageGroups[pageUrl].push({ link: link, targetId: targetId });
+  });
+
+  // Fetch each unique target page and resolve its numbering
+  Object.keys(crossPageGroups).forEach(function(pageUrl) {
+    fetch(pageUrl)
+      .then(function(response) {
+        if (!response.ok) throw new Error(response.status);
+        return response.text();
+      })
+      .then(function(html) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        var remoteMain = doc.getElementById('quarto-document-content');
+        if (!remoteMain) return;
+
+        // Compute numbering on the fetched page (read-only, no mutation)
+        var remoteMap = computeNumbering(remoteMain, false);
+
+        // Patch all links pointing to this page
+        crossPageGroups[pageUrl].forEach(function(entry) {
+          var info = remoteMap[entry.targetId];
+          if (!info) return;
+          patchXrefLink(entry.link, info);
+        });
+      })
+      .catch(function(err) {
+        // Graceful degradation: cross-page links keep Quarto-native numbers
+        console.warn('[section-numbering] Could not resolve xrefs for '
+          + pageUrl + ':', err.message || err);
+      });
   });
 });
 </script>
@@ -2127,255 +3143,166 @@ document.addEventListener('DOMContentLoaded', function() {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"_common.R"</span>))</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>This Chapter consolidates the per-scenario results from <span class="co">[</span><span class="ot">Chapters 7.1--7.7</span><span class="co">](_scenarios/pd.qmd)</span> into cross-scenario summary tables for each question type. The tables replicate the Article's summary tables programmatically from the underlying data; any discrepancies from the Article's hardcoded values are documented in the <span class="co">[</span><span class="ot">Corrections</span><span class="co">](#sec-corrections)</span> section below.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>This Chapter consolidates the per-scenario results from <span class="co">[</span><span class="ot">Chapters 7.1--7.7</span><span class="co">](_scenarios/pd.qmd)</span> into cross-scenario summary tables for each question type. The tables replicate the Article's summary tables programmatically from the underlying data.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>**Format conventions:**</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Q1--Q3 summary tables:** Mean (SD) by group. Treatment groups additionally show [% difference from control]. **Bold** brackets indicate a significant pairwise difference from control (Dunn's test, Holm-adjusted, *p* &lt; .05).</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Delta summary table:** Mean (SD) by group. Brackets show the mean delta as a percentage of the group's Q2 mean --- the fraction of perceived consequences that exceeds respondent preferences. **Bold** brackets indicate a significant difference from control.</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Q4 summary table:** Median (SD) after 99th-percentile outlier trimming. Treatment groups show [% difference from control median]. **Bold** brackets indicate a significant difference from control.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**VDA tables:** Pairwise Vargha &amp; Delaney's A effect sizes with significance markers from Dunn's post-hoc tests (Holm-adjusted). VDA = .50 indicates no group difference; VDA &gt; .50 indicates the first-named group scored higher; VDA &lt; .50 indicates the second-named group scored higher. Effect size thresholds follow Vargha &amp; Delaney (2000): (S)mall $\geq$ .56, (M)edium $\geq$ .64, (L)arge $\geq$ .71.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Q1--Q3 summary tables:** One row per scenario and group. Mean, SD, and Median in separate columns. Treatment groups show <span class="co">[</span><span class="ot">% difference from control</span><span class="co">]</span> after the mean with significance stars from Dunn's post-hoc tests (Holm-adjusted).</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Delta summary table:** Same format. Brackets show the mean delta as a percentage of the group's Q2 mean --- the fraction of perceived consequences that exceeds respondent preferences.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Q4 summary table:** One row per scenario and group. Median and SD after 99th-percentile outlier trimming. Treatment groups show <span class="co">[</span><span class="ot">% difference from control median</span><span class="co">]</span> with significance stars.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**VDA tables:** One row per scenario and pairwise comparison. P(1st &gt; 2nd) is the probability that a randomly selected observation from the first-named group exceeds one from the second-named group (Vargha &amp; Delaney's A, expressed as a percentage). 50% indicates no difference. Effect size thresholds follow Vargha &amp; Delaney (2000): small $\geq$ .56, moderate $\geq$ .64, large $\geq$ .71.</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Educational Use Scenario</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Rows marked with a dagger (<span class="dv">&amp;dagger;</span>) use supplemental Group B1 (n = 97) in place of Group B. See <span class="co">[</span><span class="ot">&amp;sect;3.1</span><span class="co">](02-codebook.qmd#sec-b1)</span> for the B1 substitution.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r summaries-compute, include=FALSE}</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Compute all cross-scenario summary tables"</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Q1--Q3 + Delta: summary and VDA</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>summary_q1    <span class="ot">&lt;-</span> <span class="fu">build_summary_table</span>(survey_data, survey_data_eu, <span class="st">"1"</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>summary_q2    <span class="ot">&lt;-</span> <span class="fu">build_summary_table</span>(survey_data, survey_data_eu, <span class="st">"2"</span>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>summary_q3    <span class="ot">&lt;-</span> <span class="fu">build_summary_table</span>(survey_data, survey_data_eu, <span class="st">"3"</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>summary_delta <span class="ot">&lt;-</span> <span class="fu">build_summary_table</span>(survey_data, survey_data_eu, <span class="st">"25"</span>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>vda_q1    <span class="ot">&lt;-</span> <span class="fu">build_vda_table</span>(survey_data, survey_data_eu, <span class="st">"1"</span>)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>vda_q2    <span class="ot">&lt;-</span> <span class="fu">build_vda_table</span>(survey_data, survey_data_eu, <span class="st">"2"</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>vda_q3    <span class="ot">&lt;-</span> <span class="fu">build_vda_table</span>(survey_data, survey_data_eu, <span class="st">"3"</span>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>vda_delta <span class="ot">&lt;-</span> <span class="fu">build_vda_table</span>(survey_data, survey_data_eu, <span class="st">"25"</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Q4 Price: summary and VDA (outlier-trimmed)</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>summary_price <span class="ot">&lt;-</span> <span class="fu">build_price_summary_table</span>(survey_data, survey_data_eu)</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>vda_price     <span class="ot">&lt;-</span> <span class="fu">build_price_vda_table</span>(survey_data, survey_data_eu)</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Delta: Wilcoxon signed-rank tests</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>wilcoxon_delta <span class="ot">&lt;-</span> <span class="fu">build_wilcoxon_table</span>(survey_data, survey_data_eu)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Significance notation:** <span class="sc">\*</span> *p* &lt; .05, \*\* *p* &lt; .01, \*\*\* *p* &lt; .001; n.s. = not significant. Stars appear after <span class="co">[</span><span class="ot">% difference</span><span class="co">]</span> in summary tables and in the Sig. column of VDA and Wilcoxon tables.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Educational Use Scenario</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Rows marked with a dagger (<span class="dv">&amp;dagger;</span>) use supplemental Group B1 (n = 97) in place of Group B. See <span class="co">[</span><span class="ot">&amp;sect;3.1</span><span class="co">](02-codebook.qmd#sec-b1)</span> for the B1 substitution.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r summaries-compute, include=FALSE}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-summary: "Compute all cross-scenario summary tables"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Q1--Q3 + Delta: long-format summary tables (one row per scenario x group)</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>summary_q1    <span class="ot">&lt;-</span> <span class="fu">build_summary_table_long</span>(survey_data, survey_data_eu, <span class="st">"1"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>summary_q2    <span class="ot">&lt;-</span> <span class="fu">build_summary_table_long</span>(survey_data, survey_data_eu, <span class="st">"2"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>summary_q3    <span class="ot">&lt;-</span> <span class="fu">build_summary_table_long</span>(survey_data, survey_data_eu, <span class="st">"3"</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>summary_delta <span class="ot">&lt;-</span> <span class="fu">build_summary_table_long</span>(survey_data, survey_data_eu, <span class="st">"25"</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Q1--Q3 + Delta: VDA effect size tables (long format)</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>vda_q1    <span class="ot">&lt;-</span> <span class="fu">build_vda_table_long</span>(survey_data, survey_data_eu, <span class="st">"1"</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>vda_q2    <span class="ot">&lt;-</span> <span class="fu">build_vda_table_long</span>(survey_data, survey_data_eu, <span class="st">"2"</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>vda_q3    <span class="ot">&lt;-</span> <span class="fu">build_vda_table_long</span>(survey_data, survey_data_eu, <span class="st">"3"</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>vda_delta <span class="ot">&lt;-</span> <span class="fu">build_vda_table_long</span>(survey_data, survey_data_eu, <span class="st">"25"</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Q4 Price: long-format summary and VDA (outlier-trimmed)</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>summary_price <span class="ot">&lt;-</span> <span class="fu">build_price_summary_table_long</span>(survey_data, survey_data_eu)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>vda_price     <span class="ot">&lt;-</span> <span class="fu">build_price_vda_table_long</span>(survey_data, survey_data_eu)</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names for VDA tables (used in all kable calls)</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>vda_col_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Scenario"</span>,</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Control\u2013Short"</span>, <span class="st">""</span>,</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Control\u2013Full+Primer"</span>, <span class="st">""</span>,</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Short\u2013Full+Primer"</span>, <span class="st">""</span>)</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q1: Likelihood of Legal Consequences {#sec-sum-q1}</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-q1</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Q1 --- Perceived likelihood of legal consequences: Mean (SD) by scenario and treatment group. Treatment groups show [% difference from control]; **bold** brackets indicate significant pairwise difference from control (Dunn's test, Holm-adjusted, *p* &lt; .05)."</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_q1, <span class="at">align =</span> <span class="st">"lccc"</span>)</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-q1</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Q1 --- Pairwise Vargha &amp; Delaney's A effect sizes (Dunn's post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. \\*p &lt; .05, \\*\\*p &lt; .01, \\*\\*\\*p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge."</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_q1, <span class="at">col.names =</span> vda_col_names, <span class="at">align =</span> <span class="st">"lclclcl"</span>)</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q2: Perceived Consequences Under Current Law {#sec-sum-q2}</span></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-q2</span></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Q2 --- Perceived legal consequences under current law: Mean (SD) by scenario and treatment group. Treatment groups show [% difference from control]; **bold** brackets indicate significant pairwise difference from control (Dunn's test, Holm-adjusted, *p* &lt; .05)."</span></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_q2, <span class="at">align =</span> <span class="st">"lccc"</span>)</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-q2</span></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Q2 --- Pairwise Vargha &amp; Delaney's A effect sizes (Dunn's post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. \\*p &lt; .05, \\*\\*p &lt; .01, \\*\\*\\*p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge."</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_q2, <span class="at">col.names =</span> vda_col_names, <span class="at">align =</span> <span class="st">"lclclcl"</span>)</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q3: Normative Preferences {#sec-sum-q3}</span></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-q3</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Q3 --- Respondent preferences for legal consequences: Mean (SD) by scenario and treatment group. Treatment groups show [% difference from control]; **bold** brackets indicate significant pairwise difference from control (Dunn's test, Holm-adjusted, *p* &lt; .05)."</span></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_q3, <span class="at">align =</span> <span class="st">"lccc"</span>)</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-q3</span></span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Q3 --- Pairwise Vargha &amp; Delaney's A effect sizes (Dunn's post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. \\*p &lt; .05, \\*\\*p &lt; .01, \\*\\*\\*p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge."</span></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_q3, <span class="at">col.names =</span> vda_col_names, <span class="at">align =</span> <span class="st">"lclclcl"</span>)</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="fu">## Delta (Q2 - Q3): Law--Preference Gap {#sec-sum-delta}</span></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>Delta = Q2 - Q3. Positive values indicate the law is perceived as stricter than preferred; negative values indicate the law is perceived as more lenient than preferred; zero indicates alignment.</span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-delta</span></span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Delta (Q2 - Q3) --- Law--preference gap: Mean (SD) by scenario and treatment group. Brackets show [delta/Q2 &amp;times; 100]; **bold** brackets indicate significant pairwise difference from control (Dunn's test, Holm-adjusted, *p* &lt; .05)."</span></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_delta, <span class="at">align =</span> <span class="st">"lccc"</span>)</span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-delta</span></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Delta --- Pairwise Vargha &amp; Delaney's A effect sizes (Dunn's post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. \\*p &lt; .05, \\*\\*p &lt; .01, \\*\\*\\*p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge."</span></span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_delta, <span class="at">col.names =</span> vda_col_names, <span class="at">align =</span> <span class="st">"lclclcl"</span>)</span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="fu">### Within-Group Wilcoxon Signed-Rank Tests {#sec-sum-wilcoxon}</span></span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>For each scenario and group, a one-sample Wilcoxon signed-rank test evaluates whether the median delta is significantly different from zero. A significant result indicates a gap between respondents' perception of current law and their normative preference.</span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-wilcoxon</span></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Delta --- Wilcoxon signed-rank tests (H~0~: median delta = 0) by scenario and group. V = test statistic. \\*p &lt; .05, \\*\\*p &lt; .01, \\*\\*\\*p &lt; .001."</span></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(wilcoxon_delta, <span class="at">align =</span> <span class="st">"llrrll"</span>)</span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q4: License Price Estimates {#sec-sum-price}</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Delta: Wilcoxon signed-rank tests</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>wilcoxon_delta <span class="ot">&lt;-</span> <span class="fu">build_wilcoxon_table</span>(survey_data, survey_data_eu)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q1: Likelihood of Legal Consequences {#sec-sum-q1}</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-q1</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Q1: Perceived Likelihood of Legal Consequences** by scenario and treatment group. Treatment groups show [% difference from control] with significance stars"</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_q1, <span class="at">align =</span> <span class="st">"llrrr"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-q1</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Q1: Pairwise Effect Sizes.** P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second"</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_q1, <span class="at">align =</span> <span class="st">"llrll"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q2: Perceived Consequences Under Current Law {#sec-sum-q2}</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-q2</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Q2: Perceived Legal Consequences Under Current Law** by scenario and treatment group. Treatment groups show [% difference from control] with significance stars"</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_q2, <span class="at">align =</span> <span class="st">"llrrr"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-q2</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Q2: Pairwise Effect Sizes.** P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second"</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_q2, <span class="at">align =</span> <span class="st">"llrll"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q3: Normative Preferences {#sec-sum-q3}</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-q3</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Q3: Normative Preferences for Legal Consequences** by scenario and treatment group. Treatment groups show [% difference from control] with significance stars"</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_q3, <span class="at">align =</span> <span class="st">"llrrr"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-q3</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Q3: Pairwise Effect Sizes.** P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second"</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_q3, <span class="at">align =</span> <span class="st">"llrll"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## Delta (Q2 - Q3): Law--Preference Gap {#sec-sum-delta}</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>Delta = Q2 - Q3. Positive values indicate the law is perceived as stricter than preferred; negative values indicate the law is perceived as more lenient than preferred; zero indicates alignment.</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-delta</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Delta (Q2 - Q3): Law-Preference Gap** by scenario and treatment group. Brackets show [delta/Q2 &amp;times; 100] with significance stars"</span></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_delta, <span class="at">align =</span> <span class="st">"llrrr"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-delta</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Delta: Pairwise Effect Sizes.** P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second"</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_delta, <span class="at">align =</span> <span class="st">"llrll"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="fu">### Within-Group Wilcoxon Signed-Rank Tests {#sec-sum-wilcoxon}</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>For each scenario and group, a one-sample Wilcoxon signed-rank test evaluates whether the median delta is significantly different from zero. A significant result indicates a gap between respondents' perception of current law and their normative preference.</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-wilcoxon</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Delta: Wilcoxon Signed-Rank Tests.** H~0~: median delta = 0, by scenario and group. V = test statistic"</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(wilcoxon_delta, <span class="at">align =</span> <span class="st">"llrrlll"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="fu">## Q4: License Price Estimates {#sec-sum-price}</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## Outlier Trimming and Central Tendency</span></span>
 <span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="fu">## Outlier Trimming and Central Tendency</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>Price estimates are right-skewed and occasionally extreme. The top 1% of responses within each group are trimmed before computing statistics. **Median** (not mean) is reported as the central tendency because it is robust to the remaining skew. Treatment groups show percentage difference from the control group's median.</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>Price estimates are right-skewed and occasionally extreme. The top 1% of responses within each group are trimmed before computing statistics. **Median** (not mean) is reported as the central tendency because it is robust to the remaining skew. Treatment groups show percentage difference from the control group's median.</span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-price</span></span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Q4 --- Non-exclusive license price estimates: Median (SD) by scenario and treatment group (top 1% trimmed per group). Treatment groups show [% difference from control]; **bold** brackets indicate significant pairwise difference from control (Dunn's test, Holm-adjusted, *p* &lt; .05)."</span></span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_price, <span class="at">align =</span> <span class="st">"lccc"</span>)</span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-price</span></span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Q4 --- Pairwise Vargha &amp; Delaney's A effect sizes on trimmed price data (Dunn's post-hoc, Holm-adjusted). VDA = .50: no difference; VDA &gt; .50: first-named group scored higher; VDA &lt; .50: second-named group scored higher. \\*p &lt; .05, \\*\\*p &lt; .01, \\*\\*\\*p &lt; .001. Effect thresholds: (S)mall, (M)edium, (L)arge."</span></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_price, <span class="at">col.names =</span> vda_col_names, <span class="at">align =</span> <span class="st">"lclclcl"</span>)</span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="fu">## Corrections from Article Draft {#sec-corrections}</span></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>The tables above are computed programmatically from the survey data. The article's summary tables were constructed manually from per-scenario output. Any discrepancies --- typically minor rounding differences or sign errors in percentage calculations --- are documented here after comparison with the article draft.</span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pending Verification</span></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>This section will be populated after rendering and comparison with the article's hardcoded values. To complete the comparison:</span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Render this chapter: <span class="in">`quarto render 08-summaries.qmd --to html`</span></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Compare computed values against the article tables</span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Record discrepancies in the table below</span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r verify-consistency, include=FALSE}</span></span>
-<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Verify scenario-level means match summary table computations ──</span></span>
-<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="co"># This chunk runs silently. If a mismatch is found, it emits a warning</span></span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="co"># visible in the render log.</span></span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>scenarios <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">code =</span> <span class="st">"PD"</span>, <span class="at">data =</span> survey_data),</span>
-<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">code =</span> <span class="st">"PU"</span>, <span class="at">data =</span> survey_data),</span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">code =</span> <span class="st">"EU"</span>, <span class="at">data =</span> survey_data_eu),</span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">code =</span> <span class="st">"CA"</span>, <span class="at">data =</span> survey_data),</span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">code =</span> <span class="st">"LS"</span>, <span class="at">data =</span> survey_data),</span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">code =</span> <span class="st">"WN"</span>, <span class="at">data =</span> survey_data),</span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">code =</span> <span class="st">"FS"</span>, <span class="at">data =</span> survey_data)</span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>mismatches <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (sc_info <span class="cf">in</span> scenarios) {</span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>  sc <span class="ot">&lt;-</span> sc_info<span class="sc">$</span>code</span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> sc_info<span class="sc">$</span>data</span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (q_suffix <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"25"</span>)) {</span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>    col <span class="ot">&lt;-</span> <span class="fu">paste0</span>(sc, q_suffix)</span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span>col <span class="sc">%in%</span> <span class="fu">names</span>(dat)) <span class="cf">next</span></span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>    fresh_means <span class="ot">&lt;-</span> <span class="fu">tapply</span>(dat[[col]], dat<span class="sc">$</span>GROUP, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compare with summary table</span></span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>    q_label <span class="ot">&lt;-</span> <span class="cf">switch</span>(q_suffix, <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"q1"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"q2"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"q3"</span>, <span class="st">"25"</span> <span class="ot">=</span> <span class="st">"delta"</span>)</span>
-<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>    summary_tbl <span class="ot">&lt;-</span> <span class="cf">switch</span>(q_label,</span>
-<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>      <span class="at">q1 =</span> summary_q1, <span class="at">q2 =</span> summary_q2,</span>
-<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>      <span class="at">q3 =</span> summary_q3, <span class="at">delta =</span> summary_delta</span>
-<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The summary table cells contain formatted strings like "2.95 (2.06) [+15.3%]"</span></span>
-<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract the leading number for comparison</span></span>
-<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>    summary_row <span class="ot">&lt;-</span> summary_tbl[<span class="fu">grepl</span>(sc, summary_tbl<span class="sc">$</span>Scenario, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>), ]</span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">nrow</span>(summary_row) <span class="sc">==</span> <span class="dv">0</span>) <span class="cf">next</span></span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>    summary_row <span class="ot">&lt;-</span> summary_row[<span class="dv">1</span>, , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
-<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (grp_col <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"Control (C)"</span>, <span class="st">"Short (A)"</span>)) {</span>
-<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>      cell_val <span class="ot">&lt;-</span> <span class="fu">as.character</span>(summary_row[[grp_col]])</span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>      extracted <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">sub</span>(<span class="st">"^([0-9.]+).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>, cell_val))</span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>      grp_code <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"Control"</span>, grp_col), <span class="st">"C"</span>, <span class="st">"A"</span>)</span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>      fresh_val <span class="ot">&lt;-</span> <span class="fu">unname</span>(fresh_means[grp_code])</span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(extracted) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;&amp;</span> <span class="fu">length</span>(fresh_val) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;&amp;</span></span>
-<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>          <span class="sc">!</span><span class="fu">is.na</span>(extracted) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(fresh_val)) {</span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">abs</span>(extracted <span class="sc">-</span> fresh_val) <span class="sc">&gt;</span> <span class="fl">0.015</span>) {</span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>          msg <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"MISMATCH: %s %s Group %s -- summary: %.2f, fresh: %.2f"</span>,</span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>                        sc, q_label, grp_code, extracted, fresh_val)</span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>          mismatches <span class="ot">&lt;-</span> <span class="fu">c</span>(mismatches, msg)</span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>          <span class="fu">warning</span>(msg)</span>
-<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(mismatches) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Verification passed: all scenario means match summary table.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Verification found %d mismatches --- see warnings.</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">length</span>(mismatches)))</span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Uncomment and populate after verification:</span></span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="co">| Scenario | Question | Article Value | Computed Value | Discrepancy |</span></span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="co">|----------|----------|---------------|----------------|-------------|</span></span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="co">| | | | | |</span></span>
-<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-price</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Q4: Non-Exclusive License Price Estimates** by scenario and treatment group (top 1% trimmed per group). Treatment groups show [% difference from control] with significance stars"</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_price, <span class="at">align =</span> <span class="st">"llrr"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-sum-vda-price</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Q4: Pairwise Effect Sizes** (trimmed). P(1st &gt; 2nd) = probability a random observation from the first-named group exceeds the second"</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(vda_price, <span class="at">align =</span> <span class="st">"llrll"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

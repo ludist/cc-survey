@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Thomas H. Rousse, J.D., Ph.D.">
-<meta name="dcterms.date" content="2026-02-22">
+<meta name="dcterms.date" content="2026-02-24">
 
 <title>Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment</title>
 <style>
@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-664e88c2e30ea4214729cb615bfd1c94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-df8e7534cb4cb7c4e956089768985eef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -192,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-scenarios.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Factorial Vignette Analysis Overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scenario Analysis Overview</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -293,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 22, 2026</p>
+      <p class="date">February 24, 2026</p>
     </div>
   </div>
   
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>CC brand familiarity analysis (Likert plot and summary table)</td>
 </tr>
 <tr class="odd">
-<td><a href="./07-scenarios.html">Ch. 7 — Factorial Vignette Analysis Overview</a></td>
+<td><a href="./07-scenarios.html">Ch. 7 — Scenario Analysis Overview</a></td>
 <td>Survey instruments, analysis structure</td>
 </tr>
 <tr class="even">
@@ -427,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Survey instrument &amp; vignette images</strong> (<code>materials/</code>) — <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/License-CC0_1.0-green.svg" class="img-fluid" alt="CC0 1.0"></a> Public domain. Copy, modify, and distribute for any purpose.</p>
+<p><strong>Survey instrument &amp; scenario images</strong> (<code>materials/</code>) — <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://img.shields.io/badge/License-CC0_1.0-green.svg" class="img-fluid" alt="CC0 1.0"></a> Public domain. Copy, modify, and distribute for any purpose.</p>
 <p><strong>Code, data &amp; documentation</strong> — <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg" class="img-fluid" alt="CC BY-NC 4.0"></a> Attribution required; non-commercial use only.</p>
 </div>
 </div>
@@ -495,38 +495,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="tiff-figure-inventory"><span class="header-section-number">0.8</span> TIFF Figure Inventory</h2>
 <p>All publication-quality TIFF figures are exported to <code>data/figures/v2/</code> during rendering. The following table lists all exported files:</p>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>TIFF figure exports</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">File</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">CA65.tiff</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">EU65.tiff</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">FS65.tiff</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">LS65.tiff</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">PD65.tiff</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">PU65.tiff</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">WN65.tiff</td>
-</tr>
-</tbody>
-</table>
+<div class="cell-output cell-output-stdout">
+<pre><code>No TIFF files found — render scenario chapters to generate.</code></pre>
 </div>
 </div>
 <hr>
@@ -628,7 +598,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     var authorDiv = document.createElement('div');
     authorDiv.className = 'sidebar-author';
-    authorDiv.innerHTML = 'Thomas H. Rousse<br>J.D., Ph.D.';
+    authorDiv.innerHTML = '<span class="sidebar-author-label">inquiry by</span><br>Thomas H. Rousse<br>J.D., Ph.D.';
 
     // Insert between subtitle/title and search bar (equidistant)
     var search = sidebar.querySelector('#quarto-search');
@@ -715,59 +685,194 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
 <script>
 /*
- * scenario-numbering.js — CC Survey Online Appendix
+ * section-numbering.js — CC Survey Online Appendix
  *
- * Renumbers tables, figures, and cross-reference links in unnumbered
- * scenario sub-chapters from bare sequential numbers (Table 1, Figure 1)
- * to 3-level format (Table 7.1.1, Figure 7.1.1).
+ * Renumbers ALL tables and figures to use section-level numbering:
+ *   Table 7.1.1.1 = Chapter 7, Scenario 1, Subsection 1, Table 1
+ *   Figure 3.2.1  = Chapter 3, Section 2, Figure 1
  *
- * Parent chapter: 07-scenarios.qmd = Chapter 7
- * Sub-chapters: pd=1, pu=2, eu=3, ca=4, ls=5, wn=6, fs=7
+ * Works on ALL pages:
+ *   - Numbered chapters: reads Quarto's .header-section-number spans
+ *   - Unnumbered scenario chapters: parses manual section numbers from
+ *     heading text (e.g., "## 7.1.1 Q1: ...")
  *
- * Runs after DOM load. Only modifies scenario pages.
+ * Fixes both same-page AND cross-page cross-reference links.
+ * Cross-page xrefs are resolved by fetching the target page, computing
+ * its section-level numbering, and patching the link text. Each target
+ * page is fetched at most once (results are cached per session).
+ *
+ * Replaces the original scenario-numbering.html (which only handled
+ * 3-level numbering for figures on scenario pages).
+ *
+ * Runs after DOM load.
  */
 document.addEventListener('DOMContentLoaded', function() {
-  var scenarios = {pd:1, pu:2, eu:3, ca:4, ls:5, wn:6, fs:7};
-  var path = window.location.pathname;
-  var scenarioIdx = null;
 
-  for (var code in scenarios) {
-    if (path.match(new RegExp('[/\\\\]' + code + '\\.html$'))) {
-      scenarioIdx = scenarios[code];
-      break;
+  // ── Shared: compute section-level numbering for a root element ──
+  // Returns { elementId: { type: 'Table'|'Figure', number: '6.3.1' } }
+  // If mutate=true, also rewrites captions and wraps manual heading
+  // numbers in .header-section-number spans (only for the live page).
+  function computeNumbering(root, mutate) {
+    var nodes = root.querySelectorAll(
+      'h1, h2, h3, h4, [id^="tbl-"], [id^="fig-"]'
+    );
+
+    var currentSection = '';
+    var tblCount = {};
+    var figCount = {};
+    var map = {};
+
+    nodes.forEach(function(el) {
+      var tag = el.tagName;
+
+      // ── Heading: update current section number ───────────────
+      if (/^H[1-4]$/i.test(tag)) {
+        var numSpan = el.querySelector('.header-section-number');
+        if (numSpan) {
+          currentSection = numSpan.textContent.trim();
+          return;
+        }
+        var m = el.textContent.trim().match(/^(\d+(?:\.\d+)*)/);
+        if (m) {
+          currentSection = m[1];
+          if (mutate) {
+            var secId = el.querySelector('.quarto-section-identifier');
+            var target = secId || el;
+            var html = target.innerHTML;
+            if (html.indexOf('header-section-number') === -1) {
+              target.innerHTML = html.replace(
+                /^(\d+(?:\.\d+)*)\s*/,
+                '<span class="header-section-number">$1</span> '
+              );
+            }
+          }
+        }
+        return;
+      }
+
+      // ── Float container: compute new number ─────────────────
+      if (!currentSection) return;
+
+      var cap = el.querySelector('figcaption') || el.querySelector('caption');
+      if (!cap) return;
+
+      var id = (el.id || '').toLowerCase();
+      var type, counter;
+      if (id.startsWith('tbl-')) {
+        type = 'Table';
+        counter = tblCount;
+      } else if (id.startsWith('fig-')) {
+        type = 'Figure';
+        counter = figCount;
+      } else {
+        return;
+      }
+
+      if (!counter[currentSection]) counter[currentSection] = 0;
+      counter[currentSection]++;
+      var newNum = currentSection + '.' + counter[currentSection];
+
+      map[el.id] = { type: type, number: newNum };
+
+      if (mutate) {
+        var re = new RegExp(
+          '(' + type + ')(&#160;|&nbsp;|\\u00A0|\\s)(\\d+(?:\\.\\d+)*)'
+        );
+        cap.innerHTML = cap.innerHTML.replace(
+          re, '<span class="float-label">$1$2' + newNum + '</span>'
+        );
+        el.setAttribute('data-section-num', newNum);
+        el.setAttribute('data-section-type', type);
+      }
+    });
+
+    return map;
+  }
+
+  // ── Helper: update a cross-reference link with new numbering ──
+  function patchXrefLink(link, info) {
+    var spans = link.querySelectorAll('span');
+    if (spans.length > 0) {
+      spans[spans.length - 1].textContent = info.number;
+    } else {
+      link.innerHTML = info.type + '&nbsp;' + info.number;
     }
   }
 
-  if (!scenarioIdx) return;
+  // ══════════════════════════════════════════════════════════════
+  // 1. Renumber the current page (mutate captions + headings)
+  // ══════════════════════════════════════════════════════════════
+  var main = document.getElementById('quarto-document-content');
+  if (!main) return;
 
-  var prefix = '7.' + scenarioIdx + '.';
+  var localMap = computeNumbering(main, true);
 
-  // ── Figure captions ──────────────────────────────────────────
-  // Quarto renders: Figure&nbsp;N: caption text
-  document.querySelectorAll('figcaption').forEach(function(cap) {
-    cap.innerHTML = cap.innerHTML.replace(
-      /Figure(&nbsp;|\u00A0|\s)(\d+)(?![\d.])/g,
-      function(m, sp, n) { return 'Figure' + sp + prefix + n; }
-    );
+  // ══════════════════════════════════════════════════════════════
+  // 2. Fix same-page cross-reference links
+  // ══════════════════════════════════════════════════════════════
+  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+
+    var targetId = href.substring(1);
+    var info = localMap[targetId];
+    if (!info) return;
+
+    patchXrefLink(link, info);
   });
 
-  // ── Cross-reference links ────────────────────────────────────
-  // Quarto renders: <a class="quarto-xref">Table&nbsp;<span>N</span></a>
-  // or:             <a class="quarto-xref">Figure&nbsp;<span>N</span></a>
-  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
-    var spans = link.querySelectorAll('span');
-    if (spans.length === 0) return;
+  // ══════════════════════════════════════════════════════════════
+  // 3. Fix cross-page cross-reference links
+  //    Group by target page URL, fetch each once, compute
+  //    numbering on the fetched DOM, patch all links to that page.
+  // ══════════════════════════════════════════════════════════════
+  var crossPageGroups = {};   // pageUrl → [{link, targetId}]
 
-    // The last span contains the bare number
-    var numSpan = spans[spans.length - 1];
-    var num = numSpan.textContent.trim();
-    if (/^\d+$/.test(num) && !num.includes('.')) {
-      // Check the text before the span is "Table" or "Figure"
-      var text = link.textContent;
-      if (/^(Table|Figure)/.test(text)) {
-        numSpan.textContent = prefix + num;
-      }
-    }
+  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+
+    var hashIdx = href.indexOf('#');
+    if (hashIdx === -1) return;
+
+    var pageUrl  = href.substring(0, hashIdx);
+    var targetId = href.substring(hashIdx + 1);
+
+    // Skip if target ID doesn't look like a table/figure
+    if (!targetId.startsWith('tbl-') && !targetId.startsWith('fig-')) return;
+
+    if (!crossPageGroups[pageUrl]) crossPageGroups[pageUrl] = [];
+    crossPageGroups[pageUrl].push({ link: link, targetId: targetId });
+  });
+
+  // Fetch each unique target page and resolve its numbering
+  Object.keys(crossPageGroups).forEach(function(pageUrl) {
+    fetch(pageUrl)
+      .then(function(response) {
+        if (!response.ok) throw new Error(response.status);
+        return response.text();
+      })
+      .then(function(html) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        var remoteMain = doc.getElementById('quarto-document-content');
+        if (!remoteMain) return;
+
+        // Compute numbering on the fetched page (read-only, no mutation)
+        var remoteMap = computeNumbering(remoteMain, false);
+
+        // Patch all links pointing to this page
+        crossPageGroups[pageUrl].forEach(function(entry) {
+          var info = remoteMap[entry.targetId];
+          if (!info) return;
+          patchXrefLink(entry.link, info);
+        });
+      })
+      .catch(function(err) {
+        // Graceful degradation: cross-page links keep Quarto-native numbers
+        console.warn('[section-numbering] Could not resolve xrefs for '
+          + pageUrl + ':', err.message || err);
+      });
   });
 });
 </script>
@@ -1231,226 +1336,226 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"_common.R"</span>))</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction {.unnumbered}</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>This Online Appendix accompanies *Some Respect Reserved: Survey Experiment Insights on the Perception of Creative Commons and Copyright Infringement*, forthcoming in the **Cardozo Arts &amp; Entertainment Law Journal**. It also documents the analysis in the dissertation chapter *Hidden Costs of Open Licensing? A Survey Experiment on Creative Commons and Copyright Infringement* in *Creative Realism: Innovation Beyond the Ownership Incentive*. The Author conveys his gratitude to the Journal's editors and the dissertation committee members (Aaron Shaw, Aymar Jean Christian, and Matthew Kugler) and other scholars who have provided feedback on the Article and the underlying research. The Author has also benefited from presentations and discussion of this research with:</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Northwestern Pritzker School of Law's J.D./Ph.D. Seminar, as well attendees of internal job talk rehearsals, and the School of Communication's Community Data Science Collective</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>The faculties of the University of Oregon's School of Journalism and Communication, the Ohio State University Moritz School of Law, and the University of Illinois, Urbana-Champaign</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>The Law and Society Association's 2025 Annual Meeting and the Intellectual Property Scholars Conference 2025.</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>All errors and omissions are the Author's alone.</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>The Appendix is organized as a reproducible Quarto Book. Every figure and table in the Article has a corresponding section here where the underlying data, code, and full statistical output are presented. Statistical results are generated directly from the underlying data. The code used to generate those results can be viewed in the source code of each chapter. The Appendix also includes detailed documentation of the survey instrument, data collection, and sample characteristics. The dataset and survey instruments are freely licensed for adaptation or replication.</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>The pre-registration for the survey experiment is available at the Open Science Foundation: <span class="co">[</span><span class="ot">https://osf.io/snxyt/</span><span class="co">](https://osf.io/snxyt/)</span>. Some variations from the pre-registration are documented in the relevant sections of this Appendix, including the substitution of Group B1 for Group B in the Educational Use scenario analysis due to an error in data collection.</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.1]{.header-section-number} *Some Respect Reserved*</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Thomas H. Rousse, *Some Respect Reserved: Survey Experiment Insights on the Perception of Creative Commons and Copyright Infringement.* 44 **Cardozo Arts &amp; Entertainment Law Journal** __ (forthcoming 2026).</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>The Article reports results from a pre-registered survey experiment (n = 1,239) examining the American public's recognition of the Creative Commons brand and logo before being randomly split into treatment groups. Respondents were assigned to one of three treatment groups — CC Short (Group A), CC Full Text + Primer (Group B), and Copyright Marking Control (Group C) — and evaluated seven licensing scenarios. The study tests whether exposure to CC license terms affects perceptions of legal risk, preferred outcomes, and price estimates.</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.2]{.header-section-number} How to Cite This Appendix</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>To cite a specific section of this Appendix, use the chapter, section number, and table/figure designation if applicable. For example:</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Thomas H. Rousse, "Public Domain - Q1 Statistics" </span><span class="co">[</span><span class="ot">§7.1, Table 7.1.1.</span><span class="co">](#)</span><span class="at"> **Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment: Online Appendix** (2026). </span><span class="co">[</span><span class="ot">https://ludist.github.io/cc-survey/</span><span class="co">](https://ludist.github.io/cc-survey/)</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>Cross-reference short citation format used in the Article: "Online Appendix §7.1" (chapter and section number), "Online Appendix, Table 7.1.1" (specific table).</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.3]{.header-section-number} Navigation</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Chapter <span class="pp">|</span> Contents <span class="pp">|</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|----------|</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 1 — Experimental Design &amp; Methods</span><span class="co">](01-methods.qmd)</span> <span class="pp">|</span> Experimental design, hypotheses, treatment groups, statistical methods <span class="pp">|</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 2 — Codebook</span><span class="co">](02-codebook.qmd)</span> <span class="pp">|</span> Variable dictionary, naming conventions, response scales, data files <span class="pp">|</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 3 — Data Validation</span><span class="co">](03-validation.qmd)</span> <span class="pp">|</span> Data loading, sample characteristics, group composition, quality checks <span class="pp">|</span></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 4 — Randomization Check</span><span class="co">](04-randomization.qmd)</span> <span class="pp">|</span> Covariate balance tests for internal validity(Age, Income, Education, Race, Gender) <span class="pp">|</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 5 — Sample v. Population Analysis</span><span class="co">](05-population.qmd)</span> <span class="pp">|</span> Sample demographics vs. ACS 2023 benchmarks (external validity) <span class="pp">|</span></span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 6 — Brand Recognition</span><span class="co">](06-brand.qmd)</span> <span class="pp">|</span> CC brand familiarity analysis (Likert plot and summary table) <span class="pp">|</span></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 7 — Factorial Vignette Analysis Overview</span><span class="co">](07-scenarios.qmd)</span> <span class="pp">|</span> Survey instruments, analysis structure <span class="pp">|</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.1 — Public Domain</span><span class="co">](_scenarios/pd.qmd)</span> <span class="pp">|</span> Baseline scenario <span class="pp">|</span></span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.2 — Personal Use</span><span class="co">](_scenarios/pu.qmd)</span> <span class="pp">|</span> Non-commercial personal copying <span class="pp">|</span></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.3 — Educational Use</span><span class="co">](_scenarios/eu.qmd)</span> <span class="pp">|</span> Classroom use (B1 dataset) <span class="pp">|</span></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.4 — Commercial Advertising</span><span class="co">](_scenarios/ca.qmd)</span> <span class="pp">|</span> Commercial use <span class="pp">|</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.5 — Large Scale Copying</span><span class="co">](_scenarios/ls.qmd)</span> <span class="pp">|</span> Mass reproduction and distribution <span class="pp">|</span></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.6 — Wikipedia Image Search</span><span class="co">](_scenarios/wn.qmd)</span> <span class="pp">|</span> Online image reuse <span class="pp">|</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.7 — Filesharing</span><span class="co">](_scenarios/fs.qmd)</span> <span class="pp">|</span> File distribution <span class="pp">|</span></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 8 — Question Summaries</span><span class="co">](08-summaries.qmd)</span> <span class="pp">|</span> Cross-scenario summary tables (Q1–Q4, Delta, Wilcoxon) <span class="pp">|</span></span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.4]{.header-section-number} Links</span></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GitHub repository:** <span class="co">[</span><span class="ot">https://github.com/ludist/cc-survey</span><span class="co">](https://github.com/ludist/cc-survey)</span></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OSF pre-registration:** <span class="co">[</span><span class="ot">https://osf.io/snxyt/</span><span class="co">](https://osf.io/snxyt/)</span></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Article preprint (SSRN):** <span class="co">[</span><span class="ot">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5379423</span><span class="co">](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5379423)</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Author's LinkedIn:** <span class="co">[</span><span class="ot">https://www.linkedin.com/in/throusse/</span><span class="co">](https://www.linkedin.com/in/throusse/)</span></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.5]{.header-section-number} License</span></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>This repository is dual-licensed:</span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>**Survey instrument &amp; vignette images** (<span class="in">`materials/`</span>) — <span class="co">[</span><span class="al">![CC0 1.0](https://img.shields.io/badge/License-CC0_1.0-green.svg)</span><span class="co">](https://creativecommons.org/publicdomain/zero/1.0/)</span> Public domain. Copy, modify, and distribute for any purpose.</span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>**Code, data &amp; documentation** — <span class="co">[</span><span class="al">![CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)</span><span class="co">](https://creativecommons.org/licenses/by-nc/4.0/)</span> Attribution required; non-commercial use only.</span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>Full legal texts are in <span class="co">[</span><span class="ot">`LICENSES/`</span><span class="co">](https://github.com/ludist/cc-survey/tree/main/LICENSES)</span> on GitHub. Some survey stimulus images may depict third-party copyrighted works; see the Article for discussion of image provenance and fair use.</span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.6]{.header-section-number} Reproduction Guide</span></span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>All code and data are available on GitHub. To reproduce:</span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone the repository</span></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/ludist/cc-survey.git</span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cc-survey</span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore the R package environment</span></span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"renv::restore()"</span></span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Render the full book</span></span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>The rendered book will appear in <span class="in">`_book/index.html`</span>. The analysis was developed under R 4.5.2.</span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>**Data** — a single canonical CSV in <span class="in">`data/survey-data/`</span>:</span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> File <span class="pp">|</span> Observations <span class="pp">|</span> Groups <span class="pp">|</span> Notes <span class="pp">|</span></span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|-------------|--------|-------|</span></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`rousse-cc-survey-2024.csv`</span> <span class="pp">|</span> 1,319 <span class="pp">|</span> A, B, B1, C <span class="pp">|</span> Clean UTF-8, junk rows removed <span class="pp">|</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>Two analysis views are derived by filtering: Groups A/B/C (n = 1,222) for six scenarios, and Groups A/B1/C (n = 905) for the Educational Use scenario. See <span class="co">[</span><span class="ot">Chapter 2 (Codebook)</span><span class="co">](02-codebook.qmd)</span> for the B1 substitution and variable dictionary.</span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>To render a single chapter:</span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render _scenarios/pd.qmd <span class="at">--to</span> html</span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.7]{.header-section-number} Data Checksum {#sec-checksums}</span></span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>This MD5 checksum identifies the exact data file used in this analysis. Compare against your local copy to verify file integrity.</span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r checksums}</span></span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"rousse-cc-survey-2024.csv  MD5:"</span>, md5_data, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Rows:"</span>, <span class="fu">nrow</span>(survey_all), <span class="st">" Columns:"</span>, <span class="fu">ncol</span>(survey_all), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.8]{.header-section-number} TIFF Figure Inventory</span></span>
-<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>All publication-quality TIFF figures are exported to <span class="in">`data/figures/v2/`</span> during rendering. The following table lists all exported files:</span>
-<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r tiff-inventory}</span></span>
-<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>tiff_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
-<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"figures"</span>, <span class="st">"v2"</span>),</span>
-<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.tiff?$"</span>,</span>
-<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>  <span class="at">full.names =</span> <span class="cn">FALSE</span></span>
-<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(tiff_files) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">File =</span> <span class="fu">sort</span>(tiff_files)) <span class="sc">|&gt;</span></span>
-<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"TIFF figure exports"</span>)</span>
-<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"No TIFF files found — render scenario chapters to generate.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.9]{.header-section-number} R Session Info {#sec-session}</span></span>
-<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session-info, eval=FALSE}</span></span>
-<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
-<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.10]{.header-section-number} Package Versions (renv)</span></span>
-<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r renv-status, eval=FALSE}</span></span>
-<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a><span class="co"># Run interactively to verify environment</span></span>
-<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">status</span>()</span>
-<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a>The complete package lockfile is in <span class="in">`renv.lock`</span> at the project root.</span>
-<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.11]{.header-section-number} Known Issues</span></span>
-<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**R version:** <span class="in">`renv.lock`</span> was generated under R 4.5.2. Minor behavioral differences in random number generation or package APIs are possible under other R versions.</span>
-<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**EU scenario:** Group B is excluded from the Educational Use analysis; Group B1 is substituted. *See* §2.1 for documentation.</span>
-<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.12]{.header-section-number} Acknowledgments</span></span>
-<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a>This Online Appendix was built with the following open source tools and projects:</span>
-<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a>**Literate Programming &amp; Publishing**</span>
-<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Positron</span><span class="co">](https://positron.posit.co/)</span> — Next-generation data science IDE (Posit, PBC)</span>
-<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span> — Open-source scientific and technical publishing system (Posit, PBC)</span>
-<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R</span><span class="co">](https://www.r-project.org/)</span> — Statistical computing language (R Foundation)</span>
-<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">renv</span><span class="co">](https://rstudio.github.io/renv/)</span> — Reproducible R environments (Kevin Ushey / Posit)</span>
-<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">knitr</span><span class="co">](https://yihui.org/knitr/)</span> — Dynamic report generation for R (Yihui Xie)</span>
-<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">here</span><span class="co">](https://here.r-lib.org/)</span> — Project-relative file paths (Kirill Müller)</span>
-<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a>**Statistical Analysis**</span>
-<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ggstatsplot</span><span class="co">](https://indrajeetpatil.github.io/ggstatsplot/)</span> — Publication-ready statistical plots (Indrajeet Patil)</span>
-<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">rstatix</span><span class="co">](https://rpkgs.datanovia.com/rstatix/)</span> — Pipe-friendly statistical tests (Alboukadel Kassambara)</span>
-<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">rcompanion</span><span class="co">](https://rcompanion.org/)</span> — Effect sizes and nonparametric tests (Salvatore Mangiafico)</span>
-<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a>**Data Visualization**</span>
-<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ggplot2</span><span class="co">](https://ggplot2.tidyverse.org/)</span> — Grammar of graphics (Hadley Wickham / Posit)</span>
-<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ggthemes</span><span class="co">](https://jrnold.github.io/ggthemes/)</span> — Professional plot themes (Jeffrey Arnold)</span>
-<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ggstats</span><span class="co">](https://larmarange.github.io/ggstats/)</span> — Likert plots and model visualizations (Joseph Larmarange)</span>
-<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a>**Data Manipulation**</span>
-<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">dplyr</span><span class="co">](https://dplyr.tidyverse.org/)</span> — Data transformation grammar (Hadley Wickham / Posit)</span>
-<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a>**Hosting &amp; Version Control**</span>
-<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Pages</span><span class="co">](https://pages.github.com/)</span> — Static site hosting (GitHub / Microsoft)</span>
-<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Git</span><span class="co">](https://git-scm.com/)</span> — Distributed version control (Junio C. Hamano et al.)</span>
-<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a>**AI/Large Language Model Assistance**</span>
-<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a>The conversion of the initial R Notebook analysis scripts and pre-registration into this structured Online Appendix was assisted by <span class="co">[</span><span class="ot">Claude</span><span class="co">](https://claude.ai/)</span> (Anthropic, Opus 4.6 model) using several custom agents, skills, and orchestration techniques. All statistical code, interpretive text, and editorial decisions were reviewed, edited, rewritten, and approved by the Author. All texts in the pre-registration, dissertation, and Article were written by the Author without AI assistance.</span>
-<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>*Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment — Online Appendix | Thomas H. Rousse | `r format(Sys.Date(), "%B %Y")`*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> last-modified</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"_common.R"</span>))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction {.unnumbered}</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>This Online Appendix accompanies *Some Respect Reserved: Survey Experiment Insights on the Perception of Creative Commons and Copyright Infringement*, forthcoming in the **Cardozo Arts &amp; Entertainment Law Journal**. It also documents the analysis in the dissertation chapter *Hidden Costs of Open Licensing? A Survey Experiment on Creative Commons and Copyright Infringement* in *Creative Realism: Innovation Beyond the Ownership Incentive*. The Author conveys his gratitude to the Journal's editors and the dissertation committee members (Aaron Shaw, Aymar Jean Christian, and Matthew Kugler) and other scholars who have provided feedback on the Article and the underlying research. The Author has also benefited from presentations and discussion of this research with:</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Northwestern Pritzker School of Law's J.D./Ph.D. Seminar, as well attendees of internal job talk rehearsals, and the School of Communication's Community Data Science Collective</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>The faculties of the University of Oregon's School of Journalism and Communication, the Ohio State University Moritz School of Law, and the University of Illinois, Urbana-Champaign</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>The Law and Society Association's 2025 Annual Meeting and the Intellectual Property Scholars Conference 2025.</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>All errors and omissions are the Author's alone.</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>The Appendix is organized as a reproducible Quarto Book. Every figure and table in the Article has a corresponding section here where the underlying data, code, and full statistical output are presented. Statistical results are generated directly from the underlying data. The code used to generate those results can be viewed in the source code of each chapter. The Appendix also includes detailed documentation of the survey instrument, data collection, and sample characteristics. The dataset and survey instruments are freely licensed for adaptation or replication.</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>The pre-registration for the survey experiment is available at the Open Science Foundation: <span class="co">[</span><span class="ot">https://osf.io/snxyt/</span><span class="co">](https://osf.io/snxyt/)</span>. Some variations from the pre-registration are documented in the relevant sections of this Appendix, including the substitution of Group B1 for Group B in the Educational Use scenario analysis due to an error in data collection.</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.1]{.header-section-number} *Some Respect Reserved*</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Thomas H. Rousse, *Some Respect Reserved: Survey Experiment Insights on the Perception of Creative Commons and Copyright Infringement.* 44 **Cardozo Arts &amp; Entertainment Law Journal** __ (forthcoming 2026).</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>The Article reports results from a pre-registered survey experiment (n = 1,239) examining the American public's recognition of the Creative Commons brand and logo before being randomly split into treatment groups. Respondents were assigned to one of three treatment groups — CC Short (Group A), CC Full Text + Primer (Group B), and Copyright Marking Control (Group C) — and evaluated seven licensing scenarios. The study tests whether exposure to CC license terms affects perceptions of legal risk, preferred outcomes, and price estimates.</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.2]{.header-section-number} How to Cite This Appendix</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>To cite a specific section of this Appendix, use the chapter, section number, and table/figure designation if applicable. For example:</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Thomas H. Rousse, "Public Domain - Q1 Statistics" </span><span class="co">[</span><span class="ot">§7.1, Table 7.1.1.</span><span class="co">](#)</span><span class="at"> **Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment: Online Appendix** (2026). </span><span class="co">[</span><span class="ot">https://ludist.github.io/cc-survey/</span><span class="co">](https://ludist.github.io/cc-survey/)</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>Cross-reference short citation format used in the Article: "Online Appendix §7.1" (chapter and section number), "Online Appendix, Table 7.1.1" (specific table).</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.3]{.header-section-number} Navigation</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Chapter <span class="pp">|</span> Contents <span class="pp">|</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|----------|</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 1 — Experimental Design &amp; Methods</span><span class="co">](01-methods.qmd)</span> <span class="pp">|</span> Experimental design, hypotheses, treatment groups, statistical methods <span class="pp">|</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 2 — Codebook</span><span class="co">](02-codebook.qmd)</span> <span class="pp">|</span> Variable dictionary, naming conventions, response scales, data files <span class="pp">|</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 3 — Data Validation</span><span class="co">](03-validation.qmd)</span> <span class="pp">|</span> Data loading, sample characteristics, group composition, quality checks <span class="pp">|</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 4 — Randomization Check</span><span class="co">](04-randomization.qmd)</span> <span class="pp">|</span> Covariate balance tests for internal validity(Age, Income, Education, Race, Gender) <span class="pp">|</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 5 — Sample v. Population Analysis</span><span class="co">](05-population.qmd)</span> <span class="pp">|</span> Sample demographics vs. ACS 2023 benchmarks (external validity) <span class="pp">|</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 6 — Brand Recognition</span><span class="co">](06-brand.qmd)</span> <span class="pp">|</span> CC brand familiarity analysis (Likert plot and summary table) <span class="pp">|</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 7 — Scenario Analysis Overview</span><span class="co">](07-scenarios.qmd)</span> <span class="pp">|</span> Survey instruments, analysis structure <span class="pp">|</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.1 — Public Domain</span><span class="co">](_scenarios/pd.qmd)</span> <span class="pp">|</span> Baseline scenario <span class="pp">|</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.2 — Personal Use</span><span class="co">](_scenarios/pu.qmd)</span> <span class="pp">|</span> Non-commercial personal copying <span class="pp">|</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.3 — Educational Use</span><span class="co">](_scenarios/eu.qmd)</span> <span class="pp">|</span> Classroom use (B1 dataset) <span class="pp">|</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.4 — Commercial Advertising</span><span class="co">](_scenarios/ca.qmd)</span> <span class="pp">|</span> Commercial use <span class="pp">|</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.5 — Large Scale Copying</span><span class="co">](_scenarios/ls.qmd)</span> <span class="pp">|</span> Mass reproduction and distribution <span class="pp">|</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.6 — Wikipedia Image Search</span><span class="co">](_scenarios/wn.qmd)</span> <span class="pp">|</span> Online image reuse <span class="pp">|</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">7.7 — Filesharing</span><span class="co">](_scenarios/fs.qmd)</span> <span class="pp">|</span> File distribution <span class="pp">|</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Ch. 8 — Question Summaries</span><span class="co">](08-summaries.qmd)</span> <span class="pp">|</span> Cross-scenario summary tables (Q1–Q4, Delta, Wilcoxon) <span class="pp">|</span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.4]{.header-section-number} Links</span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**GitHub repository:** <span class="co">[</span><span class="ot">https://github.com/ludist/cc-survey</span><span class="co">](https://github.com/ludist/cc-survey)</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**OSF pre-registration:** <span class="co">[</span><span class="ot">https://osf.io/snxyt/</span><span class="co">](https://osf.io/snxyt/)</span></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Article preprint (SSRN):** <span class="co">[</span><span class="ot">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5379423</span><span class="co">](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5379423)</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Author's LinkedIn:** <span class="co">[</span><span class="ot">https://www.linkedin.com/in/throusse/</span><span class="co">](https://www.linkedin.com/in/throusse/)</span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.5]{.header-section-number} License</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>This repository is dual-licensed:</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>::: {.callout-note appearance="simple"}</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>**Survey instrument &amp; scenario images** (<span class="in">`materials/`</span>) — <span class="co">[</span><span class="al">![CC0 1.0](https://img.shields.io/badge/License-CC0_1.0-green.svg)</span><span class="co">](https://creativecommons.org/publicdomain/zero/1.0/)</span> Public domain. Copy, modify, and distribute for any purpose.</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>**Code, data &amp; documentation** — <span class="co">[</span><span class="al">![CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)</span><span class="co">](https://creativecommons.org/licenses/by-nc/4.0/)</span> Attribution required; non-commercial use only.</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>Full legal texts are in <span class="co">[</span><span class="ot">`LICENSES/`</span><span class="co">](https://github.com/ludist/cc-survey/tree/main/LICENSES)</span> on GitHub. Some survey stimulus images may depict third-party copyrighted works; see the Article for discussion of image provenance and fair use.</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.6]{.header-section-number} Reproduction Guide</span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>All code and data are available on GitHub. To reproduce:</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone the repository</span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/ludist/cc-survey.git</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cc-survey</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore the R package environment</span></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"renv::restore()"</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Render the full book</span></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>The rendered book will appear in <span class="in">`_book/index.html`</span>. The analysis was developed under R 4.5.2.</span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>**Data** — a single canonical CSV in <span class="in">`data/survey-data/`</span>:</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> File <span class="pp">|</span> Observations <span class="pp">|</span> Groups <span class="pp">|</span> Notes <span class="pp">|</span></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|-------------|--------|-------|</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`rousse-cc-survey-2024.csv`</span> <span class="pp">|</span> 1,319 <span class="pp">|</span> A, B, B1, C <span class="pp">|</span> Clean UTF-8, junk rows removed <span class="pp">|</span></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>Two analysis views are derived by filtering: Groups A/B/C (n = 1,222) for six scenarios, and Groups A/B1/C (n = 905) for the Educational Use scenario. See <span class="co">[</span><span class="ot">Chapter 2 (Codebook)</span><span class="co">](02-codebook.qmd)</span> for the B1 substitution and variable dictionary.</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>To render a single chapter:</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render _scenarios/pd.qmd <span class="at">--to</span> html</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.7]{.header-section-number} Data Checksum {#sec-checksums}</span></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>This MD5 checksum identifies the exact data file used in this analysis. Compare against your local copy to verify file integrity.</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r checksums}</span></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"rousse-cc-survey-2024.csv  MD5:"</span>, md5_data, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Rows:"</span>, <span class="fu">nrow</span>(survey_all), <span class="st">" Columns:"</span>, <span class="fu">ncol</span>(survey_all), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.8]{.header-section-number} TIFF Figure Inventory</span></span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>All publication-quality TIFF figures are exported to <span class="in">`data/figures/v2/`</span> during rendering. The following table lists all exported files:</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r tiff-inventory}</span></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>tiff_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"figures"</span>, <span class="st">"v2"</span>),</span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.tiff?$"</span>,</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>  <span class="at">full.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(tiff_files) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">File =</span> <span class="fu">sort</span>(tiff_files)) <span class="sc">|&gt;</span></span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"TIFF Figure Exports"</span>)</span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"No TIFF files found — render scenario chapters to generate.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.9]{.header-section-number} R Session Info {#sec-session}</span></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r session-info, eval=FALSE}</span></span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.10]{.header-section-number} Package Versions (renv)</span></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r renv-status, eval=FALSE}</span></span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="co"># Run interactively to verify environment</span></span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">status</span>()</span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>The complete package lockfile is in <span class="in">`renv.lock`</span> at the project root.</span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.11]{.header-section-number} Known Issues</span></span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**R version:** <span class="in">`renv.lock`</span> was generated under R 4.5.2. Minor behavioral differences in random number generation or package APIs are possible under other R versions.</span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**EU scenario:** Group B is excluded from the Educational Use analysis; Group B1 is substituted. *See* §2.1 for documentation.</span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.12]{.header-section-number} Acknowledgments</span></span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>This Online Appendix was built with the following open source tools and projects:</span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a>**Literate Programming &amp; Publishing**</span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Positron</span><span class="co">](https://positron.posit.co/)</span> — Next-generation data science IDE (Posit, PBC)</span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span> — Open-source scientific and technical publishing system (Posit, PBC)</span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R</span><span class="co">](https://www.r-project.org/)</span> — Statistical computing language (R Foundation)</span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">renv</span><span class="co">](https://rstudio.github.io/renv/)</span> — Reproducible R environments (Kevin Ushey / Posit)</span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">knitr</span><span class="co">](https://yihui.org/knitr/)</span> — Dynamic report generation for R (Yihui Xie)</span>
+<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">here</span><span class="co">](https://here.r-lib.org/)</span> — Project-relative file paths (Kirill Müller)</span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a>**Statistical Analysis**</span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ggstatsplot</span><span class="co">](https://indrajeetpatil.github.io/ggstatsplot/)</span> — Publication-ready statistical plots (Indrajeet Patil)</span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">rstatix</span><span class="co">](https://rpkgs.datanovia.com/rstatix/)</span> — Pipe-friendly statistical tests (Alboukadel Kassambara)</span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">rcompanion</span><span class="co">](https://rcompanion.org/)</span> — Effect sizes and nonparametric tests (Salvatore Mangiafico)</span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>**Data Visualization**</span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ggplot2</span><span class="co">](https://ggplot2.tidyverse.org/)</span> — Grammar of graphics (Hadley Wickham / Posit)</span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ggthemes</span><span class="co">](https://jrnold.github.io/ggthemes/)</span> — Professional plot themes (Jeffrey Arnold)</span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">ggstats</span><span class="co">](https://larmarange.github.io/ggstats/)</span> — Likert plots and model visualizations (Joseph Larmarange)</span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a>**Data Manipulation**</span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">dplyr</span><span class="co">](https://dplyr.tidyverse.org/)</span> — Data transformation grammar (Hadley Wickham / Posit)</span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>**Hosting &amp; Version Control**</span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">GitHub Pages</span><span class="co">](https://pages.github.com/)</span> — Static site hosting (GitHub / Microsoft)</span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Git</span><span class="co">](https://git-scm.com/)</span> — Distributed version control (Junio C. Hamano et al.)</span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>**AI/Large Language Model Assistance**</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>The conversion of the initial R Notebook analysis scripts and pre-registration into this structured Online Appendix was assisted by <span class="co">[</span><span class="ot">Claude</span><span class="co">](https://claude.ai/)</span> (Anthropic, Opus 4.6 model) using several custom agents, skills, and orchestration techniques. All statistical code, interpretive text, and editorial decisions were reviewed, edited, rewritten, and approved by the Author. All texts in the pre-registration, dissertation, and Article were written by the Author without AI assistance.</span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>*Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment — Online Appendix | Thomas H. Rousse | `r format(Sys.Date(), "%B %Y")`*</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
