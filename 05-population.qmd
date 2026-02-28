@@ -1,0 +1,471 @@
+---
+title: "Sample v. Population Analysis"
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+## Overview {#sec-pop-overview}
+
+This Chapter compares the survey sample demographics against population benchmarks to assess external validity: How does the sample resemble the American adult population? The analysis covers five demographic characteristics — age, gender, race/ethnicity, education, and income — benchmarked against the American Community Survey (ACS), plus two political orientation measures — party affiliation and ideology — benchmarked against Gallup's 2024 annual tracking poll. Full source details for both benchmarks appear below.
+
+::: {.callout-note}
+**Study design note:** The survey used a CloudResearch Connect^[Rachel Hartman, Aaron J. Moss, Shalom N. Jaffe, Cheskie Rosenzweig, Leib Litman & Jonathan Robinson, *Introducing Connect by
+  CloudResearch: Advancing Online Participant Recruitment in the Digital Age* (2023), https://doi.org/10.31234/osf.io/ksgyr; CloudResearch, *Connect for Researchers*, https://www.cloudresearch.com/products/connect-for-researchers/.]
+ panel. This service provides a quota-sampled convenience panel, not a probability sample. Like most online survey experiments, the study prioritizes *internal validity* (clean randomization between treatment groups) over *representational sampling*. The ACS comparison documents where the sample diverges from the general population, enabling readers to assess how findings might or might not generalize. In sum, CloudResearch's "nationally representative" designation is a marketing term that does not reflect probability sampling or representativeness in the statistical sense.
+
+Divergences in this chapter fall into three categories: (1) *quota-controlled demographic variables* (age, gender, race, and Hispanic/Latino origin), where the sample follows CloudResearch Connect's standard preset quotas, which depart from ACS proportions; (2) *uncontrolled demographic variables* (education and income), where no quota was set and the distribution reflects the organic composition of opt-in online survey participants; and (3) *political orientation variables* (party affiliation and ideology), benchmarked against Gallup's 2024 annual tracking poll rather than the ACS, which does not collect political data.
+
+Randomization balance (internal validity) is confirmed separately in [Chapter 4](04-randomization.qmd). The analysis here uses Groups A, B, and C (*n* = 1,222).
+:::
+
+::: {.callout-note}
+**Reference populations:** *Demographics* (§§5.1–5.5): ACS 2023 1-year estimates, U.S. civilian non-institutionalized population. Source tables: B01001 (sex by age), B03002 (Hispanic/Latino origin by race), B15003 (educational attainment, 25+), B19001 (household income). Data retrieved from data.gov via the `tidycensus` R package. See `data/population/acs-source-notes.md` for complete retrieval details and cell-level recoding decisions. *Political orientation* (§5.6): Gallup 2024 annual averages, based on telephone surveys of more than 14,000 U.S. adults conducted throughout 2024.
+:::
+
+```{r pop-setup}
+# Load pre-generated benchmarks (committed CSV; no API key required)
+# Contains ACS 2023 (demographics) + Gallup 2024 (political orientation)
+benchmarks <- load_population_benchmarks()
+
+# Confirm benchmark structure
+cat("Benchmarks loaded for variables:",
+    paste(names(benchmarks), collapse = ", "), "\n")
+cat("Total benchmark rows:", sum(sapply(benchmarks, nrow)), "\n")
+```
+
+---
+
+## Age {#sec-pop-age}
+
+```{r fig-pop-age}
+#| label: fig-pop-age
+#| fig-cap: "Age distribution: survey sample vs. ACS 2023 benchmark"
+#| fig-height: 5.5
+#| fig-width: 8
+
+result_age <- run_population_chisq(survey_data, benchmarks, "AGE")
+
+p_age <- plot_population_comparison(
+  survey_data    = survey_data,
+  benchmarks     = benchmarks,
+  variable       = "AGE",
+  variable_label = "Age Group",
+  show_average   = TRUE,
+  omnibus_p      = result_age$p_value
+)
+print(p_age)
+```
+
+```{r tbl-pop-age-stats}
+#| label: tbl-pop-age-stats
+#| tbl-cap: "Age: Survey vs. ACS Proportions with Chi-Square Goodness-of-Fit"
+
+ct_age <- format_pop_table(result_age)
+avg_row <- make_weighted_avg_row(result_age$comparison_table, result_age)
+ct_age <- rbind(ct_age, avg_row)
+knitr::kable(
+  ct_age,
+  col.names = c("Age Group", "Survey", "ACS", "Difference"),
+  caption = fmt_chisq_caption(result_age, "Age Distribution")
+)
+```
+
+::: {.callout-note collapse="true"}
+**Age interpretation:** `r sprintf("χ²(%d) = %.2f, p %s, Cohen's h = %.3f.", result_age$df, result_age$chisq_stat, ifelse(result_age$p_value < .001, "< .001", sprintf("= %.3f", result_age$p_value)), result_age$cohens_h)` Despite the highly significant test statistic (driven by *n* = 1,222), the effect size is small (*h* < 0.20). The observed age distribution closely tracks CloudResearch Connect's preset quota targets (18–29: 16.7% preset / 16.9% observed; 30–44: 25.0% / 25.0%; 45–59: 33.3% / 33.6%; 60+: 25.0% / 24.6%) rather than the ACS. The divergence from Census proportions, such as the overrepresentation of 45–59 respondents (33.6% vs. 23.2% ACS) and underrepresentation of 60+ adults (24.6% vs. 30.9% ACS), is therefore an artifact of the CloudResearch preset, not sampling error or panel self-selection.
+:::
+
+---
+
+## Gender {#sec-pop-gender}
+
+::: {.callout-note}
+**Measurement note:** ACS reports binary sex (male/female). The survey offered a third response option for respondents who identified outside the male/female binary or preferred not to answer. Those respondents are excluded from the ACS comparison below; the two-category comparison uses only male/female responses.
+:::
+
+```{r fig-pop-gender}
+#| label: fig-pop-gender
+#| fig-cap: "Gender distribution: survey sample vs. ACS 2023 benchmark"
+#| fig-height: 3.5
+#| fig-width: 8
+
+p_gender <- plot_population_comparison(
+  survey_data    = survey_data,
+  benchmarks     = benchmarks,
+  variable       = "GENDER",
+  variable_label = "Gender"
+)
+print(p_gender)
+```
+
+```{r tbl-pop-gender-stats}
+#| label: tbl-pop-gender-stats
+#| tbl-cap: "Gender: Survey vs. ACS Proportions with Chi-Square Goodness-of-Fit"
+
+result_gender <- run_population_chisq(survey_data, benchmarks, "GENDER")
+
+ct_gender <- format_pop_table(result_gender)
+knitr::kable(
+  ct_gender,
+  col.names = c("Gender", "Survey", "ACS", "Difference"),
+  caption = fmt_chisq_caption(result_gender, "Gender Distribution")
+)
+```
+
+---
+
+## Race and Ethnicity {#sec-pop-race}
+
+The survey asked Hispanic/Latino origin and race as separate questions, consistent with the Census Bureau approach. This section presents three complementary comparisons: (1) Hispanic/Latino origin alone, (2) racial identification alone, and (3) a combined race/ethnicity classification.
+
+### Hispanic/Latino Origin {#sec-pop-hisplat}
+
+```{r fig-pop-hisplat}
+#| label: fig-pop-hisplat
+#| fig-cap: "Hispanic/Latino origin: survey sample vs. ACS 2023 benchmark"
+#| fig-height: 3.5
+#| fig-width: 8
+
+p_hisplat <- plot_population_comparison(
+  survey_data    = survey_data,
+  benchmarks     = benchmarks,
+  variable       = "HISPLAT",
+  variable_label = "Hispanic/Latino Origin"
+)
+print(p_hisplat)
+```
+
+```{r tbl-pop-hisplat-stats}
+#| label: tbl-pop-hisplat-stats
+#| tbl-cap: "Hispanic/Latino Origin: Survey vs. ACS Proportions"
+
+result_hisplat <- run_population_chisq(survey_data, benchmarks, "HISPLAT")
+
+ct_hisplat <- format_pop_table(result_hisplat)
+knitr::kable(
+  ct_hisplat,
+  col.names = c("Category", "Survey", "ACS", "Difference"),
+  caption = fmt_chisq_caption(result_hisplat, "Hispanic/Latino Origin")
+)
+```
+
+::: {.callout-note}
+**Quota note:** The CloudResearch Connect standard panel preset, not the nationally representative ACS, set the Hispanic/Latino target at 8.3% (99.6 of 1,200 participants), compared to the ACS 2023 1-year estimate of approximately 19.4% for the U.S. adult population. CloudResearch's preset applies equal 8.3% allocations across three non-White racial/ethnic groups (Black, Hispanic/Latino, and Other), with the remaining 83.3% allocated to White participants. This simplified stratification departs substantially from current Census proportions. The Author followed this preset without modification to facilitate cross-study comparability with other Connect panels, a design decision documented in the pre-registration (OSF: [https://osf.io/snxyt/](https://osf.io/snxyt/)). This represents a deliberate methodological choice and a tradeoff of inexpensive survey participant pools against external validity, not a sampling error. The lack of representative racial and ethnic diversity is a well-known limitation of opt-in online survey platforms generally, which tend to underrepresent minorities and over-represent White respondents.^[*See* Courtney Kennedy, Andrew Mercer, Nick Hatley, and Scott Keeter, *Evaluating Online Nonprobability Surveys*, **Pew Research Center** (2016); Taylor C. Boas, Dino P. Chirsttenson, and David M. Glick,
+ *Recruiting Subjects to Survey Researchers: A Comparison of MTurk, Luc.id, and SurveyMonkey*, 8 **Pol. Sci. Res. & Methods** 422,
+ 427 (2020) (finding that MTurk-based samples significantly over-represent White respondents compared to Census benchmarks).]
+:::
+
+### Racial Identification {#sec-pop-race-only}
+
+Race is reported independently of Hispanic/Latino origin, using the survey's race selection question. For ACS comparison, the race-alone table (B02001) is used. Multi-selection responses and categories other than White, Black, and Asian are collapsed into "Other / Multiracial."
+
+```{r fig-pop-race-only}
+#| label: fig-pop-race-only
+#| fig-cap: "Racial identification: survey sample vs. ACS 2023 benchmark (B02001, race alone)"
+#| fig-height: 5
+#| fig-width: 8
+
+p_race_only <- plot_population_comparison(
+  survey_data    = survey_data,
+  benchmarks     = benchmarks,
+  variable       = "RACE_ONLY",
+  variable_label = "Race"
+)
+print(p_race_only)
+```
+
+```{r tbl-pop-race-only-stats}
+#| label: tbl-pop-race-only-stats
+#| tbl-cap: "Racial Identification: Survey vs. ACS Proportions"
+
+result_race_only <- run_population_chisq(survey_data, benchmarks, "RACE_ONLY")
+
+ct_race_only <- format_pop_table(result_race_only)
+knitr::kable(
+  ct_race_only,
+  col.names = c("Race", "Survey", "ACS", "Difference"),
+  caption = fmt_chisq_caption(result_race_only, "Racial Identification")
+)
+```
+
+::: {.callout-note}
+**Quota note:** The White overrepresentation (82.0% vs. 60.5% ACS) directly reflects CloudResearch Connect's 83.3% White preset quota. The preset allocates the remaining 16.7% equally across three non-White groups (8.3% each for Black, Hispanic/Latino, and Other), without distinguishing Asian as a separate category — which explains why the Asian alone estimate (6.1% vs. 6.0% ACS) achieves near-exact alignment despite no explicit Asian quota: Asian respondents were absorbed into the residual "Other" pool alongside AIAN, NHPI, and multiracial respondents, whose collective underrepresentation drives the large "Other / Multiracial" gap (3.9% vs. 21.4% ACS). *See* the pre-registration (OSF: [https://osf.io/snxyt/](https://osf.io/snxyt/)) for the quota rationale.
+:::
+
+### Combined Race/Ethnicity {#sec-pop-race-eth}
+
+The combined classification uses the B03002 table (Hispanic/Latino origin by race) to construct mutually exclusive categories: Hispanic/Latino respondents are classified under that category regardless of racial identification; non-Hispanic respondents are classified by race.
+
+```{r fig-pop-race}
+#| label: fig-pop-race
+#| fig-cap: "Combined race/ethnicity: survey sample vs. ACS 2023 benchmark (B03002)"
+#| fig-height: 5.5
+#| fig-width: 8
+
+p_race <- plot_population_comparison(
+  survey_data    = survey_data,
+  benchmarks     = benchmarks,
+  variable       = "RACE_ETH",
+  variable_label = "Race/Ethnicity (Combined)"
+)
+print(p_race)
+```
+
+```{r tbl-pop-race-stats}
+#| label: tbl-pop-race-stats
+#| tbl-cap: "Combined Race/Ethnicity: Survey vs. ACS Proportions"
+
+result_race <- run_population_chisq(survey_data, benchmarks, "RACE_ETH")
+
+ct_race <- format_pop_table(result_race)
+knitr::kable(
+  ct_race,
+  col.names = c("Race/Ethnicity", "Survey", "ACS", "Difference"),
+  caption = fmt_chisq_caption(result_race, "Combined Race/Ethnicity")
+)
+```
+
+---
+
+## Education {#sec-pop-edu}
+
+::: {.callout-note}
+**Measurement note:** The ACS educational attainment table (B15003) covers the population aged **25** and older, while the survey targets adults **18** and older. The ACS proportions used here may over-represent higher education levels relative to the full 18+ population, since adults aged 18–24 are more likely to have not yet completed post-secondary education. No quota was set on educational attainment; the observed distribution reflects the organic composition of the CloudResearch Connect panel. 
+
+The heavy overrepresentation of college-educated respondents (70.5% Bachelor's or higher vs. 35.7% ACS 25+) is a well-documented characteristic of opt-in online survey platforms generally.^[*See* Courtney Kennedy, Andrew Mercer, Nick Hatley, and Scott Keeter, *Evaluating Online Nonprobability Surveys*, **Pew Research Center** (2016); Taylor C. Boas, Dino P. Chirsttenson, and David M. Glick,
+ *Recruiting Subjects to Survey Researchers: A Comparison of MTurk, Luc.id, and SurveyMonkey*, 8 **Pol. Sci. Res. & Methods** 422,
+ 427 (2020) (finding that MTurk-based samples are significantly more educated than Census benchmarks).]
+:::
+
+```{r fig-pop-edu}
+#| label: fig-pop-edu
+#| fig-cap: "Education distribution: survey sample vs. ACS 2023 benchmark"
+#| fig-height: 5.5
+#| fig-width: 8
+
+result_edu <- run_population_chisq(survey_data, benchmarks, "EDU")
+
+p_edu <- plot_population_comparison(
+  survey_data    = survey_data,
+  benchmarks     = benchmarks,
+  variable       = "EDU",
+  variable_label = "Educational Attainment",
+  show_average   = TRUE,
+  omnibus_p      = result_edu$p_value
+)
+print(p_edu)
+```
+
+```{r tbl-pop-edu-stats}
+#| label: tbl-pop-edu-stats
+#| tbl-cap: "Education: Survey vs. ACS Proportions with Chi-Square Goodness-of-Fit"
+
+ct_edu <- format_pop_table(result_edu)
+avg_row <- make_weighted_avg_row(result_edu$comparison_table, result_edu)
+ct_edu <- rbind(ct_edu, avg_row)
+knitr::kable(
+  ct_edu,
+  col.names = c("Education Level", "Survey", "ACS", "Difference"),
+  caption = fmt_chisq_caption(result_edu, "Education Distribution")
+)
+```
+
+---
+
+## Income {#sec-pop-income}
+
+::: {.callout-note}
+**Sampling Note:** No quota was set on household income; the observed distribution reflects the organic composition of the CloudResearch Connect panel. The concentration in the $25k–$99.9k range and underrepresentation of the highest earners ($150k+: 9.5% vs. 21.5% ACS) likely reflects participation patterns in paid online surveys, where high-income individuals have lower rates of panel enrollment and survey completion. The ACS income benchmark uses household-level estimates (B19001), consistent with the survey's household income question.
+:::
+
+```{r fig-pop-income}
+#| label: fig-pop-income
+#| fig-cap: "Income distribution: survey sample vs. ACS 2023 benchmark"
+#| fig-height: 7
+#| fig-width: 8
+
+result_income <- run_population_chisq(survey_data, benchmarks, "INCOME")
+
+p_income <- plot_population_comparison(
+  survey_data    = survey_data,
+  benchmarks     = benchmarks,
+  variable       = "INCOME",
+  variable_label = "Household Income",
+  show_average   = TRUE,
+  omnibus_p      = result_income$p_value
+)
+print(p_income)
+```
+
+```{r tbl-pop-income-stats}
+#| label: tbl-pop-income-stats
+#| tbl-cap: "Income: Survey vs. ACS Proportions with Chi-Square Goodness-of-Fit"
+
+ct_income <- format_pop_table(result_income)
+avg_row <- make_weighted_avg_row(result_income$comparison_table, result_income)
+ct_income <- rbind(ct_income, avg_row)
+knitr::kable(
+  ct_income,
+  col.names = c("Income Bracket", "Survey", "ACS", "Difference"),
+  caption = fmt_chisq_caption(result_income, "Income Distribution")
+)
+```
+
+---
+
+## Political Orientation {#sec-pop-politics}
+
+Political orientation is examined through two measures: party affiliation (POLPARTY) and political ideology on a liberal–conservative spectrum (LIBCON). Because the Census Bureau does not collect political data, this section uses Gallup's annual tracking poll as the population benchmark rather than the ACS.
+
+::: {.callout-note}
+**Benchmark source note:** The American Community Survey does not include questions about political orientation. The benchmarks here are drawn from Gallup's 2024 annual tracking poll, which surveys more than 14,000 U.S. adults by telephone throughout the year.^[Gallup, *GOP Holds Edge in Party Affiliation for Third Straight Year* (Jan. 16, 2025); Gallup, *U.S. Political Parties Historically Polarized Ideologically* (Jan. 24, 2025). Data available at https://news.gallup.com/poll/15370/party-affiliation.aspx.] The survey's three-category party split (Republican, Democrat, Independent — excluding "Other" and "Prefer not to say") maps directly to Gallup's initial party identification question. For ideology, the survey's five-point LIBCON scale (Very Liberal through Very Conservative) is collapsed to three categories (Liberal, Moderate, Conservative) to match Gallup's published annual breakdown. Because the benchmark source differs from the ACS used in preceding sections, chi-square results and effect sizes for political variables should not be directly compared to the demographic variables above.
+:::
+
+### Party Affiliation {#sec-pop-polparty}
+
+```{r fig-pop-polparty}
+#| label: fig-pop-polparty
+#| fig-cap: "Party affiliation: survey sample vs. Gallup 2024 benchmark"
+#| fig-height: 4.5
+#| fig-width: 8
+
+result_polparty <- run_population_chisq(survey_data, benchmarks, "POLPARTY")
+
+p_polparty <- plot_population_comparison(
+  survey_data      = survey_data,
+  benchmarks       = benchmarks,
+  variable         = "POLPARTY",
+  variable_label   = "Party Affiliation",
+  benchmark_source = "Gallup 2024"
+)
+print(p_polparty)
+```
+
+```{r tbl-pop-polparty-stats}
+#| label: tbl-pop-polparty-stats
+#| tbl-cap: "Party Affiliation: Survey vs. Gallup 2024 Proportions with Chi-Square Goodness-of-Fit"
+
+ct_polparty <- format_pop_table(result_polparty)
+knitr::kable(
+  ct_polparty,
+  col.names = c("Party", "Survey", "Gallup", "Difference"),
+  caption = paste0(fmt_chisq_caption(result_polparty, "Party Affiliation"),
+                   ". Benchmark: Gallup 2024 annual averages (U.S. adults).")
+)
+```
+
+::: {.callout-note collapse="true"}
+**Party affiliation interpretation:** `r sprintf("χ²(%d) = %.2f, p %s, Cohen's h = %.3f.", result_polparty$df, result_polparty$chisq_stat, ifelse(result_polparty$p_value < .001, "< .001", sprintf("= %.3f", result_polparty$p_value)), result_polparty$cohens_h)` The survey sample's partisan composition is compared against Gallup's 2024 annual averages (28% Republican, 28% Democrat, 43% Independent). Respondents who selected "Other" or "Prefer not to say" are excluded from this comparison. The direction and magnitude of any divergence reflects the organic composition of the CloudResearch Connect panel, as no quota was set on party affiliation. Online survey panels are known to skew somewhat more Democratic/liberal than the general population, though the extent varies by platform.^[*See* Adam J. Berinsky, Gregory A. Huber & Gabriel S. Lenz, *Evaluating Online Labor Markets for Experimental Research: Amazon.com's Mechanical Turk*, 20 **Pol. Analysis** 351, 363 (2012); Kevin J. Mullinix, Thomas J. Leeper, James N. Druckman & Jeremy Freese, *The Generalizability of Survey Experiments*, 2 **J. Experimental Pol. Sci.** 109 (2015).]
+:::
+
+### Political Ideology {#sec-pop-libcon}
+
+::: {.callout-note}
+**Measurement note:** The survey's five-point LIBCON scale (Very Liberal, Somewhat Liberal, Moderate, Somewhat Conservative, Very Conservative) is collapsed to three categories to match Gallup's published annual breakdown: Liberal (Very Liberal + Somewhat Liberal), Moderate, and Conservative (Somewhat Conservative + Very Conservative). No quota was set on political ideology.
+:::
+
+```{r fig-pop-libcon}
+#| label: fig-pop-libcon
+#| fig-cap: "Political ideology: survey sample vs. Gallup 2024 benchmark"
+#| fig-height: 4.5
+#| fig-width: 8
+
+result_libcon <- run_population_chisq(survey_data, benchmarks, "LIBCON")
+
+p_libcon <- plot_population_comparison(
+  survey_data      = survey_data,
+  benchmarks       = benchmarks,
+  variable         = "LIBCON",
+  variable_label   = "Political Ideology",
+  benchmark_source = "Gallup 2024"
+)
+print(p_libcon)
+```
+
+```{r tbl-pop-libcon-stats}
+#| label: tbl-pop-libcon-stats
+#| tbl-cap: "Political Ideology: Survey vs. Gallup 2024 Proportions with Chi-Square Goodness-of-Fit"
+
+ct_libcon <- format_pop_table(result_libcon)
+knitr::kable(
+  ct_libcon,
+  col.names = c("Ideology", "Survey", "Gallup", "Difference"),
+  caption = paste0(fmt_chisq_caption(result_libcon, "Political Ideology"),
+                   ". Benchmark: Gallup 2024 annual averages (U.S. adults).")
+)
+```
+
+::: {.callout-note collapse="true"}
+**Ideology interpretation:** `r sprintf("χ²(%d) = %.2f, p %s, Cohen's h = %.3f.", result_libcon$df, result_libcon$chisq_stat, ifelse(result_libcon$p_value < .001, "< .001", sprintf("= %.3f", result_libcon$p_value)), result_libcon$cohens_h)` The survey sample's ideological distribution is compared against Gallup's 2024 annual averages (37% Conservative, 34% Moderate, 25% Liberal; renormalized to three-category proportions after excluding "Don't know" responses). The observed divergence is consistent with the well-documented liberal skew of opt-in online survey panels, particularly among younger and more-educated participants — both of which characterize this sample (see [§5.4, Education](#sec-pop-edu)). As with party affiliation, the study's primary claims rest on internal validity (randomized treatment comparisons) rather than ideological representativeness.
+:::
+
+---
+
+## Summary {#sec-pop-summary}
+
+```{r tbl-pop-summary}
+#| label: tbl-pop-summary
+#| tbl-cap: "Population Representativeness Summary: Chi-Square Goodness-of-Fit Tests"
+
+# Combine all results
+all_results <- list(
+  AGE       = result_age,
+  GENDER    = result_gender,
+  HISPLAT   = result_hisplat,
+  RACE_ONLY = result_race_only,
+  RACE_ETH  = result_race,
+  EDU       = result_edu,
+  INCOME    = result_income,
+  POLPARTY  = result_polparty,
+  LIBCON    = result_libcon
+)
+
+summary_tbl <- summarize_population_comparisons(all_results)
+
+knitr::kable(
+  summary_tbl,
+  col.names = c("Variable", "N", "χ²", "df", "*p*", "Cohen's *h*", "Effect Size"),
+  escape    = FALSE,
+  caption   = paste0(
+    "Chi-Square Goodness-of-Fit Tests Comparing Survey Sample to Population Benchmarks. ",
+    "Cohen's h: small < .20, medium .20–.50, large > .50. ",
+    "Demographic variables (Age–Income): ACS 2023 1-Year Estimates (U.S. Census Bureau). ",
+    "Political variables (Party Affiliation, Ideology): Gallup 2024 Annual Averages."
+  )
+)
+```
+
+::: {.callout-note collapse="true"}
+**Summary interpretation:** Divergences from population benchmarks fall into three structurally distinct categories.
+
+*Quota-controlled variables* (age, gender, race, Hispanic/Latino origin): divergences from the ACS reflect CloudResearch Connect's standard panel preset, not sampling error. Gender is essentially aligned (h = 0.015) because the preset targets 50% female — nearly identical to the ACS. Age diverges modestly (h = 0.119, small) because the preset allocates 33.3% to the 45–59 cohort (vs. 23.2% ACS), producing the observed overrepresentation of that group; the observed age distribution tracks the preset quotas within 0.4 percentage points across all four bins. Race and Hispanic/Latino origin show medium divergences (HISPLAT h = 0.330; RACE_ETH h = 0.207; RACE_ONLY h = 0.296) that follow directly from the preset's symmetric 83.3% White / 8.3% Black / 8.3% Hispanic / 8.3% Other structure — a heuristic that departs substantially from current Census proportions. These racial/ethnic divergences are documented in the pre-registration as a deliberate choice to follow CloudResearch's standard preset for cross-study comparability (OSF: [https://osf.io/snxyt/](https://osf.io/snxyt/)).
+
+*Uncontrolled demographic variables* (education and income): no quotas were set; distributions reflect the organic composition of the Connect panel. Education shows the largest divergence overall (h = 0.459, approaching large): the sample is heavily college-educated (70.5% Bachelor's or higher vs. 35.7% ACS 25+), with HS-or-less respondents nearly absent (1.5% vs. 36.2%) — a well-documented characteristic of opt-in online survey panels. Note also that the ACS education benchmark covers adults 25+, while the survey targets 18+, modestly amplifying the apparent gap. Income diverges modestly (h = 0.152, small), with the sample concentrated in the $25k–$99.9k range and high earners underrepresented ($150k+: 9.5% vs. 21.5% ACS), consistent with lower participation rates among high-income individuals in paid online surveys.
+
+*Political orientation variables* (party affiliation and ideology): benchmarked against Gallup 2024 annual averages rather than ACS (which does not collect political data). No quotas were set on political orientation. Online opt-in panels typically skew liberal and Democratic relative to the general adult population, a well-documented feature of these platforms driven in part by the educational and age composition of panel participants. The political comparisons use a different source population and methodology (Gallup telephone survey vs. ACS census survey) than the demographic variables, so direct effect-size comparisons across the two benchmark sources should be interpreted with appropriate caution.
+
+The study's primary claims rest on internal validity — clean randomization between treatment groups (confirmed in Chapter 4) — rather than representational sampling. These comparisons enable readers to assess which subpopulations are and are not well-represented and to calibrate the external generalizability of the findings accordingly.
+:::
+
+---
+
+## Reproducibility Note {#sec-pop-repro}
+
+The population benchmark data in `data/population/acs-benchmarks.csv` is committed to the repository. This file contains both ACS 2023 benchmarks (demographic variables) and Gallup 2024 annual averages (political orientation variables). Readers who clone the repository can reproduce all analyses in this chapter without a Census API key.
+
+To regenerate the benchmark file from the Census API directly:
+
+```{r fetch-benchmarks, eval=FALSE}
+# Requires CENSUS_API_KEY in ~/.Renviron
+# Register free at: https://api.census.gov/data/key_signup.html
+# Then: usethis::edit_r_environ()  →  add: CENSUS_API_KEY=your_key_here
+
+fetch_acs_benchmarks(year = 2023)
+# Writes data/population/acs-benchmarks.csv
+```
+
+```{r pop-session-info, include=FALSE}
+# Verify data availability (diagnostic, not displayed)
+stopifnot(file.exists(here::here("data", "population", "acs-benchmarks.csv")))
+```

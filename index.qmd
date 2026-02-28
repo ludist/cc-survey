@@ -1,0 +1,216 @@
+---
+date: last-modified
+number-sections: false
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+# Introduction {.unnumbered}
+
+This Online Appendix accompanies *Some Respect Reserved: Survey Experiment Insights on the Perception of Creative Commons and Copyright Infringement*, forthcoming in the **Cardozo Arts & Entertainment Law Journal**. It also documents the analysis in the dissertation chapter *Hidden Costs of Open Licensing? A Survey Experiment on Creative Commons and Copyright Infringement* in *Creative Realism: Innovation Beyond the Ownership Incentive*. The Author conveys his gratitude to the Journal's editors and the dissertation committee members (Aaron Shaw, Aymar Jean Christian, and Matthew Kugler) and other scholars who have provided feedback on the Article and the underlying research. The Author has also benefited from presentations and discussion of this research with:
+
+* Northwestern Pritzker School of Law's J.D./Ph.D. Seminar, as well attendees of internal job talk rehearsals, and the School of Communication's Community Data Science Collective
+* The faculties of the University of Oregon's School of Journalism and Communication, the Ohio State University Moritz School of Law, and the University of Illinois, Urbana-Champaign
+* The Law and Society Association's 2025 Annual Meeting and the Intellectual Property Scholars Conference 2025.
+
+All errors and omissions are the Author's alone.
+
+The Appendix is organized as a reproducible Quarto Book. Every figure and table in the Article has a corresponding section here where the underlying data, code, and full statistical output are presented. Statistical results are generated directly from the underlying data. The code used to generate those results can be viewed in the source code of each chapter. The Appendix also includes detailed documentation of the survey instrument, data collection, and sample characteristics. The dataset and survey instruments are freely licensed for adaptation or replication.
+
+The pre-registration for the survey experiment is available at the Open Science Foundation: [https://osf.io/snxyt/](https://osf.io/snxyt/). Some variations from the pre-registration are documented in the relevant sections of this Appendix, including the substitution of Group B1 for Group B in the Educational Use scenario analysis due to an error in data collection.
+
+---
+
+## *Some Respect Reserved*
+
+> Thomas H. Rousse, *Some Respect Reserved: Survey Experiment Insights on the Perception of Creative Commons and Copyright Infringement.* 44 **Cardozo Arts & Entertainment Law Journal** __ (forthcoming 2026).
+
+The Article reports results from a pre-registered survey experiment (n = 1,239) examining the American public's recognition of the Creative Commons brand and logo before being randomly split into treatment groups. Respondents were assigned to one of three treatment groups — CC Short (Group A), CC Full Text + Primer (Group B), and Copyright Marking Control (Group C) — and evaluated seven licensing scenarios. The study tests whether exposure to CC license terms affects perceptions of legal risk, preferred outcomes, and price estimates.
+
+---
+
+## How to Cite This Appendix
+
+To cite a specific section of this Appendix, use the chapter, section number, and table/figure designation if applicable. For example:
+
+> Thomas H. Rousse, "Public Domain - Q1 Statistics" [§7.1, Table 7.1.1.](#) **Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment: Online Appendix** (2026). [https://ludist.github.io/cc-survey/](https://ludist.github.io/cc-survey/)
+
+Cross-reference short citation format used in the Article: "Online Appendix §7.1" (chapter and section number), "Online Appendix, Table 7.1.1" (specific table).
+
+---
+
+## Navigation
+
+| Chapter | Contents |
+|---------|----------|
+| [Ch. 1 — Experimental Design & Methods](01-methods.qmd) | Experimental design, hypotheses, treatment groups, statistical methods |
+| [Ch. 2 — Codebook](02-codebook.qmd) | Variable dictionary, naming conventions, response scales, data files |
+| [Ch. 3 — Data Validation](03-validation.qmd) | Data loading, sample characteristics, group composition, quality checks |
+| [Ch. 4 — Randomization Check](04-randomization.qmd) | Covariate balance tests for internal validity(Age, Income, Education, Race, Gender) |
+| [Ch. 5 — Sample v. Population Analysis](05-population.qmd) | Sample demographics vs. ACS 2023 benchmarks (external validity) |
+| [Ch. 6 — Brand Recognition](06-brand.qmd) | CC brand familiarity analysis (Likert plot and summary table) |
+| [Ch. 7 — Scenario Analysis Overview](07-scenarios.qmd) | Survey instruments, analysis structure |
+| [7.1 — Public Domain](_scenarios/pd.qmd) | Baseline scenario |
+| [7.2 — Personal Use](_scenarios/pu.qmd) | Non-commercial personal copying |
+| [7.3 — Educational Use](_scenarios/eu.qmd) | Classroom use (B1 dataset) |
+| [7.4 — Commercial Advertising](_scenarios/ca.qmd) | Commercial use |
+| [7.5 — Large Scale Copying](_scenarios/ls.qmd) | Mass reproduction and distribution |
+| [7.6 — Wikipedia Image Search](_scenarios/wn.qmd) | Online image reuse |
+| [7.7 — Filesharing](_scenarios/fs.qmd) | File distribution |
+| [Ch. 8 — Question Summaries](08-summaries.qmd) | Cross-scenario summary tables (Q1–Q4, Delta, Wilcoxon) |
+
+---
+
+## Links
+
+- **GitHub repository:** [https://github.com/ludist/cc-survey](https://github.com/ludist/cc-survey)
+- **OSF pre-registration:** [https://osf.io/snxyt/](https://osf.io/snxyt/)
+- **Article preprint (SSRN):** [https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5379423](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5379423)
+- **Author's LinkedIn:** [https://www.linkedin.com/in/throusse/](https://www.linkedin.com/in/throusse/)
+
+---
+
+## License
+
+This repository is dual-licensed:
+
+::: {.callout-note appearance="simple"}
+**Survey instrument & scenario images** (`materials/`) — [![CC0 1.0](https://img.shields.io/badge/License-CC0_1.0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/) Public domain. Copy, modify, and distribute for any purpose.
+
+**Code, data & documentation** — [![CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/) Attribution required; non-commercial use only.
+:::
+
+Full legal texts are in [`LICENSES/`](https://github.com/ludist/cc-survey/tree/main/LICENSES) on GitHub. Some survey stimulus images may depict third-party copyrighted works; see the Article for discussion of image provenance and fair use.
+
+---
+
+## Reproduction Guide
+
+All code and data are available on GitHub. To reproduce:
+
+```bash
+# Clone the repository
+git clone https://github.com/ludist/cc-survey.git
+cd cc-survey
+
+# Restore the R package environment
+Rscript -e "renv::restore()"
+
+# Render the full book
+quarto render
+```
+
+The rendered book will appear in `_book/index.html`. The analysis was developed under R 4.5.2.
+
+**Data** — a single canonical CSV (`rousse-cc-survey-2024.csv`, 1,319 observations, 191 columns). See [Chapter 2 (Codebook), §2.1](02-codebook.qmd#sec-data-files) for the data file specification, analysis views, and the B1 substitution.
+
+To render a single chapter:
+```bash
+quarto render _scenarios/pd.qmd --to html
+```
+
+---
+
+## Data Checksum {#sec-checksums}
+
+This MD5 checksum identifies the exact data file used in this analysis. Compare against your local copy to verify file integrity.
+
+```{r checksums}
+cat("rousse-cc-survey-2024.csv  MD5:", md5_data, "\n")
+cat("Rows:", nrow(survey_all), " Columns:", ncol(survey_all), "\n")
+```
+
+---
+
+## TIFF Figure Inventory
+
+All publication-quality TIFF figures are exported to `data/figures/v2/` during rendering. The following table lists all exported files:
+
+```{r tiff-inventory}
+tiff_files <- list.files(
+  here::here("data", "figures", "v2"),
+  pattern = "\\.tiff?$",
+  full.names = FALSE
+)
+
+if (length(tiff_files) > 0) {
+  data.frame(File = sort(tiff_files)) |>
+    knitr::kable(caption = "TIFF Figure Exports")
+} else {
+  cat("No TIFF files found — render scenario chapters to generate.\n")
+}
+```
+
+---
+
+## R Session Info {#sec-session}
+
+```{r session-info}
+#| eval: true
+sessionInfo()
+```
+
+---
+
+## Package Versions (renv)
+
+```{r renv-status}
+#| eval: true
+# Run interactively to verify environment
+renv::status()
+```
+
+The complete package lockfile is in `renv.lock` at the project root.
+
+---
+
+## Known Issues
+
+- **R version:** `renv.lock` was generated under R 4.5.2. Minor behavioral differences in random number generation or package APIs are possible under other R versions.
+- **EU scenario:** Group B is excluded from the Educational Use analysis; Group B1 is substituted. *See* §2.1 for documentation.
+
+---
+
+## Acknowledgments
+
+This Online Appendix was built with the following open source tools and projects:
+
+**Literate Programming & Publishing**
+
+- [Positron](https://positron.posit.co/) — Next-generation data science IDE (Posit, PBC)
+- [Quarto](https://quarto.org/) — Open-source scientific and technical publishing system (Posit, PBC)
+- [R](https://www.r-project.org/) — Statistical computing language (R Foundation)
+- [renv](https://rstudio.github.io/renv/) — Reproducible R environments (Kevin Ushey / Posit)
+- [knitr](https://yihui.org/knitr/) — Dynamic report generation for R (Yihui Xie)
+- [here](https://here.r-lib.org/) — Project-relative file paths (Kirill Müller)
+
+**Statistical Analysis**
+
+- [ggstatsplot](https://indrajeetpatil.github.io/ggstatsplot/) — Publication-ready statistical plots (Indrajeet Patil)
+- [rstatix](https://rpkgs.datanovia.com/rstatix/) — Pipe-friendly statistical tests (Alboukadel Kassambara)
+- [rcompanion](https://rcompanion.org/) — Effect sizes and nonparametric tests (Salvatore Mangiafico)
+
+**Data Visualization**
+
+- [ggplot2](https://ggplot2.tidyverse.org/) — Grammar of graphics (Hadley Wickham / Posit)
+- [ggthemes](https://jrnold.github.io/ggthemes/) — Professional plot themes (Jeffrey Arnold)
+- [ggstats](https://larmarange.github.io/ggstats/) — Likert plots and model visualizations (Joseph Larmarange)
+
+**Data Manipulation**
+
+- [dplyr](https://dplyr.tidyverse.org/) — Data transformation grammar (Hadley Wickham / Posit)
+
+**Hosting & Version Control**
+
+- [GitHub Pages](https://pages.github.com/) — Static site hosting (GitHub / Microsoft)
+- [Git](https://git-scm.com/) — Distributed version control (Junio C. Hamano et al.)
+
+**AI/Large Language Model Assistance**
+
+The conversion of the initial R Notebook analysis scripts and pre-registration into this structured Online Appendix was assisted by [Claude](https://claude.ai/) (Anthropic, Opus 4.6 model) using several custom agents, skills, and orchestration techniques. All statistical code, interpretive text, and editorial decisions were reviewed, edited, rewritten, and approved by the Author. All texts in the pre-registration, dissertation, and Article were written by the Author without AI assistance.
+
+---
+
+*Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment — Online Appendix | Thomas H. Rousse | `r format(Sys.Date(), "%B %Y")`*

@@ -1,0 +1,83 @@
+project:
+  type: book
+  output-dir: _book
+  resources:
+    - fonts/
+
+book:
+  title: "Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment"
+  author: "Thomas H. Rousse, J.D., Ph.D."
+  date: last-modified
+  date-format: "MMMM D, YYYY"
+  repo-url: https://github.com/ludist/cc-survey
+  repo-actions: [edit, issue]
+
+
+  chapters:
+    - index.qmd
+    - 01-methods.qmd
+    - 02-codebook.qmd
+    - 03-validation.qmd
+    - 04-randomization.qmd
+    - 05-population.qmd
+    - 06-brand.qmd
+    - 07-scenarios.qmd
+    - _scenarios/pd.qmd
+    - _scenarios/pu.qmd
+    - _scenarios/eu.qmd
+    - _scenarios/ca.qmd
+    - _scenarios/ls.qmd
+    - _scenarios/wn.qmd
+    - _scenarios/fs.qmd
+    - 08-summaries.qmd
+
+  sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 1
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    toc: true
+    toc-location: left
+    toc-depth: 2
+    include-after-body:
+      - sidebar-toc.html
+      - section-numbering.html
+    number-sections: true
+    code-fold: true
+    code-summary: "Show code"
+    code-tools: true
+    reference-location: margin
+    citation-location: margin
+    cap-location: bottom
+    # mainfont now controlled by $font-family-sans-serif in styles.scss
+    grid:
+      sidebar-width: 275px
+      body-width: 850px
+      margin-width: 325px
+      gutter-width: 1.5rem
+  pdf:
+    toc: true
+    number-sections: true
+    documentclass: scrartcl
+    geometry:
+      - left=1in
+      - textwidth=4.5in
+      - marginparsep=0.25in
+      - marginparwidth=2.25in
+    reference-location: margin
+    cap-location: bottom
+
+execute:
+  freeze: false
+  echo: false
+  warning: false
+  message: false
+
+fig-width: 10
+fig-height: 7
+fig-align: center

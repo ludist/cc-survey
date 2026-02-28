@@ -1,0 +1,132 @@
+---
+title: "Data Validation"
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+## Data Loading
+
+Data are loaded by `_common.R` at book startup via `prepare_all_data()`. This Chapter verifies the loaded datasets and documents sample characteristics.
+
+### File Checksum {#sec-checksums-validation}
+
+The MD5 checksum uniquely identifies the data file used in this analysis. Verify against the value in the [Introduction](index.qmd#sec-checksums) and against any independently downloaded copy.
+
+```{r checksums}
+data.frame(
+  File    = "rousse-cc-survey-2024.csv",
+  MD5     = md5_data,
+  Rows    = nrow(survey_all),
+  Columns = ncol(survey_all)
+) |> knitr::kable(caption = "Data File Identification and Dimensions")
+```
+
+---
+
+## Sample Dimensions
+
+```{r dimensions}
+data.frame(
+  Dataset = c("Full dataset", "A/B/C view", "A/B1/C view"),
+  N       = c(nrow(survey_all), nrow(survey_data), nrow(survey_data_eu)),
+  Columns = c(ncol(survey_all), ncol(survey_data), ncol(survey_data_eu)),
+  Used_for = c("All groups (A, B, B1, C)", "PD, PU, CA, LS, WN, FS", "EU only")
+) |> knitr::kable(caption = "Dataset Dimensions")
+```
+
+---
+
+## Group Composition {#sec-group-composition}
+
+```{r}
+#| label: tbl-group-all
+#| tbl-cap: "Group Composition — Full Dataset (rousse-cc-survey-2024.csv)"
+
+dplyr::count(survey_all, GROUP) |>
+  dplyr::rename(N = n) |>
+  dplyr::mutate(Pct = round(100 * N / sum(N), 1)) |>
+  knitr::kable()
+```
+
+```{r}
+#| label: tbl-group-views
+#| tbl-cap: "Analysis Views Derived from the Full Dataset"
+
+data.frame(
+  View = c("survey_data (A/B/C)", "survey_data_eu (A/B1/C)"),
+  N    = c(nrow(survey_data), nrow(survey_data_eu)),
+  Used_for = c("PD, PU, CA, LS, WN, FS", "EU only")
+) |> knitr::kable()
+```
+
+---
+
+## Sample Characteristics {#sec-demographics}
+
+Descriptive statistics for the five demographic covariates (Age, Income, Education, Gender, Race) are reported in the covariate balance tests in [Chapter 4 (Randomization Check)](04-randomization.qmd), and the full sample-vs.-population comparison is in [Chapter 5 (Sample v. Population Analysis)](05-population.qmd).
+
+---
+
+## Data Quality {#sec-data-quality}
+
+### Scenario Variables — Missing Value Report
+
+```{r}
+#| label: tbl-quality-scenario
+#| tbl-cap: "Missing Value Report for Scenario Variables (Q1–Q4 and Delta)"
+
+scenario_vars <- c(
+  paste0(rep(c("PD", "PU", "EU", "CA", "LS", "WN", "FS"), each = 5),
+         c("1", "2", "3", "4", "25"))
+)
+scenario_vars_present <- scenario_vars[scenario_vars %in% names(survey_data)]
+
+quality_report <- check_data_quality(survey_data, columns = scenario_vars_present)
+knitr::kable(quality_report)
+```
+
+### Overall Missing Data Summary
+
+```{r quality-overall}
+n_vars   <- length(scenario_vars_present)
+n_perfect <- sum(quality_report$Missing_Count == 0)
+n_good    <- sum(quality_report$Quality %in% c("Perfect", "Good"))
+
+cat("Scenario variables checked: ", n_vars, "\n")
+cat("Variables with zero missing: ", n_perfect, "\n")
+cat("Variables with 'Perfect' or 'Good' quality: ", n_good, "\n")
+```
+
+---
+
+## Delta Variables {#sec-delta-validation}
+
+Delta variables (`Δ` = `Q2` − `Q3`) are created during data preparation by `create_all_deltas()`. They represent the gap between what respondents believe the law says (`Q2`) and what they believe it should say (`Q3`).
+
+| `Δ` Value | Interpretation |
+|---------|----------------|
+| Positive | Law perceived as more strict than preferred |
+| Zero | Perceived law matches preferred rule |
+| Negative | Law perceived as more lenient than preferred |
+
+```{r delta-validation}
+delta_vars <- paste0(c("PD", "PU", "EU", "CA", "LS", "WN", "FS"), "25")
+delta_present <- delta_vars[delta_vars %in% names(survey_data)]
+
+cat("Delta variables present: ", paste(delta_present, collapse = ", "), "\n")
+cat("Count: ", length(delta_present), "of 7\n")
+
+# Quick sanity check: verify delta = Q2 - Q3
+for (sc in c("PD", "PU", "CA", "LS", "WN", "FS")) {
+  q2  <- paste0(sc, "2")
+  q3  <- paste0(sc, "3")
+  d25 <- paste0(sc, "25")
+  if (all(c(q2, q3, d25) %in% names(survey_data))) {
+    computed <- survey_data[[q2]] - survey_data[[q3]]
+    match <- all(computed == survey_data[[d25]], na.rm = TRUE)
+    cat(sprintf("  %s: Q2 - Q3 == Delta? %s\n", sc, ifelse(match, "✓", "✗ MISMATCH")))
+  }
+}
+```

@@ -1,0 +1,313 @@
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+# 7.6 Wikipedia Image Search {.unnumbered #sec-wn}
+
+## 7.6.0 Scenario Presentation
+
+Respondents saw the following scenario. The text and image were identical across conditions; the **caption** beneath the image varied. Uniquely, the **control condition does not use a standard copyright notice** --- instead, it presents a facsimile of a search engine result from Wikipedia with a generic copyright disclaimer.
+
+::: {.callout-important appearance="simple" icon=false}
+
+A concert promoter is looking for a picture of Willie Nelson to promote an upcoming show. The promoter searches for "Willie Nelson" on Google and the following image and caption appears.
+
+:::
+
+::: {#wn-instrument}
+
+::: {.panel-tabset}
+
+### Control (C)
+
+![](../data/survey-images/Survey%20Images/Willie%20Nelson%20test%20image.JPG){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+[Willie Nelson - Wikipedia](https://en.wikipedia.org/wiki/Willie_Nelson) **Images may be subject to copyright.** Learn More
+:::
+
+### Short (A)
+
+![](../data/survey-images/Survey%20Images/Willie%20Nelson%20test%20image.JPG){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+Licensed under CC BY-NC-ND 4.0
+:::
+
+### Full + Primer (B)
+
+Full + Primer (B) respondents first reviewed a **CC Education** page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.
+
+![](../data/survey-images/Survey%20Images/Willie%20Nelson%20test%20image.JPG){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+Licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+:::
+
+:::
+
+::: {.panel-tabset}
+
+### Q1: Likelihood
+
+*In your opinion, how likely is the promoter to face legal consequences for this use?*
+<br>7-point scale: 1 "Extremely unlikely" *to* 7 "Extremely likely"
+
+### Q2: Current Law
+
+*In your opinion, if the promoter were sued for these actions, what legal consequences do you think it **would** face?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q3: Normative
+
+*In your opinion, what legal consequences **should** the promoter face for these actions?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q4: License Price
+
+*Now imagine that **before** the use described above, the promoter and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?*
+<br>Open response in US dollars
+
+:::
+
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+
+The promoter downloads the image, then posts it to several blogs, uses it in social media advertisements, and prints the image as part of a flyer. The image is seen more than 150,000 times.
+
+:::
+
+::: {.callout-note}
+## Scenario Context
+
+**Legal Context:** This scenario closely models the fact pattern of *Philpot v. Media Research Center*, 952 F.3d 579 (4th Cir. 2020), where images found via internet search were used for commercial purposes without proper attribution despite being available under a CC license. The image is licensed under CC BY-NC-ND 4.0. **The described use infringes in all three conditions** because the promoter removes attribution, does not reproduce licensing information, and uses the image commercially --- violating the Attribution, NonCommercial, and NoDerivatives terms.
+
+**Unique Design Feature:** Unlike other scenarios, the control condition does not present a traditional copyright notice. Instead, it shows a facsimile of a search engine result indicating the image was found on Wikipedia, with a link to Willie Nelson's Wikipedia entry and a generic "Images may be subject to copyright" disclaimer. The treatment conditions show the same image with CC BY-NC-ND 4.0 license information.
+
+**Expected Pattern:** This scenario tests whether CC brand recognition translates to more accurate risk assessment in a context where CC licenses are commonly encountered. The "copytrap" dynamic is relevant: Wikipedia's slogan "The Free Encyclopedia" may lead the public to believe its materials can be used without restriction, even though all Wikipedia content is subject to a Creative Commons Attribution-ShareAlike license.
+:::
+
+```{r wn-analysis}
+wn_results <- analyze_full_scenario(
+  data         = survey_data,
+  scenario_code = "WN",
+  scenario_name = "Wikipedia Image Search",
+  questions    = c("q1", "q2", "q3", "delta", "price"),
+  export_tiffs = TRUE
+)
+```
+
+```{r wn-extract, include=FALSE}
+list2env(extract_scenario_inline(wn_results, "WN", survey_data), envir = environment())
+```
+
+## 7.6.1 Q1: Likelihood of Legal Consequences {#sec-wn-q1}
+
+How likely do respondents think the concert promoter is to face legal consequences for using an image found through an internet search without attribution or licensing information?
+
+This question measures whether the source of the image --- Wikipedia versus a CC-licensed work --- affects respondents' assessment of enforcement risk. Because the image in the stimulus is not actually posted to Wikipedia, the hyperlink in the control condition links only to Willie Nelson's Wikipedia entry, which contains photos with several different licensing terms, including several generations of Creative Commons licenses.
+
+```{r}
+#| label: tbl-wn-q1-stats
+#| tbl-cap: "Wikipedia Image Search Q1: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(wn_results$statistics$q1, dunn = wn_results$dunn$q1), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-wn-q1-vda
+#| tbl-cap: "Wikipedia Image Search Q1: Pairwise Effect Sizes"
+
+knitr::kable(wn_vda_q1)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-wn-q1
+#| fig-height: 5
+#| fig-cap: "Wikipedia Image Search Q1: Likelihood of Legal Consequences by Group"
+
+print(wn_results$plots$q1)
+```
+
+
+The Control (C) group rated the likelihood of legal consequences at `r wn_q1_c` (SD = `r wn_q1_sd_c`), Short (A) at `r wn_q1_a` (SD = `r wn_q1_sd_a`), and Full + Primer (B) at `r wn_q1_b` (SD = `r wn_q1_sd_b`). The Kruskal-Wallis test was `r ifelse(wn_kw_q1$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r wn_kw_q1$parameter`) = `r fmt(wn_kw_q1$statistic)`, *p* = `r fmtp(wn_kw_q1$p.value)`). Pairwise VDA effect sizes are reported in @tbl-wn-q1-vda.
+
+This scenario does not conform with the general hypothesis that members of the public believe the owners of Creative Commons--licensed work are less likely to enforce their rights. Instead, Creative Commons licenses appear to make respondents believe, on average, that an owner of Creative Commons work is slightly more likely to take action. The control condition --- which presents the image as sourced from Wikipedia --- produces the lowest perceived risk, consistent with the possibility that Wikipedia's reputation as "The Free Encyclopedia" reduces perceived enforcement risk even though the image is in fact copyrighted and licensed.
+
+## 7.6.2 Q2: Perceived Legal Consequences Under Current Law {#sec-wn-q2}
+
+If the concert promoter is sued for using the image without permission, what legal consequences do respondents think would follow under current law?
+
+Unlike the typical control condition with a standard copyright notice, this scenario's control provides information that the image was found on Wikipedia and linked to the Wikipedia page for Willie Nelson. The treatment conditions add CC BY-NC-ND licensing information, signaling both the existence of a license and specific restrictions that were violated by the promoter's commercial use.
+
+```{r}
+#| label: tbl-wn-q2-stats
+#| tbl-cap: "Wikipedia Image Search Q2: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(wn_results$statistics$q2, dunn = wn_results$dunn$q2), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-wn-q2-vda
+#| tbl-cap: "Wikipedia Image Search Q2: Pairwise Effect Sizes"
+
+knitr::kable(wn_vda_q2)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-wn-q2
+#| fig-height: 5
+#| fig-cap: "Wikipedia Image Search Q2: Estimated Legal Consequences (Current) by Group"
+
+print(wn_results$plots$q2)
+```
+
+
+The Control (C) group estimated consequences at `r wn_q2_c` (SD = `r wn_q2_sd_c`), Short (A) at `r wn_q2_a` (SD = `r wn_q2_sd_a`), and Full + Primer (B) at `r wn_q2_b` (SD = `r wn_q2_sd_b`). The Kruskal-Wallis test was `r ifelse(wn_kw_q2$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r wn_kw_q2$parameter`) = `r fmt(wn_kw_q2$statistic)`, *p* = `r fmtp(wn_kw_q2$p.value)`). Pairwise VDA effect sizes are reported in @tbl-wn-q2-vda.
+
+The Q2 results reinforce the counterintuitive pattern observed in Q1. CC-exposed groups perceived higher consequences under current law than respondents who saw only a Wikipedia-sourced image with a generic copyright disclaimer. This is consistent with the copytrap hypothesis: Wikipedia's "Free Encyclopedia" framing appears to reduce perceived legal consequences for unauthorized use, while explicit CC licensing information --- particularly the full-text license with the NonCommercial and NoDerivatives terms (Full + Primer (B)) --- signals that the work is subject to enforceable restrictions. The pattern suggests that CC licenses function not as a permissive signal but as a *salience* signal, drawing attention to the existence of copyright restrictions that respondents in the Wikipedia control may have overlooked.
+
+## 7.6.3 Q3: Normative Preferences {#sec-wn-q3}
+
+What consequences do respondents believe *should* follow from using an online image for commercial advertising without attribution?
+
+```{r}
+#| label: tbl-wn-q3-stats
+#| tbl-cap: "Wikipedia Image Search Q3: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(wn_results$statistics$q3, dunn = wn_results$dunn$q3), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-wn-q3-vda
+#| tbl-cap: "Wikipedia Image Search Q3: Pairwise Effect Sizes"
+
+knitr::kable(wn_vda_q3)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-wn-q3
+#| fig-height: 5
+#| fig-cap: "Wikipedia Image Search Q3: Estimated Legal Consequences (Preferred) by Group"
+
+print(wn_results$plots$q3)
+```
+
+
+The Control (C) group's preferred consequence level was `r wn_q3_c` (SD = `r wn_q3_sd_c`), Short (A) was `r wn_q3_a` (SD = `r wn_q3_sd_a`), and Full + Primer (B) was `r wn_q3_b` (SD = `r wn_q3_sd_b`). The Kruskal-Wallis test was `r ifelse(wn_kw_q3$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r wn_kw_q3$parameter`) = `r fmt(wn_kw_q3$statistic)`, *p* = `r fmtp(wn_kw_q3$p.value)`). Pairwise VDA effect sizes are reported in @tbl-wn-q3-vda.
+
+For respondents' view of what the law should be, the full-text license with education (Full + Primer (B)) slightly increases respondents' preferred severity of consequences relative to both the abbreviated treatment and the Wikipedia control. This normative direction is noteworthy: respondents who read the full CC license text with the educational primer not only perceived higher consequences under current law (Q2) but also *preferred* higher consequences. The CC license appears to shift normative preferences by making the unauthorized nature of the commercial use more salient --- when respondents understand what the license permits and prohibits, they judge the violation more harshly.
+
+## 7.6.4 Delta (Q2 - Q3): Law--Preference Gap {#sec-wn-delta}
+
+Do respondents believe the consequences for using online images should be more or less severe than what current law provides?
+
+{{< include ../_includes/delta-definition.qmd >}}
+
+```{r}
+#| label: tbl-wn-delta-stats
+#| tbl-cap: "Wikipedia Image Search Delta: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(wn_results$statistics$delta, dunn = wn_results$dunn$delta), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-wn-delta-vda
+#| tbl-cap: "Wikipedia Image Search Delta: Pairwise Effect Sizes"
+
+knitr::kable(wn_vda_delta)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-wn-delta
+#| fig-height: 5
+#| fig-cap: "Wikipedia Image Search Delta: Current\u2013Preferred Legal Consequences by Group"
+
+print(wn_results$plots$delta)
+```
+
+
+```{r}
+#| label: tbl-wn-delta-wilcox
+#| tbl-cap: "Wikipedia Image Search Delta: Within-Group Wilcoxon Signed-Rank Tests — Does Each Group's Delta Differ Significantly from Zero?"
+
+knitr::kable(format_wilcoxon_table(wn_results), row.names = FALSE)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+The Delta analysis for the Wikipedia Image Search scenario addresses two distinct questions. First, the *between-group* Kruskal-Wallis test asks whether CC licensing information shifts the law--preference gap: Control Delta = `r wn_delta_c` (SD = `r wn_delta_sd_c`), Short (A) = `r wn_delta_a` (SD = `r wn_delta_sd_a`), Full + Primer (B) = `r wn_delta_b` (SD = `r wn_delta_sd_b`). The omnibus test was `r ifelse(wn_kw_delta$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r wn_kw_delta$parameter`) = `r fmt(wn_kw_delta$statistic)`, *p* = `r fmtp(wn_kw_delta$p.value)`). `r if (wn_delta_all_pos) "All three deltas were small and positive, indicating that respondents across all conditions perceived current law as imposing slightly stricter consequences than they personally preferred." else "Deltas were mixed in sign across groups."` A non-significant between-group test indicates that the licensing condition does not change the direction or magnitude of the law--preference gap --- regardless of condition, respondents believe the consequences for this use should be slightly less severe than their understanding of the current law.
+
+Second, the *within-group* Wilcoxon signed-rank tests ask whether each group's Delta differs significantly from zero --- that is, whether there is a genuine gap between perceived law and preferences within each condition. As reported in the Wilcoxon table above, `r ifelse(wn_wilcox_all_sig, "all three groups showed significant departures from zero, confirming that the law--preference gap exists within each treatment condition individually", ifelse(wn_wilcox_any_sig, "at least one group showed a significant departure from zero, indicating that the gap between perceived law and preferences is genuine in at least some conditions", "no group's delta significantly differed from zero, suggesting that perceived law and preferences are broadly aligned across all conditions"))`.
+
+## 7.6.5 Q4: License Price Estimate {#sec-wn-price}
+
+What do respondents estimate a non-exclusive license for using an online image for commercial advertising would cost?
+
+```{r}
+#| label: tbl-wn-price-stats
+#| tbl-cap: "Wikipedia Image Search Q4: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(wn_results$statistics$price, dunn = wn_results$dunn$price), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-wn-price-vda
+#| tbl-cap: "Wikipedia Image Search Q4: Pairwise Effect Sizes"
+
+knitr::kable(wn_vda_price)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-wn-price
+#| fig-height: 5
+#| fig-cap: "Wikipedia Image Search Q4: License Price Estimate by Group"
+
+print(wn_results$plots$price)
+```
+
+
+After trimming the top 1% of responses to remove outlier estimates, median license price estimates were `r wn_price_md_c` for the Control, `r wn_price_md_a` for Short (A), and `r wn_price_md_b` for Full + Primer (B). Mean estimates --- which are pulled upward by the right-skewed distribution typical of open-ended price questions --- were `r wn_price_m_c`, `r wn_price_m_a`, and `r wn_price_m_b`, respectively. The Kruskal-Wallis test was `r ifelse(wn_kw_price$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r wn_kw_price$parameter`) = `r fmt(wn_kw_price$statistic)`, *p* = `r fmtp(wn_kw_price$p.value)`). Pairwise VDA effect sizes are reported in @tbl-wn-price-vda.
+
+The commercial advertising context of this scenario --- a concert promoter using an image for promotional purposes --- should produce moderately high license price estimates, comparable to the Commercial Advertising scenario. The gap between means and medians in @tbl-wn-price-stats reflects the right-skewed distribution characteristic of open-ended price estimates: some respondents estimated license values in the thousands, pulling means well above medians. See @fig-wn-price for the full distributional comparison across groups.
+
+## 7.6.6 Summary {#sec-wn-summary}
+
+::: {.callout-tip}
+## Key Findings --- Wikipedia Image Search
+
+The Wikipedia Image Search scenario is modeled on *Philpot v. Media Research Center*, 952 F.3d 579 (4th Cir. 2020), where a photographer's CC-licensed images were found via search engines and used commercially without attribution. The key findings are:
+
+1. **Copytrap effect confirmed.** The Wikipedia control --- which presents the image as sourced from "The Free Encyclopedia" with a generic "Images may be subject to copyright" disclaimer --- produces the lowest perceived risk (Q1: M = `r wn_q1_c`), lowest perceived consequences (Q2: M = `r wn_q2_c`), and lowest preferred consequences (Q3: M = `r wn_q3_c`) across all conditions. Wikipedia's framing as a free resource appears to suppress awareness of the copyright restrictions that apply to its content.
+
+2. **Reversed treatment direction.** Unlike most scenarios in this study, CC-exposed respondents perceived *higher* legal risk and *higher* consequences than the Wikipedia control. The general hypothesis --- that CC licensing reduces perceived risk --- does not hold when the control condition itself implies free availability. The CC license functions not as a permissive signal but as a *salience* signal, drawing attention to enforceable copyright restrictions that the Wikipedia framing obscures.
+
+3. **CC as salience signal, not permissive signal.** Full + Primer (B) respondents, who reviewed the full license text and educational primer, rated both perceived (Q2: M = `r wn_q2_b`) and preferred (Q3: M = `r wn_q3_b`) consequences highest. Understanding what the license permits and prohibits leads respondents to judge the violation more harshly, not more leniently. The NonCommercial and NoDerivatives terms make the unauthorized nature of the promoter's commercial use explicit.
+
+4. **Law--preference gap stable across conditions.** Delta (Q2 - Q3) was `r ifelse(wn_kw_delta$p.value < 0.05, "significantly different", "not significantly different")` across groups (Kruskal-Wallis *p* = `r fmtp(wn_kw_delta$p.value)`). `r if (wn_delta_all_pos) "All three deltas were small and positive, indicating respondents perceived current law as slightly stricter than preferred regardless of the licensing information provided." else "Deltas were mixed in sign across groups."` Within-group Wilcoxon signed-rank tests showed `r ifelse(wn_wilcox_all_sig, "all", ifelse(wn_wilcox_any_sig, "some but not all", "no"))` groups' deltas significantly differed from zero.
+
+5. **Philpot implications.** Photographers whose CC-licensed images appear on Wikipedia face a double disadvantage: the Wikipedia context both facilitates discovery by making images prominent in search results and undermines the public's appreciation of the copyright protections that remain. The data suggest that the general public, encountering a CC-licensed image through Wikipedia, perceives less legal risk than when the same image is presented with explicit CC licensing information.
+
+6. **Price estimates reflect commercial context.** Median license price estimates (Control (C): `r wn_price_md_c`, Short (A): `r wn_price_md_a`, Full + Primer (B): `r wn_price_md_b`) reflect the commercial advertising use described in the scenario. The gap between means and medians across groups indicates right-skewed distributions, with some respondents estimating license values in the thousands. Group differences were `r ifelse(wn_kw_price$p.value < 0.05, "significant", "not significant")` (Kruskal-Wallis *p* = `r fmtp(wn_kw_price$p.value)`).
+:::

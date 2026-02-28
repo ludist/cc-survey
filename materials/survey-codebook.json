@@ -1,0 +1,4563 @@
+[
+  {
+    "qualtrics_id": "QID35",
+    "export_tag": "CAC0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A bike shop owner who wants to create a social media ad finds the following image on a search engine. The search result is displayed as follows: Chicago Schwinn \u00a9 2018 D. Green. All Rights Reserved. The bike shop owner uses the image in the following Facebook ad. The ad is shown to more than 100,000 people.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID177",
+    "export_tag": "CATB0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A bike shop owner who wants to create a social media ad finds the following image on a search engine. The search result is displayed as follows: Chicago Schwinn \u00a9 2018 by D. Green is licensed under Creative Commons Attribution-NonCommercial 4.0 The bike shop owner uses the image in the following Facebook ad. The ad is shown to more than 100,000 people.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215597202",
+    "export_tag": "CATA0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A bike shop owner who wants to create a social media ad finds the following image on a search engine. The search result is displayed as follows: Chicago Schwinn \u00a9 2018 by D. Green is licensed under CC BY-NC 4.0 The bike shop owner uses the image in the following Facebook ad. The ad is shown to more than 100,000 people.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID145",
+    "export_tag": "FSTA0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A college student wants to let others download their favorite music. The student picks a CD released by a major label and distributed nationally. On the back of the CD, this caption appears: Seconds \u00a9 2018 by The Kick Bugs is licensed under CC BY 4.0 The student converts the CD to MP3 files, includes the track titles, album name, artist name, and license information in the file metadata and then uploads them to a file-sharing service. The album is downloaded more than 50,000 times on the file-sharing service.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID151",
+    "export_tag": "FSC0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A college student wants to let others download their favorite music. The student picks a CD released by a major label and distributed nationally. On the back of the CD, this caption appears: Seconds \u00a9 2018 by The Kick Bugs. All Rights Reserved. The student converts the CD to MP3 files, includes the track titles, album name, artist name, and license information in the file metadata and then uploads them to a file-sharing service. The album is downloaded more than 50,000 times on the file-sharing service.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID195",
+    "export_tag": "FSTB0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A college student wants to let others download their favorite music. The student picks a CD released by a major label and distributed nationally. On the back of the CD, this caption appears: Seconds \u00a9 2018 by The Kick Bugs is licensed under Creative Commons Attribution 4.0 Attribution The student converts the CD to MP3 files, includes the track titles, album name, artist name, and license information in the file metadata and then uploads them to a file-sharing service. The album is downloaded more than 50,000 times on the file-sharing service.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID133",
+    "export_tag": "WNC0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A concert promoter is looking for a picture of Willie Nelson to promote an upcoming show. The promoter searches for \"Willie Nelson\" on Google and the following image and caption appears. Willie Nelson - Wikipedia Images may be subject to copyright. Learn More The promoter downloads the image, then posts it to several blogs, uses it in social media advertisements, and prints the image as part of a flyer. The image is seen more than 150,000 times without attribution or licensing information.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID139",
+    "export_tag": "WNTA0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A concert promoter is looking for a picture of Willie Nelson to promote an upcoming show. The promoter searches for \"Willie Nelson\" on Google and the following image and caption appears. Willie Waving \u00a9 2018 by D. Orange is licensed under CC BY-NC-ND 4.0 The promoter downloads the image, then posts it to several blogs, uses it in social media advertisements, and prints the image as part of a flyer. The image is seen more than 150,000 times without attribution or licensing information.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID189",
+    "export_tag": "WNTB0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A concert promoter is looking for a picture of Willie Nelson to promote an upcoming show. The promoter searches for \"Willie Nelson\" on Google and the following image and caption appears. Willie Waving \u00a9 2018 by D. Orange is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International The promoter downloads the image, then posts it to several blogs, uses it in social media advertisements, and prints the image as part of a flyer. The image is seen more than 150,000 times without attribution or licensing information.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID27",
+    "export_tag": "PUC0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A new homeowner wants to decorate their living space. They find the following image through a search engine. The search result is presented as follows: Warm Balloon Grid \u00a9 2018 by F. Brown. All Rights Reserved. The homeowner downloads the image, prints only the image at poster size, and hangs it up in their living room.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID47",
+    "export_tag": "PUTA0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A new homeowner wants to decorate their living space. They find the following image through a search engine. The search result is presented as follows: Warm Balloon Grid &copy; 2018 by F. Brown is licensed under CC BY 4.0 The homeowner downloads the image, prints only the image at poster size, and hangs it up in their living room.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID165",
+    "export_tag": "PUTB0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "A new homeowner wants to decorate their living space. They find the following image through a search engine. The search result is presented as follows: Warm Balloon Grid \u00a9 2018 by F. Brown is licensed under Creative Commons Attribution 4.0 International The homeowner downloads the image, prints only the image at poster size, and hangs it up in their living room.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID23",
+    "export_tag": "PDC0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An advertising executive at a large company wants to use a picture of Planet Earth for an advertisement. The executive finds the following image and caption on the NASA.gov website: U.S. Government Work The executive uses only the image in a full-page advertisement that runs in national magazines and newspapers as well as their websites.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID43",
+    "export_tag": "PDTA0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An advertising executive at a large company wants to use a picture of Planet Earth for an advertisement. The executive finds the following image and caption on the NASA.gov website: The Blue Marble by NASA The executive uses only the image in a full-page advertisement that runs in national magazines and newspapers as well as their websites.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID159",
+    "export_tag": "PDTB0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An advertising executive at a large company wants to use a picture of Planet Earth for an advertisement. The executive finds the following image and caption on the NASA.gov website: This work (The Blue Marble, by NASA) is free of known copyright restrictions. The executive uses only the image in a full-page advertisement that runs in national magazines and newspapers as well as their websites.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID31",
+    "export_tag": "EUC0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An author writes and self-publishes a book of nursery rhymes, \"Pretty Pink Piggies.\" On the inside of the book\u2019s front cover, they include this notice: Pretty Pink Piggies \u00a9 2018 by S. Baker. All Rights Reserved. At the request of several school systems, a commercial publishing company reprints copies of the author's book and sells 200,000 copies for profit only to those schools. The author's name remains on the book.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID51",
+    "export_tag": "EUTA0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An author writes and self-publishes a book of nursery rhymes, \"Pretty Pink Piggies.\" On the inside of the book's front cover, they include this notice: Pretty Pink Piggies \u00a9 2018 by S. Baker is licensed under CC BY-NC-SA 4.0 A commercial publishing company reprints copies of their book and sells 200,000 copies to schools for profit without permission or an agreement with the author. The author's name remains on the book.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID171",
+    "export_tag": "EUTB0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An author writes and self-publishes a book of nursery rhymes, \"Pretty Pink Piggies.\" On the inside of the book's front cover, they include this notice: Pretty Pink Piggies &copy; 2018 by S. Baker is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International A commercial publishing company reprints copies of their book and sells 200,000 copies to schools for profit without permission or an agreement with the author. The author's name remains on the book.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID39",
+    "export_tag": "LSC0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An entrepreneur looking for a new product finds the following image through a search engine. The search result is displayed as follows: \u00a9 2018 J. Gray. All Rights Reserved. While downloading the image, the entrepreneur discovers the owner is selling their own posters of the work for $20. The entrepreneur prints six thousand posters with the image and sells them online for $10 each. They do not provide any information about the poster besides the title they make up, \u201cCanyon Crow Poster.\u201d They sell all of the posters for a total of $60,000 in revenue.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID59",
+    "export_tag": "LSTA0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An entrepreneur looking for a new product finds the following image through a search engine. The search result is displayed as follows: Canyon Crow \u00a9 2018 by J. Gray is licensed under CC BY-NC-ND 4.0 While downloading the image, the entrepreneur discovers the owner is selling their own posters of the work for $20. The entrepreneur prints six thousand posters with the image and sells them online for $10 each. They do not provide any information about the poster besides the title they make up, \u201cCanyon Crow Poster.\u201d They sell all of the posters for a total of $60,000 in revenue.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID183",
+    "export_tag": "LSTB0",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "An entrepreneur looking for a new product finds the following image through a search engine. The search result is displayed as follows: Canyon Crow \u00a9 2018 by J. Gray is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International While downloading the image, the entrepreneur discovers the owner is selling their own posters of the work for $20. The entrepreneur prints six thousand posters with the image and sells them online for $10 each. They do not provide any information about the poster besides the title they make up, \u201cCanyon Crow Poster.\u201d They sell all of the posters for a total of $60,000 in revenue.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID206",
+    "export_tag": "HISPLAT",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "Are you of Spanish, Hispanic, or Latino origin?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Yes"
+      },
+      {
+        "value": "2",
+        "label": "No"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID16",
+    "export_tag": "IDMcD",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "Do you know the brand associated with this logo?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Yes"
+      },
+      {
+        "value": "2",
+        "label": "No"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID19",
+    "export_tag": "IDCC",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "Do you know the brand associated with this logo?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Yes"
+      },
+      {
+        "value": "2",
+        "label": "No"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID18",
+    "export_tag": "IDFF",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "Do you know the brand associated with this logo?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Yes"
+      },
+      {
+        "value": "2",
+        "label": "No"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID157",
+    "export_tag": "ABOUTCC",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "Before looking over the scenarios, please review the following information about the Creative Commons licenses: About CC Licenses Creative Commons licenses give everyone from individual creators to large institutions a standardized way to grant the public permission to use their creative work under copyright law. From the reuser\u2019s perspective, the presence of a Creative Commons license on a copyrighted work answers the question, What can I do with this work? The CC License options There are six different license types, listed from most to least permissive here: CC BY This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use. CC BY includes the following elements: BY: credit must be given to the creator. CC BY-SA This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use. If you remix, adapt, or build upon the material, you must license the modified material under identical terms. CC BY-SA includes the following elements: BY: credit must be given to the creator. SA: Adaptations must be shared under the same terms. CC BY-NC This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. CC BY-NC includes the following elements: BY: credit must be given to the creator. NC: Only noncommercial uses of the work are permitted. CC BY-NC-SA This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. If you remix, adapt, or build upon the material, you must license the modified material under identical terms. CC BY-NC-SA includes the following elements: BY: credit must be given to the creator. NC: Only noncommercial uses of the work are permitted. SA: Adaptations must be shared under the same terms. CC BY-ND This license enables reusers to copy and distribute the material in any medium or format in unadapted form only, and only so long as attribution is given to the creator. The license allows for commercial use. CC BY-ND includes the following elements: BY: credit must be given to the creator. ND: No derivatives or adaptations of the work are permitted. CC BY-NC-ND This license enables reusers to copy and distribute the material in any medium or format in unadapted form only, for noncommercial purposes only, and only so long as attribution is given to the creator. CC BY-NC-ND includes the following elements: BY: credit must be given to the creator. NC: Only noncommercial uses of the work are permitted. ND: No derivatives or adaptations of the work are permitted. The CC0 Public Domain Dedication CC0 (aka CC Zero) is a public dedication tool, which enables creators to give up their copyright and put their works into the worldwide public domain. CC0 enables reusers to distribute, remix, adapt, and build upon the material in any medium or format, with no conditions. (Progression button will appear 20 seconds after page loads.)",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID207",
+    "export_tag": "RACE",
+    "question_type": "MC",
+    "selector": "MAVR",
+    "question_text": "Choose one or more races that you consider yourself to be",
+    "choices": [
+      {
+        "value": "1",
+        "label": "White or Caucasian"
+      },
+      {
+        "value": "2",
+        "label": "Black or African American"
+      },
+      {
+        "value": "3",
+        "label": "American Indian/Native American or Alaska Native"
+      },
+      {
+        "value": "4",
+        "label": "Asian"
+      },
+      {
+        "value": "5",
+        "label": "Native Hawaiian or Other Pacific Islander"
+      },
+      {
+        "value": "6",
+        "label": "Other"
+      },
+      {
+        "value": "7",
+        "label": "Prefer not to say"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID64",
+    "export_tag": "TECHINFO",
+    "question_type": "Meta",
+    "selector": "Browser",
+    "question_text": "Click to write the question text",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Browser"
+      },
+      {
+        "value": "2",
+        "label": "Version"
+      },
+      {
+        "value": "3",
+        "label": "Operating System"
+      },
+      {
+        "value": "4",
+        "label": "Screen Resolution"
+      },
+      {
+        "value": "5",
+        "label": "Flash Version"
+      },
+      {
+        "value": "6",
+        "label": "Java Support"
+      },
+      {
+        "value": "7",
+        "label": "User Agent"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID201",
+    "export_tag": "IDFAKE",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "Do you know the brand associated with this logo?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Yes"
+      },
+      {
+        "value": "2",
+        "label": "No"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID259",
+    "export_tag": "BRANDSKILLS",
+    "question_type": "Matrix",
+    "selector": "Likert",
+    "question_text": "How familiar are you with the following computer and Internet-related brands? Please choose a number between 1 and 5 where 1 represents \"no understanding\" and 5 represents \"full understanding\" of the item.",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Creative Commons"
+      },
+      {
+        "value": "2",
+        "label": "Byteyield"
+      },
+      {
+        "value": "3",
+        "label": "Microsoft"
+      },
+      {
+        "value": "4",
+        "label": "Mozilla"
+      }
+    ],
+    "sub_questions": [
+      {
+        "value": "1",
+        "label": "None"
+      },
+      {
+        "value": "2",
+        "label": "Little"
+      },
+      {
+        "value": "3",
+        "label": "Some"
+      },
+      {
+        "value": "4",
+        "label": "Good"
+      },
+      {
+        "value": "5",
+        "label": "Full"
+      }
+    ],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID214",
+    "export_tag": "NETSKILLS",
+    "question_type": "Matrix",
+    "selector": "Likert",
+    "question_text": "How familiar are you with the following computer and Internet-related items? Please choose a number between 1 and 5 where 1 represents \"no understanding\" and 5 represents \"full understanding\" of the item.",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Advanced search"
+      },
+      {
+        "value": "2",
+        "label": "Phishing"
+      },
+      {
+        "value": "3",
+        "label": "Spyware"
+      },
+      {
+        "value": "4",
+        "label": "Cache"
+      },
+      {
+        "value": "5",
+        "label": "PDF"
+      },
+      {
+        "value": "6",
+        "label": "Wiki"
+      }
+    ],
+    "sub_questions": [
+      {
+        "value": "1",
+        "label": "None"
+      },
+      {
+        "value": "2",
+        "label": "Little"
+      },
+      {
+        "value": "3",
+        "label": "Some"
+      },
+      {
+        "value": "4",
+        "label": "Good"
+      },
+      {
+        "value": "5",
+        "label": "Full"
+      }
+    ],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID244",
+    "export_tag": "LOGOINST",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "In the next section, you will be asked whether you recognize four logos associated with brands presented in random order. You will also be asked to identify brands you recognize.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID63",
+    "export_tag": "VIGNINTRO",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "In the next section, you will be presented with seven short hypothetical scenarios in random order. Assume all scenarios are in the U.S. and U.S. law applies. After a five second delay, each scenario will be accompanied by four questions. Please carefully consider the scenario and provide your honest opinion. There are no incorrect answers and your answers will have no impact on your compensation.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID8",
+    "export_tag": "STATE",
+    "question_type": "MC",
+    "selector": "DL",
+    "question_text": "In what state or territory do you currently live?",
+    "choices": [
+      {
+        "value": "63",
+        "label": "Other"
+      },
+      {
+        "value": "4",
+        "label": "AL"
+      },
+      {
+        "value": "5",
+        "label": "AK"
+      },
+      {
+        "value": "7",
+        "label": "AZ"
+      },
+      {
+        "value": "8",
+        "label": "AR"
+      },
+      {
+        "value": "9",
+        "label": "CA"
+      },
+      {
+        "value": "10",
+        "label": "CO"
+      },
+      {
+        "value": "11",
+        "label": "CT"
+      },
+      {
+        "value": "12",
+        "label": "DE"
+      },
+      {
+        "value": "13",
+        "label": "DC"
+      },
+      {
+        "value": "14",
+        "label": "FL"
+      },
+      {
+        "value": "15",
+        "label": "GA"
+      },
+      {
+        "value": "17",
+        "label": "HI"
+      },
+      {
+        "value": "18",
+        "label": "ID"
+      },
+      {
+        "value": "19",
+        "label": "IL"
+      },
+      {
+        "value": "20",
+        "label": "IN"
+      },
+      {
+        "value": "21",
+        "label": "IA"
+      },
+      {
+        "value": "22",
+        "label": "KS"
+      },
+      {
+        "value": "23",
+        "label": "KY"
+      },
+      {
+        "value": "24",
+        "label": "LA"
+      },
+      {
+        "value": "25",
+        "label": "ME"
+      },
+      {
+        "value": "26",
+        "label": "MD"
+      },
+      {
+        "value": "28",
+        "label": "MA"
+      },
+      {
+        "value": "29",
+        "label": "MI"
+      },
+      {
+        "value": "31",
+        "label": "MN"
+      },
+      {
+        "value": "32",
+        "label": "MS"
+      },
+      {
+        "value": "33",
+        "label": "MO"
+      },
+      {
+        "value": "34",
+        "label": "MT"
+      },
+      {
+        "value": "35",
+        "label": "NE"
+      },
+      {
+        "value": "36",
+        "label": "NV"
+      },
+      {
+        "value": "37",
+        "label": "NH"
+      },
+      {
+        "value": "38",
+        "label": "NJ"
+      },
+      {
+        "value": "39",
+        "label": "NM"
+      },
+      {
+        "value": "40",
+        "label": "NY"
+      },
+      {
+        "value": "41",
+        "label": "NC"
+      },
+      {
+        "value": "42",
+        "label": "ND"
+      },
+      {
+        "value": "44",
+        "label": "OH"
+      },
+      {
+        "value": "45",
+        "label": "OK"
+      },
+      {
+        "value": "46",
+        "label": "OR"
+      },
+      {
+        "value": "48",
+        "label": "PA"
+      },
+      {
+        "value": "50",
+        "label": "RI"
+      },
+      {
+        "value": "51",
+        "label": "SC"
+      },
+      {
+        "value": "52",
+        "label": "SD"
+      },
+      {
+        "value": "53",
+        "label": "TN"
+      },
+      {
+        "value": "54",
+        "label": "TX"
+      },
+      {
+        "value": "55",
+        "label": "UT"
+      },
+      {
+        "value": "56",
+        "label": "VT"
+      },
+      {
+        "value": "57",
+        "label": "VA"
+      },
+      {
+        "value": "59",
+        "label": "WA"
+      },
+      {
+        "value": "60",
+        "label": "WV"
+      },
+      {
+        "value": "61",
+        "label": "WI"
+      },
+      {
+        "value": "62",
+        "label": "WY"
+      },
+      {
+        "value": "115",
+        "label": "I live outside the U.S."
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID181",
+    "export_tag": "CATB4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the bike shop owner and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215597206",
+    "export_tag": "CATA4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the bike shop owner and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID70",
+    "export_tag": "PDC4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the executive's company and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID175",
+    "export_tag": "EUTB4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the executive's company and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID115",
+    "export_tag": "PUC4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the homeowner and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID116",
+    "export_tag": "PUTA4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the homeowner and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID169",
+    "export_tag": "PUTB4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the homeowner and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID80",
+    "export_tag": "EUC4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the publishing company and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID84",
+    "export_tag": "EUTA4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the publishing company and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID106",
+    "export_tag": "CAC4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the bike shop owner and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID120",
+    "export_tag": "LSC4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the entrepreneur and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID131",
+    "export_tag": "LSTA4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the entrepreneur and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID187",
+    "export_tag": "LSTB4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the entrepreneur and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID72",
+    "export_tag": "PDTA4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the executive's company and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID163",
+    "export_tag": "PDTB4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the executive's company and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID137",
+    "export_tag": "WNC4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the promoter and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID143",
+    "export_tag": "WNTA4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the promoter and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID193",
+    "export_tag": "WNTB4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the promoter and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID149",
+    "export_tag": "FSTA4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the student and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID155",
+    "export_tag": "FSC4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the student and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID199",
+    "export_tag": "FSTB4",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Now imagine that before the use described in the scenario, the student and the owner of this work agreed on a price for a non-exclusive license\u2014meaning that the owner can also license the work to others\u2014that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars:",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID103",
+    "export_tag": "CAC1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the bike shop owner to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID178",
+    "export_tag": "CATB1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the bike shop owner to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215597203",
+    "export_tag": "CATA1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the bike shop owner to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID117",
+    "export_tag": "LSC1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the entrepreneur to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID128",
+    "export_tag": "LSTA1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the entrepreneur to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID184",
+    "export_tag": "LSTB1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the entrepreneur to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID25",
+    "export_tag": "PDC1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the executive's company to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID74",
+    "export_tag": "PDTA1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the executive's company to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID160",
+    "export_tag": "PDTB1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the executive's company to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID85",
+    "export_tag": "PUC1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the homeowner to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID166",
+    "export_tag": "PUTB1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the homeowner to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215596995",
+    "export_tag": "PUTA1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the homeowner to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID134",
+    "export_tag": "WNC1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the promoter to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID140",
+    "export_tag": "WNTA1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the promoter to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID190",
+    "export_tag": "WNTB1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the promoter to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID81",
+    "export_tag": "EUTA1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the publisher to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID172",
+    "export_tag": "EUTB1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the publisher to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID77",
+    "export_tag": "EUC1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the publishing company to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID146",
+    "export_tag": "FSTA1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the student to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID152",
+    "export_tag": "FSC1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the student to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID196",
+    "export_tag": "FSTB1",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most likely: In your opinion, how likely is the student to face legal consequences for this use?",
+    "choices": [
+      {
+        "value": "6",
+        "label": "1 Extremely unlikely"
+      },
+      {
+        "value": "7",
+        "label": "2 Moderately unlikely"
+      },
+      {
+        "value": "8",
+        "label": "3 Slightly unlikely"
+      },
+      {
+        "value": "9",
+        "label": "4 Neither likely nor unlikely"
+      },
+      {
+        "value": "10",
+        "label": "5 Slightly likely"
+      },
+      {
+        "value": "11",
+        "label": "6 Moderately likely"
+      },
+      {
+        "value": "12",
+        "label": "7 Extremely likely"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID104",
+    "export_tag": "CAC2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the bike shop owner was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "14",
+        "label": "6"
+      },
+      {
+        "value": "7",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID179",
+    "export_tag": "CATB2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the bike shop owner was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215597204",
+    "export_tag": "CATA2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the bike shop owner was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID118",
+    "export_tag": "LSC2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the entrepreneur was sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID129",
+    "export_tag": "LSTA2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the entrepreneur was sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID185",
+    "export_tag": "LSTB2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the entrepreneur was sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID24",
+    "export_tag": "PDC2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the executive's company were sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID75",
+    "export_tag": "PDTA2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the executive's company were sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID161",
+    "export_tag": "PDTB2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the executive's company were sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID96",
+    "export_tag": "PUC2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the homeowner was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID167",
+    "export_tag": "PUTB2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the homeowner was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215596996",
+    "export_tag": "PUTA2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the homeowner was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID135",
+    "export_tag": "WNC2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the promoter was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID141",
+    "export_tag": "WNTA2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the promoter was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID191",
+    "export_tag": "WNTB2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the promoter was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID78",
+    "export_tag": "EUC2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the publishing company were sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID82",
+    "export_tag": "EUTA2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the publishing company were sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID173",
+    "export_tag": "EUTB2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the publishing company were sued for these actions, what legal consequences do you think it would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID147",
+    "export_tag": "FSTA2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the student was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID153",
+    "export_tag": "FSC2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the student was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID197",
+    "export_tag": "FSTB2",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the student was sued for these actions, what legal consequences do you think they would face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID228",
+    "export_tag": "FSTB3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, if the student was sued for these actions, what legal consequences do you think they should face?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "2",
+        "label": "2"
+      },
+      {
+        "value": "3",
+        "label": "3"
+      },
+      {
+        "value": "6",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "4",
+        "label": "5"
+      },
+      {
+        "value": "7",
+        "label": "6"
+      },
+      {
+        "value": "8",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID26",
+    "export_tag": "PDC3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the executive's company face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID76",
+    "export_tag": "PDTA3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the executive's company face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID79",
+    "export_tag": "EUC3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the publishing company face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID83",
+    "export_tag": "EUTA3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the publishing company face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID97",
+    "export_tag": "PUC3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the homeowner face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID105",
+    "export_tag": "CAC3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the bike shop owner face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID119",
+    "export_tag": "LSC3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the entrepreneur face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID130",
+    "export_tag": "LSTA3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the entrepreneur face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID136",
+    "export_tag": "WNC3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the promoter face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID142",
+    "export_tag": "WNTA3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the promoter face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID148",
+    "export_tag": "FSTA3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the student face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "14",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "7",
+        "label": "5"
+      },
+      {
+        "value": "8",
+        "label": "6"
+      },
+      {
+        "value": "12",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID154",
+    "export_tag": "FSC3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the student face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID162",
+    "export_tag": "PDTB3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the executive's company face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID168",
+    "export_tag": "PUTB3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the homeowner face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID174",
+    "export_tag": "EUTB3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the publishing company face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID180",
+    "export_tag": "CATB3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the bike shop owner face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID186",
+    "export_tag": "LSTB3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the entrepreneur face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID192",
+    "export_tag": "WNTB3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the promoter face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215596997",
+    "export_tag": "PUTA3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the homeowner face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215597205",
+    "export_tag": "CATA3",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "On a scale from 1\u20137, with 7 being the most negative: In your opinion, what legal consequences should the bike shop owner face for these actions, if sued?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "1 No consequences"
+      },
+      {
+        "value": "10",
+        "label": "2"
+      },
+      {
+        "value": "6",
+        "label": "3"
+      },
+      {
+        "value": "7",
+        "label": "4 Some negative consequences, such as a court order to stop and/or a moderate fine"
+      },
+      {
+        "value": "8",
+        "label": "5"
+      },
+      {
+        "value": "12",
+        "label": "6"
+      },
+      {
+        "value": "13",
+        "label": "7 Very negative consequences, such as incarceration and/or a large fine"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID254",
+    "export_tag": "CAPTCHA",
+    "question_type": "Captcha",
+    "selector": "V2",
+    "question_text": "Please complete the following CAPTCHA.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID218",
+    "export_tag": "IDMcD-Text",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Please identify the brand you associate with this logo.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID219",
+    "export_tag": "IDFAKE-Text",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Please identify the brand you associate with this logo.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID224",
+    "export_tag": "IDFF-Text",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Please identify the brand you associate with this logo.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID225",
+    "export_tag": "IDCC-Text",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Please identify the brand you associate with this logo.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID246",
+    "export_tag": "NOVIZSCREEN",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "Please provide information about your prior experience with intellectual property and Creative Commons.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID211",
+    "export_tag": "LIBCON",
+    "question_type": "MC",
+    "selector": "SAHR",
+    "question_text": "Politically, do you tend to be more liberal, or conservative?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Very Liberal"
+      },
+      {
+        "value": "2",
+        "label": "Somewhat Liberal"
+      },
+      {
+        "value": "6",
+        "label": "Moderate"
+      },
+      {
+        "value": "7",
+        "label": "Somewhat Conservative"
+      },
+      {
+        "value": "3",
+        "label": "Very Conservative"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID257",
+    "export_tag": "DEBRIEF",
+    "question_type": "DB",
+    "selector": "TB",
+    "question_text": "Thank you for providing your opinion on the scenarios. The authorship and licensing information of the images and other works in the scenarios were created for this survey and are fictitious.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID2",
+    "export_tag": "CONSENT",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "Thank you for your interest in this study. We want to understand more about how different people make decisions about copyright. Please answer truthfully and follow directions carefully. Failure to follow directions may lead to termination of the study. Please review the following consent document. Principal Investigator: Aaron Shaw Student Investigator: Thomas Rousse Supported By: This research is supported by Northwestern University\u2019s Media, Technology & Society program, School of Communication. Key information about this research study: \u2022 The purpose of this study is to understand what Americans know about copyright licensing. \u2022 You will be asked to answer basic questions about yourself and to respond to several survey questions. \u2022 We expect that you will be in this research study for a single session lasting about twenty minutes. \u2022 The primary potential risk of participation is inadvertent disclosure of your personal details. We will collect as little personal information as possible to minimize this risk. Why am I being asked to take part in this research study? We are asking you to take part in this research study because you are an adult living in the USA. How many people will be in this study? We expect about 1,200 people will be in this research study. What should I know about participating in a research study? \u2022 Whether or not you take part is up to you. \u2022 You can choose not to take part. \u2022 You can agree to take part and later change your mind. \u2022 Your decision will not be held against you. What happens if I select, \u201cI agree\u201d? You will be asked several questions about your gender, age, income, education, and political leanings. You will be asked if you recognize several symbols. You will be presented with several hypothetical situations describing the use of graphical images and text and asked several questions about those scenarios. The group of study participants you will be assigned to will be chosen by chance, like flipping a coin. Groups receive slightly different questions and scenarios. Neither you nor the study team will choose which study group you are assigned to. You will have an equal chance of being assigned to any given group. Will being in this study help me in any way? We cannot promise any benefits to you or others from your taking part in this research. Is there any way being in this study could be bad for me? A possible risk for any research is that confidentiality could be compromised \u2013 that is, that people outside the study might get hold of confidential study information. We will do everything we can to minimize this risk. What happens if I do not want to be in this research, or I change my mind later? Participation in research is voluntary. You can decide to participate or not to participate. If you do not want to be in this study or withdraw from the study at any point, your decision will not affect your relationship with Northwestern University/Northwestern Memorial Healthcare. You can leave the research at any time and it will not be held against you. If you decide to withdraw from this study, any data already collected from you will be destroyed. How will the researchers protect my information? Answers submitted via the survey website will be protected in transmission by an encrypted connection. No personally identifying information will be collected; any personally identifying information inadvertently collected will be destroyed. Researchers will store data on a password-protected server and in a secured physical location. Who will have access to the information collected during this research study? The use and disclosure of your personal information, including research study records, will be limited to people who have a need to review this information. We cannot promise complete secrecy. There are reasons why information about you may be used or seen by other people beyond the research team during or after this study. Examples include university officials, government officials, study funders, auditors, and the Institutional Review Board, who may need access to the study information to make sure the study is done in an appropriate manner. How might the information collected in this study be shared in the future? We will keep the information we collect about you during this research study for record keeping, potential use in future research projects, and verification of our analysis by other researchers. De-identified data from this study may be shared with the research community, with journals that publish the results, and with databases and data repositories used for research. We will remove or code any personal information that could directly identify you before the study data are shared. Despite these measures, we cannot guarantee anonymity of your personal data. The results of this study could be shared in articles and presentations, but will not include any information that identifies you. Will I be paid or given anything for taking part in this study? You will receive a code upon successful completion of the survey. By entering this code on the Connect assignment used to recruit participants, you will receive a reimbursement of $3.00. You will not be eligible for compensation if you do not follow directions or if you do not meet the study criteria. Some questions will test whether you are following the directions, and your participation will be timed to prevent rushing through the survey without meaningful participation. Who can I talk to? If you have questions, concerns, or complaints, you can contact the Principal Investigator Aaron Shaw (aaronshaw@northwestern.edu) and lead student investigator, Thomas Rousse (t-rousse2019@nlaw.northwestern.edu). This research has been reviewed and approved by an Institutional Review Board (\u201cIRB\u201d) \u2013 a committee that protects the rights of people who participate in research studies. You may contact the IRB by phone at (312) 503-9338 or by email at irb@northwestern.edu if: \u2022 Your questions, concerns, or complaints are not being answered by the research team. \u2022 You cannot reach the research team. \u2022 You want to talk to someone besides the research team. \u2022 You have questions about your rights as a research participant. \u2022 You want to get information or provide input about this research. Consent: If you want a copy of this consent for your records, please print or save a copy to your device. If you wish to participate, please click the \u201cI Agree\u201d button and you will be taken to the survey. If you do not wish to participate in this study, please select \u201cI Disagree\u201d or select X in the corner of your browser to exit the study.",
+    "choices": [
+      {
+        "value": "1",
+        "label": "I Agree"
+      },
+      {
+        "value": "2",
+        "label": "I Disagree"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID253",
+    "export_tag": "Feedback",
+    "question_type": "TE",
+    "selector": "ESTB",
+    "question_text": "This section is optional. If you have any feedback, concerns, or spot any errors, you may use this space to communicate with the research team.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID65",
+    "export_tag": "TIME-Consent",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID71",
+    "export_tag": "TIME-PDC",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID73",
+    "export_tag": "PDTA-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID91",
+    "export_tag": "EUC-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID92",
+    "export_tag": "EUTA-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID93",
+    "export_tag": "PUC-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID107",
+    "export_tag": "CAC-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID126",
+    "export_tag": "LSC-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID127",
+    "export_tag": "LSTA-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID138",
+    "export_tag": "WNC-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID144",
+    "export_tag": "WNTA-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID150",
+    "export_tag": "FSTA-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID156",
+    "export_tag": "FSC-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID158",
+    "export_tag": "CCEDUTIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID164",
+    "export_tag": "PDTB-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID170",
+    "export_tag": "PUTB-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID176",
+    "export_tag": "EUTB-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID182",
+    "export_tag": "CATB-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID188",
+    "export_tag": "LSTB-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID194",
+    "export_tag": "WNTB-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID200",
+    "export_tag": "FSTB-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID221",
+    "export_tag": "IDMcD-Time",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID222",
+    "export_tag": "IDFAKE-Time",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID226",
+    "export_tag": "IDCC-Time",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID227",
+    "export_tag": "IDFF-Time",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID256",
+    "export_tag": "COMMIT-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID258",
+    "export_tag": "NETSKILLSCCREC-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215596998",
+    "export_tag": "PUTA-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID1215597207",
+    "export_tag": "CATA-TIME",
+    "question_type": "Timing",
+    "selector": "PageTimer",
+    "question_text": "Timing",
+    "choices": [
+      {
+        "value": "1",
+        "label": "First Click"
+      },
+      {
+        "value": "2",
+        "label": "Last Click"
+      },
+      {
+        "value": "3",
+        "label": "Page Submit"
+      },
+      {
+        "value": "4",
+        "label": "Click Count"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID247",
+    "export_tag": "COMMIT",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "We care about your opinions and we care about the quality of our survey data. To get the most accurate measures of your opinions, it is important that you provide thoughtful answers in good faith to each question in this survey. Please do not use text generated by AI or LLMs such as ChatGPT. Your answers to questions about your personal opinions will have no impact on your compensation. Do you commit to providing thoughtful answers in good faith to the questions in the survey?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "I can't promise either way"
+      },
+      {
+        "value": "2",
+        "label": "Yes, I will"
+      },
+      {
+        "value": "3",
+        "label": "No, I will not"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID209",
+    "export_tag": "EDU",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "What is the highest level of education you have completed?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Some high school or less"
+      },
+      {
+        "value": "2",
+        "label": "High school diploma or GED"
+      },
+      {
+        "value": "3",
+        "label": "Some college, but no degree"
+      },
+      {
+        "value": "4",
+        "label": "Associates or technical degree"
+      },
+      {
+        "value": "5",
+        "label": "Bachelor\u2019s degree"
+      },
+      {
+        "value": "6",
+        "label": "Graduate or professional degree (MA, MS, MBA, PhD, JD, MD, DDS etc.)"
+      },
+      {
+        "value": "7",
+        "label": "Prefer not to say"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID4",
+    "export_tag": "AGE",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "What is your current age?",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID213",
+    "export_tag": "POLPARTY",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "What political party, if any, do you most closely affiliate with?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Republican Party"
+      },
+      {
+        "value": "2",
+        "label": "Democratic Party"
+      },
+      {
+        "value": "3",
+        "label": "None (Independent)"
+      },
+      {
+        "value": "4",
+        "label": "Other (Please enter below)"
+      },
+      {
+        "value": "5",
+        "label": "Prefer not to say"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID210",
+    "export_tag": "INCOME",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "What was your total household income before taxes during the past 12 months?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Less than $25,000"
+      },
+      {
+        "value": "2",
+        "label": "$25,000-$49,999"
+      },
+      {
+        "value": "3",
+        "label": "$50,000-$74,999"
+      },
+      {
+        "value": "4",
+        "label": "$75,000-$99,999"
+      },
+      {
+        "value": "5",
+        "label": "$100,000-$149,999"
+      },
+      {
+        "value": "6",
+        "label": "$150,000 or more"
+      },
+      {
+        "value": "7",
+        "label": "Prefer not to say"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID250",
+    "export_tag": "PINK",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "Which of the following colors is a lighter shade of red?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Green"
+      },
+      {
+        "value": "2",
+        "label": "Pink"
+      },
+      {
+        "value": "3",
+        "label": "Yellow"
+      },
+      {
+        "value": "4",
+        "label": "Black"
+      },
+      {
+        "value": "5",
+        "label": "Blue"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID251",
+    "export_tag": "FIRSTNAMEGEN",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "Which of the following names do you think is most likely to belong to someone who identifies as a female?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Henry"
+      },
+      {
+        "value": "2",
+        "label": "Robert"
+      },
+      {
+        "value": "3",
+        "label": "Elizabeth"
+      },
+      {
+        "value": "4",
+        "label": "Timothy"
+      },
+      {
+        "value": "6",
+        "label": "Edward"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID204",
+    "export_tag": "GENDER",
+    "question_type": "MC",
+    "selector": "SAVR",
+    "question_text": "With what gender do you most closely identify?",
+    "choices": [
+      {
+        "value": "1",
+        "label": "Male"
+      },
+      {
+        "value": "2",
+        "label": "Female"
+      },
+      {
+        "value": "3",
+        "label": "A gender identity that's not listed (please specify)"
+      },
+      {
+        "value": "4",
+        "label": "Prefer not to say"
+      }
+    ],
+    "sub_questions": [],
+    "has_display_logic": false
+  },
+  {
+    "qualtrics_id": "QID252",
+    "export_tag": "CCREC",
+    "question_type": "TE",
+    "selector": "SL",
+    "question_text": "You indicated you recognize Creative Commons. Please briefly describe in your own words your understanding of Creative Commons. Please do not use AI assistance or outside sources.",
+    "choices": [],
+    "sub_questions": [],
+    "has_display_logic": true
+  }
+]

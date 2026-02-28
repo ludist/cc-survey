@@ -1,0 +1,169 @@
+---
+title: "Question Summaries"
+id: sec-summaries
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+This Chapter consolidates the per-scenario results from [Chapters 7.1--7.7](_scenarios/pd.qmd) into cross-scenario summary tables for each question type. The tables replicate the Article's summary tables programmatically from the underlying data.
+
+**Format conventions:**
+
+- **Q1--Q3 summary tables:** One row per scenario and group. Mean, SD, and Median in separate columns. Treatment groups show [% difference from control] after the mean with significance stars from Dunn's post-hoc tests (Holm-adjusted).
+- **Delta summary table:** Same format. Brackets show the mean delta as a percentage of the group's Q2 mean --- the fraction of perceived consequences that exceeds respondent preferences.
+- **Q4 summary table:** One row per scenario and group. Median and SD after 99th-percentile outlier trimming. Treatment groups show [% difference from control median] with significance stars.
+- **VDA tables:** One row per scenario and pairwise comparison. P(1st > 2nd) is the probability that a randomly selected observation from the first-named group exceeds one from the second-named group (Vargha & Delaney's A, expressed as a percentage). 50% indicates no difference. Effect size thresholds follow @tbl-vda-thresholds in [Chapter 1](01-methods.qmd#tbl-vda-thresholds).
+
+**Significance notation:** \* *p* < .05, \*\* *p* < .01, \*\*\* *p* < .001; n.s. = not significant. Stars appear after [% difference] in summary tables and in the Sig. column of VDA and Wilcoxon tables.
+
+::: {.callout-note}
+## Educational Use Scenario
+
+Rows marked with a dagger (&dagger;) use supplemental Group B1 (n = 97) in place of Group B. See [&sect;3.1](02-codebook.qmd#sec-b1) for the B1 substitution.
+:::
+
+```{r summaries-compute, include=FALSE}
+#| code-summary: "Compute all cross-scenario summary tables"
+
+# Q1--Q3 + Delta: long-format summary tables (one row per scenario x group)
+summary_q1    <- build_summary_table_long(survey_data, survey_data_eu, "1")
+summary_q2    <- build_summary_table_long(survey_data, survey_data_eu, "2")
+summary_q3    <- build_summary_table_long(survey_data, survey_data_eu, "3")
+summary_delta <- build_summary_table_long(survey_data, survey_data_eu, "25")
+
+# Q1--Q3 + Delta: VDA effect size tables (long format)
+vda_q1    <- build_vda_table_long(survey_data, survey_data_eu, "1")
+vda_q2    <- build_vda_table_long(survey_data, survey_data_eu, "2")
+vda_q3    <- build_vda_table_long(survey_data, survey_data_eu, "3")
+vda_delta <- build_vda_table_long(survey_data, survey_data_eu, "25")
+
+# Q4 Price: long-format summary and VDA (outlier-trimmed)
+summary_price <- build_price_summary_table_long(survey_data, survey_data_eu)
+vda_price     <- build_price_vda_table_long(survey_data, survey_data_eu)
+
+# Delta: Wilcoxon signed-rank tests
+wilcoxon_delta <- build_wilcoxon_table(survey_data, survey_data_eu)
+```
+
+## Q1: Likelihood of Legal Consequences {#sec-sum-q1}
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-q1
+#| tbl-cap: "**Q1: Perceived Likelihood of Legal Consequences** by scenario and treatment group. Treatment groups show [% difference from control] with significance stars"
+
+knitr::kable(summary_q1, align = "llrrr", row.names = FALSE)
+```
+:::
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-vda-q1
+#| tbl-cap: "**Q1: Pairwise Effect Sizes.** P(1st > 2nd) = probability a random observation from the first-named group exceeds the second"
+
+knitr::kable(vda_q1, align = "llrll", row.names = FALSE)
+```
+:::
+
+## Q2: Perceived Consequences Under Current Law {#sec-sum-q2}
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-q2
+#| tbl-cap: "**Q2: Perceived Legal Consequences Under Current Law** by scenario and treatment group. Treatment groups show [% difference from control] with significance stars"
+
+knitr::kable(summary_q2, align = "llrrr", row.names = FALSE)
+```
+:::
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-vda-q2
+#| tbl-cap: "**Q2: Pairwise Effect Sizes.** P(1st > 2nd) = probability a random observation from the first-named group exceeds the second"
+
+knitr::kable(vda_q2, align = "llrll", row.names = FALSE)
+```
+:::
+
+## Q3: Normative Preferences {#sec-sum-q3}
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-q3
+#| tbl-cap: "**Q3: Normative Preferences for Legal Consequences** by scenario and treatment group. Treatment groups show [% difference from control] with significance stars"
+
+knitr::kable(summary_q3, align = "llrrr", row.names = FALSE)
+```
+:::
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-vda-q3
+#| tbl-cap: "**Q3: Pairwise Effect Sizes.** P(1st > 2nd) = probability a random observation from the first-named group exceeds the second"
+
+knitr::kable(vda_q3, align = "llrll", row.names = FALSE)
+```
+:::
+
+## Delta (Q2 - Q3): Law--Preference Gap {#sec-sum-delta}
+
+{{< include _includes/delta-definition.qmd >}}
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-delta
+#| tbl-cap: "**Delta (Q2 - Q3): Law-Preference Gap** by scenario and treatment group. Brackets show [delta/Q2 &times; 100] with significance stars"
+
+knitr::kable(summary_delta, align = "llrrr", row.names = FALSE)
+```
+:::
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-vda-delta
+#| tbl-cap: "**Delta: Pairwise Effect Sizes.** P(1st > 2nd) = probability a random observation from the first-named group exceeds the second"
+
+knitr::kable(vda_delta, align = "llrll", row.names = FALSE)
+```
+:::
+
+### Within-Group Wilcoxon Signed-Rank Tests {#sec-sum-wilcoxon}
+
+For each scenario and group, a one-sample Wilcoxon signed-rank test evaluates whether the median delta is significantly different from zero. A significant result indicates a gap between respondents' perception of current law and their normative preference.
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-wilcoxon
+#| tbl-cap: "**Delta: Wilcoxon Signed-Rank Tests.** H~0~: median delta = 0, by scenario and group. V = test statistic"
+
+knitr::kable(wilcoxon_delta, align = "llrrlll", row.names = FALSE)
+```
+:::
+
+## Q4: License Price Estimates {#sec-sum-price}
+
+::: {.callout-note}
+## Outlier Trimming and Central Tendency
+
+The top 1% of price responses are trimmed per group; **median** is used as central tendency due to right-skew. See Chapter 1, Price Question (Q4) for the full trimming rationale.
+:::
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-price
+#| tbl-cap: "**Q4: Non-Exclusive License Price Estimates** by scenario and treatment group (top 1% trimmed per group). Treatment groups show [% difference from control] with significance stars"
+
+knitr::kable(summary_price, align = "llrr", row.names = FALSE)
+```
+:::
+
+::: {.column-page-right}
+```{r}
+#| label: tbl-sum-vda-price
+#| tbl-cap: "**Q4: Pairwise Effect Sizes** (trimmed). P(1st > 2nd) = probability a random observation from the first-named group exceeds the second"
+
+knitr::kable(vda_price, align = "llrll", row.names = FALSE)
+```
+:::

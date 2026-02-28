@@ -1,0 +1,304 @@
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+# 7.3 Educational Use {.unnumbered #sec-eu}
+
+::: {.callout-warning}
+## Data Note --- B1 Group Substitution
+This scenario uses a different group filter than the other six scenarios. Group B was replaced by **Group B1** --- a supplemental collection of 97 participants --- due to a data quality issue in the original Group B data for this scenario. The analysis filters to Groups **A, B1, and C** (n = 905), excluding Group B entirely.
+
+See [Section 2.1 (Codebook)](../02-codebook.qmd#sec-b1) for full documentation of the B1 substitution.
+:::
+
+## 7.3.0 Scenario Presentation
+
+Respondents saw the following scenario. Because this scenario involves a book rather than an image, the instrument is **text-only** --- no image was displayed. Only the **caption** beneath the book title varied across conditions.
+
+::: {.callout-important appearance="simple" icon=false}
+
+An author writes and self-publishes a book of nursery rhymes, "Pretty Pink Piggies." On the inside of the book's front cover, they include this notice:
+
+:::
+
+::: {#eu-instrument}
+
+::: {.panel-tabset}
+
+### Control (C)
+
+Pretty Pink Piggies &copy; 2018 S. Baker. All Rights Reserved.
+
+### Short (A)
+
+Pretty Pink Piggies &copy; 2018 by S. Baker is licensed under CC BY-NC-SA 4.0
+
+### Full + Primer (B1)
+
+Full + Primer (B1) respondents first reviewed a **CC Education** page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.
+
+Pretty Pink Piggies &copy; 2018 by S. Baker is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+
+:::
+
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+
+A commercial publishing company reprints copies of the author's book and sells 200,000 copies to schools for profit without permission or an agreement with the author. The author's name remains on the book.
+
+:::
+
+::: {.panel-tabset}
+
+### Q1: Likelihood
+
+*In your opinion, how likely is the publishing company to face legal consequences for this use?*
+<br>7-point scale: 1 "Extremely unlikely" *to* 7 "Extremely likely"
+
+### Q2: Current Law
+
+*In your opinion, if the publishing company were sued for these actions, what legal consequences do you think it **would** face?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q3: Normative
+
+*In your opinion, what legal consequences **should** the publishing company face for these actions?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q4: License Price
+
+*Now imagine that **before** the use described above, the publishing company and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?*
+<br>Open response in US dollars
+
+:::
+
+::: {.callout-note}
+## Scenario Context
+
+**Legal Context:** This is a **divergent** scenario --- the legal outcome changes across conditions. Under the Control's standard copyright notice, unauthorized mass reproduction and sale is straightforward infringement. Under the treatment conditions' CC BY-NC-SA 4.0 license, however, the analysis turns on the meaning of "NonCommercial." The CC BY-NC-SA 4.0 license permits reproduction and redistribution for non-commercial purposes. Educational distribution to schools --- even at scale --- can fall within the license's permissions if the use is primarily educational rather than commercial. This ambiguity is precisely the issue litigated in *Great Minds v. FedEx Office & Print Services* (2019), where the Second Circuit held that the NonCommercial clause focuses on the *nature of the use*, not the identity of the user. Under that reasoning, a for-profit publisher distributing educational materials to schools could be engaged in a non-commercial use.
+
+**Expected Pattern:** Strong treatment effect with the pre-registered ordering C > A > B. Treatment respondents should perceive substantially lower risk than the Control, since the CC license signals permission for educational reuse. Full + Primer (B1) (full-text license + educational primer) should show the strongest reduction.
+
+**Design Note:** The scenario describes mass commercial reproduction and sale of a children's book to schools. The "NonCommercial" element of the CC BY-NC-SA 4.0 license creates legal ambiguity: respondents must weigh whether distributing educational materials to schools for profit is a "commercial" or "non-commercial" use. This tension between commercial scale and educational purpose is central to the scenario's design.
+:::
+
+```{r eu-analysis}
+eu_results <- analyze_full_scenario(
+  data         = survey_data_eu,
+  scenario_code = "EU",
+  scenario_name = "Educational Use",
+  questions    = c("q1", "q2", "q3", "delta", "price"),
+  export_tiffs = TRUE
+)
+```
+
+```{r eu-extract, include=FALSE}
+list2env(extract_scenario_inline(eu_results, "EU", survey_data_eu, treat_b = "B1"), envir = environment())
+```
+
+## 7.3.1 Q1: Educational Use Risk Perception {#sec-eu-q1}
+
+Do CC license symbols reduce perceived risk for educational use?
+
+```{r}
+#| label: tbl-eu-q1-stats
+#| tbl-cap: "Educational Use Q1: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(eu_results$statistics$q1, dunn = eu_results$dunn$q1), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-eu-q1-vda
+#| tbl-cap: "Educational Use Q1: Pairwise Effect Sizes"
+
+knitr::kable(eu_vda_q1)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-eu-q1
+#| fig-height: 5
+#| fig-cap: "Educational Use Q1: Likelihood of Legal Consequences by Group"
+
+print(eu_results$plots$q1)
+```
+
+
+Educational Use is one of two **divergent** scenarios in the study (alongside Filesharing): the depicted use is infringing under the Control's standard copyright but non-infringing under the treatment conditions' CC BY-NC-SA 4.0 license. This divergence makes EU a strong test of treatment effects --- well-informed respondents in the treatment groups should recognize that the CC license permits the described educational distribution and perceive substantially lower legal risk than those in the Control.
+
+The results confound the prediction. Instead of the pre-registered C > A > B ordering, Q1 produces **A > C > B1**: Short (A) respondents perceive the *highest* likelihood of legal consequences (M = `r eu_q1_a`, SD = `r eu_q1_sd_a`), significantly above both the Control (M = `r eu_q1_c`, SD = `r eu_q1_sd_c`) and Full + Primer (B1) (M = `r eu_q1_b`, SD = `r eu_q1_sd_b`). The Kruskal-Wallis test is highly significant ($\chi^2$(`r eu_kw_q1$parameter`) = `r fmt(eu_kw_q1$statistic)`, *p* = `r fmtp(eu_kw_q1$p.value)`). Dunn's post-hoc tests (Holm-adjusted) reveal that the C--A (*p* < .001) and A--B1 (*p* < .001) comparisons are significant, while the C--B1 comparison does not reach significance. Pairwise VDA effect sizes are reported in @tbl-eu-q1-vda.
+
+The counterintuitive finding is that the CC symbol --- without accompanying explanation --- appears to *increase* perceived risk rather than reduce it. Only Full + Primer (B1) respondents, who read the full-text license and educational primer, show the lowest risk perception, consistent with more detailed information helping respondents recognize the permissions the CC license grants.
+
+## 7.3.2 Q2: Perceived Legal Consequences Under Current Law {#sec-eu-q2}
+
+What consequences do respondents believe would follow from unauthorized educational reprinting?
+
+```{r}
+#| label: tbl-eu-q2-stats
+#| tbl-cap: "Educational Use Q2: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(eu_results$statistics$q2, dunn = eu_results$dunn$q2), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-eu-q2-vda
+#| tbl-cap: "Educational Use Q2: Pairwise Effect Sizes"
+
+knitr::kable(eu_vda_q2)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-eu-q2
+#| fig-height: 5
+#| fig-cap: "Educational Use Q2: Estimated Legal Consequences (Current) by Group"
+
+print(eu_results$plots$q2)
+```
+
+
+Q2 asks what consequences respondents believe *would* follow under current law --- setting aside the likelihood question to focus on severity. The A > C > B1 pattern holds with all three pairwise comparisons reaching significance ($\chi^2$(`r eu_kw_q2$parameter`) = `r fmt(eu_kw_q2$statistic)`, *p* = `r fmtp(eu_kw_q2$p.value)`). Short (A) perceives the harshest consequences (M = `r eu_q2_a`, SD = `r eu_q2_sd_a`), followed by Control (M = `r eu_q2_c`, SD = `r eu_q2_sd_c`), with Full + Primer (B1) perceiving the mildest (M = `r eu_q2_b`, SD = `r eu_q2_sd_b`). Pairwise VDA effect sizes are reported in @tbl-eu-q2-vda. The pattern is clear: the full-text license communicates permissiveness in a way that the abbreviated CC symbol does not. Respondents shown only "CC BY-NC-SA 4.0" appear to register the presence of a formal licensing regime --- reinforcing the sense that the use is *governed* by legal rules --- without absorbing the specific permissions that regime grants.
+
+## 7.3.3 Q3: Normative Preferences {#sec-eu-q3}
+
+What consequences do respondents believe *should* follow for educational use? Normative views on educational fair use.
+
+```{r}
+#| label: tbl-eu-q3-stats
+#| tbl-cap: "Educational Use Q3: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(eu_results$statistics$q3, dunn = eu_results$dunn$q3), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-eu-q3-vda
+#| tbl-cap: "Educational Use Q3: Pairwise Effect Sizes"
+
+knitr::kable(eu_vda_q3)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-eu-q3
+#| fig-height: 5
+#| fig-cap: "Educational Use Q3: Estimated Legal Consequences (Preferred) by Group"
+
+print(eu_results$plots$q3)
+```
+
+
+Q3 shifts from descriptive to normative: not what consequences *would* follow, but what *should* follow. This question produces the strongest between-group effect in the EU scenario ($\chi^2$(`r eu_kw_q3$parameter`) = `r fmt(eu_kw_q3$statistic)`, *p* = `r fmtp(eu_kw_q3$p.value)` --- the largest effect size across Q1--Q3). All three pairwise comparisons are significant (see @tbl-eu-q3-vda).
+
+Short (A) respondents wanted *more* consequences (M = `r eu_q3_a`, SD = `r eu_q3_sd_a`) than the Control (M = `r eu_q3_c`, SD = `r eu_q3_sd_c`) --- the CC symbol paradoxically heightened the perceived wrongfulness of the use. Full + Primer (B1) respondents, who read the full license text, wanted the least severe consequences (M = `r eu_q3_b`, SD = `r eu_q3_sd_b`), but their mean still falls above the scale midpoint. The pattern is consistent: mass commercial reproduction of a children's book is viewed unfavorably regardless of licensing condition, but the abbreviated CC mark makes it feel *worse* while the full-text license tempers the judgment.
+
+## 7.3.4 Delta (Q2 - Q3): Law--Preference Gap {#sec-eu-delta}
+
+Is there a gap between what respondents believe the law says (Q2) and what they believe it should say (Q3)?
+
+{{< include ../_includes/delta-definition.qmd >}}
+
+```{r}
+#| label: tbl-eu-delta-stats
+#| tbl-cap: "Educational Use Delta: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(eu_results$statistics$delta, dunn = eu_results$dunn$delta), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-eu-delta-vda
+#| tbl-cap: "Educational Use Delta: Pairwise Effect Sizes"
+
+knitr::kable(eu_vda_delta)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-eu-delta
+#| fig-height: 5
+#| fig-cap: "Educational Use Delta: Current\u2013Preferred Legal Consequences by Group"
+
+print(eu_results$plots$delta)
+```
+
+
+All three group deltas are negative: Short (A) (`r eu_delta_a`), Full + Primer (B1) (`r eu_delta_b`), and Control (C) (`r eu_delta_c`). Respondents across all conditions believe the law should impose *greater* consequences for this use than it currently does --- the opposite direction from most scenarios, where deltas tend positive (law perceived as too strict). The between-group Kruskal-Wallis test is `r ifelse(eu_kw_delta$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r eu_kw_delta$parameter`) = `r fmt(eu_kw_delta$statistic)`, *p* = `r fmtp(eu_kw_delta$p.value)`), but only the C--A pairwise comparison reaches significance (see @tbl-eu-delta-vda). Short (A) respondents show the largest gap between perceived and preferred consequences, consistent with the pattern across Q1--Q3 in which the abbreviated CC symbol heightens the sense of transgression. The small effect size and limited pairwise significance suggest that, while the *direction* of the law-preference gap is consistent across groups, the *magnitude* of that gap is not strongly differentiated by treatment condition --- all groups want more consequences, and the CC license manipulations do not dramatically change how much more.
+
+```{r}
+#| label: tbl-eu-delta-wilcox
+#| tbl-cap: "Educational Use Delta: Wilcoxon Signed-Rank Tests by Group"
+
+knitr::kable(format_wilcoxon_table(eu_results), row.names = FALSE)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+`r if (eu_wilcox_all_sig) "All three groups' deltas differ significantly from zero." else if (eu_wilcox_any_sig) "At least one group's delta differs significantly from zero (see table above)." else "No group's delta differs significantly from zero."` Short (A) shows the strongest gap, indicating that Short (A) respondents systematically want consequences increased by roughly one full scale point. Control (C) and Full + Primer (B1) both show significant but smaller gaps. That even the full-text license group wants *more* consequences suggests that the educational reprinting described in this scenario --- 200,000 copies sold commercially --- strikes respondents as sufficiently exploitative that no amount of licensing information fully assuages their concern. The negative deltas across all conditions stand in sharp contrast to most other scenarios, where respondents perceive the law as *too strict*. For Educational Use, the combination of mass commercial reproduction and sale to schools triggers a punitive impulse that the CC license --- even in its most informative B1 form --- cannot fully overcome.
+
+## 7.3.5 Q4: Educational License Pricing {#sec-eu-price}
+
+What do respondents estimate a non-exclusive educational license would cost?
+
+```{r}
+#| label: tbl-eu-price-stats
+#| tbl-cap: "Educational Use Q4: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(eu_results$statistics$price, dunn = eu_results$dunn$price), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-eu-price-vda
+#| tbl-cap: "Educational Use Q4: Pairwise Effect Sizes"
+
+knitr::kable(eu_vda_price)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-eu-price
+#| fig-height: 5
+#| fig-cap: "Educational Use Q4: License Price Estimate by Group"
+
+print(eu_results$plots$price)
+```
+
+
+The Kruskal-Wallis test reveals no significant between-group differences in license price estimates ($\chi^2$(`r eu_kw_price$parameter`) = `r fmt(eu_kw_price$statistic)`, *p* = `r fmtp(eu_kw_price$p.value)`). All three group medians converge at `r eu_price_md_c`, even as the means spread widely --- Control (`r eu_price_m_c`), Short (A) (`r eu_price_m_a`), and Full + Primer (B1) (`r eu_price_m_b`) --- driven by extreme right skew from outlier responses. VDA values hover near 0.50 across all pairwise comparisons, confirming the absence of any dominance pattern (see @tbl-eu-price-vda).
+
+The null result on pricing is noteworthy given the strong treatment effects observed on Q1--Q3. CC license exposure significantly shifts risk perception, perceived consequences, and normative preferences --- yet it does *not* affect respondents' estimates of the economic value of the use itself. This dissociation suggests that respondents anchor their price estimates on the *scale* of the described use (200,000 copies sold to schools for profit) rather than on the licensing condition. The commercial magnitude of the transaction dominates respondents' economic intuition, overriding whatever signaling effect the CC license exerts on perceptions of legal risk and wrongfulness. This pattern is consistent with the broader finding across scenarios that pricing is the question least sensitive to the treatment manipulation.
+
+## 7.3.6 Summary {#sec-eu-summary}
+
+::: {.callout-tip}
+## Key Findings --- Educational Use
+
+Educational Use is a **divergent** scenario: the depicted use --- a commercial publisher reprinting a children's book and selling 200,000 copies to schools --- is **infringing** under the Control's standard copyright notice but **non-infringing** under the treatment conditions' CC BY-NC-SA 4.0 license. This makes EU one of the study's strongest tests of treatment effects.
+
+1. **Reversed ordering: A > C > B1.** Instead of the pre-registered C > A > B pattern, all four ordinal questions produce A > C > B1. Short (A) respondents perceive the *highest* risk and want the *most* consequences; Full + Primer (B1) respondents perceive the lowest risk. The abbreviated CC symbol paradoxically *heightens* perceived transgression rather than signaling permission.
+
+2. **CC symbol paradox.** Respondents shown only "CC BY-NC-SA 4.0" appear to register the presence of a formal licensing regime --- reinforcing the sense that the use is *governed* by legal rules --- without absorbing the specific permissions that regime grants. The CC mark makes unauthorized commercial reproduction feel *more* wrongful, not less.
+
+3. **Full + Primer (B1) education effect.** Only Full + Primer (B1) respondents, who read the full-text license and educational primer, show reduced risk perception consistent with the license's actual permissions. The full-text explanation communicates permissiveness in a way the abbreviated symbol does not, but even Full + Primer (B1) means remain above the scale midpoint across Q1--Q3.
+
+4. **Negative deltas --- respondents want MORE consequences.** All three group deltas are negative, meaning respondents believe the law should impose *greater* consequences than it currently does. This is the opposite direction from most scenarios. The combination of mass commercial reproduction and sale to schools triggers a punitive impulse that no amount of licensing information fully overcomes.
+
+5. **Null price result.** No significant between-group differences in license price estimates ($\chi^2$(`r eu_kw_price$parameter`) = `r fmt(eu_kw_price$statistic)`, *p* = `r fmtp(eu_kw_price$p.value)`). Respondents anchor on the commercial scale of the use (200,000 copies), not the licensing condition --- pricing is the question least sensitive to the treatment manipulation.
+
+6. **B1 sample size caveat.** The EU scenario uses Group B1 (n = 97) rather than the original Group B (n = 414). B1 participants completed only the EU scenario, and the smaller sample size reduces statistical power for detecting effects in the B1 condition. Results involving B1 should be interpreted with this limitation in mind.
+:::

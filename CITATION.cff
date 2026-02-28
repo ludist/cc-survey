@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this data or code, please cite the relevant publication."
+title: "Creative Commons and Copyright Risk Perception: A National Survey Experiment — Data & Analysis Compendium"
+type: dataset
+authors:
+  - family-names: Rousse
+    given-names: Thomas H.
+    orcid: "https://orcid.org/0009-0007-9705-3035"
+    affiliation: "Northwestern University"
+date-released: "2026-02-23"
+url: "https://github.com/ludist/cc-survey"
+repository-code: "https://github.com/ludist/cc-survey"
+license: CC-BY-NC-4.0
+keywords:
+  - Creative Commons
+  - open licensing
+  - copyright
+  - survey experiment
+  - legal risk perception
+  - empirical legal studies
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Rousse
+      given-names: Thomas H.
+  title: "Some Respect Reserved"
+  journal: "Cardozo Arts & Entertainment Law Journal"
+  year: 2026
+  status: advance-online

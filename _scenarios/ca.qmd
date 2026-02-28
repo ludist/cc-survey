@@ -1,0 +1,321 @@
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+# 7.4 Commercial Advertising {.unnumbered #sec-ca}
+
+## 7.4.0 Scenario Presentation
+
+Respondents saw a two-part scenario. First, a search engine result showing a photograph with a caption that varied by condition. Then, all respondents saw the same Facebook advertisement using that photograph.
+
+::: {.callout-important appearance="simple" icon=false}
+
+A bike shop owner who wants to create a social media ad finds the following image on a search engine. The search result is displayed as follows:
+
+:::
+
+::: {#ca-instrument}
+
+::: {.panel-tabset}
+
+### Control (C)
+
+![](../data/survey-images/Vignette%20Images/Bike.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+&copy; 2018 D. Green. All Rights Reserved.
+:::
+
+### Short (A)
+
+![](../data/survey-images/Vignette%20Images/Bike.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+![](../data/survey-images/Vignette%20Images/CC-BY-NC.png){height="20px"} &copy; 2018 D. Green is licensed under CC BY-NC 4.0
+:::
+
+### Full + Primer (B)
+
+Full + Primer (B) respondents first reviewed a **CC Education** page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.
+
+![](../data/survey-images/Vignette%20Images/Bike.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+![](../data/survey-images/Vignette%20Images/CC-BY-NC.png){height="20px"} &copy; 2018 by D. Green is licensed under Creative Commons Attribution-NonCommercial 4.0 International
+:::
+
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+
+The bike shop owner uses the image in the following Facebook ad.
+
+![](../data/survey-images/Vignette%20Images/bikeAd.png){fig-align="center" width="70%"}
+
+::: {.scenario-caption}
+The ad is shown to more than 100,000 people.
+:::
+
+:::
+
+::: {.panel-tabset}
+
+### Q1: Likelihood
+
+*In your opinion, how likely is the bike shop owner to face legal consequences for this use?*
+<br>7-point scale: 1 "Extremely unlikely" *to* 7 "Extremely likely"
+
+### Q2: Current Law
+
+*In your opinion, if the bike shop owner were sued for these actions, what legal consequences do you think they **would** face?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q3: Normative
+
+*In your opinion, what legal consequences **should** the bike shop owner face for these actions?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q4: License Price
+
+*Now imagine that **before** the use described above, the bike shop owner and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?*
+<br>Open response in US dollars
+
+:::
+
+:::
+
+::: {.callout-note}
+## Scenario Context
+
+A local bike shop owner uses a copyrighted photograph by D. Green in a **Facebook advertisement** that receives over 100,000 impressions. The photographer discovers the unauthorized use and considers legal action. The image caption varies by treatment condition:
+
+| Condition | Caption |
+|-----------|---------|
+| **Control (C)** | &copy; 2018 D. Green. All Rights Reserved. |
+| **Short (A)** | &copy; 2018 D. Green is licensed under CC BY-NC 4.0 |
+| **Full + Primer (B)** | &copy; 2018 by D. Green is licensed under Creative Commons Attribution-NonCommercial 4.0 International |
+
+**Legal Context:** This use is **infringing across all conditions**. Under the Control's standard copyright notice, any unauthorized commercial reproduction infringes. Under the treatment conditions' CC BY-NC 4.0 license, commercial advertising plainly violates the NonCommercial clause. Unlike PD or FS, where the treatment changes the infringement analysis, here the CC license does not excuse the commercial use. Any treatment effect reflects how CC licensing *information* shapes perceptions of an act that remains infringing regardless.
+
+**Expected Pattern:** High perceived risk across all groups, with treatment effects driven by CC signaling rather than changes in legal status. The full-text license (Full + Primer (B)) may paradoxically *increase* perceived risk if respondents interpret the explicit NonCommercial restriction as signaling enforcement willingness.
+:::
+
+```{r ca-analysis}
+ca_results <- analyze_full_scenario(
+  data         = survey_data,
+  scenario_code = "CA",
+  scenario_name = "Commercial Advertising",
+  questions    = c("q1", "q2", "q3", "delta", "price"),
+  export_tiffs = TRUE
+)
+```
+
+```{r ca-extract, include=FALSE}
+list2env(extract_scenario_inline(ca_results, "CA", survey_data), envir = environment())
+```
+
+## 7.4.1 Q1: Commercial Advertising Legal Risk {#sec-ca-q1}
+
+Do respondents recognize commercial use as high-risk?
+
+```{r}
+#| label: tbl-ca-q1-stats
+#| tbl-cap: "Commercial Advertising Q1: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ca_results$statistics$q1, dunn = ca_results$dunn$q1), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ca-q1-vda
+#| tbl-cap: "Commercial Advertising Q1: Pairwise Effect Sizes"
+
+knitr::kable(ca_vda_q1)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ca-q1
+#| fig-height: 5
+#| fig-cap: "Commercial Advertising Q1: Likelihood of Legal Consequences by Group"
+
+print(ca_results$plots$q1)
+```
+
+
+Q1 asks respondents how likely the bike shop owner is to face legal consequences for using the photograph in a Facebook advertisement without permission. Because the use is commercial --- and commercial advertising plainly violates the NonCommercial clause of CC BY-NC --- the use is infringing across all conditions. The question, then, is whether respondents perceive commercial use of a photograph as high-risk, and whether exposure to CC licensing information shifts that perception.
+
+The results indicate that respondents across all groups recognize commercial advertising as relatively high-risk. The Control (C) group rated the likelihood of legal consequences at `r ca_q1_c` (SD = `r ca_q1_sd_c`), Short (A) at `r ca_q1_a` (SD = `r ca_q1_sd_a`), and Full + Primer (B) at `r ca_q1_b` (SD = `r ca_q1_sd_b`). The Kruskal-Wallis test was `r ifelse(ca_kw_q1$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r ca_kw_q1$parameter`) = `r fmt(ca_kw_q1$statistic)`, *p* = `r fmtp(ca_kw_q1$p.value)`). Pairwise VDA effect sizes are reported in @tbl-ca-q1-vda. Unlike the Public Domain and Educational Use scenarios, where CC licensing information reduced perceived risk, the Commercial Advertising scenario presents a case where CC information may have an ambiguous or even paradoxical effect: the NonCommercial restriction could signal that the licensor cares about commercial misuse, potentially *increasing* perceived risk among respondents who read the full license text.
+
+## 7.4.2 Q2: Perceived Consequences for Commercial Infringement {#sec-ca-q2}
+
+What penalties do respondents expect for commercial use of copyrighted material?
+
+```{r}
+#| label: tbl-ca-q2-stats
+#| tbl-cap: "Commercial Advertising Q2: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ca_results$statistics$q2, dunn = ca_results$dunn$q2), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ca-q2-vda
+#| tbl-cap: "Commercial Advertising Q2: Pairwise Effect Sizes"
+
+knitr::kable(ca_vda_q2)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ca-q2
+#| fig-height: 5
+#| fig-cap: "Commercial Advertising Q2: Estimated Legal Consequences (Current) by Group"
+
+print(ca_results$plots$q2)
+```
+
+
+Q2 shifts from likelihood to severity: given that the bike shop used the photograph without permission, what legal consequences do respondents believe would result under the current law? The response scale runs from 1 ("No consequences") to 7 ("Very negative consequences, such as incarceration and/or a large fine"), with 4 anchored at "Some negative consequences, such as a court order to stop and/or a moderate fine."
+
+The Control (C) group estimated consequences at `r ca_q2_c` (SD = `r ca_q2_sd_c`), Short (A) at `r ca_q2_a` (SD = `r ca_q2_sd_a`), and Full + Primer (B) at `r ca_q2_b` (SD = `r ca_q2_sd_b`). The Kruskal-Wallis test was `r ifelse(ca_kw_q2$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r ca_kw_q2$parameter`) = `r fmt(ca_kw_q2$statistic)`, *p* = `r fmtp(ca_kw_q2$p.value)`). The means across all groups sit in the moderate-to-high range of the 7-point scale, reflecting a shared intuition that unauthorized commercial use of a photograph carries meaningful consequences. Pairwise VDA effect sizes are reported in @tbl-ca-q2-vda. The Commercial Advertising scenario's high baseline severity --- even in the Control --- is consistent with the scenario's design: a high-visibility advertisement with over 100,000 impressions is the kind of use that respondents intuitively associate with legal exposure, regardless of whether a CC license is present.
+
+## 7.4.3 Q3: Normative Preferences {#sec-ca-q3}
+
+What consequences do respondents believe *should* apply to commercial infringement?
+
+```{r}
+#| label: tbl-ca-q3-stats
+#| tbl-cap: "Commercial Advertising Q3: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ca_results$statistics$q3, dunn = ca_results$dunn$q3), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ca-q3-vda
+#| tbl-cap: "Commercial Advertising Q3: Pairwise Effect Sizes"
+
+knitr::kable(ca_vda_q3)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ca-q3
+#| fig-height: 5
+#| fig-cap: "Commercial Advertising Q3: Estimated Legal Consequences (Preferred) by Group"
+
+print(ca_results$plots$q3)
+```
+
+
+Q3 uses the same severity scale as Q2 but asks what consequences respondents think *should* follow from the bike shop's unauthorized use of the photograph. This measures normative preferences rather than perceptions of current law. For the Commercial Advertising scenario --- where the use is clearly commercial and therefore infringing under all conditions --- Q3 captures whether respondents believe commercial infringement warrants the consequences the law currently provides.
+
+The Control (C) group's preferred consequence level was `r ca_q3_c` (SD = `r ca_q3_sd_c`), Short (A) was `r ca_q3_a` (SD = `r ca_q3_sd_a`), and Full + Primer (B) was `r ca_q3_b` (SD = `r ca_q3_sd_b`). The Kruskal-Wallis test was `r ifelse(ca_kw_q3$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r ca_kw_q3$parameter`) = `r fmt(ca_kw_q3$statistic)`, *p* = `r fmtp(ca_kw_q3$p.value)`). The relatively tight grouping of Q3 means across conditions suggests that respondents' normative judgments about commercial infringement are more stable than their perceptions of what the law currently does. This pattern --- Q3 less variable than Q2 across treatments --- is consistent with the idea that CC licensing information primarily shapes perceptions of the legal *status quo* rather than underlying moral intuitions about the appropriate severity of consequences. Pairwise VDA effect sizes are reported in @tbl-ca-q3-vda.
+
+## 7.4.4 Delta (Q2 - Q3): Commercial Regulation Attitudes {#sec-ca-delta}
+
+Do respondents want stricter or more lenient commercial use rules?
+
+{{< include ../_includes/delta-definition.qmd >}}
+
+```{r}
+#| label: tbl-ca-delta-stats
+#| tbl-cap: "Commercial Advertising Delta: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ca_results$statistics$delta, dunn = ca_results$dunn$delta), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ca-delta-vda
+#| tbl-cap: "Commercial Advertising Delta: Pairwise Effect Sizes"
+
+knitr::kable(ca_vda_delta)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ca-delta
+#| fig-height: 5
+#| fig-cap: "Commercial Advertising Delta: Current\u2013Preferred Legal Consequences by Group"
+
+print(ca_results$plots$delta)
+```
+
+
+```{r}
+#| label: tbl-ca-delta-wilcox
+#| tbl-cap: "Commercial Advertising Delta: Wilcoxon Signed-Rank Tests by Group"
+
+knitr::kable(format_wilcoxon_table(ca_results), row.names = FALSE)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+The Delta analysis for Commercial Advertising addresses two distinct questions. First, the *between-group* Kruskal-Wallis test asks whether CC licensing information shifts the law--preference gap: Control Delta = `r ca_delta_c` (SD = `r ca_delta_sd_c`), Short (A) = `r ca_delta_a` (SD = `r ca_delta_sd_a`), Full + Primer (B) = `r ca_delta_b` (SD = `r ca_delta_sd_b`). The omnibus test was `r ifelse(ca_kw_delta$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r ca_kw_delta$parameter`) = `r fmt(ca_kw_delta$statistic)`, *p* = `r fmtp(ca_kw_delta$p.value)`). `r if (ca_delta_all_pos) "All three deltas were positive, indicating that respondents across all conditions perceived current law as imposing stricter consequences for commercial advertising infringement than they personally preferred." else "Deltas were mixed in sign across groups, suggesting no uniform direction in the law--preference gap."` Pairwise VDA effect sizes are reported in @tbl-ca-delta-vda.
+
+Second, the *within-group* Wilcoxon signed-rank tests ask whether each group's Delta differs significantly from zero --- that is, whether there is a genuine gap between perceived law and preferences within each condition. As reported in the Wilcoxon table above, `r ifelse(ca_wilcox_all_sig, "all three groups showed significant departures from zero, confirming that the law--preference gap is not an artifact of between-group averaging but exists within each treatment condition individually", ifelse(ca_wilcox_any_sig, "at least one group showed a significant departure from zero", "no group's delta significantly differed from zero"))`.
+
+## 7.4.5 Q4: Commercial License Value {#sec-ca-price}
+
+Commercial licenses are typically expensive. Do respondents' estimates reflect this?
+
+```{r}
+#| label: tbl-ca-price-stats
+#| tbl-cap: "Commercial Advertising Q4: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ca_results$statistics$price, dunn = ca_results$dunn$price), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ca-price-vda
+#| tbl-cap: "Commercial Advertising Q4: Pairwise Effect Sizes"
+
+knitr::kable(ca_vda_price)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ca-price
+#| fig-height: 5
+#| fig-cap: "Commercial Advertising Q4: License Price Estimate by Group"
+
+print(ca_results$plots$price)
+```
+
+
+Q4 asks respondents to estimate the price of a non-exclusive license for the photograph used in the Facebook advertisement. After trimming the top 1% of responses to remove outlier estimates, median license price estimates were `r ca_price_md_c` for the Control, `r ca_price_md_a` for Short (A), and `r ca_price_md_b` for Full + Primer (B). Mean estimates --- which are pulled upward by the right-skewed distribution typical of open-ended price questions --- were `r ca_price_m_c`, `r ca_price_m_a`, and `r ca_price_m_b`, respectively. The Kruskal-Wallis test was `r ifelse(ca_kw_price$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r ca_kw_price$parameter`) = `r fmt(ca_kw_price$statistic)`, *p* = `r fmtp(ca_kw_price$p.value)`). Pairwise VDA effect sizes are reported in @tbl-ca-price-vda.
+
+The divergence between means and medians is informative: it reflects a long right tail of respondents who estimated very high commercial licensing fees, consistent with the scenario's high-visibility, high-impression advertising context. Commercial stock photography licenses for advertisements with national reach can range from hundreds to thousands of dollars, and the median estimates suggest that respondents' intuitions about commercial licensing value are broadly calibrated to market reality.
+
+## 7.4.6 Summary {#sec-ca-summary}
+
+::: {.callout-tip}
+## Key Findings --- Commercial Advertising
+
+The Commercial Advertising scenario is the study's clearest case of **uniform infringement**: the CC BY-NC 4.0 license explicitly prohibits commercial use, so the bike shop's Facebook advertisement infringes under all three conditions. Any between-group differences reflect how CC licensing *information* shapes perceptions of an act whose legal status does not change. The key findings are:
+
+1. **Uniformly infringing scenario confirmed.** All group means for Q1--Q3 sit in the moderate-to-high range of the 7-point scale, confirming that respondents across all conditions recognize commercial advertising use of a copyrighted photograph as carrying meaningful legal risk. The high baseline in the Control (C) group (Q1 M = `r ca_q1_c`, Q2 M = `r ca_q2_c`) indicates that respondents associate high-visibility commercial use with legal exposure regardless of licensing information.
+
+2. **CC signaling, not legal change.** Unlike the Public Domain scenario (where treatment information clarifies the absence of copyright) or Filesharing (where the license may alter the infringement analysis), the Commercial Advertising scenario isolates the *signaling* function of CC licensing. Treatment effects here cannot be attributed to changes in legal status --- the NonCommercial clause does not excuse commercial use. Any observed differences reflect how the presence and detail of licensing information shapes respondent perceptions.
+
+3. **NonCommercial clause paradox.** The CC BY-NC license's explicit NonCommercial restriction creates a potential paradox: rather than reducing perceived risk (as CC information does in non-infringing scenarios), the restriction may *increase* perceived risk by signaling that the licensor specifically anticipated and prohibited commercial use. `r ifelse(ca_kw_q1$p.value < 0.05, paste0("The significant between-group difference on Q1 (Kruskal-Wallis *p* = ", fmtp(ca_kw_q1$p.value), ") is consistent with this signaling mechanism."), "The between-group differences on Q1, however, did not reach significance, suggesting that the paradox may not manifest strongly in perceived likelihood.")`
+
+4. **Pricing patterns reflect commercial context.** License price estimates (median: Control = `r ca_price_md_c`, Short (A) = `r ca_price_md_a`, Full + Primer (B) = `r ca_price_md_b`) are calibrated to the commercial advertising context, with the right-skewed distribution reflecting respondents who anchored on the high-visibility, high-impression nature of the use.
+
+5. **Law--preference gap direction.** `r if (ca_delta_all_pos) "All three groups' Delta values were positive, indicating that respondents across all conditions perceived current law as imposing stricter consequences for commercial advertising infringement than they personally preferred. This suggests that even for a clearly infringing commercial use, respondents' normative preferences are somewhat more lenient than their perceptions of what the law currently requires." else "Delta values were mixed across groups, indicating no uniform direction in the law--preference gap for commercial advertising infringement."` `r ifelse(ca_wilcox_all_sig, "Within-group Wilcoxon tests confirm this gap is significant for all three treatment conditions individually.", ifelse(ca_wilcox_any_sig, "Within-group Wilcoxon tests confirm this gap is significant for at least one treatment condition.", "Within-group Wilcoxon tests did not confirm a significant gap for any individual treatment condition."))`
+
+6. **Normative stability.** Q3 means were relatively stable across conditions compared to Q2, suggesting that CC licensing information primarily shapes perceptions of the legal status quo rather than underlying moral intuitions about the appropriate severity of consequences for commercial infringement.
+:::

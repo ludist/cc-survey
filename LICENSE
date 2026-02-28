@@ -1,0 +1,42 @@
+Dual License
+
+Copyright (c) 2024–2026 Thomas H. Rousse
+
+This repository uses two Creative Commons licenses depending on the
+component:
+
+  Component                          License
+  ─────────────────────────────────  ──────────────────────────
+  Survey instrument (PDF, QSF)       CC0 1.0 Universal
+  Vignette images (materials/)       CC0 1.0 Universal
+  Everything else (code, data,       CC-BY-NC 4.0 International
+    documentation, online appendix)
+
+Survey Instrument & Vignette Images — CC0 1.0 Universal
+────────────────────────────────────────────────────────
+The survey instrument and original vignette images in `materials/` are
+dedicated to the public domain under CC0 1.0 Universal. You may copy,
+modify, and distribute them for any purpose without permission or
+attribution.
+
+Full legal text: LICENSES/CC0-1.0.txt
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Online Appendix, Code, Data & Documentation — CC-BY-NC 4.0
+───────────────────────────────────────────────────────────
+All other materials — including the Quarto book, R analysis code,
+dataset, and documentation — are licensed under the Creative Commons
+Attribution-NonCommercial 4.0 International License.
+
+You are free to share and adapt these materials for non-commercial
+purposes, provided you give appropriate credit.
+
+Full legal text: LICENSES/CC-BY-NC-4.0.txt
+https://creativecommons.org/licenses/by-nc/4.0/
+
+Note on Stimulus Images
+───────────────────────
+Some survey stimulus images included in `materials/` may depict
+third-party copyrighted works. Their inclusion in this repository is for
+research transparency purposes. See the article for discussion of image
+provenance and fair use.

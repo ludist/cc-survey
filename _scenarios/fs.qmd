@@ -1,0 +1,299 @@
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+# 7.7 Filesharing {.unnumbered #sec-fs}
+
+## 7.7.0 Scenario Presentation
+
+Respondents saw the following text-only scenario. The scenario description was identical across conditions; only the **caption** on the back of the CD varied.
+
+::: {.callout-important appearance="simple" icon=false}
+
+A college student picks a CD, *Seconds* by The Kick Bugs, released by a major label and distributed nationally. On the back of the CD, this caption appears:
+
+:::
+
+::: {#fs-instrument}
+
+::: {.panel-tabset}
+
+### Control (C)
+
+Seconds &copy; 2018 by The Kick Bugs. All Rights Reserved.
+
+### Short (A)
+
+Seconds &copy; 2018 by The Kick Bugs is licensed under CC BY 4.0
+
+### Full + Primer (B)
+
+Full + Primer (B) respondents first reviewed a **CC Education** page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.
+
+Seconds &copy; 2018 by The Kick Bugs is licensed under Creative Commons Attribution 4.0 International
+
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+
+The student converts the CD to MP3 files, includes the track titles, album name, artist name, and license information in the file metadata, and uploads them to a file-sharing service. The album is downloaded more than 50,000 times.
+
+:::
+
+::: {.panel-tabset}
+
+### Q1: Likelihood
+
+*In your opinion, how likely is the student to face legal consequences for this use?*
+<br>7-point scale: 1 "Extremely unlikely" *to* 7 "Extremely likely"
+
+### Q2: Current Law
+
+*In your opinion, if the student were sued for these actions, what legal consequences do you think they **would** face?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q3: Normative
+
+*In your opinion, what legal consequences **should** the student face for these actions?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q4: License Price
+
+*Now imagine that **before** the use described above, the student and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?*
+<br>Open response in US dollars
+
+:::
+
+:::
+
+::: {.callout-note}
+## Scenario Context
+
+**Legal Context:** This scenario invokes the mass-litigation copyright infringement lawsuits brought against members of the public during the initial boom in popularity for filesharing services such as Napster. The treatment conditions are non-infringing uses of a Creative Commons Attribution license with licensing information and attribution included in the album's metadata. The control condition is an infringing use. While filesharing services were ultimately spared due to their substantial non-infringing uses --- such as the free distribution of music for promotional purposes by independent artists --- infringement historically predominated. Although this scenario is dated by its use of physical media and the reduced popularity of file-sharing, it presents one of the most-publicized examples of copyright enforcement.
+
+**Pre-registration Classification:** Category III --- Non-infringing Treatments, Infringing Control. The CC BY 4.0 license permits redistribution with attribution, and the student includes license information and attribution in the metadata. The control condition, lacking any such license, describes unauthorized distribution --- a classic infringement.
+
+**Expected Pattern:** Strong treatment effect. CC-exposed groups (A, B) should perceive substantially lower risk for filesharing, since CC licenses explicitly authorize redistribution. This scenario provides the sharpest test of whether CC license exposure can overcome the deeply ingrained public association between file-sharing and copyright infringement.
+:::
+
+```{r fs-analysis}
+fs_results <- analyze_full_scenario(
+  data         = survey_data,
+  scenario_code = "FS",
+  scenario_name = "Filesharing",
+  questions    = c("q1", "q2", "q3", "delta", "price"),
+  export_tiffs = TRUE
+)
+```
+
+```{r fs-extract, include=FALSE}
+list2env(extract_scenario_inline(fs_results, "FS", survey_data), envir = environment())
+```
+
+## 7.7.1 Q1: Filesharing Legal Risk {#sec-fs-q1}
+
+Do CC license symbols reduce the perceived legal risk of filesharing?
+
+```{r}
+#| label: tbl-fs-q1-stats
+#| tbl-cap: "Filesharing Q1: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(fs_results$statistics$q1, dunn = fs_results$dunn$q1), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-fs-q1-vda
+#| tbl-cap: "Filesharing Q1: Pairwise Effect Sizes"
+
+knitr::kable(fs_vda_q1)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-fs-q1
+#| fig-height: 5
+#| fig-cap: "Filesharing Q1: Likelihood of Legal Consequences by Group"
+
+print(fs_results$plots$q1)
+```
+
+
+Filesharing is perhaps the scenario most freighted with cultural associations about copyright infringement. The mass lawsuits of the early 2000s --- thousands of individual defendants sued for downloading music --- made filesharing nearly synonymous with piracy in the public imagination. Q1 tests whether explicit CC licensing can overcome that deeply ingrained association. In the treatment conditions, the student's redistribution is within the license terms and therefore non-infringing; in the control, it is not. The question is whether respondents recognize the difference, or whether the filesharing context triggers a blanket assumption of legal risk.
+
+The results in @tbl-fs-q1-stats show that treatments reduce perceived legal risk relative to the control, with Full + Primer (B) showing the largest effect and Short (A) falling between the two. Control respondents perceived the highest risk (M = `r fs_q1_c`, SD = `r fs_q1_sd_c`), followed by Short (A) (M = `r fs_q1_a`, SD = `r fs_q1_sd_a`) and Full + Primer (B) (M = `r fs_q1_b`, SD = `r fs_q1_sd_b`). The Kruskal-Wallis test was `r ifelse(fs_kw_q1$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r fs_kw_q1$parameter`) = `r fmt(fs_kw_q1$statistic)`, *p* = `r fmtp(fs_kw_q1$p.value)`). However, the difference is not as great as one might expect given that the re-use in the treatments is within the licensing terms --- the association between filesharing and legal risk runs deep. Full + Primer (B)'s wider violin base at the low end of the scale in @fig-fs-q1 suggests that a substantial number of respondents in the full-text license condition recognized that there was no infringement and therefore legal consequences would be unlikely. Pairwise VDA effect sizes are reported in @tbl-fs-q1-vda.
+
+## 7.7.2 Q2: Perceived Consequences for Filesharing {#sec-fs-q2}
+
+What do respondents think happens to filesharers under current law?
+
+```{r}
+#| label: tbl-fs-q2-stats
+#| tbl-cap: "Filesharing Q2: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(fs_results$statistics$q2, dunn = fs_results$dunn$q2), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-fs-q2-vda
+#| tbl-cap: "Filesharing Q2: Pairwise Effect Sizes"
+
+knitr::kable(fs_vda_q2)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-fs-q2
+#| fig-height: 5
+#| fig-cap: "Filesharing Q2: Estimated Legal Consequences (Current) by Group"
+
+print(fs_results$plots$q2)
+```
+
+
+Q2 asks respondents to set aside the likelihood question and consider what the law currently provides --- conditional on a lawsuit being filed. Filesharing occupies a distinctive cultural position here. The recording industry's enforcement campaigns of the 2000s were widely publicized, with statutory damages of up to \$150,000 per work for willful infringement making national headlines. The question is whether CC licensing shifts respondents' estimates of the severity of consequences, even in conditions where the use is non-infringing.
+
+The Control (C) group estimated consequences at `r fs_q2_c` (SD = `r fs_q2_sd_c`), Short (A) at `r fs_q2_a` (SD = `r fs_q2_sd_a`), and Full + Primer (B) at `r fs_q2_b` (SD = `r fs_q2_sd_b`). The Kruskal-Wallis test was `r ifelse(fs_kw_q2$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r fs_kw_q2$parameter`) = `r fmt(fs_kw_q2$statistic)`, *p* = `r fmtp(fs_kw_q2$p.value)`). The recording industry's enforcement campaigns left a lasting imprint: even in the treatment conditions --- where the redistribution is authorized by the CC BY 4.0 license --- respondents still anticipated meaningful consequences. The question is not whether respondents perceive filesharing as legally risky (they do), but whether CC licensing information moderates the perceived severity. See @fig-fs-q2 and @tbl-fs-q2-stats for distributions and descriptive statistics, and @tbl-fs-q2-vda for pairwise comparisons and effect sizes.
+
+## 7.7.3 Q3: Normative Preferences {#sec-fs-q3}
+
+What do respondents believe *should* happen to filesharers?
+
+```{r}
+#| label: tbl-fs-q3-stats
+#| tbl-cap: "Filesharing Q3: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(fs_results$statistics$q3, dunn = fs_results$dunn$q3), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-fs-q3-vda
+#| tbl-cap: "Filesharing Q3: Pairwise Effect Sizes"
+
+knitr::kable(fs_vda_q3)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-fs-q3
+#| fig-height: 5
+#| fig-cap: "Filesharing Q3: Estimated Legal Consequences (Preferred) by Group"
+
+print(fs_results$plots$q3)
+```
+
+
+Q3 shifts from descriptive to normative --- not what the law *is*, but what it *should be*. For filesharing, this is particularly interesting because the control describes an infringing use (unauthorized distribution under standard copyright) while the treatments describe a non-infringing use (redistribution authorized by CC BY 4.0). If respondents internalize the licensing information, the treatment groups should prefer substantially less severe consequences than the control. The gap between Q3 and Q2 (see @sec-fs-delta) then reveals whether respondents believe existing law is calibrated to their preferences.
+
+The results in @tbl-fs-q3-stats reveal a striking pattern. The Control (C) group preferred consequences at `r fs_q3_c` (SD = `r fs_q3_sd_c`), Short (A) at `r fs_q3_a` (SD = `r fs_q3_sd_a`), and Full + Primer (B) at `r fs_q3_b` (SD = `r fs_q3_sd_b`). The Kruskal-Wallis test was `r ifelse(fs_kw_q3$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r fs_kw_q3$parameter`) = `r fmt(fs_kw_q3$statistic)`, *p* = `r fmtp(fs_kw_q3$p.value)`). The full-text licensing condition with the Creative Commons primer (Full + Primer (B)) makes a notable difference in respondents' normative preferences, with a substantial decrease in preferred legal consequences from the control. The abbreviated licensing condition without education (Short (A)), on the other hand, is indistinguishable from the copyright control --- despite the fact that Short (A) describes a non-infringing use and the control describes an infringing one. Comparing the broad base of Full + Primer (B) to Short (A) in the violin plots (@fig-fs-q3), it is clear that a much larger portion of Full + Primer (B) respondents recognized that the re-use was permitted by the license. Pairwise VDA effect sizes are reported in @tbl-fs-q3-vda.
+
+## 7.7.4 Delta (Q2 - Q3): Filesharing Regulation Gap {#sec-fs-delta}
+
+Do respondents think filesharing laws are fair, or overly punitive?
+
+{{< include ../_includes/delta-definition.qmd >}}
+
+```{r}
+#| label: tbl-fs-delta-stats
+#| tbl-cap: "Filesharing Delta: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(fs_results$statistics$delta, dunn = fs_results$dunn$delta), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-fs-delta-vda
+#| tbl-cap: "Filesharing Delta: Pairwise Effect Sizes"
+
+knitr::kable(fs_vda_delta)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-fs-delta
+#| fig-height: 5
+#| fig-cap: "Filesharing Delta: Current\u2013Preferred Legal Consequences by Group"
+
+print(fs_results$plots$delta)
+```
+
+
+```{r}
+#| label: tbl-fs-delta-wilcox
+#| tbl-cap: "Filesharing Delta: Wilcoxon Signed-Rank Tests by Group"
+
+knitr::kable(format_wilcoxon_table(fs_results), row.names = FALSE)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+The Delta results reveal an unusual pattern among the scenarios. The between-group Kruskal-Wallis test was `r ifelse(fs_kw_delta$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r fs_kw_delta$parameter`) = `r fmt(fs_kw_delta$statistic)`, *p* = `r fmtp(fs_kw_delta$p.value)`): Control Delta = `r fs_delta_c` (SD = `r fs_delta_sd_c`), Short (A) = `r fs_delta_a` (SD = `r fs_delta_sd_a`), Full + Primer (B) = `r fs_delta_b` (SD = `r fs_delta_sd_b`). In the Control (C) condition and Full + Primer (B), respondents believe that the law should be slightly more lenient than it currently is --- consistent with a general sense that filesharing penalties are overly punitive. Curiously, for Short (A), respondents believe that treatment should be *more* severe than current law provides. This anomaly may reflect Short (A)'s ambiguous position: respondents receive the abbreviated CC license symbol (which signals some form of authorized use) but without the educational primer, they may not fully understand what the license permits --- leading to a normative response closer to the control on Q3 while estimating lower consequences under current law on Q2.
+
+The within-group Wilcoxon signed-rank tests reported above evaluate whether each group's Delta differs significantly from zero. `r ifelse(fs_wilcox_all_sig, "All three groups showed significant departures from zero, confirming that the law--preference gap exists within each treatment condition individually.", ifelse(fs_wilcox_any_sig, "At least one group showed a significant departure from zero, indicating a genuine gap between perceived law and preferences.", "No group's delta significantly differed from zero."))` Across conditions, the cross-scenario summary noted that respondents thought infringing filesharing should have the greatest reduction in legal consequences of any scenario. Pairwise VDA effect sizes are reported in @tbl-fs-delta-vda.
+
+## 7.7.5 Q4: Sharing License Price {#sec-fs-price}
+
+What do respondents estimate the value of sharing rights to be?
+
+```{r}
+#| label: tbl-fs-price-stats
+#| tbl-cap: "Filesharing Q4: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(fs_results$statistics$price, dunn = fs_results$dunn$price), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-fs-price-vda
+#| tbl-cap: "Filesharing Q4: Pairwise Effect Sizes"
+
+knitr::kable(fs_vda_price)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-fs-price
+#| fig-height: 5
+#| fig-cap: "Filesharing Q4: License Price Estimate by Group"
+
+print(fs_results$plots$price)
+```
+
+
+For filesharing with 50,000+ downloads, the economic value of redistribution rights is potentially enormous. Unlike personal use or public domain, this involves mass distribution that directly substitutes for commercial sales --- a single uploaded album reaching tens of thousands of listeners. The question is what respondents believe a non-exclusive license for this redistribution would cost. Note that price estimates are right-skewed and top 1% trimmed (see @tbl-fs-price-stats).
+
+After trimming the top 1% of responses, median license price estimates were `r fs_price_md_c` for the Control, `r fs_price_md_a` for Short (A), and `r fs_price_md_b` for Full + Primer (B). Mean estimates --- pulled upward by the right-skewed distribution --- were `r fs_price_m_c`, `r fs_price_m_a`, and `r fs_price_m_b`, respectively. The Kruskal-Wallis test was `r ifelse(fs_kw_price$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r fs_kw_price$parameter`) = `r fmt(fs_kw_price$statistic)`, *p* = `r fmtp(fs_kw_price$p.value)`).
+
+Large standard deviations across the board and written responses to open feedback indicate that respondents had a very difficult time with this hypothetical --- estimating the value of a license for mass redistribution of commercially released music is genuinely hard. The gap between means and medians in @tbl-fs-price-stats reflects extreme right-tail outliers: some respondents estimated license values in the hundreds of thousands, pulling means far above the medians. Despite this noise, the consistent ordering across groups --- with the control highest and Full + Primer (B) lowest --- confirms the general CC pricing discount pattern observed across the study's scenarios. Pairwise VDA effect sizes are reported in @tbl-fs-price-vda.
+
+## 7.7.6 Summary {#sec-fs-summary}
+
+::: {.callout-tip}
+## Key Findings --- Filesharing
+
+Filesharing is a **Non-infringing Treatments, Infringing Control** scenario: the student's redistribution of CC-licensed music with proper attribution is within the license terms for Treatments A and B, while the control describes unauthorized distribution under standard copyright. This scenario tests whether CC licensing can overcome the powerful cultural association between filesharing and copyright infringement.
+
+1. **Divergent legal outcomes obscured by cultural association.** The treatment conditions describe non-infringing uses (redistribution authorized by CC BY 4.0 with attribution), while the control describes classic copyright infringement. Yet respondents across all groups perceived substantial legal risk. The deeply ingrained public association between filesharing and piracy --- forged by the recording industry's mass-litigation campaigns of the 2000s --- overrides careful legal analysis of the licensing terms.
+
+2. **Full + Primer (B) succeeds where Short (A) fails.** Full + Primer (B) (full-text license + educational primer) produces meaningful reductions in perceived risk, perceived consequences, and normative preferences relative to the control. Short (A) (abbreviated CC symbol), however, is often statistically indistinguishable from the control --- despite describing a non-infringing use. This is one of the starkest demonstrations in the study of the CC symbol's insufficiency without accompanying education.
+
+3. **CC symbol alone cannot overcome infringement framing.** On Q3 (normative preferences), Short (A) respondents prefer consequences at nearly the same level as Control respondents, even though Short (A) describes a lawful use and the Control describes an unlawful one. The CC BY symbol, without the educational primer explaining what the license permits, fails to shift respondents' moral intuitions about filesharing. The cultural frame dominates the legal frame.
+
+4. **Unusual Delta pattern reveals Short (A) ambiguity.** The Control (C) and Full + Primer (B) both show positive deltas (respondents prefer more lenient treatment than they believe current law provides), consistent with a general sense that filesharing penalties are overly punitive. Short (A), however, shows a negative delta --- respondents want *more* severe consequences than they believe current law provides. This anomaly likely reflects Short (A)'s ambiguous signaling: enough information to register that *some* authorization exists, but not enough to understand what is actually permitted.
+
+5. **Pricing discount pattern confirmed despite noise.** License price estimates follow the consistent CC pricing discount (Control highest, Full + Primer (B) lowest), though large standard deviations and extreme right-tail outliers reflect the genuine difficulty of estimating the economic value of mass music redistribution rights. The gap between means and medians is among the largest across scenarios.
+
+6. **Education is the critical variable.** Across all five measures, the pattern is consistent: Full + Primer (B)'s educational primer is what drives the treatment effect. Without it, the CC symbol alone is insufficient to communicate that filesharing under a CC BY license is lawful redistribution, not piracy. For a use context this deeply associated with infringement, education is not merely helpful --- it is essential.
+:::

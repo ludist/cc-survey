@@ -1,0 +1,317 @@
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+# 7.2 Personal Use {.unnumbered #sec-pu}
+
+## 7.2.0 Scenario Presentation
+
+Respondents saw the following scenario. The text and image were identical across conditions; only the **caption** beneath the image varied.
+
+::: {.callout-important appearance="simple" icon=false}
+
+A new homeowner wants to decorate their living space. They find the following image through a search engine. The search result is presented as follows:
+
+:::
+
+::: {#pu-instrument}
+
+::: {.panel-tabset}
+
+### Control (C)
+
+![](../data/survey-images/Vignette%20Images/HotAir.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+&copy; 2018 by F. Brown. All Rights Reserved.
+:::
+
+### Short (A)
+
+![](../data/survey-images/Vignette%20Images/HotAir.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+![](../data/survey-images/Vignette%20Images/CC-BY.png){height="20px"} &copy; 2018 by F. Brown is licensed under CC BY 4.0
+:::
+
+### Full + Primer (B)
+
+Full + Primer (B) respondents first reviewed a **CC Education** page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.
+
+![](../data/survey-images/Vignette%20Images/HotAir.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+![](../data/survey-images/Vignette%20Images/CC-BY.png){height="20px"} &copy; 2018 by F. Brown is licensed under Creative Commons Attribution 4.0 International
+:::
+
+:::
+
+::: {.callout-important appearance="simple" icon=false}
+
+The homeowner downloads the image, prints only the image at poster size, and hangs it up in their living room.
+
+:::
+
+::: {.panel-tabset}
+
+### Q1: Likelihood
+
+*In your opinion, how likely is the homeowner to face legal consequences for this use?*
+<br>7-point scale: 1 "Extremely unlikely" *to* 7 "Extremely likely"
+
+### Q2: Current Law
+
+*In your opinion, if the homeowner were sued for these actions, what legal consequences do you think they **would** face?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q3: Normative
+
+*In your opinion, what legal consequences **should** the homeowner face for these actions?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q4: License Price
+
+*Now imagine that **before** the use described above, the homeowner and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?*
+<br>Open response in US dollars
+
+:::
+
+:::
+
+::: {.callout-note}
+## Scenario Context
+
+**Legal Context:** This use is **infringing across all conditions**. Under the control's standard copyright notice, any unauthorized reproduction infringes. Under the treatment conditions' CC BY 4.0 license, the license permits reproduction *only* with proper attribution --- which the homeowner does not provide. Personal Use thus tests a *de minimis* infringement: technically unlawful, but limited in scope, monetary value, and exposure to the public. It also isolates the value of attribution, since the only license term violated is the attribution requirement.
+
+**Expected Pattern:** Because the legal outcome does not change across conditions, between-group differences should be small. All groups should score near the low end of the scale, reflecting the intuition that private, non-commercial use is unlikely to draw legal consequences. This scenario is classified as "same across conditions" in the study design --- one of three universally infringing scenarios (alongside Commercial Advertising and Large Scale Copying) where the CC license does not eliminate legal risk.
+
+**Design Note:** The scenario deliberately omits attribution credit for the photograph. Some respondents may perceive the omission of attribution as relevant, since attribution is the only license term violated under the CC BY 4.0 conditions.
+:::
+
+```{r pu-analysis}
+pu_results <- analyze_full_scenario(
+  data         = survey_data,
+  scenario_code = "PU",
+  scenario_name = "Personal Use",
+  questions    = c("q1", "q2", "q3", "delta", "price"),
+  export_tiffs = TRUE
+)
+```
+
+```{r pu-extract, include=FALSE}
+list2env(extract_scenario_inline(pu_results, "PU", survey_data), envir = environment())
+```
+
+## 7.2.1 Q1: Likelihood of Legal Consequences {#sec-pu-q1}
+
+How likely do respondents think the homeowner would face legal consequences for printing and hanging the poster?
+
+This scenario was designed to invoke a *de minimis* response. The re-use described --- downloading a print and hanging it in one's living room --- is private, non-commercial, and has no exposure to the public. While technically infringing under both standard copyright and CC BY 4.0 (due to the missing attribution), most laypeople would consider this a trivial use unlikely to provoke legal action.
+
+```{r}
+#| label: tbl-pu-q1-stats
+#| tbl-cap: "Personal Use Q1: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pu_results$statistics$q1, dunn = pu_results$dunn$q1), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pu-q1-vda
+#| tbl-cap: "Personal Use Q1: Pairwise Effect Sizes"
+
+knitr::kable(pu_vda_q1)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pu-q1
+#| fig-height: 5
+#| fig-cap: "Personal Use Q1: Likelihood of Legal Consequences by Group"
+
+print(pu_results$plots$q1)
+```
+
+
+The Kruskal-Wallis test was `r ifelse(pu_kw_q1$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r pu_kw_q1$parameter`) = `r fmt(pu_kw_q1$statistic)`, *p* = `r fmtp(pu_kw_q1$p.value)`), with all group means clustered near the bottom of the 7-point scale: Control (M = `r pu_q1_c`, SD = `r pu_q1_sd_c`), Short (A) (M = `r pu_q1_a`, SD = `r pu_q1_sd_a`), and Full + Primer (B) (M = `r pu_q1_b`, SD = `r pu_q1_sd_b`). All pairwise VDA comparisons were non-significant (see @tbl-pu-q1-vda).
+
+It may seem surprising that an infringing scenario scores *lower* on perceived legal risk than the Public Domain scenario (a non-infringing baseline). This is likely explained by a combination of factors in the PD scenario: some respondents may not realize U.S. government work is free from copyright, the PD scenario involved much greater public exposure (a national advertising campaign), and the perceived ability of the U.S. government to bring suit may inflate risk estimates. The Personal Use scenario, by contrast, presents a purely private act --- one that most respondents intuitively recognize as unlikely to attract legal attention regardless of its technical legality.
+
+## 7.2.2 Q2: Perceived Legal Consequences Under Current Law {#sec-pu-q2}
+
+If the homeowner were sued, what legal consequences do respondents believe they would face?
+
+Q2 asks respondents to set aside the likelihood question and consider what the law currently provides --- conditional on a lawsuit actually being filed. For a de minimis personal use, the expected answer is near the bottom of the scale: minimal or no consequences.
+
+```{r}
+#| label: tbl-pu-q2-stats
+#| tbl-cap: "Personal Use Q2: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pu_results$statistics$q2, dunn = pu_results$dunn$q2), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pu-q2-vda
+#| tbl-cap: "Personal Use Q2: Pairwise Effect Sizes"
+
+knitr::kable(pu_vda_q2)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pu-q2
+#| fig-height: 5
+#| fig-cap: "Personal Use Q2: Estimated Legal Consequences (Current) by Group"
+
+print(pu_results$plots$q2)
+```
+
+
+As with Q1, respondents across all conditions perceived minimal consequences under current law for personal use. The Kruskal-Wallis test was `r ifelse(pu_kw_q2$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r pu_kw_q2$parameter`) = `r fmt(pu_kw_q2$statistic)`, *p* = `r fmtp(pu_kw_q2$p.value)`). Group means were: Control (M = `r pu_q2_c`, SD = `r pu_q2_sd_c`), Short (A) (M = `r pu_q2_a`, SD = `r pu_q2_sd_a`), and Full + Primer (B) (M = `r pu_q2_b`, SD = `r pu_q2_sd_b`). Both treatment groups estimated slightly lower consequences than the control (see @tbl-pu-q2-vda for pairwise comparisons and effect sizes).
+
+This pattern follows the general hypothesis that CC licensing signals to members of the public that the licensor is more likely to disapprove of standard copyright punishment and therefore will be less likely to carefully police their intellectual property. The Control (C) group's slightly higher scores are consistent with the "All Rights Reserved" notice conveying a stricter enforcement posture.
+
+## 7.2.3 Q3: Normative Preferences {#sec-pu-q3}
+
+Do respondents believe the homeowner should face legal consequences for personal use?
+
+Q3 shifts from descriptive to normative: not what the law *is*, but what it *should be*. For a private, non-commercial re-use, strong majorities across conditions should prefer minimal consequences.
+
+```{r}
+#| label: tbl-pu-q3-stats
+#| tbl-cap: "Personal Use Q3: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pu_results$statistics$q3, dunn = pu_results$dunn$q3), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pu-q3-vda
+#| tbl-cap: "Personal Use Q3: Pairwise Effect Sizes"
+
+knitr::kable(pu_vda_q3)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pu-q3
+#| fig-height: 5
+#| fig-cap: "Personal Use Q3: Estimated Legal Consequences (Preferred) by Group"
+
+print(pu_results$plots$q3)
+```
+
+
+The Kruskal-Wallis test was `r ifelse(pu_kw_q3$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r pu_kw_q3$parameter`) = `r fmt(pu_kw_q3$statistic)`, *p* = `r fmtp(pu_kw_q3$p.value)`). Full + Primer (B) had the lowest mean (M = `r pu_q3_b`, SD = `r pu_q3_sd_b`), followed by Short (A) (M = `r pu_q3_a`, SD = `r pu_q3_sd_a`), with the Control highest (M = `r pu_q3_c`, SD = `r pu_q3_sd_c`). Pairwise Dunn's tests and VDA effect sizes are reported in @tbl-pu-q3-vda.
+
+Following the general hypothesis that users would see the infringement of Creative-Commons-licensed work as deserving of less punishment, respondents see the infringement of the standard copyright condition to be deserving of slightly more punishment than the treatments. While all means are near the floor of the scale, the treatment effect on normative preferences is detectable even for this low-stakes, private use --- suggesting that CC licensing shifts respondents' sense of the *appropriate* level of punishment, not just their estimate of its *likelihood*.
+
+## 7.2.4 Delta (Q2 - Q3): Law--Preference Gap {#sec-pu-delta}
+
+Is there a gap between what respondents believe the law currently provides (Q2) and what they believe it should provide (Q3)?
+
+{{< include ../_includes/delta-definition.qmd >}}
+
+```{r}
+#| label: tbl-pu-delta-stats
+#| tbl-cap: "Personal Use Delta: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pu_results$statistics$delta, dunn = pu_results$dunn$delta), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pu-delta-vda
+#| tbl-cap: "Personal Use Delta: Pairwise Effect Sizes"
+
+knitr::kable(pu_vda_delta)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pu-delta
+#| fig-height: 5
+#| fig-cap: "Personal Use Delta: Current\u2013Preferred Legal Consequences by Group"
+
+print(pu_results$plots$delta)
+```
+
+
+```{r}
+#| label: tbl-pu-delta-wilcox
+#| tbl-cap: "Personal Use Delta: Wilcoxon Signed-Rank Tests by Group"
+
+knitr::kable(format_wilcoxon_table(pu_results), row.names = FALSE)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+All three group means are positive --- respondents across conditions indicated that they thought there should be slightly *less* severe consequences for infringement than the current law allows. Control (C) showed the greatest gap (M = `r pu_delta_c`, SD = `r pu_delta_sd_c`), followed by Short (A) (M = `r pu_delta_a`, SD = `r pu_delta_sd_a`), and Full + Primer (B) (M = `r pu_delta_b`, SD = `r pu_delta_sd_b`). `r if (pu_wilcox_all_sig) "One-sample, two-tailed Wilcoxon signed-rank tests showed that each group's delta differed significantly from zero." else if (pu_wilcox_any_sig) "One-sample, two-tailed Wilcoxon signed-rank tests showed that at least one group's delta differed significantly from zero (see table above)." else "One-sample, two-tailed Wilcoxon signed-rank tests showed that no group's delta differed significantly from zero."`
+
+The between-group Kruskal-Wallis test was `r ifelse(pu_kw_delta$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r pu_kw_delta$parameter`) = `r fmt(pu_kw_delta$statistic)`, *p* = `r fmtp(pu_kw_delta$p.value)`). Pairwise comparisons and VDA effect sizes are reported in @tbl-pu-delta-vda. Respondents in the full-text CC license condition (Full + Primer (B)) showed the smallest law-preference gap. This is consistent with Full + Primer (B)'s lower scores on both Q2 and Q3: the full-text license and education primer compressed both perceived and preferred consequences toward the floor of the scale, leaving less room for a gap between them.
+
+## 7.2.5 Q4: License Price Estimate {#sec-pu-price}
+
+What do respondents estimate a non-exclusive license for personal use would cost?
+
+For a use limited to printing a poster for display in one's own home, the rational license price is modest. Unlike scenarios involving commercial exploitation or mass distribution, the economic value of this use is minimal --- the homeowner gains only personal enjoyment, and the copyright holder loses virtually nothing in market value.
+
+```{r}
+#| label: tbl-pu-price-stats
+#| tbl-cap: "Personal Use Q4: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pu_results$statistics$price, dunn = pu_results$dunn$price), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pu-price-vda
+#| tbl-cap: "Personal Use Q4: Pairwise Effect Sizes"
+
+knitr::kable(pu_vda_price)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pu-price
+#| fig-height: 5
+#| fig-cap: "Personal Use Q4: License Price Estimate by Group"
+
+print(pu_results$plots$price)
+```
+
+
+Price estimates are much smaller than those in the Public Domain scenario (which involved a national advertising campaign). Control (C) had the highest mean (`r pu_price_m_c`, median `r pu_price_md_c`), followed by Short (A) (`r pu_price_m_a`, median `r pu_price_md_a`) and Full + Primer (B) (`r pu_price_m_b`, median `r pu_price_md_b`). The Kruskal-Wallis test was `r ifelse(pu_kw_price$p.value < 0.05, "significant", "not significant")` ($\chi^2$(`r pu_kw_price$parameter`) = `r fmt(pu_kw_price$statistic)`, *p* = `r fmtp(pu_kw_price$p.value)`).
+
+Pairwise Dunn's tests and VDA effect sizes are reported in @tbl-pu-price-vda. Consistent with the general hypothesis, respondents estimated the value of a license for Creative-Commons-licensed work as less than for a standard copyright --- even when the specific use described is infringing under both regimes.
+
+## 7.2.6 Summary {#sec-pu-summary}
+
+::: {.callout-tip}
+## Key Findings --- Personal Use
+
+Personal Use is a *de minimis* infringement scenario: the re-use is private, non-commercial, and limited to a single copy displayed in the home. The use infringes across all conditions (Control: unauthorized reproduction; Treatments: CC BY violation due to missing attribution). This scenario was designed to produce floor-level responses across the board, and it does.
+
+1. **De minimis floor effect dominates.** All group means cluster near the bottom of the 7-point scale across Q1--Q3 (Control (C): `r pu_q1_c`--`r pu_q2_c`; Full + Primer (B): `r pu_q1_b`--`r pu_q2_b`), confirming that respondents intuitively perceive private, non-commercial use as unlikely to draw legal consequences regardless of licensing condition. Notably, Personal Use scores *lower* than the Public Domain baseline, consistent with the de minimis character of the use rather than its technical legality.
+
+2. **CC signaling extends beyond legal content.** The treatment conditions do not change the legal analysis --- the use infringes under both standard copyright and CC BY 4.0. Yet a detectable treatment effect emerges on normative preferences (Q3) and pricing (Q4). This suggests that CC licensing carries a signaling function beyond its legal content: it shifts respondents' sense of what consequences are *appropriate* and what the use is *worth*, even when the use remains technically infringing.
+
+3. **Normative preference shift on Q3.** While all means are near the floor, the Control (C) group prefers slightly more consequences than either treatment group (Control M = `r pu_q3_c` vs. Full + Primer (B) M = `r pu_q3_b`). The Kruskal-Wallis test for Q3 was `r ifelse(pu_kw_q3$p.value < 0.05, "significant", "not significant")` (*p* = `r fmtp(pu_kw_q3$p.value)`). CC licensing shifts respondents' sense of the *appropriate* level of punishment, not just their estimate of its *likelihood*.
+
+4. **Positive Delta across all groups.** All group deltas are positive --- Control (C) (M = `r pu_delta_c`), Short (A) (M = `r pu_delta_a`), Full + Primer (B) (M = `r pu_delta_b`) --- indicating respondents believe consequences *should be* less severe than what current law provides. `r if (pu_wilcox_all_sig) "All within-group Wilcoxon signed-rank tests were significant, confirming that each group's delta differs from zero." else if (pu_wilcox_any_sig) "At least one within-group Wilcoxon signed-rank test was significant." else "No within-group Wilcoxon signed-rank tests were significant."` Full + Primer (B) shows the smallest gap, consistent with the full-text license compressing both Q2 and Q3 toward the floor.
+
+5. **Pricing discount confirms CC signal.** Median price estimates --- Control (`r pu_price_md_c`), Short (A) (`r pu_price_md_a`), Full + Primer (B) (`r pu_price_md_b`) --- are modest across the board, reflecting the limited economic value of private use. Both treatment groups estimate lower prices than the Control, consistent with a general CC discount effect even for infringing use.
+
+6. **Design expectations confirmed.** Where the CC license does not change the legal analysis, its informational effect on perceived risk (Q1, Q2) is minimal. The effects that *do* appear --- on normative preferences and pricing --- isolate the non-legal signaling dimension of Creative Commons licensing.
+:::

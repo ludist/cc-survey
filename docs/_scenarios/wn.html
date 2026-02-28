@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7.6 Wikipedia Image Search – Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../_scenarios/fs.html" rel="next">
+<link href="../_scenarios/ls.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-df8e7534cb4cb7c4e956089768985eef.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../_scenarios/wn.html">7.6 Wikipedia Image Search</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Creative Commons Recognition and Copyright Infringement Perceptions Survey Experiment</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/ludist/cc-survey" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Experimental Design &amp; Methods</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../02-codebook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Codebook &amp; Variable Dictionary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../03-validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Validation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../04-randomization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Randomization Check</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../05-population.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sample v. Population Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../06-brand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Brand Recognition</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../07-scenarios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Scenario Analysis Overview</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../_scenarios/pd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 Public Domain</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../_scenarios/pu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 Personal Use</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../_scenarios/eu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3 Educational Use</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../_scenarios/ca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4 Commercial Advertising</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../_scenarios/ls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5 Large Scale Copying</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../_scenarios/wn.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7.6 Wikipedia Image Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../_scenarios/fs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7 Filesharing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../08-summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Question Summaries</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#scenario-presentation" id="toc-scenario-presentation" class="nav-link active" data-scroll-target="#scenario-presentation">7.6.0 Scenario Presentation</a></li>
+  <li><a href="#sec-wn-q1" id="toc-sec-wn-q1" class="nav-link" data-scroll-target="#sec-wn-q1">7.6.1 Q1: Likelihood of Legal Consequences</a></li>
+  <li><a href="#sec-wn-q2" id="toc-sec-wn-q2" class="nav-link" data-scroll-target="#sec-wn-q2">7.6.2 Q2: Perceived Legal Consequences Under Current Law</a></li>
+  <li><a href="#sec-wn-q3" id="toc-sec-wn-q3" class="nav-link" data-scroll-target="#sec-wn-q3">7.6.3 Q3: Normative Preferences</a></li>
+  <li><a href="#sec-wn-delta" id="toc-sec-wn-delta" class="nav-link" data-scroll-target="#sec-wn-delta">7.6.4 Delta (Q2 - Q3): Law–Preference Gap</a></li>
+  <li><a href="#sec-wn-price" id="toc-sec-wn-price" class="nav-link" data-scroll-target="#sec-wn-price">7.6.5 Q4: License Price Estimate</a></li>
+  <li><a href="#sec-wn-summary" id="toc-sec-wn-summary" class="nav-link" data-scroll-target="#sec-wn-summary">7.6.6 Summary</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/ludist/cc-survey/edit/main/_scenarios/wn.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ludist/cc-survey/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-wn" class="quarto-section-identifier">7.6 Wikipedia Image Search</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="scenario-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-presentation">7.6.0 Scenario Presentation</h2>
+<p>Respondents saw the following scenario. The text and image were identical across conditions; the <strong>caption</strong> beneath the image varied. Uniquely, the <strong>control condition does not use a standard copyright notice</strong> — instead, it presents a facsimile of a search engine result from Wikipedia with a generic copyright disclaimer.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A concert promoter is looking for a picture of Willie Nelson to promote an upcoming show. The promoter searches for “Willie Nelson” on Google and the following image and caption appears.</p>
+</div>
+</div>
+</div>
+<div id="wn-instrument">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Control (C)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Short (A)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Full + Primer (B)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../data/survey-images/Survey Images/Willie Nelson test image.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+<div class="scenario-caption">
+<p><a href="https://en.wikipedia.org/wiki/Willie_Nelson">Willie Nelson - Wikipedia</a> <strong>Images may be subject to copyright.</strong> Learn More</p>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../data/survey-images/Survey Images/Willie Nelson test image.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+<div class="scenario-caption">
+<p>Licensed under CC BY-NC-ND 4.0</p>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Full + Primer (B) respondents first reviewed a <strong>CC Education</strong> page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../data/survey-images/Survey Images/Willie Nelson test image.JPG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+<div class="scenario-caption">
+<p>Licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</p>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Q1: Likelihood</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Q2: Current Law</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Q3: Normative</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Q4: License Price</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><em>In your opinion, how likely is the promoter to face legal consequences for this use?</em> <br>7-point scale: 1 “Extremely unlikely” <em>to</em> 7 “Extremely likely”</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><em>In your opinion, if the promoter were sued for these actions, what legal consequences do you think it <strong>would</strong> face?</em> <br>7-point scale: 1 “No consequences” <em>—</em> 4 “Some negative consequences, such as a court order to stop and/or a moderate fine” <em>—</em> 7 “Very negative consequences, such as incarceration and/or a large fine”</p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p><em>In your opinion, what legal consequences <strong>should</strong> the promoter face for these actions?</em> <br>7-point scale: 1 “No consequences” <em>—</em> 4 “Some negative consequences, such as a court order to stop and/or a moderate fine” <em>—</em> 7 “Very negative consequences, such as incarceration and/or a large fine”</p>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p><em>Now imagine that <strong>before</strong> the use described above, the promoter and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?</em> <br>Open response in US dollars</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The promoter downloads the image, then posts it to several blogs, uses it in social media advertisements, and prints the image as part of a flyer. The image is seen more than 150,000 times.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Scenario Context
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Legal Context:</strong> This scenario closely models the fact pattern of <em>Philpot v. Media Research Center</em>, 952 F.3d 579 (4th Cir. 2020), where images found via internet search were used for commercial purposes without proper attribution despite being available under a CC license. The image is licensed under CC BY-NC-ND 4.0. <strong>The described use infringes in all three conditions</strong> because the promoter removes attribution, does not reproduce licensing information, and uses the image commercially — violating the Attribution, NonCommercial, and NoDerivatives terms.</p>
+<p><strong>Unique Design Feature:</strong> Unlike other scenarios, the control condition does not present a traditional copyright notice. Instead, it shows a facsimile of a search engine result indicating the image was found on Wikipedia, with a link to Willie Nelson’s Wikipedia entry and a generic “Images may be subject to copyright” disclaimer. The treatment conditions show the same image with CC BY-NC-ND 4.0 license information.</p>
+<p><strong>Expected Pattern:</strong> This scenario tests whether CC brand recognition translates to more accurate risk assessment in a context where CC licenses are commonly encountered. The “copytrap” dynamic is relevant: Wikipedia’s slogan “The Free Encyclopedia” may lead the public to believe its materials can be used without restriction, even though all Wikipedia content is subject to a Creative Commons Attribution-ShareAlike license.</p>
+</div>
+</div>
+</section>
+<section id="sec-wn-q1" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="sec-wn-q1">7.6.1 Q1: Likelihood of Legal Consequences</h2>
+<p>How likely do respondents think the concert promoter is to face legal consequences for using an image found through an internet search without attribution or licensing information?</p>
+<p>This question measures whether the source of the image — Wikipedia versus a CC-licensed work — affects respondents’ assessment of enforcement risk. Because the image in the stimulus is not actually posted to Wikipedia, the hyperlink in the control condition links only to Willie Nelson’s Wikipedia entry, which contains photos with several different licensing terms, including several generations of Creative Commons licenses.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-wn-q1-stats" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-q1-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Std. Dev.</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.94</td>
+<td style="text-align: right;">2.06</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">4.48 (+13.7%)</td>
+<td style="text-align: right;">2.01</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">4.92 (+24.9%)</td>
+<td style="text-align: right;">1.93</td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-q1-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Wikipedia Image Search Q1: Descriptive Statistics by Group
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001</p>
+</div></div><div class="cell" data-layout-align="center">
+<div id="tbl-wn-q1-vda" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-q1-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: left;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: left;"> 63.5%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: left;"> 56.3%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: left;"> 42.5%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-q1-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Wikipedia Image Search Q1: Pairwise Effect Sizes
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001<br> n.s. = not significant</p>
+</div></div><div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-wn-q1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wn-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="wn_files/figure-html/fig-wn-q1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wn-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Wikipedia Image Search Q1: Likelihood of Legal Consequences by Group
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The Control (C) group rated the likelihood of legal consequences at 3.94 (SD = 2.06), Short (A) at 4.48 (SD = 2.01), and Full + Primer (B) at 4.92 (SD = 1.93). The Kruskal-Wallis test was significant (<span class="math inline">\(\chi^2\)</span>(2) = 46.18, <em>p</em> = &lt; .001). Pairwise VDA effect sizes are reported in <a href="#tbl-wn-q1-vda" class="quarto-xref">Table&nbsp;<span>2</span></a>.</p>
+<p>This scenario does not conform with the general hypothesis that members of the public believe the owners of Creative Commons–licensed work are less likely to enforce their rights. Instead, Creative Commons licenses appear to make respondents believe, on average, that an owner of Creative Commons work is slightly more likely to take action. The control condition — which presents the image as sourced from Wikipedia — produces the lowest perceived risk, consistent with the possibility that Wikipedia’s reputation as “The Free Encyclopedia” reduces perceived enforcement risk even though the image is in fact copyrighted and licensed.</p>
+</section>
+<section id="sec-wn-q2" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="sec-wn-q2">7.6.2 Q2: Perceived Legal Consequences Under Current Law</h2>
+<p>If the concert promoter is sued for using the image without permission, what legal consequences do respondents think would follow under current law?</p>
+<p>Unlike the typical control condition with a standard copyright notice, this scenario’s control provides information that the image was found on Wikipedia and linked to the Wikipedia page for Willie Nelson. The treatment conditions add CC BY-NC-ND licensing information, signaling both the existence of a license and specific restrictions that were violated by the promoter’s commercial use.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-wn-q2-stats" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-q2-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Std. Dev.</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.56</td>
+<td style="text-align: right;">1.61</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">3.88 (+9.0%)</td>
+<td style="text-align: right;">1.55</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">4.11 (+15.4%)</td>
+<td style="text-align: right;">1.54</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-q2-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Wikipedia Image Search Q2: Descriptive Statistics by Group
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001</p>
+</div></div><div class="cell" data-layout-align="center">
+<div id="tbl-wn-q2-vda" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-q2-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: left;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: left;"> 59.9%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: left;"> 54.4%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: left;"> 44.3%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">**</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-q2-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Wikipedia Image Search Q2: Pairwise Effect Sizes
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001<br> n.s. = not significant</p>
+</div></div><div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-wn-q2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wn-q2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="wn_files/figure-html/fig-wn-q2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wn-q2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Wikipedia Image Search Q2: Estimated Legal Consequences (Current) by Group
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The Control (C) group estimated consequences at 3.56 (SD = 1.61), Short (A) at 3.88 (SD = 1.55), and Full + Primer (B) at 4.11 (SD = 1.54). The Kruskal-Wallis test was significant (<span class="math inline">\(\chi^2\)</span>(2) = 25.47, <em>p</em> = &lt; .001). Pairwise VDA effect sizes are reported in <a href="#tbl-wn-q2-vda" class="quarto-xref">Table&nbsp;<span>4</span></a>.</p>
+<p>The Q2 results reinforce the counterintuitive pattern observed in Q1. CC-exposed groups perceived higher consequences under current law than respondents who saw only a Wikipedia-sourced image with a generic copyright disclaimer. This is consistent with the copytrap hypothesis: Wikipedia’s “Free Encyclopedia” framing appears to reduce perceived legal consequences for unauthorized use, while explicit CC licensing information — particularly the full-text license with the NonCommercial and NoDerivatives terms (Full + Primer (B)) — signals that the work is subject to enforceable restrictions. The pattern suggests that CC licenses function not as a permissive signal but as a <em>salience</em> signal, drawing attention to the existence of copyright restrictions that respondents in the Wikipedia control may have overlooked.</p>
+</section>
+<section id="sec-wn-q3" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="sec-wn-q3">7.6.3 Q3: Normative Preferences</h2>
+<p>What consequences do respondents believe <em>should</em> follow from using an online image for commercial advertising without attribution?</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-wn-q3-stats" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-q3-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Std. Dev.</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">3.34</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">3.73 (+11.7%)</td>
+<td style="text-align: right;">1.63</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">4.00 (+19.8%)</td>
+<td style="text-align: right;">1.59</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-q3-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Wikipedia Image Search Q3: Descriptive Statistics by Group
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001</p>
+</div></div><div class="cell" data-layout-align="center">
+<div id="tbl-wn-q3-vda" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-q3-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: left;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: left;"> 61.2%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: left;"> 54.6%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: left;"> 43.2%</td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">**</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-q3-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: Wikipedia Image Search Q3: Pairwise Effect Sizes
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001<br> n.s. = not significant</p>
+</div></div><div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-wn-q3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wn-q3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="wn_files/figure-html/fig-wn-q3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wn-q3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Wikipedia Image Search Q3: Estimated Legal Consequences (Preferred) by Group
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The Control (C) group’s preferred consequence level was 3.34 (SD = 1.67), Short (A) was 3.73 (SD = 1.63), and Full + Primer (B) was 4.00 (SD = 1.59). The Kruskal-Wallis test was significant (<span class="math inline">\(\chi^2\)</span>(2) = 32.59, <em>p</em> = &lt; .001). Pairwise VDA effect sizes are reported in <a href="#tbl-wn-q3-vda" class="quarto-xref">Table&nbsp;<span>6</span></a>.</p>
+<p>For respondents’ view of what the law should be, the full-text license with education (Full + Primer (B)) slightly increases respondents’ preferred severity of consequences relative to both the abbreviated treatment and the Wikipedia control. This normative direction is noteworthy: respondents who read the full CC license text with the educational primer not only perceived higher consequences under current law (Q2) but also <em>preferred</em> higher consequences. The CC license appears to shift normative preferences by making the unauthorized nature of the commercial use more salient — when respondents understand what the license permits and prohibits, they judge the violation more harshly.</p>
+</section>
+<section id="sec-wn-delta" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="sec-wn-delta">7.6.4 Delta (Q2 - Q3): Law–Preference Gap</h2>
+<p>Do respondents believe the consequences for using online images should be more or less severe than what current law provides?</p>
+<p>Delta = Q2 − Q3. Positive values indicate the law is perceived as stricter than preferred; negative values indicate the law is perceived as more lenient than preferred; zero indicates alignment.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-wn-delta-stats" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-delta-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Std. Dev.</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">0.14 (−36.4%)</td>
+<td style="text-align: right;">0.83</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">0.11 (−50.0%)</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-delta-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7: Wikipedia Image Search Delta: Descriptive Statistics by Group
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001</p>
+</div></div><div class="cell" data-layout-align="center">
+<div id="tbl-wn-delta-vda" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-delta-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: left;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: left;"> 47.3%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: left;"> 49.0%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: left;"> 51.7%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-delta-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8: Wikipedia Image Search Delta: Pairwise Effect Sizes
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001<br> n.s. = not significant</p>
+</div></div><div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-wn-delta" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wn-delta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="wn_files/figure-html/fig-wn-delta-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wn-delta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Wikipedia Image Search Delta: Current–Preferred Legal Consequences by Group
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div id="tbl-wn-delta-wilcox" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-delta-wilcox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">V</th>
+<th style="text-align: left;">Non-Zero</th>
+<th style="text-align: left;">Dir.</th>
+<th style="text-align: left;">Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">8324.5</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">6133.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">4076.0</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">*</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-delta-wilcox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9: Wikipedia Image Search Delta: Within-Group Wilcoxon Signed-Rank Tests — Does Each Group’s Delta Differ Significantly from Zero?
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001<br> n.s. = not significant</p>
+</div></div><p>The Delta analysis for the Wikipedia Image Search scenario addresses two distinct questions. First, the <em>between-group</em> Kruskal-Wallis test asks whether CC licensing information shifts the law–preference gap: Control Delta = 0.22 (SD = 0.95), Short (A) = 0.14 (SD = 0.83), Full + Primer (B) = 0.11 (SD = 0.82). The omnibus test was not significant (<span class="math inline">\(\chi^2\)</span>(2) = 2.59, <em>p</em> = 0.274). All three deltas were small and positive, indicating that respondents across all conditions perceived current law as imposing slightly stricter consequences than they personally preferred. A non-significant between-group test indicates that the licensing condition does not change the direction or magnitude of the law–preference gap — regardless of condition, respondents believe the consequences for this use should be slightly less severe than their understanding of the current law.</p>
+<p>Second, the <em>within-group</em> Wilcoxon signed-rank tests ask whether each group’s Delta differs significantly from zero — that is, whether there is a genuine gap between perceived law and preferences within each condition. As reported in the Wilcoxon table above, all three groups showed significant departures from zero, confirming that the law–preference gap exists within each treatment condition individually.</p>
+</section>
+<section id="sec-wn-price" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="sec-wn-price">7.6.5 Q4: License Price Estimate</h2>
+<p>What do respondents estimate a non-exclusive license for using an online image for commercial advertising would cost?</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-wn-price-stats" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-price-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Group</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Std. Dev.</th>
+<th style="text-align: right;">Median</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Control (C)</td>
+<td style="text-align: right;">6017.54</td>
+<td style="text-align: right;">22799.75</td>
+<td style="text-align: right;">400</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Short (A)</td>
+<td style="text-align: right;">10957.30 (+82.1%)</td>
+<td style="text-align: right;">55498.88</td>
+<td style="text-align: right;">500</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Full + Primer (B)</td>
+<td style="text-align: right;">7423.66 (+23.4%)</td>
+<td style="text-align: right;">26614.02</td>
+<td style="text-align: right;">500</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-price-stats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;10: Wikipedia Image Search Q4: Descriptive Statistics by Group
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001</p>
+</div></div><div class="cell" data-layout-align="center">
+<div id="tbl-wn-price-vda" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-wn-price-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comparison</th>
+<th style="text-align: left;">P(1st &gt; 2nd)</th>
+<th style="text-align: left;">Effect Size</th>
+<th style="text-align: left;">Sig.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">C &gt; A</td>
+<td style="text-align: left;"> 54.5%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C &gt; B</td>
+<td style="text-align: left;"> 52.2%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A &gt; B</td>
+<td style="text-align: left;"> 47.6%</td>
+<td style="text-align: left;">negligible</td>
+<td style="text-align: left;">n.s.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-wn-price-vda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11: Wikipedia Image Search Q4: Pairwise Effect Sizes
+</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>* <em>p</em> &lt; .05, ** <em>p</em> &lt; .01, *** <em>p</em> &lt; .001<br> n.s. = not significant</p>
+</div></div><div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-wn-price" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wn-price-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="wn_files/figure-html/fig-wn-price-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wn-price-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Wikipedia Image Search Q4: License Price Estimate by Group
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>After trimming the top 1% of responses to remove outlier estimates, median license price estimates were $400 for the Control, $500 for Short (A), and $500 for Full + Primer (B). Mean estimates — which are pulled upward by the right-skewed distribution typical of open-ended price questions — were $6,018, $10,957, and <span class="math inline">\(7,424, respectively. The Kruskal-Wallis test was not significant (\)</span>^2$(2) = 4.81, <em>p</em> = 0.090). Pairwise VDA effect sizes are reported in <a href="#tbl-wn-price-vda" class="quarto-xref">Table&nbsp;<span>11</span></a>.</p>
+<p>The commercial advertising context of this scenario — a concert promoter using an image for promotional purposes — should produce moderately high license price estimates, comparable to the Commercial Advertising scenario. The gap between means and medians in <a href="#tbl-wn-price-stats" class="quarto-xref">Table&nbsp;<span>10</span></a> reflects the right-skewed distribution characteristic of open-ended price estimates: some respondents estimated license values in the thousands, pulling means well above medians. See <a href="#fig-wn-price" class="quarto-xref">Figure&nbsp;<span>5</span></a> for the full distributional comparison across groups.</p>
+</section>
+<section id="sec-wn-summary" class="level2">
+<h2 class="anchored" data-anchor-id="sec-wn-summary">7.6.6 Summary</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Key Findings — Wikipedia Image Search
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Wikipedia Image Search scenario is modeled on <em>Philpot v. Media Research Center</em>, 952 F.3d 579 (4th Cir. 2020), where a photographer’s CC-licensed images were found via search engines and used commercially without attribution. The key findings are:</p>
+<ol type="1">
+<li><p><strong>Copytrap effect confirmed.</strong> The Wikipedia control — which presents the image as sourced from “The Free Encyclopedia” with a generic “Images may be subject to copyright” disclaimer — produces the lowest perceived risk (Q1: M = 3.94), lowest perceived consequences (Q2: M = 3.56), and lowest preferred consequences (Q3: M = 3.34) across all conditions. Wikipedia’s framing as a free resource appears to suppress awareness of the copyright restrictions that apply to its content.</p></li>
+<li><p><strong>Reversed treatment direction.</strong> Unlike most scenarios in this study, CC-exposed respondents perceived <em>higher</em> legal risk and <em>higher</em> consequences than the Wikipedia control. The general hypothesis — that CC licensing reduces perceived risk — does not hold when the control condition itself implies free availability. The CC license functions not as a permissive signal but as a <em>salience</em> signal, drawing attention to enforceable copyright restrictions that the Wikipedia framing obscures.</p></li>
+<li><p><strong>CC as salience signal, not permissive signal.</strong> Full + Primer (B) respondents, who reviewed the full license text and educational primer, rated both perceived (Q2: M = 4.11) and preferred (Q3: M = 4.00) consequences highest. Understanding what the license permits and prohibits leads respondents to judge the violation more harshly, not more leniently. The NonCommercial and NoDerivatives terms make the unauthorized nature of the promoter’s commercial use explicit.</p></li>
+<li><p><strong>Law–preference gap stable across conditions.</strong> Delta (Q2 - Q3) was not significantly different across groups (Kruskal-Wallis <em>p</em> = 0.274). All three deltas were small and positive, indicating respondents perceived current law as slightly stricter than preferred regardless of the licensing information provided. Within-group Wilcoxon signed-rank tests showed all groups’ deltas significantly differed from zero.</p></li>
+<li><p><strong>Philpot implications.</strong> Photographers whose CC-licensed images appear on Wikipedia face a double disadvantage: the Wikipedia context both facilitates discovery by making images prominent in search results and undermines the public’s appreciation of the copyright protections that remain. The data suggest that the general public, encountering a CC-licensed image through Wikipedia, perceives less legal risk than when the same image is presented with explicit CC licensing information.</p></li>
+<li><p><strong>Price estimates reflect commercial context.</strong> Median license price estimates (Control (C): $400, Short (A): $500, Full + Primer (B): $500) reflect the commercial advertising use described in the scenario. The gap between means and medians across groups indicates right-skewed distributions, with some respondents estimating license values in the thousands. Group differences were not significant (Kruskal-Wallis <em>p</em> = 0.090).</p></li>
+</ol>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script>
+/*
+ * sidebar-toc.js — CC Survey Online Appendix
+ *
+ * Quarto Book sidebar accordion for within-page sections.
+ *
+ * Actual Quarto behavior (confirmed from rendered HTML):
+ *   - toc-location: left places the TOC as <nav id="TOC"> inside #quarto-sidebar,
+ *     AFTER the chapter list. The <ul> has class="collapse" (Bootstrap-hidden).
+ *   - There is NO #quarto-sidebar-toc-left element in Quarto 1.8.
+ *   - CSS hides the nav#TOC block; this script moves the links to nest under
+ *     the active chapter <li>, achieving accordion display.
+ *
+ * Edge case handled: chapters with a body H1 (e.g. {.unnumbered} intro) produce
+ * a TOC where the H1 is the sole top-level link and H2s are nested under it.
+ * In that case we skip the H1 (which duplicates the sidebar chapter entry) and
+ * promote the nested H2 links instead.
+ */
+(function () {
+  'use strict';
+
+  function injectAuthorLine() {
+    // Add author name below the book title/subtitle, above the search bar
+    if (document.querySelector('.sidebar-author')) return;
+
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (!sidebar) return;
+
+    // Insert after subtitle if present, else after title
+    var anchor = sidebar.querySelector('.sidebar-subtitle')
+              || sidebar.querySelector('.sidebar-title');
+    if (!anchor) return;
+
+    var authorDiv = document.createElement('div');
+    authorDiv.className = 'sidebar-author';
+    authorDiv.innerHTML = '<span class="sidebar-author-label">inquiry by</span><br>Thomas H. Rousse<br>J.D., Ph.D.';
+
+    // Insert between subtitle/title and search bar (equidistant)
+    var search = sidebar.querySelector('#quarto-search');
+    if (search) {
+      search.parentNode.insertBefore(authorDiv, search);
+    } else {
+      anchor.parentNode.insertBefore(authorDiv, anchor.nextSibling);
+    }
+  }
+
+  function injectSections() {
+    // 1. Find the active chapter <li> in the sidebar
+    var activeLink = document.querySelector('#quarto-sidebar .sidebar-link.active');
+    if (!activeLink) return;
+    var activeItem = activeLink.closest('li.sidebar-item');
+    if (!activeItem) return;
+
+    // 2. Find the TOC nav that Quarto placed inside the sidebar
+    var tocNav = document.querySelector('#quarto-sidebar nav#TOC');
+    if (!tocNav) return;
+
+    // 3. Get all section links (already depth-filtered by Quarto's toc-depth: 2)
+    var allLinks = Array.from(tocNav.querySelectorAll('a[data-scroll-target]'));
+
+    // Keep only top-level links (no grandparent <li>)
+    var topLevelLinks = allLinks.filter(function (link) {
+      var parentLi = link.closest('li');
+      if (!parentLi) return false;
+      var grandparentLi = parentLi.parentElement && parentLi.parentElement.closest('li');
+      return !grandparentLi;
+    });
+
+    // Edge case: body-H1 chapters (e.g. {.unnumbered} intro).
+    // The sole top-level link IS the chapter title — injecting it would duplicate
+    // the sidebar chapter entry. Detect this and promote the nested H2 links instead.
+    var chapterText = activeLink.textContent.replace(/^\d+[\.\s]+/, '').trim();
+    if (
+      topLevelLinks.length === 1 &&
+      topLevelLinks[0].textContent.trim() === chapterText
+    ) {
+      // Promote one level deeper (the H2s nested under the H1)
+      topLevelLinks = allLinks.filter(function (link) {
+        var parentLi = link.closest('li');
+        if (!parentLi) return false;
+        var grandparentLi = parentLi.parentElement && parentLi.parentElement.closest('li');
+        if (!grandparentLi) return false;
+        var greatGrandparentLi = grandparentLi.parentElement && grandparentLi.parentElement.closest('li');
+        return !greatGrandparentLi;
+      });
+    }
+
+    if (topLevelLinks.length === 0) return;
+
+    // 4. Build the nested section list
+    var sectionList = document.createElement('ul');
+    sectionList.className = 'sidebar-sections list-unstyled';
+
+    topLevelLinks.forEach(function (link) {
+      var li = document.createElement('li');
+      li.className = 'sidebar-section-item';
+      // Replace nav-link class with our sidebar class; keep data-scroll-target
+      link.className = 'sidebar-section-link';
+      li.appendChild(link); // move (not clone) to preserve Quarto scroll-tracking refs
+      sectionList.appendChild(li);
+    });
+
+    // 5. Insert immediately after the active chapter <li>
+    activeItem.parentNode.insertBefore(sectionList, activeItem.nextSibling);
+
+    // 6. tocNav is already hidden via CSS; no further action needed
+  }
+
+  function init() {
+    injectAuthorLine();
+    injectSections();
+  }
+
+  if (document.readyState === 'complete') {
+    init();
+  } else {
+    window.addEventListener('load', init);
+  }
+}());
+</script>
+<script>
+/*
+ * section-numbering.js — CC Survey Online Appendix
+ *
+ * Renumbers ALL tables and figures to use section-level numbering:
+ *   Table 7.1.1.1 = Chapter 7, Scenario 1, Subsection 1, Table 1
+ *   Figure 3.2.1  = Chapter 3, Section 2, Figure 1
+ *
+ * Works on ALL pages:
+ *   - Numbered chapters: reads Quarto's .header-section-number spans
+ *   - Unnumbered scenario chapters: parses manual section numbers from
+ *     heading text (e.g., "## 7.1.1 Q1: ...")
+ *
+ * Fixes both same-page AND cross-page cross-reference links.
+ * Cross-page xrefs are resolved by fetching the target page, computing
+ * its section-level numbering, and patching the link text. Each target
+ * page is fetched at most once (results are cached per session).
+ *
+ * Replaces the original scenario-numbering.html (which only handled
+ * 3-level numbering for figures on scenario pages).
+ *
+ * Runs after DOM load.
+ */
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ── Shared: compute section-level numbering for a root element ──
+  // Returns { elementId: { type: 'Table'|'Figure', number: '6.3.1' } }
+  // If mutate=true, also rewrites captions and wraps manual heading
+  // numbers in .header-section-number spans (only for the live page).
+  function computeNumbering(root, mutate) {
+    var nodes = root.querySelectorAll(
+      'h1, h2, h3, h4, [id^="tbl-"], [id^="fig-"]'
+    );
+
+    var currentSection = '';
+    var tblCount = {};
+    var figCount = {};
+    var map = {};
+
+    nodes.forEach(function(el) {
+      var tag = el.tagName;
+
+      // ── Heading: update current section number ───────────────
+      if (/^H[1-4]$/i.test(tag)) {
+        var numSpan = el.querySelector('.header-section-number');
+        if (numSpan) {
+          currentSection = numSpan.textContent.trim();
+          return;
+        }
+        var m = el.textContent.trim().match(/^(\d+(?:\.\d+)*)/);
+        if (m) {
+          currentSection = m[1];
+          if (mutate) {
+            var secId = el.querySelector('.quarto-section-identifier');
+            var target = secId || el;
+            var html = target.innerHTML;
+            if (html.indexOf('header-section-number') === -1) {
+              target.innerHTML = html.replace(
+                /^(\d+(?:\.\d+)*)\s*/,
+                '<span class="header-section-number">$1</span> '
+              );
+            }
+          }
+        }
+        return;
+      }
+
+      // ── Float container: compute new number ─────────────────
+      if (!currentSection) return;
+
+      var cap = el.querySelector('figcaption') || el.querySelector('caption');
+      if (!cap) return;
+
+      var id = (el.id || '').toLowerCase();
+      var type, counter;
+      if (id.startsWith('tbl-')) {
+        type = 'Table';
+        counter = tblCount;
+      } else if (id.startsWith('fig-')) {
+        type = 'Figure';
+        counter = figCount;
+      } else {
+        return;
+      }
+
+      if (!counter[currentSection]) counter[currentSection] = 0;
+      counter[currentSection]++;
+      var newNum = currentSection + '.' + counter[currentSection];
+
+      map[el.id] = { type: type, number: newNum };
+
+      if (mutate) {
+        var re = new RegExp(
+          '(' + type + ')(&#160;|&nbsp;|\\u00A0|\\s)(\\d+(?:\\.\\d+)*)'
+        );
+        cap.innerHTML = cap.innerHTML.replace(
+          re, '<span class="float-label">$1$2' + newNum + '</span>'
+        );
+        el.setAttribute('data-section-num', newNum);
+        el.setAttribute('data-section-type', type);
+      }
+    });
+
+    return map;
+  }
+
+  // ── Helper: update a cross-reference link with new numbering ──
+  function patchXrefLink(link, info) {
+    var spans = link.querySelectorAll('span');
+    if (spans.length > 0) {
+      spans[spans.length - 1].textContent = info.number;
+    } else {
+      link.innerHTML = info.type + '&nbsp;' + info.number;
+    }
+  }
+
+  // ══════════════════════════════════════════════════════════════
+  // 1. Renumber the current page (mutate captions + headings)
+  // ══════════════════════════════════════════════════════════════
+  var main = document.getElementById('quarto-document-content');
+  if (!main) return;
+
+  var localMap = computeNumbering(main, true);
+
+  // ══════════════════════════════════════════════════════════════
+  // 2. Fix same-page cross-reference links
+  // ══════════════════════════════════════════════════════════════
+  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+
+    var targetId = href.substring(1);
+    var info = localMap[targetId];
+    if (!info) return;
+
+    patchXrefLink(link, info);
+  });
+
+  // ══════════════════════════════════════════════════════════════
+  // 3. Fix cross-page cross-reference links
+  //    Group by target page URL, fetch each once, compute
+  //    numbering on the fetched DOM, patch all links to that page.
+  // ══════════════════════════════════════════════════════════════
+  var crossPageGroups = {};   // pageUrl → [{link, targetId}]
+
+  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+
+    var hashIdx = href.indexOf('#');
+    if (hashIdx === -1) return;
+
+    var pageUrl  = href.substring(0, hashIdx);
+    var targetId = href.substring(hashIdx + 1);
+
+    // Skip if target ID doesn't look like a table/figure
+    if (!targetId.startsWith('tbl-') && !targetId.startsWith('fig-')) return;
+
+    if (!crossPageGroups[pageUrl]) crossPageGroups[pageUrl] = [];
+    crossPageGroups[pageUrl].push({ link: link, targetId: targetId });
+  });
+
+  // Fetch each unique target page and resolve its numbering
+  Object.keys(crossPageGroups).forEach(function(pageUrl) {
+    fetch(pageUrl)
+      .then(function(response) {
+        if (!response.ok) throw new Error(response.status);
+        return response.text();
+      })
+      .then(function(html) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        var remoteMain = doc.getElementById('quarto-document-content');
+        if (!remoteMain) return;
+
+        // Compute numbering on the fetched page (read-only, no mutation)
+        var remoteMap = computeNumbering(remoteMain, false);
+
+        // Patch all links pointing to this page
+        crossPageGroups[pageUrl].forEach(function(entry) {
+          var info = remoteMap[entry.targetId];
+          if (!info) return;
+          patchXrefLink(entry.link, info);
+        });
+      })
+      .catch(function(err) {
+        // Graceful degradation: cross-page links keep Quarto-native numbers
+        console.warn('[section-numbering] Could not resolve xrefs for '
+          + pageUrl + ':', err.message || err);
+      });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../_scenarios/ls.html" class="pagination-link" aria-label="7.5 Large Scale Copying">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7.5 Large Scale Copying</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../_scenarios/fs.html" class="pagination-link" aria-label="7.7 Filesharing">
+        <span class="nav-page-text">7.7 Filesharing</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"_common.R"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7.6 Wikipedia Image Search {.unnumbered #sec-wn}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.6.0 Scenario Presentation</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Respondents saw the following scenario. The text and image were identical across conditions; the **caption** beneath the image varied. Uniquely, the **control condition does not use a standard copyright notice** --- instead, it presents a facsimile of a search engine result from Wikipedia with a generic copyright disclaimer.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>::: {.callout-important appearance="simple" icon=false}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>A concert promoter is looking for a picture of Willie Nelson to promote an upcoming show. The promoter searches for "Willie Nelson" on Google and the following image and caption appears.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>::: {#wn-instrument}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### Control (C)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="al">![](../data/survey-images/Survey%20Images/Willie%20Nelson%20test%20image.JPG)</span>{fig-align="center" width="95%"}</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>::: {.scenario-caption}</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Willie Nelson - Wikipedia</span><span class="co">](https://en.wikipedia.org/wiki/Willie_Nelson)</span> **Images may be subject to copyright.** Learn More</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### Short (A)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="al">![](../data/survey-images/Survey%20Images/Willie%20Nelson%20test%20image.JPG)</span>{fig-align="center" width="95%"}</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>::: {.scenario-caption}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Licensed under CC BY-NC-ND 4.0</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Full + Primer (B)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Full + Primer (B) respondents first reviewed a **CC Education** page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="al">![](../data/survey-images/Survey%20Images/Willie%20Nelson%20test%20image.JPG)</span>{fig-align="center" width="95%"}</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>::: {.scenario-caption}</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>Licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>::: {.panel-tabset}</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### Q1: Likelihood</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>*In your opinion, how likely is the promoter to face legal consequences for this use?*</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>7-point scale: 1 "Extremely unlikely" *to* 7 "Extremely likely"</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">### Q2: Current Law</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>*In your opinion, if the promoter were sued for these actions, what legal consequences do you think it **would** face?*</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Q3: Normative</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>*In your opinion, what legal consequences **should** the promoter face for these actions?*</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### Q4: License Price</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>*Now imagine that **before** the use described above, the promoter and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?*</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">br</span><span class="dt">&gt;</span>Open response in US dollars</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>::: {.callout-important appearance="simple" icon=false}</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>The promoter downloads the image, then posts it to several blogs, uses it in social media advertisements, and prints the image as part of a flyer. The image is seen more than 150,000 times.</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Scenario Context</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>**Legal Context:** This scenario closely models the fact pattern of *Philpot v. Media Research Center*, 952 F.3d 579 (4th Cir. 2020), where images found via internet search were used for commercial purposes without proper attribution despite being available under a CC license. The image is licensed under CC BY-NC-ND 4.0. **The described use infringes in all three conditions** because the promoter removes attribution, does not reproduce licensing information, and uses the image commercially --- violating the Attribution, NonCommercial, and NoDerivatives terms.</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>**Unique Design Feature:** Unlike other scenarios, the control condition does not present a traditional copyright notice. Instead, it shows a facsimile of a search engine result indicating the image was found on Wikipedia, with a link to Willie Nelson's Wikipedia entry and a generic "Images may be subject to copyright" disclaimer. The treatment conditions show the same image with CC BY-NC-ND 4.0 license information.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>**Expected Pattern:** This scenario tests whether CC brand recognition translates to more accurate risk assessment in a context where CC licenses are commonly encountered. The "copytrap" dynamic is relevant: Wikipedia's slogan "The Free Encyclopedia" may lead the public to believe its materials can be used without restriction, even though all Wikipedia content is subject to a Creative Commons Attribution-ShareAlike license.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wn-analysis}</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>wn_results <span class="ot">&lt;-</span> <span class="fu">analyze_full_scenario</span>(</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  <span class="at">data         =</span> survey_data,</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="at">scenario_code =</span> <span class="st">"WN"</span>,</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  <span class="at">scenario_name =</span> <span class="st">"Wikipedia Image Search"</span>,</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  <span class="at">questions    =</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q2"</span>, <span class="st">"q3"</span>, <span class="st">"delta"</span>, <span class="st">"price"</span>),</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  <span class="at">export_tiffs =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r wn-extract, include=FALSE}</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="fu">list2env</span>(<span class="fu">extract_scenario_inline</span>(wn_results, <span class="st">"WN"</span>, survey_data), <span class="at">envir =</span> <span class="fu">environment</span>())</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.6.1 Q1: Likelihood of Legal Consequences {#sec-wn-q1}</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>How likely do respondents think the concert promoter is to face legal consequences for using an image found through an internet search without attribution or licensing information?</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>This question measures whether the source of the image --- Wikipedia versus a CC-licensed work --- affects respondents' assessment of enforcement risk. Because the image in the stimulus is not actually posted to Wikipedia, the hyperlink in the control condition links only to Willie Nelson's Wikipedia entry, which contains photos with several different licensing terms, including several generations of Creative Commons licenses.</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-q1-stats</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Q1: Descriptive Statistics by Group"</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">fmt_stats_table</span>(wn_results<span class="sc">$</span>statistics<span class="sc">$</span>q1, <span class="at">dunn =</span> wn_results<span class="sc">$</span>dunn<span class="sc">$</span>q1), <span class="at">align =</span> <span class="st">"lrrr"</span>)</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend.qmd &gt;}}</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-q1-vda</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Q1: Pairwise Effect Sizes"</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(wn_vda_q1)</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend-long.qmd &gt;}}</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-wn-q1</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Wikipedia Image Search Q1: Likelihood of Legal Consequences by Group"</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(wn_results<span class="sc">$</span>plots<span class="sc">$</span>q1)</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>The Control (C) group rated the likelihood of legal consequences at <span class="in">`r wn_q1_c`</span> (SD = <span class="in">`r wn_q1_sd_c`</span>), Short (A) at <span class="in">`r wn_q1_a`</span> (SD = <span class="in">`r wn_q1_sd_a`</span>), and Full + Primer (B) at <span class="in">`r wn_q1_b`</span> (SD = <span class="in">`r wn_q1_sd_b`</span>). The Kruskal-Wallis test was <span class="in">`r ifelse(wn_kw_q1$p.value &lt; 0.05, "significant", "not significant")`</span> ($\chi^2$(<span class="in">`r wn_kw_q1$parameter`</span>) = <span class="in">`r fmt(wn_kw_q1$statistic)`</span>, *p* = <span class="in">`r fmtp(wn_kw_q1$p.value)`</span>). Pairwise VDA effect sizes are reported in @tbl-wn-q1-vda.</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>This scenario does not conform with the general hypothesis that members of the public believe the owners of Creative Commons--licensed work are less likely to enforce their rights. Instead, Creative Commons licenses appear to make respondents believe, on average, that an owner of Creative Commons work is slightly more likely to take action. The control condition --- which presents the image as sourced from Wikipedia --- produces the lowest perceived risk, consistent with the possibility that Wikipedia's reputation as "The Free Encyclopedia" reduces perceived enforcement risk even though the image is in fact copyrighted and licensed.</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.6.2 Q2: Perceived Legal Consequences Under Current Law {#sec-wn-q2}</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>If the concert promoter is sued for using the image without permission, what legal consequences do respondents think would follow under current law?</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>Unlike the typical control condition with a standard copyright notice, this scenario's control provides information that the image was found on Wikipedia and linked to the Wikipedia page for Willie Nelson. The treatment conditions add CC BY-NC-ND licensing information, signaling both the existence of a license and specific restrictions that were violated by the promoter's commercial use.</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-q2-stats</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Q2: Descriptive Statistics by Group"</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">fmt_stats_table</span>(wn_results<span class="sc">$</span>statistics<span class="sc">$</span>q2, <span class="at">dunn =</span> wn_results<span class="sc">$</span>dunn<span class="sc">$</span>q2), <span class="at">align =</span> <span class="st">"lrrr"</span>)</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend.qmd &gt;}}</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-q2-vda</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Q2: Pairwise Effect Sizes"</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(wn_vda_q2)</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend-long.qmd &gt;}}</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-wn-q2</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Wikipedia Image Search Q2: Estimated Legal Consequences (Current) by Group"</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(wn_results<span class="sc">$</span>plots<span class="sc">$</span>q2)</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>The Control (C) group estimated consequences at <span class="in">`r wn_q2_c`</span> (SD = <span class="in">`r wn_q2_sd_c`</span>), Short (A) at <span class="in">`r wn_q2_a`</span> (SD = <span class="in">`r wn_q2_sd_a`</span>), and Full + Primer (B) at <span class="in">`r wn_q2_b`</span> (SD = <span class="in">`r wn_q2_sd_b`</span>). The Kruskal-Wallis test was <span class="in">`r ifelse(wn_kw_q2$p.value &lt; 0.05, "significant", "not significant")`</span> ($\chi^2$(<span class="in">`r wn_kw_q2$parameter`</span>) = <span class="in">`r fmt(wn_kw_q2$statistic)`</span>, *p* = <span class="in">`r fmtp(wn_kw_q2$p.value)`</span>). Pairwise VDA effect sizes are reported in @tbl-wn-q2-vda.</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>The Q2 results reinforce the counterintuitive pattern observed in Q1. CC-exposed groups perceived higher consequences under current law than respondents who saw only a Wikipedia-sourced image with a generic copyright disclaimer. This is consistent with the copytrap hypothesis: Wikipedia's "Free Encyclopedia" framing appears to reduce perceived legal consequences for unauthorized use, while explicit CC licensing information --- particularly the full-text license with the NonCommercial and NoDerivatives terms (Full + Primer (B)) --- signals that the work is subject to enforceable restrictions. The pattern suggests that CC licenses function not as a permissive signal but as a *salience* signal, drawing attention to the existence of copyright restrictions that respondents in the Wikipedia control may have overlooked.</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.6.3 Q3: Normative Preferences {#sec-wn-q3}</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>What consequences do respondents believe *should* follow from using an online image for commercial advertising without attribution?</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-q3-stats</span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Q3: Descriptive Statistics by Group"</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">fmt_stats_table</span>(wn_results<span class="sc">$</span>statistics<span class="sc">$</span>q3, <span class="at">dunn =</span> wn_results<span class="sc">$</span>dunn<span class="sc">$</span>q3), <span class="at">align =</span> <span class="st">"lrrr"</span>)</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend.qmd &gt;}}</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-q3-vda</span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Q3: Pairwise Effect Sizes"</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(wn_vda_q3)</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend-long.qmd &gt;}}</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-wn-q3</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Wikipedia Image Search Q3: Estimated Legal Consequences (Preferred) by Group"</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(wn_results<span class="sc">$</span>plots<span class="sc">$</span>q3)</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>The Control (C) group's preferred consequence level was <span class="in">`r wn_q3_c`</span> (SD = <span class="in">`r wn_q3_sd_c`</span>), Short (A) was <span class="in">`r wn_q3_a`</span> (SD = <span class="in">`r wn_q3_sd_a`</span>), and Full + Primer (B) was <span class="in">`r wn_q3_b`</span> (SD = <span class="in">`r wn_q3_sd_b`</span>). The Kruskal-Wallis test was <span class="in">`r ifelse(wn_kw_q3$p.value &lt; 0.05, "significant", "not significant")`</span> ($\chi^2$(<span class="in">`r wn_kw_q3$parameter`</span>) = <span class="in">`r fmt(wn_kw_q3$statistic)`</span>, *p* = <span class="in">`r fmtp(wn_kw_q3$p.value)`</span>). Pairwise VDA effect sizes are reported in @tbl-wn-q3-vda.</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>For respondents' view of what the law should be, the full-text license with education (Full + Primer (B)) slightly increases respondents' preferred severity of consequences relative to both the abbreviated treatment and the Wikipedia control. This normative direction is noteworthy: respondents who read the full CC license text with the educational primer not only perceived higher consequences under current law (Q2) but also *preferred* higher consequences. The CC license appears to shift normative preferences by making the unauthorized nature of the commercial use more salient --- when respondents understand what the license permits and prohibits, they judge the violation more harshly.</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.6.4 Delta (Q2 - Q3): Law--Preference Gap {#sec-wn-delta}</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>Do respondents believe the consequences for using online images should be more or less severe than what current law provides?</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/delta-definition.qmd &gt;}}</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-delta-stats</span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Delta: Descriptive Statistics by Group"</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">fmt_stats_table</span>(wn_results<span class="sc">$</span>statistics<span class="sc">$</span>delta, <span class="at">dunn =</span> wn_results<span class="sc">$</span>dunn<span class="sc">$</span>delta), <span class="at">align =</span> <span class="st">"lrrr"</span>)</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend.qmd &gt;}}</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-delta-vda</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Delta: Pairwise Effect Sizes"</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(wn_vda_delta)</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend-long.qmd &gt;}}</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-wn-delta</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Wikipedia Image Search Delta: Current\u2013Preferred Legal Consequences by Group"</span></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(wn_results<span class="sc">$</span>plots<span class="sc">$</span>delta)</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-delta-wilcox</span></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Delta: Within-Group Wilcoxon Signed-Rank Tests — Does Each Group's Delta Differ Significantly from Zero?"</span></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">format_wilcoxon_table</span>(wn_results), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend-long.qmd &gt;}}</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>The Delta analysis for the Wikipedia Image Search scenario addresses two distinct questions. First, the *between-group* Kruskal-Wallis test asks whether CC licensing information shifts the law--preference gap: Control Delta = `r wn_delta_c` (SD = `r wn_delta_sd_c`), Short (A) = `r wn_delta_a` (SD = `r wn_delta_sd_a`), Full + Primer (B) = `r wn_delta_b` (SD = `r wn_delta_sd_b`). The omnibus test was `r ifelse(wn_kw_delta$p.value &lt; 0.05, "significant", "not significant")` ($\chi^2$(`r wn_kw_delta$parameter`) = `r fmt(wn_kw_delta$statistic)`, *p* = <span class="in">`r fmtp(wn_kw_delta$p.value)`</span>). <span class="in">`r if (wn_delta_all_pos) "All three deltas were small and positive, indicating that respondents across all conditions perceived current law as imposing slightly stricter consequences than they personally preferred." else "Deltas were mixed in sign across groups."`</span> A non-significant between-group test indicates that the licensing condition does not change the direction or magnitude of the law--preference gap --- regardless of condition, respondents believe the consequences for this use should be slightly less severe than their understanding of the current law.</span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>Second, the *within-group* Wilcoxon signed-rank tests ask whether each group's Delta differs significantly from zero --- that is, whether there is a genuine gap between perceived law and preferences within each condition. As reported in the Wilcoxon table above, <span class="in">`r ifelse(wn_wilcox_all_sig, "all three groups showed significant departures from zero, confirming that the law--preference gap exists within each treatment condition individually", ifelse(wn_wilcox_any_sig, "at least one group showed a significant departure from zero, indicating that the gap between perceived law and preferences is genuine in at least some conditions", "no group's delta significantly differed from zero, suggesting that perceived law and preferences are broadly aligned across all conditions"))`</span>.</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.6.5 Q4: License Price Estimate {#sec-wn-price}</span></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>What do respondents estimate a non-exclusive license for using an online image for commercial advertising would cost?</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-price-stats</span></span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Q4: Descriptive Statistics by Group"</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">fmt_stats_table</span>(wn_results<span class="sc">$</span>statistics<span class="sc">$</span>price, <span class="at">dunn =</span> wn_results<span class="sc">$</span>dunn<span class="sc">$</span>price), <span class="at">align =</span> <span class="st">"lrrr"</span>)</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend.qmd &gt;}}</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wn-price-vda</span></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Wikipedia Image Search Q4: Pairwise Effect Sizes"</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(wn_vda_price)</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_includes/sig-legend-long.qmd &gt;}}</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-wn-price</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Wikipedia Image Search Q4: License Price Estimate by Group"</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(wn_results<span class="sc">$</span>plots<span class="sc">$</span>price)</span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>After trimming the top 1% of responses to remove outlier estimates, median license price estimates were <span class="in">`r wn_price_md_c`</span> for the Control, <span class="in">`r wn_price_md_a`</span> for Short (A), and <span class="in">`r wn_price_md_b`</span> for Full + Primer (B). Mean estimates --- which are pulled upward by the right-skewed distribution typical of open-ended price questions --- were <span class="in">`r wn_price_m_c`</span>, <span class="in">`r wn_price_m_a`</span>, and <span class="in">`r wn_price_m_b`</span>, respectively. The Kruskal-Wallis test was <span class="in">`r ifelse(wn_kw_price$p.value &lt; 0.05, "significant", "not significant")`</span> ($\chi^2$(<span class="in">`r wn_kw_price$parameter`</span>) = <span class="in">`r fmt(wn_kw_price$statistic)`</span>, *p* = <span class="in">`r fmtp(wn_kw_price$p.value)`</span>). Pairwise VDA effect sizes are reported in @tbl-wn-price-vda.</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>The commercial advertising context of this scenario --- a concert promoter using an image for promotional purposes --- should produce moderately high license price estimates, comparable to the Commercial Advertising scenario. The gap between means and medians in @tbl-wn-price-stats reflects the right-skewed distribution characteristic of open-ended price estimates: some respondents estimated license values in the thousands, pulling means well above medians. See @fig-wn-price for the full distributional comparison across groups.</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="fu">## 7.6.6 Summary {#sec-wn-summary}</span></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Findings --- Wikipedia Image Search</span></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>The Wikipedia Image Search scenario is modeled on *Philpot v. Media Research Center*, 952 F.3d 579 (4th Cir. 2020), where a photographer's CC-licensed images were found via search engines and used commercially without attribution. The key findings are:</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Copytrap effect confirmed.** The Wikipedia control --- which presents the image as sourced from "The Free Encyclopedia" with a generic "Images may be subject to copyright" disclaimer --- produces the lowest perceived risk (Q1: M = <span class="in">`r wn_q1_c`</span>), lowest perceived consequences (Q2: M = <span class="in">`r wn_q2_c`</span>), and lowest preferred consequences (Q3: M = <span class="in">`r wn_q3_c`</span>) across all conditions. Wikipedia's framing as a free resource appears to suppress awareness of the copyright restrictions that apply to its content.</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Reversed treatment direction.** Unlike most scenarios in this study, CC-exposed respondents perceived *higher* legal risk and *higher* consequences than the Wikipedia control. The general hypothesis --- that CC licensing reduces perceived risk --- does not hold when the control condition itself implies free availability. The CC license functions not as a permissive signal but as a *salience* signal, drawing attention to enforceable copyright restrictions that the Wikipedia framing obscures.</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**CC as salience signal, not permissive signal.** Full + Primer (B) respondents, who reviewed the full license text and educational primer, rated both perceived (Q2: M = <span class="in">`r wn_q2_b`</span>) and preferred (Q3: M = <span class="in">`r wn_q3_b`</span>) consequences highest. Understanding what the license permits and prohibits leads respondents to judge the violation more harshly, not more leniently. The NonCommercial and NoDerivatives terms make the unauthorized nature of the promoter's commercial use explicit.</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Law--preference gap stable across conditions.** Delta (Q2 - Q3) was <span class="in">`r ifelse(wn_kw_delta$p.value &lt; 0.05, "significantly different", "not significantly different")`</span> across groups (Kruskal-Wallis *p* = <span class="in">`r fmtp(wn_kw_delta$p.value)`</span>). <span class="in">`r if (wn_delta_all_pos) "All three deltas were small and positive, indicating respondents perceived current law as slightly stricter than preferred regardless of the licensing information provided." else "Deltas were mixed in sign across groups."`</span> Within-group Wilcoxon signed-rank tests showed <span class="in">`r ifelse(wn_wilcox_all_sig, "all", ifelse(wn_wilcox_any_sig, "some but not all", "no"))`</span> groups' deltas significantly differed from zero.</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Philpot implications.** Photographers whose CC-licensed images appear on Wikipedia face a double disadvantage: the Wikipedia context both facilitates discovery by making images prominent in search results and undermines the public's appreciation of the copyright protections that remain. The data suggest that the general public, encountering a CC-licensed image through Wikipedia, perceives less legal risk than when the same image is presented with explicit CC licensing information.</span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**Price estimates reflect commercial context.** Median license price estimates (Control (C): <span class="in">`r wn_price_md_c`</span>, Short (A): <span class="in">`r wn_price_md_a`</span>, Full + Primer (B): <span class="in">`r wn_price_md_b`</span>) reflect the commercial advertising use described in the scenario. The gap between means and medians across groups indicates right-skewed distributions, with some respondents estimating license values in the thousands. Group differences were <span class="in">`r ifelse(wn_kw_price$p.value &lt; 0.05, "significant", "not significant")`</span> (Kruskal-Wallis *p* = <span class="in">`r fmtp(wn_kw_price$p.value)`</span>).</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ludist/cc-survey/edit/main/_scenarios/wn.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ludist/cc-survey/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

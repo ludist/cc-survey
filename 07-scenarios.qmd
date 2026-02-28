@@ -1,0 +1,320 @@
+---
+title: "Scenario Analysis Overview"
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+## Analysis Structure
+
+Each of the seven scenario chapters that follow uses a parallel structure:
+
+1. **Scenario Context** — the scenario presented to respondents
+2. **Q1: Legal Consequences** — Kruskal-Wallis + Dunn's post-hoc + VDA (figure and table)
+3. **Q2: What the Law Is** — Kruskal-Wallis + Dunn's + VDA
+4. **Q3: What the Law Should Be** — Kruskal-Wallis + Dunn's + VDA
+5. **Δ (Delta, Q2 − Q3)** — within-group Wilcoxon signed-rank tests
+6. **Q4: Price estimate** — Kruskal-Wallis + Dunn's
+
+Data: Groups A, B, C (n = 1,222) for all scenarios except [Educational Use](_scenarios/eu.qmd), which filters to Groups A, B1, C (*n* = 905) due to a supplemental data collection. See [§3.1 (Codebook)](02-codebook.qmd#sec-b1) for the B1 substitution.
+
+Statistical methods are detailed in the [Methods chapter](01-methods.qmd#sec-statistical-methods). Effect sizes (VDA) are interpreted using the thresholds in [Table 2.1](01-methods.qmd#tbl-vda-thresholds).
+
+Cross-reference format: figures are labeled `@fig-[scenario]-q[N]` (e.g., `@fig-pd-q1`); tables are labeled `@tbl-[scenario]-q[N]-stats` (e.g., `@tbl-pd-q1-stats`).
+
+## Analysis Pipeline {#sec-functions}
+
+Every scenario chapter (§§7.1–7.7) calls a single function,
+`analyze_full_scenario()`, and receives back a complete set of plots, descriptive statistics, and test results. That one call sets in motion a coordinated pipeline of seven R modules, each responsible for a distinct layer of the analysis. This section documents those modules: what each one does, why it was designed the way it was, and how the pieces fit together.
+
+All seven files live in `analysis/functions/` and are sourced at book startup by `_common.R`. The source code for each module is folded below its description; click **Show source** to expand it. Code results are cached for HTML display but can be manually run as an R or Positron Notebook.
+
+::: {.callout-note collapse="true"}
+## Detailed Module Documentation
+
+The following sections document each of the seven R modules in the analysis pipeline. Click to expand.
+
+### Pipeline Overview {#sec-fn-overview}
+
+```{mermaid}
+%%| label: fig-pipeline
+%%| fig-cap: "Analysis pipeline: from raw CSV to scenario chapter outputs"
+flowchart TD
+  CSV["rousse-cc-survey-2024.csv\n(1,319 obs, all groups)"]
+
+  subgraph common ["_common.R  (book startup)"]
+    CSV --> dp["data_prep.R\nload_survey_data()\ncreate_all_deltas()"]
+    dp --> sdA["survey_data\nGROUP ∈ {A, B, C}\nn = 1,222"]
+    dp --> sdB["survey_data_eu\nGROUP ∈ {A, B1, C}\nn = 905"]
+  end
+
+  subgraph chapter ["Per-scenario chapter  (§7.1 – §7.7)"]
+    sdA --> ma["master_analysis.R\nanalyze_full_scenario()"]
+    sdB --> ma
+    ma --> af["analysis_functions.R\nanalyze_scenario_question()\ncreate_scenario_plot()\ncreate_delta_plot()\ncreate_price_plot()"]
+    af --> sh["stats_helpers.R\nvalidate_group_data()\nKruskal-Wallis · Dunn's post-hoc\nVDA effect sizes\nWilcoxon signed-rank (delta)"]
+    af --> pt["plotting_themes.R\nget_standard_theme()\nget_standard_plot_args()\nget_price_plot_args()"]
+    af --> ex["export_helpers.R\nexport_plot_to_tiff()\ndata / figures / v2 /"]
+    ma --> out["Returns nested list:\n$plots · $statistics · $tests"]
+  end
+
+  rc["randomization_checks.R\ncheck_continuous_covariate()\ncheck_categorical_covariate()\ncheck_brand_recognition()"] -.->|"Ch. 4–5 only"| sdA
+```
+
+The pipeline separates cleanly into three tiers: *data* (Module 1), *statistics and visualization* (Modules 2–5), and *orchestration* (Module 7). Module 6 supports only Chapters 4 and 5 and is never called by the scenario analysis chain.
+
+### Module 1: `data_prep.R` — Data Ingestion {#sec-fn-data-prep}
+
+`data_prep.R` handles everything that must happen before any statistics can be run: loading the CSV, constructing computed columns, and producing the two analysis views that the rest of the book uses.
+
+The central design decision is **single-file architecture**.  The two analysis views are created in `_common.R` by filtering on `GROUP`: `survey_data` keeps Groups A, B, and C (*n* = 1,222); `survey_data_eu` keeps Groups A, B1, and C (*n* = 905). The `prepare_eu_data()` function in this module handles the original
+two-file workflow and is preserved for provenance, but it is not called at book startup.
+
+The other key contribution is **delta variable creation**. Each scenario includes a question about what the law currently permits (Q2) and a question about what respondents prefer (Q3). Their difference (Δ = Q2 − Q3) is stored in a column named `[SCENARIO]25` (e.g., `PD25`). A positive delta means the law is stricter than
+respondents prefer; a negative delta means the law is more permissive. `create_all_deltas()` loops over all seven scenario codes and creates these columns in a single pass, and it
+gracefully skips any scenario whose Q2/Q3 columns are absent.
+
+| Function | Key Parameters | Returns | Role |
+|---|---|---|---|
+| `load_survey_data()` | `filepath`, `filter_groups` | data frame | Load and optionally filter CSV |
+| `create_delta_variable()` | `data`, `var1`, `var2`, `new_var_name` | data frame | Compute single Δ column |
+| `create_all_deltas()` | `data`, `scenarios` | data frame | Batch-create all seven Δ columns |
+| `validate_data_structure()` | `data`, `required_cols` | logical | Check that required columns exist |
+| `get_scenario_columns()` | `scenario_code`, `include_delta` | character vector | Return column names for a scenario |
+| `check_data_quality()` | `data`, `columns` | data frame | Report missing-value rates |
+| `prepare_all_data()` | `main_filepath`, `b1_filepath` | list | Master prep: load + delta + optional EU |
+| `filter_by_group()` | `data`, `group` | data frame | Extract a single group |
+| `split_by_groups()` | `data`, `group_var` | list | Split data into per-group data frames |
+
+```{r fn-data-prep-source}
+#| file: analysis/functions/data_prep.R
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show source: data_prep.R (365 lines)"
+```
+
+### Module 2: `stats_helpers.R` — Statistical Calculations {#sec-fn-stats-helpers}
+
+`stats_helpers.R` provides the statistical layer: validation, descriptive summaries, hypothesis tests, and effect sizes. Its design philosophy is to keep statistical decisions in one place so that all seven scenario chapters are guaranteed to use identical methods.
+
+The non-parametric choice is deliberate. The outcome variables are 7-point Likert scales: ordinal, bounded, and typically non-normal in distribution. Kruskal-Wallis is the appropriate omnibus test, and **Dunn's test** (via `rstatix::dunn_test()`, Holm correction) is the appropriate post-hoc. Pairwise Wilcoxon was considered but rejected: Dunn's test is specifically designed for post-hoc comparisons following a Kruskal-Wallis test and uses rank-sum scores from the full dataset, which gives it more appropriate statistical properties in this context.
+
+For the rationale behind VDA over Cohen's *d* for ordinal data and the interpretation thresholds used throughout, see [Chapter 1, §1.4.1](01-methods.qmd#tbl-vda-thresholds).
+
+The **delta analysis** uses a different test: `test_delta_nonzero()` runs a one-sample Wilcoxon signed-rank test for each group separately, testing whether that group's median delta is significantly different from zero. A non-zero median delta indicates a gap between respondents' perception of current law and their normative preference.
+
+| Function | Key Parameters | Returns | Role |
+|---|---|---|---|
+| `validate_group_data()` | `data`, `dv`, `min_n` | list | Check that each group has ≥ *n* observations |
+| `calculate_descriptive_stats()` | `data`, `dv`, `group_var`, `stats` | data frame | Mean, SD, median by group |
+| `run_dunn_test()` | `data`, `formula`, `p_adjust` | data frame | Dunn's post-hoc with Holm correction |
+| `calculate_vda()` | `data`, `dv`, `group_var` | list | Vargha & Delaney's A for all pairs |
+| `format_vda_caption()` | `dunn_results`, `vda_results` | character | Build plot caption with effect sizes |
+| `remove_outliers_by_group()` | `data`, `dv`, `percentile` | data frame | Trim top *p*% within each group |
+| `test_delta_nonzero()` | `data`, `dv`, `mu` | list | One-sample Wilcoxon (Δ ≠ 0) per group |
+| `run_chisq_test()` | `data`, `var1`, `var2` | list | Contingency table + χ² test |
+| `compare_groups()` | `data`, `dv`, `test_type` | test object | ANOVA or Kruskal-Wallis omnibus |
+| `compute_scenario_price_row()` | `data`, `scenario_code` | data frame | Price summary row (median, outlier-trimmed) |
+| `build_price_summary_table()` | `data_main`, `data_eu` | data frame | Cross-scenario price summary |
+| `build_price_vda_table()` | `data_main`, `data_eu` | data frame | Cross-scenario price VDA (outlier-trimmed) |
+| `build_wilcoxon_table()` | `data_main`, `data_eu` | data frame | Cross-scenario Wilcoxon signed-rank (Δ ≠ 0) |
+
+```{r fn-stats-helpers-source}
+#| file: analysis/functions/stats_helpers.R
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show source: stats_helpers.R (877 lines)"
+```
+
+### Module 3: `plotting_themes.R` — Visual Consistency {#sec-fn-plotting-themes}
+
+`plotting_themes.R` is the style guide for every figure in this Appendix. By centralizing all `ggplot2` theme and argument settings, the module guarantees that every plot across all
+seven scenario chapters shares the same fonts, sizes, color choices, significance bracket styling, and central tendency markers.
+
+The base theme is **Tufte** (via `ggthemes::theme_tufte()`), following Edward Tufte's principle of maximizing the data-to-ink ratio. Unnecessary gridlines and borders are removed; the statistical signal is left to speak for itself. Font resolution is handled through the `PLOT_FONT` global variable, which is set in `_common.R` before this module is sourced; all functions default to `base_family = PLOT_FONT` so that the book-level font choice propagates everywhere automatically.
+
+Two argument-list functions address the structural difference between Likert-scale questions and the price question. 
+
+`get_standard_plot_args()` configures the standard Q1/Q2/Q3/delta
+plots: no individual points shown, means displayed (parametric centrality), and significance brackets limited to statistically significant pairs. 
+
+`get_price_plot_args()` modifies the recipe for price data: individual estimates are shown as semi-transparent jittered dots,
+and the central tendency switches to **median** (50th percentile) because price distributions are right-skewed and means are not robust to the outliers that remain after the 99th-percentile
+trim.
+
+
+| Function | Key Parameters | Returns | Role |
+|---|---|---|---|
+| `get_standard_theme()` | `base_family`, `base_size` | ggplot theme | Tufte theme with global font |
+| `get_standard_plot_args()` | `show_points`, `base_family` | list | ggbetweenstats args for Likert plots |
+| `get_price_plot_args()` | `base_family` | list | ggbetweenstats args for price plots |
+| `apply_standard_formatting()` | `plot`, `center_caption` | ggplot | Center caption on existing plot |
+| `get_group_colors()` | `n_groups` | character vector | Okabe-Ito colorblind-safe palette |
+| `set_global_plot_options()` | `base_family` | NULL (side effect) | Set session-wide ggplot2 defaults |
+| `get_axis_labels()` | `scenario_code`, `question_type` | list | Standardized x/y axis labels |
+| `format_plot_title()` | `scenario_name`, `question_type` | character | Two-line title for each question type |
+
+```{r fn-plotting-themes-source}
+#| file: analysis/functions/plotting_themes.R
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show source: plotting_themes.R (372 lines)"
+```
+
+### Module 4: `analysis_functions.R` — Per-Question Plots {#sec-fn-analysis-functions}
+
+`analysis_functions.R` is where statistical tests and visualizations are actually assembled. Its four functions correspond to the four structural plot types that appear across the
+scenario chapters: standard questions (Q1/Q2/Q3), delta questions (Δ = Q2 − Q3), price questions (Q4), and a master dispatcher that routes each question to the appropriate specialized function.
+
+The core plot engine throughout is `ggstatsplot::ggbetweenstats()`. This function was chosen because it combines group-level box plots, individual jitter (optional), pairwise significance brackets, and statistical test results in a single, opinionated call. The
+tradeoff is that the function's defaults are opinionated and occasionally need to be overridden, leading to `plotting_themes.R` as a separate layer.
+
+A critical detail shared by all three plot functions is **group factor reordering**. The raw `GROUP` column contains the strings `"A"`, `"B"`, `"C"`, and (for EU) `"B1"`. Left
+to its default, R would display these alphabetically. Each function refactors the column to display order C → A → B (Control first, then treatments in ascending information density), and maps the codes to human-readable labels: `"Control (C)"`, `"Short (A)"`,
+`"Full + Primer (B)"`, and `"Full + Primer (B1)"`. This ordering is applied consistently before any statistical test is run, so all group comparisons and labels in the output match this canonical ordering.
+
+`create_delta_plot()` adds one step beyond the standard plot: after producing the between-group visualization, it runs a one-sample Wilcoxon signed-rank test for each group separately. The test result finding whether each group's median delta is significantly different from zero is returned alongside the plot and appears in the scenario chapters as the Wilcoxon results table.
+
+`create_price_plot()` adds outlier removal via `remove_outliers_by_group()` before any statistics are run. Price estimates are right-skewed and occasionally extreme; removing
+the top 1% within each group independently (rather than across the full sample) prevents any one group's outliers from distorting the visual scale.
+
+| Function | Key Parameters | Returns | Role |
+|---|---|---|---|
+| `create_scenario_plot()` | `data`, `dv`, `ylab`, `title`, `show_points` | ggplot | Standard Likert plot (Q1/Q2/Q3) |
+| `create_delta_plot()` | `data`, `dv`, `title`, `test_by_group` | list (plot + Wilcoxon) | Delta plot with per-group zero test |
+| `create_price_plot()` | `data`, `dv`, `title`, `percentile` | list (plot + filtered data) | Price plot with outlier trimming |
+| `analyze_scenario_question()` | `data`, `dv`, `question_type`, `scenario_name`, `export_tiff` | list | Dispatcher: routes to appropriate function |
+
+```{r fn-analysis-functions-source}
+#| file: analysis/functions/analysis_functions.R
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show source: analysis_functions.R (534 lines)"
+```
+
+### Module 5: `export_helpers.R` — Figure Export {#sec-fn-export-helpers}
+
+`export_helpers.R` handles the mechanics of saving analysis outputs to disk.
+`export_plot_to_tiff()` is the function called by `analyze_scenario_question()` whenever `export_tiff = TRUE`. It uses R's base graphics device system—`tiff()` → `print(plot)`
+→ `dev.off()`—to write a 300 DPI TIFF suitable for journal submission.
+
+The default output path uses `here::here("data", "figures", "v2")`, which resolves relative to the project root regardless of the working directory at the time of rendering. The filename convention is `[SCENARIO][QUESTION][WIDTH×10].tiff` — for example,
+`PD165.tiff` for the Public Domain Q1 plot at 6.5 inches wide. The `generate_filename()` function encodes this convention explicitly.
+
+The remaining functions (`export_plots_batch()`, `save_analysis_results()`,
+`export_stats_to_csv()`, `export_all_results()`) support the standalone batch workflow and the `generate_full_report()` orchestrator. They are not called during normal book rendering.
+
+| Function | Key Parameters | Returns | Role |
+|---|---|---|---|
+| `export_plot_to_tiff()` | `plot`, `filename`, `width`, `height`, `res`, `path` | NULL | Save ggplot to 300 DPI TIFF |
+| `export_results_table()` | `stats_df`, `format`, `caption` | kable | Format stats table for document |
+| `export_plots_batch()` | `plots`, `prefix`, `width`, `height` | NULL | Batch-export named list of plots |
+| `save_analysis_results()` | `results`, `filename`, `path` | NULL | Serialize results list to RDS |
+| `export_stats_to_csv()` | `stats_list`, `filename`, `path` | NULL | Write all scenario stats to CSV |
+| `generate_filename()` | `scenario_code`, `question`, `width` | character | Build canonical TIFF filename |
+
+```{r fn-export-helpers-source}
+#| file: analysis/functions/export_helpers.R
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show source: export_helpers.R (515 lines)"
+```
+
+### Module 7: `master_analysis.R` — Orchestration {#sec-fn-master-analysis}
+
+`master_analysis.R` is the top of the call stack. Its central function, `analyze_full_scenario()`, is what each scenario chapter calls. It takes a scenario code (e.g., `"PD"`), a full scenario name (e.g., `"Public Domain"`), the data, and an `export_tiffs` flag, then runs all five question types (Q1, Q2, Q3, Delta, Price) through the pipeline and collects the results into a named list.
+
+The module's hierarchy is explicit in the source comments:
+`generate_full_report()` → `analyze_all_scenarios()` → `analyze_full_scenario()` →
+`analyze_scenario_question()` → specialist plot functions. The Quarto book uses only the third level—`analyze_full_scenario()`—because each chapter handles one scenario and
+the book structure itself provides the "all scenarios" organization.
+
+The EU scenario receives special handling: if `scenario_code == "EU"` and a `data_b1` argument is provided, the function swaps in the EU-specific dataset. In the Quarto book, `_common.R` pre-computes both `survey_data` and `survey_data_eu`, so each scenario chapter passes the correct dataset directly.
+
+**Return structure:**
+
+```
+results
+├── $plots        — ggplot objects: $q1, $q2, $q3, $delta, $price
+├── $statistics   — data frames (mean, SD, median by group): $q1 … $price
+├── $tests        — $delta: list of wilcox.test() per group
+│                   $price: outlier-trimmed data frame
+├── $summary      — long-format table combining all $statistics entries
+├── $scenario_code
+└── $scenario_name
+```
+
+| Function | Key Parameters | Returns | Role |
+|---|---|---|---|
+| `analyze_full_scenario()` | `data`, `scenario_code`, `scenario_name`, `export_tiffs`, `data_b1` | named list | Run all 5 questions; return plots + stats + tests |
+| `analyze_all_scenarios()` | `main_data`, `b1_data`, `scenarios` | named list | Loop over all 7 scenarios |
+| `create_scenario_summary()` | `stats_list` | data frame | Combine per-question stats into one table |
+| `compare_across_scenarios()` | `results_list` | data frame | Cross-scenario Q1 mean comparison |
+| `generate_full_report()` | `data_paths`, `output_dir` | named list | Full pipeline: load → check → analyze → save |
+| `quick_analyze()` | `data`, `scenario_code`, `question` | list | Single question without TIFF export |
+
+```{r fn-master-analysis-source}
+#| file: analysis/functions/master_analysis.R
+#| eval: false
+#| code-fold: true
+#| code-summary: "Show source: master_analysis.R (542 lines)"
+```
+
+### Call-Site Pattern {#sec-fn-putting-together}
+
+With all seven modules loaded, every scenario chapter reduces to a single call:
+
+```{r fn-call-example}
+#| eval: false
+#| code-fold: false
+# Pattern used in each scenario chapter (shown here, not re-run).
+
+pd_results <- analyze_full_scenario(
+  data          = survey_data,       # Groups A/B/C, n = 1,222 — from _common.R
+  scenario_code = "PD",
+  scenario_name = "Public Domain",
+  export_tiffs  = TRUE               # Write to data/figures/v2/
+)
+
+# Access results:
+pd_results$plots$q1        # ggplot for Q1 (likelihood)
+pd_results$plots$delta     # ggplot for Δ = Q2 − Q3
+pd_results$statistics$q1   # data frame: mean, SD, median by group
+pd_results$tests$delta     # named list of wilcox.test() objects, one per group
+```
+
+The EU scenario passes `survey_data_eu` (Groups A/B1/C, n = 905) instead of `survey_data`. The pipeline's modularity means that changing any single layer, replacing the theme in `plotting_themes.R`, adding an effect size in `stats_helpers.R`,
+or switching export format in `export_helpers.R` propagates automatically to all seven scenario chapters without touching the chapter files themselves.
+
+:::
+
+## How to Read the Scenario Graphs {#sec-howto-graphs}
+
+The scenario chapters use the same `ggbetweenstats` engine described in [§4.3](04-randomization.qmd#sec-rand-howto), which covers the base visual elements (violin, box plot, centrality point, subtitle). This section covers what is *new* in the scenario graphs. The key interpretive shift: in Chapter 4, a non-significant result confirmed randomization. Here, a significant result (*p* < 0.05) indicates a **treatment effect** — evidence that CC license information changed how respondents answered.
+
+### Group Ordering and Labels
+
+Groups are displayed left-to-right, beginning with the control and then moving through two increasing intensities of treatment exposure to CC's license marking: **Control (C)** → **Short (A)** → **Full + Primer (B)**. Control respondents received a standard copyright marking or similar standard variant; Short received a brief, abbreviated CC label with logos; Full + Primer received a full text license name along with mandatory exposure to an educational primer for at least 20 seconds.
+
+### New Visual Elements
+
+Two elements appear in the scenario graphs that are absent from the randomization checks:
+
+- **Significance brackets.** After the Kruskal-Wallis omnibus test, Dunn's post-hoc test (with Holm correction) identifies *which* group pairs differ. Brackets connecting two groups appear above the plot, with Holm-adjusted *p*-values displayed at the bracket midpoint. Only statistically significant pairs are shown; if no bracket connects two groups, their difference was not significant after correction for multiple comparisons.
+
+- **Caption with VDA effect sizes.** Below each figure, the caption reports pairwise Vargha & Delaney's *A* (VDA) effect sizes. VDA is a probability: it estimates the chance that a randomly selected observation from one group exceeds a randomly selected observation from the other. A value of 0.50 means no difference; departures from 0.50 indicate the direction and magnitude of the effect. Interpretation thresholds (small, medium, large) follow Vargha & Delaney (2000) and are given in [Table 2.1](01-methods.qmd#tbl-vda-thresholds).
+
+### Three Plot Types
+
+The scenario chapters produce three structurally distinct graph types:
+
+**Q1, Q2, Q3 (Likert-scale questions).** These plots display responses on a 7-point scale. Individual data points are hidden to reduce clutter. The centrality point marks the group **mean**, even when the test statistics are nonparametric for ease of interpretation.
+
+**Delta (Δ = Q2 − Q3).** Delta plots visualize the *difference* between each respondent's perception of current law (Q2) and their normative preference (Q3). A positive delta means the respondent sees the law as stricter than they prefer; a negative delta means the law is more permissive than preferred. The Y-axis is the Q2–Q3 difference rather than a raw survey response. Each delta plot is accompanied by a **Wilcoxon signed-rank table** reporting whether each group's median delta is significantly different from zero — that is, whether there is a measurable gap between "what the law is" and "what the law should be" within that group.
+
+**Price (Q4).** Price plots show respondents' dollar estimates of the value of the copyrighted work in the scenario. Individual estimates are displayed as semi-transparent jittered dots because the distribution shape is substantively informative. The centrality point marks the group **median** rather than the mean, because price distributions are right-skewed and the median is more robust to extreme values. Before any statistics are computed, the **top 1% of estimates within each group** are trimmed as outliers to prevent a handful of extreme responses from distorting the visual scale and test results.
+
+### Quick Interpretation
+
+For any scenario graph: if the subtitle shows *p* < 0.05, the groups differ overall. Check the **brackets** to see which specific pairs drive the difference, and consult the **caption** for the effect size. For delta plots, the accompanying Wilcoxon table reveals whether each group's gap between perceived and preferred law is itself significant. The first example the reader will encounter is @fig-pd-q1 in the [Public Domain](_scenarios/pd.qmd) scenario.

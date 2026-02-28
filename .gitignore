@@ -1,0 +1,46 @@
+# R
+.Rhistory
+.Rproj.user
+.RData
+.Renviron
+
+# renv — lock file is tracked; library is machine-specific
+renv/library/
+renv/staging/
+renv/cellar/
+renv/local/
+renv/lock/
+renv/python/
+renv/sandbox/
+
+# Quarto rendering
+_book/
+_site/
+.quarto/
+_freeze/
+*_cache/
+
+# Generated figures (regenerated from code)
+data/figures/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*~
+*.swp
+*.tmp
+
+# Word lock files
+~$*
+
+# Large binaries not needed in repo
+*.xlsx
+*.rds
+
+# IDE
+.vscode/
+.positron/
+*.Rproj

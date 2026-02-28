@@ -1,0 +1,120 @@
+<script>
+/*
+ * sidebar-toc.js — CC Survey Online Appendix
+ *
+ * Quarto Book sidebar accordion for within-page sections.
+ *
+ * Actual Quarto behavior (confirmed from rendered HTML):
+ *   - toc-location: left places the TOC as <nav id="TOC"> inside #quarto-sidebar,
+ *     AFTER the chapter list. The <ul> has class="collapse" (Bootstrap-hidden).
+ *   - There is NO #quarto-sidebar-toc-left element in Quarto 1.8.
+ *   - CSS hides the nav#TOC block; this script moves the links to nest under
+ *     the active chapter <li>, achieving accordion display.
+ *
+ * Edge case handled: chapters with a body H1 (e.g. {.unnumbered} intro) produce
+ * a TOC where the H1 is the sole top-level link and H2s are nested under it.
+ * In that case we skip the H1 (which duplicates the sidebar chapter entry) and
+ * promote the nested H2 links instead.
+ */
+(function () {
+  'use strict';
+
+  function injectAuthorLine() {
+    // Add author name below the book title/subtitle, above the search bar
+    if (document.querySelector('.sidebar-author')) return;
+
+    var sidebar = document.getElementById('quarto-sidebar');
+    if (!sidebar) return;
+
+    // Insert after subtitle if present, else after title
+    var anchor = sidebar.querySelector('.sidebar-subtitle')
+              || sidebar.querySelector('.sidebar-title');
+    if (!anchor) return;
+
+    var authorDiv = document.createElement('div');
+    authorDiv.className = 'sidebar-author';
+    authorDiv.innerHTML = '<span class="sidebar-author-label">inquiry by</span><br>Thomas H. Rousse<br>J.D., Ph.D.';
+
+    // Insert between subtitle/title and search bar (equidistant)
+    var search = sidebar.querySelector('#quarto-search');
+    if (search) {
+      search.parentNode.insertBefore(authorDiv, search);
+    } else {
+      anchor.parentNode.insertBefore(authorDiv, anchor.nextSibling);
+    }
+  }
+
+  function injectSections() {
+    // 1. Find the active chapter <li> in the sidebar
+    var activeLink = document.querySelector('#quarto-sidebar .sidebar-link.active');
+    if (!activeLink) return;
+    var activeItem = activeLink.closest('li.sidebar-item');
+    if (!activeItem) return;
+
+    // 2. Find the TOC nav that Quarto placed inside the sidebar
+    var tocNav = document.querySelector('#quarto-sidebar nav#TOC');
+    if (!tocNav) return;
+
+    // 3. Get all section links (already depth-filtered by Quarto's toc-depth: 2)
+    var allLinks = Array.from(tocNav.querySelectorAll('a[data-scroll-target]'));
+
+    // Keep only top-level links (no grandparent <li>)
+    var topLevelLinks = allLinks.filter(function (link) {
+      var parentLi = link.closest('li');
+      if (!parentLi) return false;
+      var grandparentLi = parentLi.parentElement && parentLi.parentElement.closest('li');
+      return !grandparentLi;
+    });
+
+    // Edge case: body-H1 chapters (e.g. {.unnumbered} intro).
+    // The sole top-level link IS the chapter title — injecting it would duplicate
+    // the sidebar chapter entry. Detect this and promote the nested H2 links instead.
+    var chapterText = activeLink.textContent.replace(/^\d+[\.\s]+/, '').trim();
+    if (
+      topLevelLinks.length === 1 &&
+      topLevelLinks[0].textContent.trim() === chapterText
+    ) {
+      // Promote one level deeper (the H2s nested under the H1)
+      topLevelLinks = allLinks.filter(function (link) {
+        var parentLi = link.closest('li');
+        if (!parentLi) return false;
+        var grandparentLi = parentLi.parentElement && parentLi.parentElement.closest('li');
+        if (!grandparentLi) return false;
+        var greatGrandparentLi = grandparentLi.parentElement && grandparentLi.parentElement.closest('li');
+        return !greatGrandparentLi;
+      });
+    }
+
+    if (topLevelLinks.length === 0) return;
+
+    // 4. Build the nested section list
+    var sectionList = document.createElement('ul');
+    sectionList.className = 'sidebar-sections list-unstyled';
+
+    topLevelLinks.forEach(function (link) {
+      var li = document.createElement('li');
+      li.className = 'sidebar-section-item';
+      // Replace nav-link class with our sidebar class; keep data-scroll-target
+      link.className = 'sidebar-section-link';
+      li.appendChild(link); // move (not clone) to preserve Quarto scroll-tracking refs
+      sectionList.appendChild(li);
+    });
+
+    // 5. Insert immediately after the active chapter <li>
+    activeItem.parentNode.insertBefore(sectionList, activeItem.nextSibling);
+
+    // 6. tocNav is already hidden via CSS; no further action needed
+  }
+
+  function init() {
+    injectAuthorLine();
+    injectSections();
+  }
+
+  if (document.readyState === 'complete') {
+    init();
+  } else {
+    window.addEventListener('load', init);
+  }
+}());
+</script>

@@ -1,0 +1,620 @@
+---
+title: "Codebook & Variable Dictionary"
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+This Chapter documents every utilized variable in the analysis dataset, including response scales, coding schemes, naming conventions, and treatment conditions. Additional variables not used in current analysis are also described. It serves as the authoritative reference for interpreting the data.
+
+## Data File {#sec-data-files}
+
+A single canonical CSV contains all observations:
+
+| File | Observations | Groups | Columns |
+|------|-------------|--------|---------|
+| `rousse-cc-survey-2024.csv` | 1,319 | A (400), B (414), B1 (97), C (408) | 191 |
+
+: Canonical Data File. {#tbl-data-file}
+
+This file was produced by cleaning the original Qualtrics export: correcting UTF-8 encoding artifacts (smart quotes rendered as mojibake in the original export) and removing 17 rows with invalid `GROUP` values (empty strings, zeros, and text spillover from unescaped CSV fields). The original working files (`ccSurveyWorkingFile3.csv` and `ccSurveyWorkingFileB1.csv`) are preserved in `data/survey-data/` for provenance but are not used by this analysis. The raw Qualtrics export is also available on OSF.io but not used directly in this analysis. It does not contain personal identifiers.
+
+### Analysis Views
+
+Two filtered datasets are derived from the single file in `_common.R`:
+
+| View | Filter | N | Used for |
+|------|--------|---|----------|
+| `survey_data` | `GROUP %in% c("A", "B", "C")` | 1,222 | PD, PU, CA, LS, WN, FS scenarios |
+| `survey_data_eu` | `GROUP %in% c("A", "B1", "C")` | 905 | EU scenario only |
+
+: Analysis Views Derived from Canonical File. {#tbl-analysis-views}
+
+### The B1 Supplement {#sec-b1}
+
+Group B1 is a **supplemental data collection** of 97 participants who replaced Group B for the Educational Use (EU) scenario. An error in the randomized distribution excluded B group participants from seeing the EU scenario. B1 participants completed only the EU portion of the survey; their non-EU scenario columns (PD, PU, CA, LS, WN, FS) are empty. B1 participants also did not complete the brand recognition battery (logo identification, NETSKILLS, BRANDSKILLS) or the demographic questions — these columns are NA for all B1 rows. Group B1 data differs from Group B in two ways: (1) B1 participants were recruited after the main data collection and may differ demographically from the original B group; (2) B1 participants were not exposed to the non-EU scenarios, which may have influenced their responses to the EU scenario. For these reasons, Group B1 is treated as a separate group in the EU scenario analysis (replacing the missing Group B data) and excluded from all other analyses.
+
+For the EU scenario analysis ([§7.3](07-scenarios.qmd#sec-eu)), the data is filtered to Groups A, B1, and C — Group B is excluded entirely. For all other scenarios, the data is filtered to Groups A, B, and C — Group B1 is excluded (since B1 participants did not answer those questions).
+
+### Data Collection Timeline {#sec-timeline}
+
+All data was collected in March 2024 via CloudResearch's Connect platform, with the survey administered through Qualtrics.^[For a detailed discussion of the platform selection, pilot testing, and data quality measures, see the dissertation chapter: Thomas H. Rousse, *Hidden Costs of Open Licensing? A Survey Experiment on Creative Commons and Copyright Infringement*, ch. 1 in *Creative Realism: Innovation Beyond the Ownership Incentive* (2024), Part V.A.]
+
+| Date | Event | Details |
+|------|-------|---------|
+| March 14, 2024 | Pilot launch | 4:03 PM CDT |
+| March 14, 2024 | Full data collection began | 5:13 PM CDT (Groups A, B, C) |
+| March 14, 2024 | Collection paused | 8:14 PM CDT — survey logic error discovered after ~463 responses; resumed ~45 minutes later |
+| March 15, 2024 | Main collection concluded | 9:16 AM CDT — 1,200 completed responses (~16 hours including pause) |
+| March 17, 2024 | Full + Primer (B) oversample | 22 additional respondents at 9:13 AM to correct for missing-scenario error; 8 suspected non-U.S. responses replaced |
+| March 22, 2024 | Group B1 collection | 100 respondents (97 after exclusions) for Educational Use scenario only |
+
+: Data Collection Timeline. {#tbl-timeline tbl-colwidths="[15,20,65]"}
+
+Demographic quotas on age, gender, race, and ethnicity were used to approximate national representativeness. Sampling lasted roughly 16 hours for the main collection, with responses distributed in two large groups on the evening of March 14 and morning of March 15. The median completion time was 13:58, with an average of 16:50. For detailed sample composition and population comparisons, see [Chapter 5 (Sample v. Population Analysis)](05-population.qmd).
+
+---
+
+## Experimental Design {#sec-design}
+
+Treatment conditions and study design are detailed in [Chapter 1 (Methods)](01-methods.qmd#tbl-treatment-groups). This section documents the specific license notice text and scenario summaries for reference.
+
+### License Notices by Scenario {#sec-notices}
+
+The table below reproduces the exact caption text shown to respondents beneath each scenario's image, as specified in the Qualtrics survey file (QSF). These captions are the **sole textual difference** between experimental conditions for each scenario — the scenario text and images are otherwise identical across groups.
+
+::: {.column-body-outset-right}
+
+| | Control (C) | Short (A) | Full + Primer (B) |
+|---|---|---|---|
+| **Public Domain** | U.S. Government Work | [CC0 badge] The Blue Marble by NASA | [CC0 badge] This work (The Blue Marble, by NASA) is free of known copyright restrictions. |
+| **Personal Use** | Warm Balloon Grid © 2018 by F. Brown. All Rights Reserved. | Warm Balloon Grid © 2018 by F. Brown is licensed under CC BY 4.0 | Warm Balloon Grid © 2018 by F. Brown is licensed under Creative Commons Attribution 4.0 International |
+| **Educational Use** | Pretty Pink Piggies © 2018 by S. Baker. All Rights Reserved. | Pretty Pink Piggies © 2018 by S. Baker is licensed under CC BY-NC-SA 4.0 | Pretty Pink Piggies © 2018 by S. Baker is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International |
+| **Commercial Advertising** | Chicago Schwinn © 2018 D. Green. All Rights Reserved. | Chicago Schwinn © 2018 by D. Green is licensed under CC BY-NC 4.0 | Chicago Schwinn © 2018 by D. Green is licensed under Creative Commons Attribution-NonCommercial 4.0 |
+| **Large Scale Copying** | © 2018 J. Gray. All Rights Reserved. | Canyon Crow © 2018 by J. Gray is licensed under CC BY-NC-ND 4.0 | Canyon Crow © 2018 by J. Gray is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International |
+| **Wikipedia Image Search** | Willie Nelson - Wikipedia / Images may be subject to copyright. Learn More | Willie Waving © 2018 by D. Orange is licensed under CC BY-NC-ND 4.0 | Willie Waving © 2018 by D. Orange is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International |
+| **Filesharing** | Seconds © 2018 by The Kick Bugs. All Rights Reserved. | Seconds © 2018 by The Kick Bugs is licensed under CC BY 4.0 | Seconds © 2018 by The Kick Bugs is licensed under Creative Commons Attribution 4.0 International |
+
+: License Notice Captions by Scenario and Condition. Reproduced verbatim from the corrected Qualtrics survey file. In treatment conditions, the license designation is hyperlinked to the corresponding CC license deed. PD treatments display the CC Public Domain Mark badge (88×31px) before the caption text. WN's control condition mimics a Google Image Search result, with "Willie Nelson - Wikipedia" hyperlinked to the Wikipedia article and "Learn More" linking to Google's copyright help page. Minor formatting variations across scenarios reflect the survey design: CA's control omits "by" before the author; LS's control omits the work title; WN's control uses no copyright notice at all. {#tbl-notices tbl-colwidths="[10,30,30,30]"}
+
+:::
+
+### Scenario Summaries {#sec-scenarios}
+
+::: {.column-body-outset-right}
+
+| Scenario | Work | Re-User | Re-Use | CC License |
+|----------|------|---------|--------|------------|
+| Public Domain | NASA "Blue Marble" photo | Advertising executive | Full-page national ad campaign | Public Domain Mark (non-infringing across conditions) |
+| Personal Use | "Warm Balloon Grid" print | Homeowner | Download, print poster, hang in living room | CC BY 4.0 |
+| Educational Use | "Pretty Pink Piggies" nursery rhyme book | Publishing company | Reprint and sell 200,000 copies to schools | CC BY-NC-SA 4.0 |
+| Commercial Advertising | "Chicago Schwinn" bicycle photo | Bike shop owner | Facebook ad seen by 100,000+ people | CC BY-NC 4.0 |
+| Large Scale Copying | "Canyon Crow" nature photo | Entrepreneur | Print and sell 6,000 posters at \$10 each (\$60K revenue) | CC BY-NC-ND 4.0 |
+| Wikipedia Image Search | Willie Nelson photo | Concert promoter | Blogs, social media ads, flyers — 150,000+ views, no attribution | CC BY-NC-ND 4.0 |
+| Filesharing | "Seconds" music CD by The Kick Bugs | College student | Convert to MP3, upload to file-sharing, 50,000+ downloads | CC BY 4.0 |
+
+: Scenario Summaries. Each scenario describes a factual situation involving the re-use of a creative work. Respondents answered four questions about each scenario (see [Response Scales](#sec-scales)). {#tbl-scenarios tbl-colwidths="[14,16,12,38,20]"}
+
+:::
+
+---
+
+## Variable Naming Conventions {#sec-naming}
+
+Variables follow a consistent naming scheme. Understanding the pattern is essential for navigating the 191 columns in the dataset.
+
+### Scenario–Question Pattern
+
+The core variables use a `[SCENARIO][QUESTION]` pattern:
+
+**Scenario codes:**
+
+| Code | Scenario |
+|------|----------|
+| `PD` | Public Domain |
+| `PU` | Personal Use |
+| `EU` | Educational Use |
+| `CA` | Commercial Advertising |
+| `LS` | Large Scale Copying |
+| `WN` | Wikipedia Image Search |
+| `FS` | Filesharing |
+
+: Scenario Codes. {#tbl-scenario-codes}
+
+**Question suffixes:**
+
+| Suffix | Meaning | Scale |
+|--------|---------|-------|
+| `1` | Likelihood of legal consequences (Q1) | 1–7 Likert |
+| `2` | What legal consequences would they face? (Q2) | 1–7 Likert |
+| `3` | What legal consequences should they face? (Q3) | 1–7 Likert |
+| `4` | Reasonable license price (Q4) | Continuous (USD) |
+| `25` | Delta = Q2 − Q3 (computed) | −6 to +6 |
+
+: Question Suffixes. {#tbl-question-suffixes tbl-colwidths="[10,60,30]"}
+
+**Example:** `PD1` = Public Domain, Q1 (perceived likelihood of legal consequences). `EU25` = Educational Use, Delta (perceived law minus preferred rule).
+
+### Treatment-Specific Columns
+
+The dataset preserves responses in **treatment-specific columns** before merging:
+
+| Pattern | Meaning | Example |
+|---------|---------|---------|
+| `[SCENARIO]C[1-4]` | Control group response | `PDC1`, `PUC3` |
+| `[SCENARIO]TA[1-4]` | Short (A) response | `PDTA1`, `PUTA4` |
+| `[SCENARIO]TB[1-4]` | Full + Primer (B) response | `PDTB2`, `PUTB3` |
+| `[SCENARIO][1-4]` | Merged column (aggregated across conditions) | `PD1`, `PU3` |
+
+: Treatment-Specific Column Patterns. {#tbl-treatment-columns}
+
+Each participant has data in only one treatment column set (C, TA, or TB) based on their random assignment. The merged columns (e.g., `PD1`) contain the same value copied from the appropriate treatment column for that participant.
+
+### Timing Columns
+
+Per-scenario page timing follows the pattern `[SCENARIO][CONDITION]-TIME_Page Submit` (e.g., `PDC-TIME_Page Submit`, `PUTA-TIME_Page Submit`). These record the time in seconds each participant spent on the corresponding scenario page.
+
+---
+
+## Response Scales {#sec-scales}
+
+### Q1: Likelihood of Legal Consequences (1–7 Likert) {#sec-q1-scale}
+
+> "On a scale from 1–7, with 7 being the most likely: In your opinion, how likely is [the re-user] to face legal consequences for this use?"
+
+| Label | Value |
+|-------|:-----:|
+| Extremely unlikely | 1 |
+| Moderately unlikely | 2 |
+| Slightly unlikely | 3 |
+| Neither likely nor unlikely | 4 |
+| Slightly likely | 5 |
+| Moderately likely | 6 |
+| Extremely likely | 7 |
+
+: Q1 Response Scale. {#tbl-q1-scale tbl-colwidths="[85,15]"}
+
+### Q2: Perceived Legal Consequences (1–7 Likert) {#sec-q2-scale}
+
+> "On a scale from 1–7, with 7 being the most negative: In your opinion, if [the re-user] was sued for these actions, what legal consequences do you think they **would** face?"
+
+| Label | Value |
+|-------|:-----:|
+| No consequences | 1 |
+| *(unlabeled)* | 2 |
+| *(unlabeled)* | 3 |
+| Some negative consequences, such as a court order to stop and/or a moderate fine | 4 |
+| *(unlabeled)* | 5 |
+| *(unlabeled)* | 6 |
+| Very negative consequences, such as incarceration and/or a large fine | 7 |
+
+: Q2/Q3 Response Scale. {#tbl-q2-scale tbl-colwidths="[85,15]"}
+
+### Q3: Preferred Legal Consequences (1–7 Likert) {#sec-q3-scale}
+
+> "On a scale from 1–7, with 7 being the most negative: In your opinion, what legal consequences **should** [the re-user] face for these actions, if sued?"
+
+The response scale is identical to Q2 (see above). Q2 asks what **would** happen; Q3 asks what **should** happen.
+
+### Delta (Q2 − Q3): Congruence Score {#sec-delta}
+
+The Delta variable (`[SCENARIO]25`) is computed as Q2 minus Q3 for each scenario. Range: −6 to +6 (integer). See [Chapter 1, §1.4.2](01-methods.qmd#sec-delta-method) for the full definition and interpretation.
+
+### Q4: Reasonable License Price (Continuous) {#sec-q4-scale}
+
+> "Now imagine that before the use described in the scenario, [the re-user] and the owner of this work agreed on a price for a non-exclusive license — meaning that the owner can also license the work to others — that allows all of the use described in the scenario. In your opinion, what do you think would be a reasonable price for that license, if any? Please provide a single amount in US dollars."
+
+- **Type:** Text entry (numeric)
+- **Validation:** Numeric values only, minimum $0, two decimal places
+- **Unit:** US dollars
+
+### NETSKILLS / BRANDSKILLS (1–5 Matrix) {#sec-skills-scale}
+
+| Label | Value |
+|-------|:-----:|
+| None | 1 |
+| Little | 2 |
+| Some | 3 |
+| Good | 4 |
+| Full | 5 |
+
+: NETSKILLS / BRANDSKILLS Response Scale. {#tbl-skills-scale tbl-colwidths="[85,15]"}
+
+This scale is used for both the Internet Skills battery (`NETSKILLS`) and the Brand Familiarity battery (`BRANDSKILLS`). *See* [Brand Recognition & Internet Skills](#sec-brand) for item details.
+
+---
+
+## Demographic Variables {#sec-demographics}
+
+All demographic questions were presented after the scenarios. The question formats follow long-standing U.S. Census Survey conventions where applicable. To reduce variance based on question language changes, archaic language reflecting government practice from decades past is sometimes retained.
+
+### AGE {#sec-age}
+
+- **Question:** "What is your current age?"
+- **Type:** Text entry (numeric)
+- **Scale:** Continuous (integer years)
+- **CSV column:** `AGE`
+
+### GENDER {#sec-gender}
+
+- **Question:** "With what gender do you most closely identify?"
+- **Type:** Multiple choice, single answer
+- **CSV column:** `GENDER` (numeric code); `GENDER_3_TEXT` (free-text for option 3)
+
+| Label | Value |
+|-------|:-----:|
+| Male | 1 |
+| Female | 2 |
+| A gender identity that's not listed (please specify) | 3 |
+| Prefer not to say | 4 |
+
+: GENDER Response Scale. {#tbl-gender-scale tbl-colwidths="[85,15]"}
+
+### HISPLAT {#sec-hisplat}
+
+- **Question:** "Are you of Spanish, Hispanic, or Latino origin?"
+- **Type:** Multiple choice, single answer
+- **CSV column:** `HISPLAT`
+
+| Label | Value |
+|-------|:-----:|
+| Yes | 1 |
+| No | 2 |
+
+: HISPLAT Response Scale. {#tbl-hisplat-scale tbl-colwidths="[85,15]"}
+
+### RACE {#sec-race}
+
+- **Question:** "Choose one or more races that you consider yourself to be"
+- **Type:** Multiple choice, multiple answer
+- **CSV column:** `RACE`
+- **Encoding:** Comma-separated string of selected values (e.g., `"1,4"` = White and Asian). Single-race responses are stored as a single integer (e.g., `"1"`).
+
+| Label | Value |
+|-------|:-----:|
+| White or Caucasian | 1 |
+| Black or African American | 2 |
+| American Indian/Native American or Alaska Native | 3 |
+| Asian | 4 |
+| Native Hawaiian or Other Pacific Islander | 5 |
+| Other | 6 |
+| Prefer not to say | 7 |
+
+: RACE Response Scale. {#tbl-race-scale tbl-colwidths="[85,15]"}
+
+### EDU {#sec-edu}
+
+- **Question:** "What is the highest level of education you have completed?"
+- **Type:** Multiple choice, single answer (ordinal)
+- **CSV column:** `EDU`
+
+| Label | Value |
+|-------|:-----:|
+| Some high school or less | 1 |
+| High school diploma or GED | 2 |
+| Some college, but no degree | 3 |
+| Associates or technical degree | 4 |
+| Bachelor's degree | 5 |
+| Graduate or professional degree (MA, MS, MBA, PhD, JD, MD, DDS, etc.) | 6 |
+| Prefer not to say | 7 |
+
+: EDU Response Scale. {#tbl-edu-scale tbl-colwidths="[85,15]"}
+
+### INCOME {#sec-income}
+
+- **Question:** "What was your total household income before taxes during the past 12 months?"
+- **Type:** Multiple choice, single answer (ordinal)
+- **CSV column:** `INCOME`
+
+| Label | Value |
+|-------|:-----:|
+| Less than $25,000 | 1 |
+| $25,000–$49,999 | 2 |
+| $50,000–$74,999 | 3 |
+| $75,000–$99,999 | 4 |
+| $100,000–$149,999 | 5 |
+| $150,000 or more | 6 |
+| Prefer not to say | 7 |
+
+: INCOME Response Scale. {#tbl-income-scale tbl-colwidths="[85,15]"}
+
+### STATE {#sec-state}
+
+- **Question:** "In what state or territory do you currently live?"
+- **Type:** Dropdown menu
+- **CSV column:** `STATE`
+- **Values:** US state two-letter abbreviations (e.g., "AL", "CA", "NY"), plus "Other" and "Outside US"
+
+::: {.callout-note}
+## Recoded from Qualtrics Export
+
+The original Qualtrics export used non-sequential internal choice IDs (integers 4–115). These have been recoded to standard two-letter state abbreviations. The original numeric codes are preserved in the archived CSV at `data/survey-data/prev/`.
+:::
+
+### LIBCON {#sec-libcon}
+
+- **Question:** "Politically, do you tend to be more liberal, or conservative?"
+- **Type:** Multiple choice, single answer (horizontal display)
+- **CSV column:** `LIBCON`
+
+| Label | Value |
+|-------|:-----:|
+| Very Liberal | 1 |
+| Somewhat Liberal | 2 |
+| Moderate | 3 |
+| Somewhat Conservative | 4 |
+| Very Conservative | 5 |
+
+: LIBCON Response Scale (Recoded). {#tbl-libcon-scale tbl-colwidths="[85,15]"}
+
+::: {.callout-note}
+## Recoded from Qualtrics Export
+
+The original Qualtrics export used non-sequential raw codes (1, 2, 6, 7, 3) due to the "Moderate" option being inserted after initial scale construction. These have been recoded to a sequential 1–5 ordinal scale. The original CSV is archived at `data/survey-data/prev/rousse-cc-survey-2024_pre-libcon-recode.csv`.
+:::
+
+### POLPARTY {#sec-polparty}
+
+- **Question:** "What political party, if any, do you most closely affiliate with?"
+- **Type:** Multiple choice, single answer
+- **CSV column:** `POLPARTY` (numeric code); `POLPARTY_4_TEXT` (free-text for option 4)
+
+| Label | Value |
+|-------|:-----:|
+| Republican Party | 1 |
+| Democratic Party | 2 |
+| None (Independent) | 3 |
+| Other (please specify) | 4 |
+| Prefer not to say | 5 |
+
+: POLPARTY Response Scale. {#tbl-polparty-scale tbl-colwidths="[85,15]"}
+
+---
+
+## Brand Recognition & Internet Skills {#sec-brand}
+
+### Logo Identification Battery
+
+Participants were shown four logos in random order and asked: *"Do you know the brand associated with this logo?"* Those who answered "Yes" for IDCC were prompted: *"Please identify the brand you associate with this logo."*
+
+| CSV Column | Logo | Known Brand |
+|------------|------|-------------|
+| `IDMcD` | Golden arches | McDonald's |
+| `IDFAKE` | Novel logo (created for experiment) | None (control) |
+| `IDFF` | Globe with fox | Firefox (Mozilla) |
+| `IDCC` | Double-C in circle | Creative Commons |
+
+: Logo Identification Battery Items. {#tbl-logo-battery}
+
+- **Response coding:** 1 = Yes (recognized), 2 = No (not recognized)
+- **Text columns:** `IDMcD-Text`, `IDFAKE-Text`, `IDFF-Text`, `IDCC-Text` — free-text brand identification
+
+### IDCC-CAT: CC Logo Response Categorization {#sec-idcc-cat}
+
+Free-text responses to the CC logo identification (`IDCC-Text`) were hand-coded into the following categories:
+
+| Category | Value |
+|----------|:-----:|
+| Creative Commons (correct) | 1 |
+| Closed Captioning | 2 |
+| Comedy Central | 3 |
+| Chanel | 4 |
+| Copyright | 5 |
+| Other | 6 |
+
+: IDCC-CAT Response Categories. {#tbl-idcc-cat tbl-colwidths="[85,15]"}
+
+### CCREC: CC Knowledge Description
+
+- **Question:** "You indicated you recognize Creative Commons. Please briefly describe in your own words your understanding of Creative Commons. Please do not use AI assistance or outside sources."
+- **Type:** Free-text entry
+- **Condition:** Shown only to participants who answered "Yes" to IDCC
+- **CSV column:** `CCREC`
+
+### Internet Skills (NETSKILLS) {#sec-netskills}
+
+> "How familiar are you with the following computer and Internet-related items? Please choose a number between 1 and 5 where 1 represents 'no understanding' and 5 represents 'full understanding' of the item."^[Measure from Eszter Hargittai & Yuli Patrick Hsieh, *Succinct Survey Measures of Web-Use Skills*, 30 **Soc. Sci. Computer Rev.** 95 (2012). Items in this and the following `BRANDSKILLS` battery were presented randomly to preclude order effects.]
+
+| CSV Column | Item |
+|------------|------|
+| `NETSKILLS_1` | Advanced search |
+| `NETSKILLS_2` | Phishing |
+| `NETSKILLS_3` | Spyware |
+| `NETSKILLS_4` | Cache |
+| `NETSKILLS_5` | PDF |
+| `NETSKILLS_6` | Wiki |
+| `NETSKILLS_AVG` | Mean of items 1–6 (computed) |
+
+: NETSKILLS Battery Items. {#tbl-netskills-items}
+
+Scale: 1–5 (None / Little / Some / Good / Full). See [§2.6](#sec-skills-scale).
+
+### Brand Familiarity (BRANDSKILLS) {#sec-brandskills}
+
+> "How familiar are you with the following computer and Internet-related brands? Please choose a number between 1 and 5 where 1 represents 'no understanding' and 5 represents 'full understanding' of the item."^[Follows format of Eszter Hargittai & Yuli Patrick Hsieh, *Succinct Survey Measures of Web-Use Skills*, 30 **Soc. Sci. Computer Rev.** 95 (2012).]
+
+| CSV Column | Brand |
+|------------|-------|
+| `BRANDSKILLS_1` | Creative Commons |
+| `BRANDSKILLS_2` | Byteyield (novel/fake brand — control) |
+| `BRANDSKILLS_3` | Microsoft |
+| `BRANDSKILLS_4` | Mozilla |
+
+: BRANDSKILLS Battery Items. {#tbl-brandskills-items}
+
+Scale: 1–5 (None / Little / Some / Good / Full). See [§2.6](#sec-skills-scale).
+
+---
+
+## Quality Control & Attention Checks {#sec-quality}
+
+Three quality-control items were administered during the survey. These were used as **screening questions** — participants who failed attention/consent checks were excluded during data collection. The responses are **not retained** in the analysis dataset.
+
+### COMMIT (Commitment Question)
+
+> "We care about your opinions and we care about the quality of our survey data. To get the most accurate measures of your opinions, it is important that you provide thoughtful answers in good faith to each question in this survey. Please do not use text generated by AI or LLMs such as ChatGPT. Your answers to questions about your personal opinions will have no impact on your compensation. Do you commit to providing thoughtful answers in good faith to the questions in the survey?"
+
+| Label | Value |
+|-------|:-----:|
+| I can't promise either way | 1 |
+| Yes, I will | 2 |
+| No, I will not | 3 |
+
+: COMMIT Response Scale. {#tbl-commit-scale tbl-colwidths="[85,15]"}
+
+### PINK (Color Attention Check)
+
+> "Which of the following colors is a lighter shade of red?"
+
+Options: Green, **Pink** (correct), Yellow, Black, Blue.
+
+### FIRSTNAMEGEN (Name Attention Check)
+
+> "Which of the following names do you think is most likely to belong to someone who identifies as a female?"
+
+Options: Henry, Robert, **Elizabeth** (correct), Timothy, Edward.
+
+### Feedback
+
+- **CSV column:** `Feedback`
+- **Type:** Optional free-text
+- **Content:** Open-ended participant feedback collected at the end of the survey
+
+---
+
+## Behavioral & Timing Variables {#sec-behavioral}
+
+### CC License Link Clicks {#sec-clicks}
+
+Treatment group participants were presented with a clickable link to the relevant Creative Commons license. The following binary variables (0 = did not click, 1 = clicked) record whether participants clicked the license link:
+
+| CSV Column | Scenario | Condition |
+|------------|----------|-----------|
+| `PUTACCclicked` | Personal Use | Short (A) |
+| `PUTBCCclicked` | Personal Use | Full + Primer (B) |
+| `EUTACCclicked` | Educational Use | Short (A) |
+| `EUTBCCclicked` | Educational Use | Full + Primer (B) |
+| `CATACCclicked` | Commercial Advertising | Short (A) |
+| `CATBCCclicked` | Commercial Advertising | Full + Primer (B) |
+| `LSTACCclicked` | Large Scale Copying | Short (A) |
+| `LSTBCCclicked` | Large Scale Copying | Full + Primer (B) |
+| `WNTACCclicked` | Wikipedia Image Search | Short (A) |
+| `WNTBCCclicked` | Wikipedia Image Search | Full + Primer (B) |
+| `FSTACCclicked` | Filesharing | Short (A) |
+| `FSTBCCclicked` | Filesharing | Full + Primer (B) |
+
+: CC License Link Click Variables. {#tbl-cc-clicks}
+
+Note: PD scenarios do not include CC license links (public domain, not CC-licensed), so no `PDTACCclicked` / `PDTBCCclicked` columns exist.
+
+### Wikipedia Link Click
+
+| CSV Column | Description |
+|------------|-------------|
+| `WNWIKIclicked` | Binary (0/1) — whether participant clicked the Wikipedia link in the WN scenario |
+
+: Wikipedia Link Click Variable. {#tbl-wiki-click}
+
+### Timing Variables {#sec-timing}
+
+| CSV Column | Description |
+|------------|-------------|
+| `Duration (in seconds)` | Total survey completion time |
+| `TIME-Consent_Page Submit` | Time spent on consent page (seconds) |
+| `[SCENARIO][CONDITION]-TIME_Page Submit` | Time on each scenario page (seconds) |
+| `CCEDUTIME_Page Submit` | Time on CC education/information page (Full + Primer only) |
+
+: Timing Variables. {#tbl-timing-vars}
+
+There are 24 timing columns total: `Duration (in seconds)` (total survey time), `TIME-Consent_Page Submit` (consent page), 21 scenario page timings (7 scenarios × 3 conditions), and `CCEDUTIME_Page Submit` (CC education page, Full + Primer only). Each participant has scenario timing data only for their assigned condition.
+
+---
+
+## Variable Dictionary {#sec-vardict}
+
+The following table is programmatically generated from all `r ncol(survey_all)` columns in the analysis dataset, classified by category.
+
+```{r vardict, echo=FALSE}
+# Build variable dictionary from actual column metadata
+var_info <- tibble::tibble(
+  Variable = names(survey_all)
+) |>
+  dplyr::mutate(
+    Category = dplyr::case_when(
+      # Identifiers and metadata
+      Variable == "participantId" ~ "Identifier",
+      Variable == "GROUP" ~ "Identifier",
+
+      # Timing
+      grepl("Duration|TIME|Page Submit", Variable) ~ "Timing",
+
+      # Brand recognition
+      grepl("^ID(McD|FAKE|FF|CC)", Variable) ~ "Brand Recognition",
+      Variable == "CCREC" ~ "Brand Recognition",
+
+      # Skills batteries
+      grepl("^NETSKILLS", Variable) ~ "Internet Skills",
+      grepl("^BRANDSKILLS", Variable) ~ "Brand Familiarity",
+
+      # Scenario responses — treatment-specific
+      grepl("^(PD|PU|EU|CA|LS|WN|FS)(C|TA|TB)[1-4]$", Variable) ~ "Scenario (by condition)",
+
+      # Scenario responses — merged
+      grepl("^(PD|PU|EU|CA|LS|WN|FS)[1-4]$", Variable) ~ "Scenario (merged)",
+
+      # Delta (computed)
+      grepl("^(PD|PU|EU|CA|LS|WN|FS)25$", Variable) ~ "Delta (computed)",
+
+      # Behavioral — CC clicks
+      grepl("CCclicked$", Variable) ~ "Behavioral (clicks)",
+      Variable == "WNWIKIclicked" ~ "Behavioral (clicks)",
+
+      # Demographics
+      Variable %in% c("AGE", "GENDER", "GENDER_3_TEXT", "HISPLAT", "RACE",
+                       "EDU", "INCOME", "STATE", "LIBCON", "POLPARTY",
+                       "POLPARTY_4_TEXT") ~ "Demographic",
+
+      # Feedback
+      Variable == "Feedback" ~ "Quality Control",
+
+      TRUE ~ "Other"
+    ),
+    Type = dplyr::case_when(
+      grepl("Text$|CCREC|Feedback|STATE|GENDER_3_TEXT|POLPARTY_4_TEXT", Variable) ~ "Text",
+      Variable %in% c("AGE", "Duration (in seconds)") ~ "Continuous",
+      grepl("TIME|Page Submit", Variable) ~ "Continuous",
+      grepl("^(PD|PU|EU|CA|LS|WN|FS).*4$", Variable) ~ "Continuous (USD)",
+      grepl("25$", Variable) ~ "Integer (computed)",
+      grepl("clicked$", Variable) ~ "Binary (0/1)",
+      grepl("^(PD|PU|EU|CA|LS|WN|FS)", Variable) ~ "Ordinal (1-7)",
+      grepl("^NETSKILLS_[1-6]|^BRANDSKILLS", Variable) ~ "Ordinal (1-5)",
+      Variable == "NETSKILLS_AVG" ~ "Continuous",
+      Variable %in% c("participantId", "GROUP") ~ "Categorical",
+      Variable %in% c("GENDER", "HISPLAT", "RACE", "EDU", "INCOME",
+                       "LIBCON", "POLPARTY") ~ "Categorical",
+      grepl("^ID(McD|FAKE|FF|CC)$", Variable) ~ "Binary (1=Yes/2=No)",
+      Variable == "IDCC-CAT" ~ "Categorical (1-6)",
+      TRUE ~ "—"
+    ),
+    N_Valid = sapply(Variable, function(v) sum(!is.na(survey_all[[v]]))),
+    Pct_Missing = round(100 * (nrow(survey_all) - N_Valid) / nrow(survey_all), 1)
+  )
+
+knitr::kable(
+  var_info,
+  col.names = c("Variable", "Category", "Type", "N (valid)", "% Missing"),
+  caption = "Complete Variable Dictionary — All Columns in the Analysis Dataset"
+)
+```
+
+---
+
+## Group Composition
+
+```{r group-counts, echo=FALSE}
+dplyr::count(survey_all, GROUP) |>
+  dplyr::rename(N = n) |>
+  dplyr::mutate(Pct = round(100 * N / sum(N), 1)) |>
+  knitr::kable(caption = "Group Composition — Full Dataset")
+```

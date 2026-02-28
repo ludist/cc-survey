@@ -1,0 +1,301 @@
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+# 7.5 Large Scale Copying {.unnumbered #sec-ls}
+
+## 7.5.0 Scenario Presentation
+
+Respondents saw the following scenario. The text and image were identical across conditions; only the **caption** beneath the image varied.
+
+::: {.callout-important appearance="simple" icon=false}
+
+An entrepreneur looking for a new product finds the following image through a search engine. The search result is displayed as follows:
+
+:::
+
+::: {#ls-instrument}
+
+::: {.panel-tabset}
+
+### Control (C)
+
+![](../data/survey-images/Vignette%20Images/Crow.png){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+&copy; 2018 J. Gray. All Rights Reserved.
+:::
+
+### Short (A)
+
+![](../data/survey-images/Vignette%20Images/Crow.png){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+&copy; 2018 J. Gray is licensed under CC BY-NC-SA 4.0
+:::
+
+### Full + Primer (B)
+
+Full + Primer (B) respondents first reviewed a **CC Education** page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.
+
+![](../data/survey-images/Vignette%20Images/Crow.png){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+&copy; 2018 by J. Gray is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+:::
+
+:::
+
+::: {.panel-tabset}
+
+### Q1: Likelihood
+
+*In your opinion, how likely is the entrepreneur to face legal consequences for this use?*
+<br>7-point scale: 1 "Extremely unlikely" *to* 7 "Extremely likely"
+
+### Q2: Current Law
+
+*In your opinion, if the entrepreneur were sued for these actions, what legal consequences do you think they **would** face?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q3: Normative
+
+*In your opinion, what legal consequences **should** the entrepreneur face for these actions?*
+<br>7-point scale: 1 "No consequences" *---* 4 "Some negative consequences, such as a court order to stop and/or a moderate fine" *---* 7 "Very negative consequences, such as incarceration and/or a large fine"
+
+### Q4: License Price
+
+*Now imagine that **before** the use described above, the entrepreneur and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?*
+<br>Open response in US dollars
+
+:::
+
+:::
+
+::: {.callout-note}
+## Scenario Context
+
+**Summary:** An entrepreneur discovers a photograph of a crow (by J. Gray) through a search engine. Despite the copyright notice and the fact that the owner sells their own posters of the work for $20, the entrepreneur prints six thousand posters with the image, sells them online for $10 each under an invented title ("Canyon Crow Poster"), and earns $60,000 in revenue --- all without permission or attribution.
+
+**Legal analysis:** This use is **infringing across all conditions**. Under the Control's standard copyright notice ("All Rights Reserved"), any unauthorized reproduction and commercial sale infringes. Under the treatment conditions' CC BY-NC-SA 4.0 license, the entrepreneur violates multiple license terms: the NonCommercial clause (mass commercial sale for profit), the ShareAlike clause (no license applied to the derivative), and the Attribution requirement (no credit to J. Gray). The entrepreneur also directly undercuts the owner's own $20 poster sales. This is the study's most clearly infringing scenario --- willful, commercial, large-scale reproduction that copyright law treats most seriously (cf. 17 U.S.C. &sect; 504(c)(2), providing enhanced statutory damages of up to $150,000 per work for willful infringement).
+
+**Expected pattern:** Highest perceived risk and perceived consequences across all groups, with means approaching the ceiling of the 7-point scale. Minimal treatment effects --- CC license exposure should have little impact on how respondents evaluate clear-cut, large-scale infringement. Delta values near zero, reflecting alignment between perceived law and normative preferences for conduct universally viewed as seriously wrongful.
+:::
+
+```{r ls-analysis}
+ls_results <- analyze_full_scenario(
+  data         = survey_data,
+  scenario_code = "LS",
+  scenario_name = "Large Scale Copying",
+  questions    = c("q1", "q2", "q3", "delta", "price"),
+  export_tiffs = TRUE
+)
+```
+
+```{r ls-extract, include=FALSE}
+list2env(extract_scenario_inline(ls_results, "LS", survey_data), envir = environment())
+```
+
+## 7.5.1 Q1: Mass Distribution Risk {#sec-ls-q1}
+
+This should be perceived as very high risk across all treatment conditions. Large Scale Copying is expected to produce the highest Q1 means in the study --- unambiguous, willful infringement.
+
+```{r}
+#| label: tbl-ls-q1-stats
+#| tbl-cap: "Large-Scale Copying Q1: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ls_results$statistics$q1, dunn = ls_results$dunn$q1), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ls-q1-vda
+#| tbl-cap: "Large-Scale Copying Q1: Pairwise Effect Sizes"
+
+knitr::kable(ls_vda_q1)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ls-q1
+#| fig-height: 5
+#| fig-cap: "Large-Scale Copying Q1: Likelihood of Legal Consequences by Group"
+
+print(ls_results$plots$q1)
+```
+
+
+Q1 asks how likely it is that the entrepreneur will face legal consequences for printing and selling six thousand posters of J. Gray's photograph without permission. The response scale runs from 1 ("Not at all likely") to 7 ("Very likely"). Of all seven survey scenarios, Large Scale Copying represents the most unambiguous infringement --- willful, commercial, and on a massive scale --- so Q1 means should approach the ceiling of the scale regardless of treatment condition.
+
+The results confirm this expectation. Control respondents rated the likelihood of legal consequences at `r ls_q1_c` (SD = `r ls_q1_sd_c`), Short (A) at `r ls_q1_a` (SD = `r ls_q1_sd_a`), and Full + Primer (B) at `r ls_q1_b` (SD = `r ls_q1_sd_b`). The Kruskal-Wallis test indicates `r if (ls_kw_q1$p.value < 0.05) "a significant" else "no significant"` between-group difference ($\chi^2$(`r ls_kw_q1$parameter`) = `r fmt(ls_kw_q1$statistic)`, *p* = `r fmtp(ls_kw_q1$p.value)`). As visible in @fig-ls-q1, the distributions are compressed toward the top of the scale, consistent with near-ceiling responding. When infringement is this clear-cut, CC license exposure has little room to shift perceptions --- respondents in all groups already recognize that large-scale unauthorized copying carries substantial legal risk. Pairwise VDA effect sizes are reported in @tbl-ls-q1-vda.
+
+## 7.5.2 Q2: Perceived Consequences for Mass Infringement {#sec-ls-q2}
+
+Respondents should anticipate severe consequences for large-scale copying. This scenario's perceived consequences should be among the highest across all seven scenarios.
+
+```{r}
+#| label: tbl-ls-q2-stats
+#| tbl-cap: "Large-Scale Copying Q2: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ls_results$statistics$q2, dunn = ls_results$dunn$q2), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ls-q2-vda
+#| tbl-cap: "Large-Scale Copying Q2: Pairwise Effect Sizes"
+
+knitr::kable(ls_vda_q2)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ls-q2
+#| fig-height: 5
+#| fig-cap: "Large-Scale Copying Q2: Estimated Legal Consequences (Current) by Group"
+
+print(ls_results$plots$q2)
+```
+
+
+Q2 shifts from likelihood to severity: if the entrepreneur were sued, what consequences do respondents believe would follow under current law? The response scale runs from 1 ("No consequences") to 7 ("Very negative consequences, such as incarceration and/or a large fine"), with 4 anchored at "Some negative consequences, such as a court order to stop and/or a moderate fine." For six thousand unauthorized commercial reproductions sold at $10 each --- directly undercutting the owner's own $20 poster sales --- federal copyright law provides for enhanced statutory damages of up to $150,000 per work infringed (17 U.S.C. &sect; 504(c)(2)), making severe consequences the legally accurate answer.
+
+Respondents perceived harsh consequences across all groups: Control (M = `r ls_q2_c`, SD = `r ls_q2_sd_c`), Short (A) (M = `r ls_q2_a`, SD = `r ls_q2_sd_a`), and Full + Primer (B) (M = `r ls_q2_b`, SD = `r ls_q2_sd_b`). The Kruskal-Wallis test `r if (ls_kw_q2$p.value < 0.05) "is significant" else "is not significant"` ($\chi^2$(`r ls_kw_q2$parameter`) = `r fmt(ls_kw_q2$statistic)`, *p* = `r fmtp(ls_kw_q2$p.value)`). The violin plots in @fig-ls-q2 show distributions concentrated at the upper end of the scale, consistent with ceiling effects. The near-universal expectation of severe consequences reflects a lay understanding that is well-aligned with the legal reality of willful, large-scale infringement --- this is the kind of conduct that statutory damages regimes are designed to punish most harshly. Pairwise VDA effect sizes are reported in @tbl-ls-q2-vda.
+
+## 7.5.3 Q3: Normative Preferences {#sec-ls-q3}
+
+What do respondents believe *should* happen to large-scale infringers? Because all groups view this as serious infringement, Q3 should closely track Q2 with minimal between-group differences.
+
+```{r}
+#| label: tbl-ls-q3-stats
+#| tbl-cap: "Large-Scale Copying Q3: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ls_results$statistics$q3, dunn = ls_results$dunn$q3), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ls-q3-vda
+#| tbl-cap: "Large-Scale Copying Q3: Pairwise Effect Sizes"
+
+knitr::kable(ls_vda_q3)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ls-q3
+#| fig-height: 5
+#| fig-cap: "Large-Scale Copying Q3: Estimated Legal Consequences (Preferred) by Group"
+
+print(ls_results$plots$q3)
+```
+
+
+Q3 uses the same severity scale as Q2 but asks what consequences respondents think *should* follow --- measuring normative preferences rather than perceptions of current law. For Large Scale Copying, where the infringement is willful and commercial, Q3 responses should track Q2 closely: respondents who believe the law imposes severe consequences should also believe it *ought to*. The group means are: Control (M = `r ls_q3_c`, SD = `r ls_q3_sd_c`), Short (A) (M = `r ls_q3_a`, SD = `r ls_q3_sd_a`), and Full + Primer (B) (M = `r ls_q3_b`, SD = `r ls_q3_sd_b`). The Kruskal-Wallis test `r if (ls_kw_q3$p.value < 0.05) "reveals a significant" else "reveals no significant"` between-group difference ($\chi^2$(`r ls_kw_q3$parameter`) = `r fmt(ls_kw_q3$statistic)`, *p* = `r fmtp(ls_kw_q3$p.value)`). Pairwise VDA effect sizes are reported in @tbl-ls-q3-vda.
+
+The comparison between Q2 and Q3 is central to the Delta analysis that follows, but even at this stage the proximity of the Q3 means to the Q2 means is informative. Any gap between the two would suggest a tension between what respondents believe the law *does* and what they think it *should do*. For Large Scale Copying, the expectation is minimal gap --- respondents view this conduct as genuinely deserving of severe punishment, not merely as conduct the law happens to punish severely. The question of whether CC-exposed groups are any more lenient toward large-scale infringers is addressed by the between-group test; `r if (ls_kw_q3$p.value < 0.05) "the significant result suggests that treatment condition does influence normative severity judgments even for clear-cut infringement" else "the non-significant result confirms that treatment condition does not meaningfully alter normative severity judgments when the infringement is this clear-cut"`.
+
+## 7.5.4 Delta (Q2 - Q3): Law--Preference Gap {#sec-ls-delta}
+
+Do respondents believe large-scale infringement is appropriately punished under current law?
+
+{{< include ../_includes/delta-definition.qmd >}}
+
+```{r}
+#| label: tbl-ls-delta-stats
+#| tbl-cap: "Large-Scale Copying Delta: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ls_results$statistics$delta, dunn = ls_results$dunn$delta), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ls-delta-vda
+#| tbl-cap: "Large-Scale Copying Delta: Pairwise Effect Sizes"
+
+knitr::kable(ls_vda_delta)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ls-delta
+#| fig-height: 5
+#| fig-cap: "Large-Scale Copying Delta: Current\u2013Preferred Legal Consequences by Group"
+
+print(ls_results$plots$delta)
+```
+
+
+```{r}
+#| label: tbl-ls-delta-wilcox
+#| tbl-cap: "Large-Scale Copying Delta: Wilcoxon Signed-Rank Tests by Group"
+
+knitr::kable(format_wilcoxon_table(ls_results), row.names = FALSE)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+The between-group Kruskal-Wallis test on Delta `r if (ls_kw_delta$p.value < 0.05) "is significant" else "is not significant"` ($\chi^2$(`r ls_kw_delta$parameter`) = `r fmt(ls_kw_delta$statistic)`, *p* = `r fmtp(ls_kw_delta$p.value)`), with group means of `r ls_delta_a` (SD = `r ls_delta_sd_a`) for Short (A), `r ls_delta_b` (SD = `r ls_delta_sd_b`) for Full + Primer (B), and `r ls_delta_c` (SD = `r ls_delta_sd_c`) for the Control. `r if (ls_wilcox_all_sig) "The within-group Wilcoxon signed-rank tests indicate that all groups' Deltas differ significantly from zero, suggesting a systematic gap between perceived law and normative preferences even for the most clearly infringing scenario." else if (ls_wilcox_any_sig) "The within-group Wilcoxon signed-rank tests indicate that at least one group's Delta differs significantly from zero, while others do not --- suggesting that the law-preference alignment varies by treatment condition." else "None of the within-group Wilcoxon signed-rank tests reach significance, indicating that Delta does not differ from zero in any group --- respondents' perceptions of current law and their normative preferences are well-aligned for large-scale infringement."` For this scenario, Delta values near zero would confirm that respondents believe the legal system appropriately calibrates consequences for willful, large-scale commercial infringement --- the conduct that copyright's statutory damages regime most directly targets.
+
+## 7.5.5 Q4: Bulk License Pricing {#sec-ls-price}
+
+What do respondents estimate the cost of a license for large-scale distribution rights? For large-scale commercial infringement, license estimates should be substantially higher than for personal-use scenarios.
+
+```{r}
+#| label: tbl-ls-price-stats
+#| tbl-cap: "Large-Scale Copying Q4: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(ls_results$statistics$price, dunn = ls_results$dunn$price), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-ls-price-vda
+#| tbl-cap: "Large-Scale Copying Q4: Pairwise Effect Sizes"
+
+knitr::kable(ls_vda_price)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-ls-price
+#| fig-height: 5
+#| fig-cap: "Large-Scale Copying Q4: License Price Estimate by Group"
+
+print(ls_results$plots$price)
+```
+
+
+Q4 asks respondents to estimate the cost of a non-exclusive license that would have permitted the commercial reproduction. Given the scale of use --- six thousand posters sold at $10 each for $60,000 in total revenue --- license price estimates should be among the highest across all seven scenarios. The median estimates are `r ls_price_md_a` (Short (A)), `r ls_price_md_b` (Full + Primer (B)), and `r ls_price_md_c` (Control), with corresponding means of `r ls_price_m_a`, `r ls_price_m_b`, and `r ls_price_m_c`. The Kruskal-Wallis test `r if (ls_kw_price$p.value < 0.05) "is significant" else "is not significant"` ($\chi^2$(`r ls_kw_price$parameter`) = `r fmt(ls_kw_price$statistic)`, *p* = `r fmtp(ls_kw_price$p.value)`). Pairwise VDA effect sizes are reported in @tbl-ls-price-vda.
+
+The divergence between means and medians reflects the characteristic right skew of license price distributions: a substantial number of respondents cluster around moderate estimates while a long tail of high-value responses pulls the mean upward. The violin plots in @fig-ls-price make this asymmetry visible. For Large Scale Copying, even the medians should exceed those of personal-use scenarios by a wide margin, reflecting respondents' recognition that commercial-scale reproduction --- particularly one that directly undercuts the owner's own sales --- commands a substantially higher licensing fee.
+
+## 7.5.6 Summary {#sec-ls-summary}
+
+::: {.callout-tip}
+## Key Findings --- Large Scale Copying
+
+Large Scale Copying is the study's most clearly infringing scenario --- willful, commercial, large-scale reproduction. An entrepreneur prints six thousand posters of J. Gray's photograph and sells them online for $10 each ($60,000 in revenue), directly undercutting the owner's own $20 poster sales --- the kind of conduct that 17 U.S.C. &sect; 504(c)(2) targets with enhanced statutory damages.
+
+1. **Ceiling effects dominate.** Q1 means approach the top of the 7-point scale across all groups (Control (C): `r ls_q1_c`, Short (A): `r ls_q1_a`, Full + Primer (B): `r ls_q1_b`), confirming that respondents universally recognize the legal risk of large-scale commercial infringement. The Kruskal-Wallis test `r if (ls_kw_q1$p.value < 0.05) "is significant" else "is not significant"` ($\chi^2$(`r ls_kw_q1$parameter`) = `r fmt(ls_kw_q1$statistic)`, *p* = `r fmtp(ls_kw_q1$p.value)`), but even where between-group differences exist, they are compressed within a narrow band near the ceiling.
+
+2. **Severe consequences expected and endorsed.** Q2 means (Control (C): `r ls_q2_c`, Short (A): `r ls_q2_a`, Full + Primer (B): `r ls_q2_b`) and Q3 means (Control (C): `r ls_q3_c`, Short (A): `r ls_q3_a`, Full + Primer (B): `r ls_q3_b`) both cluster at the high end of the severity scale. Respondents anticipate severe consequences under current law and believe those consequences are appropriate --- consistent with the legal reality that willful commercial infringement at this scale exposes the infringer to substantial statutory damages.
+
+3. **Minimal treatment influence.** CC license exposure does not meaningfully alter perceptions for clear-cut infringement. When the conduct is this unambiguous --- six thousand unauthorized reproductions sold commercially --- informational framing about Creative Commons licensing has little room to shift respondents' judgments. This confirms the pre-registered expectation that the LS scenario functions as an upper-bound complement to the Public Domain baseline.
+
+4. **Law--preference alignment.** `r if (ls_wilcox_all_sig) "All within-group Wilcoxon tests are significant, indicating a systematic law-preference gap despite the severity of the conduct." else if (ls_wilcox_any_sig) "Some within-group Wilcoxon tests are significant, indicating partial divergence between perceived law and normative preferences." else "No within-group Wilcoxon tests reach significance --- respondents' perceptions of current law and their normative preferences are well-aligned."` Between-group Delta: Kruskal-Wallis $\chi^2$(`r ls_kw_delta$parameter`) = `r fmt(ls_kw_delta$statistic)`, *p* = `r fmtp(ls_kw_delta$p.value)`.
+
+5. **High price estimates reflect commercial scale.** License price medians (Short (A): `r ls_price_md_a`, Full + Primer (B): `r ls_price_md_b`, Control (C): `r ls_price_md_c`) and means (Short (A): `r ls_price_m_a`, Full + Primer (B): `r ls_price_m_b`, Control (C): `r ls_price_m_c`) are among the highest in the study. The mean-median divergence reflects right-skewed distributions typical of license pricing questions, with some respondents anchoring estimates to the $60,000 revenue figure. Kruskal-Wallis $\chi^2$(`r ls_kw_price$parameter`) = `r fmt(ls_kw_price$statistic)`, *p* = `r fmtp(ls_kw_price$p.value)`.
+
+6. **Upper-bound baseline confirmed.** Where the Public Domain scenario anchors the floor of the 7-point scale, Large Scale Copying anchors the ceiling. Together, these two scenarios bracket the range of respondent perceptions and establish that the survey instrument discriminates effectively between non-infringing and clearly infringing uses.
+:::

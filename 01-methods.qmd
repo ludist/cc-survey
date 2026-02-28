@@ -1,0 +1,203 @@
+---
+title: "Experimental Design & Methods"
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+## Overview
+
+This Appendix provides the full methodological detail, statistical output, and reproducible code necessary for independent evaluation and replication of the results.
+
+Every figure and table in this Appendix is generated from the canonical dataset using the embedded R code, which can be inspected by expanding the "Show Code" blocks. An explanation of the analysis is included in Chapter 7. This repository includes literate programming code for all analyses, enabling independent reproduction of the results. The code is organized into modular R scripts in the `analysis/functions/` directory, which are sourced by `_common.R` at book startup. The data processing and analysis workflow loads and prepares all datasets at startup, including group filtering and delta variable computation. The data files are stored in the `data/` directory, with the raw survey data available on OSF.io.
+
+## Scenarios
+
+The study tests whether exposure to Creative Commons (CC) license information affects how members of the American public perceive potential copyright infringement across a range of scenarios of re-use. Participants were randomly assigned to one of three groups:
+
+- **Control (C):** Standard copyright notice (or government work / Wikipedia link, depending on scenario)
+- **Short (A):** Creative Commons license symbol with minimal text
+- **Full + Primer (B):** Creative Commons license symbol with extended explanatory text
+
+The central hypothesis, pre-registered prior to data collection, is that the likelihood and severity of perceived legal consequences, as well as evaluations of licensing prices under the current law will follow the ordering:
+
+> **Control (C) > Short (A) > Full + Primer (B)**
+
+That is, respondents exposed to a traditional copyright notice (Group C) will perceive the highest legal risk, those shown an abbreviated CC license (Group A) will perceive intermediate risk, and those given full text CC license information with a primer on Creative Commons (Group B) will perceive the lowest risk/consequence/price. This ordering reflects the prediction that CC license exposure reduces perceived legal consequences, and that more detailed license information produces a stronger effect.
+
+This prediction applies most directly to scenarios where the CC license materially changes the legal analysis — for example, where Control respondents see an infringing scenario but Treatment respondents see a non-infringing one (Educational Use, Filesharing). For universally infringing scenarios (Personal Use, Commercial Advertising, Large Scale Copying), the expected treatment effect is smaller, as the CC license does not eliminate legal risk for those uses.
+
+## Study Design
+
+### Treatment Groups
+
+Respondents were randomly assigned by Qualtrics to one of three treatment conditions:
+
+::: {.column-body-outset-right .justify-last}
+
+| Label | Group | Treatment |
+|-------|-------|-----------|
+| Control | **C** | Standard copyright notice^[Exception: the Public Domain scenario (V1) displayed "U.S. Government Work," and the Wikipedia Image Search scenario (V6) presented a link to Wikipedia, since all conditions in that scenario involve CC-licensed content.] |
+| Short | **A** | Abbreviated Creative Commons license symbol with minimal accompanying text, i.e. CC-BY-SA 4.0 |
+| Full + Primer | **B** | Full Creative Commons license text describing the license terms Creative Commons-Attribution-ShareAlike 4.0. Respondents were also required to spend at least 20 seconds on a screen presenting a short text describing the Creative Commons system and its goals.|
+
+: Experimental Treatment Groups and Conditions. {#tbl-treatment-groups tbl-colwidths="[15,8,77]"}
+
+:::
+
+The tripartite design enables two distinct comparisons: (1) the effect of *any* CC license exposure versus traditional copyright (A vs. C and B vs. C), and (2) the marginal effect of *additional* license information (B vs. A). Full + Primer (B) received more detailed explanation of CC license terms, testing whether comprehension-oriented interventions amplify the CC signal.
+
+### Scenarios
+
+Each respondent evaluated seven scenarios (presented in fixed order) depicting different types of content reuse. The scenarios vary along two dimensions: whether the use infringes under the treatment condition, and whether the treatment and control conditions produce different legal outcomes.
+
+::: {.column-body-outset-right}
+
+| Scenario | Code | Control | Treatments | Type |
+|:---------|:----:|:-------:|:----------:|:-----|
+| Public Domain | PD | Non-infringing | Non-infringing | Baseline |
+| Personal Use | PU | Infringing | Infringing | Same across conditions |
+| Educational Use | EU | Infringing | Non-infringing | Divergent |
+| Commercial Advertising | CA | Infringing | Infringing | Same across conditions |
+| Large Scale Copying | LS | Infringing | Infringing | Same across conditions |
+| Wikipedia Image Search | WN | Infringing | Infringing | Same across conditions^[All conditions in WN involve CC-licensed content from Wikipedia. Control does not see a copyright notice but rather a link to Wikipedia, making this a "non-copyright control" scenario.] |
+| Filesharing | FS | Infringing | Non-infringing | Divergent |
+
+: Scenarios by Infringement Status and Type. {#tbl-scenarios tbl-colwidths="[22,8,15,15,40]"}
+
+:::
+
+The "divergent" scenarios (EU, FS) provide the strongest test of the treatment effect: the likelihood and severity of consequences for using CC licensed material should materially change when the depicted use is non-infringing, so well-informed respondents in the treatment groups should perceive substantially lower legal risk than those in the control group.
+
+### Scenario Survey Instrument
+
+For each scenario, respondents answered four questions:
+
+- **Q1: Likelihood of Legal Consequences**
+
+  > "In your opinion, how likely is *[the re-user]* to face legal consequences for this use?"
+
+  **A:** 7-point Likert, 1 = "Extremely unlikely" to 7 = "Extremely likely"
+
+- **Q2: Current Law**
+
+  > "In your opinion, if *[the re-user]* was sued for these actions, what legal consequences do you think they **would** face?"
+
+  **A:** 7-point scale, 1 = "No consequences," 4 = "Some negative consequences, such as a court order to stop and/or a moderate fine," 7 = "Very negative consequences, such as incarceration and/or a large fine"
+
+- **Q3: Normative Preferences**
+
+  > "In your opinion, what legal consequences **should** *[the re-user]* face for these actions, if sued?"
+
+  **A:** Same 7-point scale as Q2
+
+- **Q4: License Price**
+
+  > "Now imagine that before the use(s) described in the scenario, *[the re-user]* and the owner of this work agreed on a price for a non-exclusive license *[...]*. In your opinion, what do you think would be a reasonable price for that license, if any?"
+
+  **A:** Continuous, USD
+
+The complete survey instrument, including scenario text and all response options, is available at `data/survey/CCMasterv5-24-02-12.pdf`.
+
+### Participant Recruitment
+
+Participants (*N* = 1,200 target, evenly divided across three groups) were recruited through **CloudResearch Connect**, an online survey platform. The study used CloudResearch's preset nationally representative quotas:
+
+| Demographic | Quota |
+|-------------|-------|
+| Gender | 50% Female |
+| Age 18--29 | 16.7% |
+| Age 30--44 | 25.0% |
+| Age 45--59 | 33.3% |
+| Age 60+ | 25.0% |
+| Hispanic ethnicity | 8.3% |
+| White | 83.3% |
+| Black or African American | 8.3% |
+| Other races | 8.3% |
+
+: Nationally Representative Demographic Quotas. CloudResearch Connect preset quotas were retained without modification. {#tbl-quotas tbl-colwidths="[55,45]"}
+
+The preset quotas were retained without modification to facilitate comparability with other studies using the same panel.
+
+**Compensation:** $3 per respondent (target median duration under 20 minutes; effective hourly rate approximately $9). Manual review rejection rate target: < 5%. CloudResearch researcher rating target: > 4.9. *Both targets were exceeded in the final sample.*
+
+**IRB:** The study was conducted under the oversight of the Northwestern University Institutional Review Board and classified "exempt." Aaron Shaw, the Author's dissertation advisor, served as the IRB principal investigator. The IRB protocol registration is STU00214433.
+
+## Statistical Methods
+
+### Rationale for Non-Parametric Tests
+
+The outcome variables for likelihood of legal consequences (Q1), predicted severity of legal consequences (Q2), and preferred severity of legal consequences (Q3) are ordinal 7-point Likert scales. Treating ordinal data as interval-scale would impose unwarranted assumptions about equal spacing between response categories. Because the expected answers often turn on whether or not a respondent grasps a legal rule and correctly determines whether the scenario infringes, distributions frequently violate assumptions of normality. Similarly, results are often heavily skewed given that some scenarios present an infringing control scenario and non-infringing treatments. Non-parametric statistics are applied throughout, reducing the power of the statistical analysis but ensuring robustness.
+
+### Primary Tests
+
+::: {.column-body-outset-right}
+
+| Test | Application | Software |
+|------|-------------|----------|
+| Kruskal-Wallis *H*^[William H. Kruskal & W. Allen Wallis, *Use of Ranks in One-Criterion Variance Analysis*, 47 **J. Am. Stat. Ass'n** 583 (1952).] | Overall between-group differences (Q1, Q2, Q3, Delta) | `rstatix::kruskal_test()` |
+| Dunn's test (Holm)^[Olive Jean Dunn, *Multiple Comparisons Using Rank Sums*, 6 **Technometrics** 241 (1964); Sture Holm, *A Simple Sequentially Rejective Multiple Test Procedure*, 6 **Scandinavian J. Stat.** 65 (1979).] | Post-hoc pairwise comparisons | `rstatix::dunn_test()` |
+| Vargha & Delaney's *A*^[Andras Vargha & Harold D. Delaney, *A Critique and Improvement of the CL Common Language Effect Size Statistics of McGraw and Wong*, 25 **J. Educ. & Behav. Stat.** 101 (2000).] | Effect size for ordinal comparisons | `rcompanion::vda()` |
+| Wilcoxon signed-rank^[Frank Wilcoxon, *Individual Comparisons by Ranking Methods*, 1 **Biometrics Bull.** 80 (1945).] | Within-group Q2 vs. Q3 (Delta) | `stats::wilcox.test()` |
+
+: Primary Statistical Tests. {#tbl-tests tbl-colwidths="[25,50,25]"}
+
+:::
+
+### Effect Size Interpretation
+
+Vargha & Delaney's *A* (VDA) is interpreted as follows throughout this appendix:
+
+| VDA | Interpretation |
+|-----|----------------|
+| 0.71 | Large (Group 1 > Group 2) |
+| 0.64 | Medium (Group 1 > Group 2) |
+| 0.56 | Small (Group 1 > Group 2) |
+| 0.50 | No effect (groups are equivalent) |
+| 0.44 | Small (Group 2 > Group 1) |
+| 0.36 | Medium (Group 2 > Group 1) |
+| 0.29 | Large (Group 2 > Group 1) |
+
+: VDA Interpretation Thresholds. {#tbl-vda-thresholds tbl-colwidths="[15,85]"}
+
+VDA > 0.50 indicates Group 1 tends to score higher than Group 2; VDA < 0.50 indicates the reverse. Equivalently, VDA can be read as a probability: a VDA of 0.64 means that a randomly selected observation from Group 1 will score higher than a randomly selected observation from Group 2 in 64% of all possible pairings. In the pairwise effect size tables reported for each scenario in Chapters 7.1--7.7, VDA values are presented alongside Dunn's test significance levels, enabling readers to assess both the statistical reliability and practical magnitude of each between-group difference.
+
+### Delta (Q2 -- Q3) {#sec-delta-method}
+
+Delta (notation: $\Delta$) represents the gap between a respondent's perception of what the law *is* (Q2) and what it *should be* (Q3):
+
+$$\Delta = Q2 - Q3$$
+
+- **Positive Delta:** The respondent perceives the law as *stricter* than their normative preference — they believe current legal consequences exceed what they think is appropriate.
+- **Negative Delta:** The respondent perceives the law as *more lenient* than preferred — they want stricter consequences than they believe the law currently provides.
+- **Zero Delta:** Perfect alignment between perceived law and normative preference.
+
+Delta is computed for each respondent within each scenario. The between-group analysis uses Kruskal-Wallis and Dunn's tests (same as Q1--Q3). Additionally, a **Wilcoxon signed-rank test** is applied within each group to test whether the group's median Delta differs significantly from zero — that is, whether there is a systematic law--preference gap for that treatment condition.
+
+### Price Question (Q4)
+
+Q4 asks respondents to estimate a reasonable price for a non-exclusive license permitting all uses described in the scenario. Unlike Q1--Q3, the price variable is continuous (USD) and unbounded, which introduces the possibility of extreme outliers (e.g., respondents entering joke values or misunderstanding the scale).
+
+The analysis applies the following approach:
+
+1. **Outlier trimming:** The top 1% of price responses are removed per scenario to reduce the influence of extreme values while preserving most of the distribution.
+2. **Between-group comparison:** Because price data is often right-skewed even after trimming, the Kruskal-Wallis *H* test is used rather than one-way ANOVA. This is a departure from the pre-registered plan (which specified ANOVA), motivated by the observed skewness in the collected data.
+3. **Effect size:** Reported using the same VDA framework as the ordinal variables for consistency across the appendix.
+
+
+## B1 Data Supplement
+
+The Educational Use (EU) scenario uses a different group composition than the other six scenarios. A data quality issue was identified in the original Group B responses for the EU scenario, necessitating supplemental data collection. Ninety-seven additional participants (designated **Group B1**) completed only the EU scenario under the same Full + Primer treatment condition as Group B.
+
+As a result, the EU analysis filters to Groups **A, B1, and C** (n = 905), while all other scenarios use Groups **A, B, and C** (n = 1,222). The B1 participants are included in the canonical dataset alongside the original sample; filtering is handled in `_common.R` (see [Chapter 2 (Codebook)](02-codebook.qmd) for the full variable dictionary and [§7.3 (Educational Use)](_scenarios/eu.qmd) for the EU scenario analysis).
+
+## Pre-Registration
+
+This study was pre-registered prior to data collection. The pre-registration document is available at `admin/Preregistration/THR-CC-PREREG.md` in this repository.
+
+**Deviations from the pre-registered plan:**
+
+- **Q4 analysis method:** The pre-registration specified one-way ANOVA for price comparisons. The implemented analysis uses the Kruskal-Wallis test instead, due to persistent right-skew in the price data even after trimming. This substitution is more conservative (less statistical power) but does not inflate Type I error.
+- **Effect size reporting:** The pre-registration referenced multiple effect size frameworks (partial epsilon-squared for Kruskal-Wallis, Cohen's *d* for price t-tests, Funder & Ozer's *r* interpretation). The appendix standardizes on Vargha & Delaney's *A* across all ordinal and price comparisons for consistency and interpretive clarity.
+- **B1 supplemental collection:** Not anticipated in the pre-registration. The B1 data collection was necessitated by a post-hoc data quality concern in the original EU scenario data for Group B.

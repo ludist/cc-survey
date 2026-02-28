@@ -1,0 +1,193 @@
+<script>
+/*
+ * section-numbering.js — CC Survey Online Appendix
+ *
+ * Renumbers ALL tables and figures to use section-level numbering:
+ *   Table 7.1.1.1 = Chapter 7, Scenario 1, Subsection 1, Table 1
+ *   Figure 3.2.1  = Chapter 3, Section 2, Figure 1
+ *
+ * Works on ALL pages:
+ *   - Numbered chapters: reads Quarto's .header-section-number spans
+ *   - Unnumbered scenario chapters: parses manual section numbers from
+ *     heading text (e.g., "## 7.1.1 Q1: ...")
+ *
+ * Fixes both same-page AND cross-page cross-reference links.
+ * Cross-page xrefs are resolved by fetching the target page, computing
+ * its section-level numbering, and patching the link text. Each target
+ * page is fetched at most once (results are cached per session).
+ *
+ * Replaces the original scenario-numbering.html (which only handled
+ * 3-level numbering for figures on scenario pages).
+ *
+ * Runs after DOM load.
+ */
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ── Shared: compute section-level numbering for a root element ──
+  // Returns { elementId: { type: 'Table'|'Figure', number: '6.3.1' } }
+  // If mutate=true, also rewrites captions and wraps manual heading
+  // numbers in .header-section-number spans (only for the live page).
+  function computeNumbering(root, mutate) {
+    var nodes = root.querySelectorAll(
+      'h1, h2, h3, h4, [id^="tbl-"], [id^="fig-"]'
+    );
+
+    var currentSection = '';
+    var tblCount = {};
+    var figCount = {};
+    var map = {};
+
+    nodes.forEach(function(el) {
+      var tag = el.tagName;
+
+      // ── Heading: update current section number ───────────────
+      if (/^H[1-4]$/i.test(tag)) {
+        var numSpan = el.querySelector('.header-section-number');
+        if (numSpan) {
+          currentSection = numSpan.textContent.trim();
+          return;
+        }
+        var m = el.textContent.trim().match(/^(\d+(?:\.\d+)*)/);
+        if (m) {
+          currentSection = m[1];
+          if (mutate) {
+            var secId = el.querySelector('.quarto-section-identifier');
+            var target = secId || el;
+            var html = target.innerHTML;
+            if (html.indexOf('header-section-number') === -1) {
+              target.innerHTML = html.replace(
+                /^(\d+(?:\.\d+)*)\s*/,
+                '<span class="header-section-number">$1</span> '
+              );
+            }
+          }
+        }
+        return;
+      }
+
+      // ── Float container: compute new number ─────────────────
+      if (!currentSection) return;
+
+      var cap = el.querySelector('figcaption') || el.querySelector('caption');
+      if (!cap) return;
+
+      var id = (el.id || '').toLowerCase();
+      var type, counter;
+      if (id.startsWith('tbl-')) {
+        type = 'Table';
+        counter = tblCount;
+      } else if (id.startsWith('fig-')) {
+        type = 'Figure';
+        counter = figCount;
+      } else {
+        return;
+      }
+
+      if (!counter[currentSection]) counter[currentSection] = 0;
+      counter[currentSection]++;
+      var newNum = currentSection + '.' + counter[currentSection];
+
+      map[el.id] = { type: type, number: newNum };
+
+      if (mutate) {
+        var re = new RegExp(
+          '(' + type + ')(&#160;|&nbsp;|\\u00A0|\\s)(\\d+(?:\\.\\d+)*)'
+        );
+        cap.innerHTML = cap.innerHTML.replace(
+          re, '<span class="float-label">$1$2' + newNum + '</span>'
+        );
+        el.setAttribute('data-section-num', newNum);
+        el.setAttribute('data-section-type', type);
+      }
+    });
+
+    return map;
+  }
+
+  // ── Helper: update a cross-reference link with new numbering ──
+  function patchXrefLink(link, info) {
+    var spans = link.querySelectorAll('span');
+    if (spans.length > 0) {
+      spans[spans.length - 1].textContent = info.number;
+    } else {
+      link.innerHTML = info.type + '&nbsp;' + info.number;
+    }
+  }
+
+  // ══════════════════════════════════════════════════════════════
+  // 1. Renumber the current page (mutate captions + headings)
+  // ══════════════════════════════════════════════════════════════
+  var main = document.getElementById('quarto-document-content');
+  if (!main) return;
+
+  var localMap = computeNumbering(main, true);
+
+  // ══════════════════════════════════════════════════════════════
+  // 2. Fix same-page cross-reference links
+  // ══════════════════════════════════════════════════════════════
+  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+
+    var targetId = href.substring(1);
+    var info = localMap[targetId];
+    if (!info) return;
+
+    patchXrefLink(link, info);
+  });
+
+  // ══════════════════════════════════════════════════════════════
+  // 3. Fix cross-page cross-reference links
+  //    Group by target page URL, fetch each once, compute
+  //    numbering on the fetched DOM, patch all links to that page.
+  // ══════════════════════════════════════════════════════════════
+  var crossPageGroups = {};   // pageUrl → [{link, targetId}]
+
+  document.querySelectorAll('a.quarto-xref').forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+
+    var hashIdx = href.indexOf('#');
+    if (hashIdx === -1) return;
+
+    var pageUrl  = href.substring(0, hashIdx);
+    var targetId = href.substring(hashIdx + 1);
+
+    // Skip if target ID doesn't look like a table/figure
+    if (!targetId.startsWith('tbl-') && !targetId.startsWith('fig-')) return;
+
+    if (!crossPageGroups[pageUrl]) crossPageGroups[pageUrl] = [];
+    crossPageGroups[pageUrl].push({ link: link, targetId: targetId });
+  });
+
+  // Fetch each unique target page and resolve its numbering
+  Object.keys(crossPageGroups).forEach(function(pageUrl) {
+    fetch(pageUrl)
+      .then(function(response) {
+        if (!response.ok) throw new Error(response.status);
+        return response.text();
+      })
+      .then(function(html) {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        var remoteMain = doc.getElementById('quarto-document-content');
+        if (!remoteMain) return;
+
+        // Compute numbering on the fetched page (read-only, no mutation)
+        var remoteMap = computeNumbering(remoteMain, false);
+
+        // Patch all links pointing to this page
+        crossPageGroups[pageUrl].forEach(function(entry) {
+          var info = remoteMap[entry.targetId];
+          if (!info) return;
+          patchXrefLink(entry.link, info);
+        });
+      })
+      .catch(function(err) {
+        // Graceful degradation: cross-page links keep Quarto-native numbers
+        console.warn('[section-numbering] Could not resolve xrefs for '
+          + pageUrl + ':', err.message || err);
+      });
+  });
+});
+</script>

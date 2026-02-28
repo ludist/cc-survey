@@ -1,0 +1,376 @@
+---
+title: "Brand Recognition"
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+```{r brand-analysis}
+brand_results <- check_brand_recognition(
+  data       = survey_data,
+  brand_cols = c("BRANDSKILLS_1", "BRANDSKILLS_2", "BRANDSKILLS_3", "BRANDSKILLS_4"),
+  create_plot = TRUE
+)
+```
+
+```{r brand-helpers, include=FALSE}
+# Brand familiarity summary statistics (from check_brand_recognition output)
+cc_mean   <- brand_results$summary$Mean[brand_results$summary$Brand == "Creative Commons"]
+cc_sd     <- brand_results$summary$SD[brand_results$summary$Brand == "Creative Commons"]
+cc_median <- brand_results$summary$Median[brand_results$summary$Brand == "Creative Commons"]
+cc_level  <- brand_results$summary$Recognition_Level[brand_results$summary$Brand == "Creative Commons"]
+
+by_mean   <- brand_results$summary$Mean[brand_results$summary$Brand == "Byteyield"]
+by_sd     <- brand_results$summary$SD[brand_results$summary$Brand == "Byteyield"]
+by_median <- brand_results$summary$Median[brand_results$summary$Brand == "Byteyield"]
+by_level  <- brand_results$summary$Recognition_Level[brand_results$summary$Brand == "Byteyield"]
+
+ms_mean   <- brand_results$summary$Mean[brand_results$summary$Brand == "Microsoft"]
+ms_sd     <- brand_results$summary$SD[brand_results$summary$Brand == "Microsoft"]
+ms_median <- brand_results$summary$Median[brand_results$summary$Brand == "Microsoft"]
+ms_level  <- brand_results$summary$Recognition_Level[brand_results$summary$Brand == "Microsoft"]
+
+mz_mean   <- brand_results$summary$Mean[brand_results$summary$Brand == "Mozilla"]
+mz_sd     <- brand_results$summary$SD[brand_results$summary$Brand == "Mozilla"]
+mz_median <- brand_results$summary$Median[brand_results$summary$Brand == "Mozilla"]
+mz_level  <- brand_results$summary$Recognition_Level[brand_results$summary$Brand == "Mozilla"]
+
+# CC familiarity distribution
+brand_n          <- nrow(survey_data)
+cc_none_pct      <- round(100 * sum(survey_data$BRANDSKILLS_1 == 1, na.rm = TRUE) / brand_n, 1)
+cc_little_pct    <- round(100 * sum(survey_data$BRANDSKILLS_1 == 2, na.rm = TRUE) / brand_n, 1)
+cc_some_plus_pct <- round(100 * sum(survey_data$BRANDSKILLS_1 >= 3, na.rm = TRUE) / brand_n, 1)
+
+# CC-Byteyield gap (evidence of genuine self-assessment)
+cc_by_gap <- cc_mean - by_mean
+
+# Between-group test (Kruskal-Wallis for ordinal data)
+cc_kw <- kruskal.test(BRANDSKILLS_1 ~ GROUP, data = survey_data)
+
+# Logo recognition rates (coding: 1 = Yes, 2 = No)
+mcd_recog_n    <- sum(survey_data$IDMcD == 1, na.rm = TRUE)
+mcd_recog_pct  <- round(100 * mcd_recog_n / brand_n, 1)
+
+fake_recog_n   <- sum(survey_data$IDFAKE == 1, na.rm = TRUE)
+fake_recog_pct <- round(100 * fake_recog_n / brand_n, 1)
+
+ff_recog_n     <- sum(survey_data$IDFF == 1, na.rm = TRUE)
+ff_recog_pct   <- round(100 * ff_recog_n / brand_n, 1)
+
+cc_claimed_n   <- sum(survey_data$IDCC == 1, na.rm = TRUE)
+cc_claimed_pct <- round(100 * cc_claimed_n / brand_n, 1)
+
+# CC correct identification (IDCC.CAT == 1 among those who said "Yes")
+cc_correct_n   <- sum(survey_data$IDCC.CAT == 1, na.rm = TRUE)
+cc_correct_pct <- round(100 * cc_correct_n / brand_n, 1)
+
+# Misidentification rate among claimants
+cc_wrong_pct <- if (cc_claimed_n > 0) round(100 * (1 - cc_correct_n / cc_claimed_n), 1) else NA
+
+# Misidentification breakdown (among those who said "Yes" to IDCC)
+cc_yes_data   <- survey_data[survey_data$IDCC == 1 & !is.na(survey_data$IDCC), ]
+cc_cat_counts <- table(factor(cc_yes_data$IDCC.CAT, levels = 1:6))
+cc_cat_labels <- c("Creative Commons (correct)", "Closed Captioning",
+                   "Comedy Central", "Chanel", "Copyright", "Other")
+cc_misid_df <- data.frame(
+  Category = cc_cat_labels,
+  n        = as.integer(cc_cat_counts),
+  Pct      = round(100 * as.integer(cc_cat_counts) / sum(cc_cat_counts), 1)
+)
+```
+
+## Overview {#sec-brand-overview}
+
+Both the adoption of Creative Commons licensing and compliance with its terms depend on public recognition of the CC brand. This Chapter reports two complementary measures of CC brand awareness collected *before* respondents were exposed to any experimental treatment: 
+
+(1) a logo identification task, in which respondents viewed the CC logo alongside control logos and indicated whether they recognized each brand; and 
+(2) a brand familiarity battery, in which respondents rated their understanding of Creative Commons and three reference brands on a 1–5 Likert-type scale.
+
+Together, these measures establish the baseline level of CC recognition in the sample. Because the brand questions preceded treatment exposure, they capture pre-existing awareness rather than any effect of the experimental manipulation. The results have direct implications for interpreting the scenario analyses in [Chapter 7](07-scenarios.qmd): if most respondents are unfamiliar with Creative Commons at baseline, then observed differences in infringement perceptions between treatment groups reflect the information provided in the experimental scenarios rather than prior knowledge.
+
+::: {.callout-note}
+**Scope and Sample.** This Chapter reports data from Groups A, B, and C (*n* = `r brand_n`). The B1 Educational Use supplement is excluded because B1 participants did not complete the brand recognition battery. *See* [Codebook §2.1.3](02-codebook.qmd#sec-b1) for B1 details.
+
+The Chapter covers both **logo recognition** (RQ 1.1: Can respondents identify the CC logo?) and **brand familiarity** (RQ 1.2: How familiar are respondents with Creative Commons as a brand?). *See* [Codebook, Brand Recognition](02-codebook.qmd#sec-brand) for variable definitions (`IDCC`, `IDCC-CAT`, `CCREC`, `BRANDSKILLS_1–4`).
+:::
+
+## Survey Instrument Design {#sec-brand-design}
+
+The brand familiarity battery was adapted from Hargittai and Hsieh's (2012) internet skills measure, which embeds target items among reference items to reduce strategic response inflation.^[Eszter Hargittai & Yuli Patrick Hsieh, *Succinct Survey Measures of Web-Use Skills*, 30 **Soc. Sci. Computer Rev.** 95 (2012).] Rather than asking about Creative Commons in isolation, which could prime respondents to overstate their familiarity, the instrument presents four brands in random order within a single matrix question:
+
+| Brand | Variable | Role in Design |
+|-------|----------|---------------|
+| Creative Commons | `BRANDSKILLS_1` | Brand of interest |
+| Byteyield | `BRANDSKILLS_2` | Fabricated brand (attention check) |
+| Microsoft | `BRANDSKILLS_3` | High-recognition ceiling reference |
+| Mozilla | `BRANDSKILLS_4` | Moderate-recognition comparison |
+
+**Byteyield** is a fabricated brand created for this study. Its name was generated to sound plausible as a technology company and verified through Google search and USPTO TESS trademark search to confirm that no real brand existed under that name. A respondent who reports familiarity with Byteyield is likely responding inattentively or strategically inflating their claimed knowledge.^[*See* Jesse Chandler & Gabriele Paolacci. "Lie for a Dime: When Most Prescreening Responses Are Honest but Most Study Participants Are Impostors." 8 **Soc. Psychological & Personality Sci.** 500 (2017); Katelyn Sharpe Wessling, Joel Huber, & Oded Netzer. "MTurk Character Misrepresentation: Assessment and Solutions." 44 **J. Cons. Res.** 211 (2017).]
+
+**Microsoft** and **Mozilla** serve as anchoring references: Microsoft provides a near-universal recognition ceiling, while Mozilla (the organization behind Firefox) occupies a middle ground because it is well-known among technology users but less universally recognized than Microsoft. Together, these anchors establish a credibility spectrum against which CC familiarity can be meaningfully interpreted. *See* [Codebook, BRANDSKILLS](02-codebook.qmd#sec-brandskills) for scale definitions and [§2.6](02-codebook.qmd#sec-skills-scale) for the 1–5 response scale (None / Little / Some / Good / Full).
+
+## Logo Recognition {#sec-logo-recognition}
+
+Before the brand familiarity battery, respondents completed a logo identification task. Four logos were displayed in random order and respondents answered: *"Do you know the brand associated with this logo?"* (Yes / No). Including multiple logos, such as the McDonald's golden arches as a near-universal reference and a novel fabricated logo as a floor control, reduced the likelihood that respondents would strategically inflate their claimed recognition of any single logo.
+
+Respondents who answered "Yes" for the Creative Commons logo were then prompted with a free-text entry: *"Please identify the brand you associate with this logo."* These responses were hand-coded into six categories. *See* [Codebook, IDCC-CAT](02-codebook.qmd#sec-idcc-cat) for the categorization scheme.
+
+```{r}
+#| label: tbl-logo-recognition
+#| tbl-cap: "Logo Recognition Rates Across All Four Brands. McDonald's provides a near-ceiling reference; the novel (fabricated) logo provides a floor control"
+
+data.frame(
+  Logo               = c("McDonald's", "Creative Commons", "Firefox", "Novel (fabricated)"),
+  `Recognized (n)`   = c(mcd_recog_n, cc_claimed_n, ff_recog_n, fake_recog_n),
+  `Recognized (%)`   = c(mcd_recog_pct, cc_claimed_pct, ff_recog_pct, fake_recog_pct),
+  `Not Recognized (%)` = c(100 - mcd_recog_pct, 100 - cc_claimed_pct,
+                           100 - ff_recog_pct, 100 - fake_recog_pct),
+  check.names = FALSE
+) |> knitr::kable(digits = 1)
+```
+
+Among the `r cc_claimed_n` respondents who claimed to recognize the Creative Commons logo, free-text identification responses were coded into six categories:
+
+```{r}
+#| label: tbl-cc-misid
+#| tbl-cap: "CC Logo Misidentification Breakdown. Categorization of free-text responses among respondents who claimed to recognize the Creative Commons logo"
+
+knitr::kable(cc_misid_df, digits = 1, col.names = c("Identification", "n", "%"))
+```
+
+```{r}
+#| label: fig-logo-recognition
+#| column: page-right
+#| fig-height: 3.5
+#| fig-cap: "Logo Recognition Rates. The gap between claimed CC recognition and correct identification highlights the visual ambiguity of the 'CC' mark"
+
+logo_recog_df <- data.frame(
+  Logo = c("McDonald's", "Creative Commons\n(claimed)", "Creative Commons\n(correct)",
+           "Firefox", "Novel\n(fabricated)"),
+  Rate = c(mcd_recog_pct, cc_claimed_pct, cc_correct_pct, ff_recog_pct, fake_recog_pct),
+  Type = c("Reference", "CC (claimed)", "CC (correct)", "Reference", "Control")
+)
+logo_recog_df$Logo <- factor(logo_recog_df$Logo, levels = rev(logo_recog_df$Logo))
+
+ggplot(logo_recog_df, aes(x = Logo, y = Rate, fill = Type)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = paste0(Rate, "%")), hjust = -0.15, size = 4,
+            family = PLOT_FONT) +
+  coord_flip(ylim = c(0, 105), clip = "off") +
+  scale_fill_manual(values = c("Reference" = "#999999", "CC (claimed)" = "#E0DCE4",
+                                "CC (correct)" = "#2E1760", "Control" = "#CCCCCC")) +
+  scale_x_discrete(expand = c(0, 0)) +
+  labs(title = "Logo Recognition Rates",
+       x = NULL, y = "Recognition Rate (%)") +
+  ggthemes::theme_tufte(base_family = PLOT_FONT, base_size = 11) +
+  theme(legend.position    = "none",
+        axis.text.y        = element_text(size = 10, family = PLOT_FONT),
+        plot.margin        = margin(t = 5, r = 15, b = 5, l = 0, unit = "pt"),
+        plot.background    = element_rect(fill = "transparent", colour = NA),
+        panel.background   = element_rect(fill = "transparent", colour = NA))
+```
+
+```{r}
+#| label: tbl-logo-recognition-detail
+#| tbl-cap: "Logo Recognition Rates Corresponding to Figure 6.3.1. Creative Commons recognition is reported as both claimed (respondent said 'Yes') and correct (respondent correctly identified the brand in the free-text follow-up)"
+
+data.frame(
+  Logo               = c("McDonald's", "Creative Commons (claimed)",
+                          "Creative Commons (correct)", "Firefox",
+                          "Novel (fabricated)"),
+  n                  = c(mcd_recog_n, cc_claimed_n, cc_correct_n, ff_recog_n, fake_recog_n),
+  `Recognition (%)`  = c(mcd_recog_pct, cc_claimed_pct, cc_correct_pct, ff_recog_pct, fake_recog_pct),
+  check.names = FALSE
+) |> knitr::kable(digits = 1)
+```
+
+::: {.callout-note collapse="true"}
+**Logo Recognition Interpretation.** McDonald's, as expected, achieved near-ceiling recognition (`r mcd_recog_pct`%), confirming that respondents understood the task and were attending to the logos. The fabricated novel logo serves as a floor control; its recognition rate (`r fake_recog_pct`%) captures the base rate of false positive claims.
+
+For Creative Commons, `r cc_claimed_pct`% of respondents claimed to recognize the logo, but only `r cc_correct_pct`% correctly identified it as Creative Commons — meaning roughly `r round(cc_wrong_pct)`% of claimants were mistaken. The most common misidentification was *Closed Captioning*, reflecting the visual similarity of the "CC" letterform. Other misidentifications included Comedy Central, Chanel, and generic copyright associations. *See* [Codebook, IDCC-CAT](02-codebook.qmd#sec-idcc-cat) for the full categorization scheme.
+
+**Key Takeaway:** True CC logo recognition is very low (`r cc_correct_pct`%), even lower than brand name familiarity (`r cc_some_plus_pct`% rated "Some" understanding or better on the BRANDSKILLS scale).
+:::
+
+## Brand Familiarity {#sec-brand-brands}
+
+Respondents rated their familiarity with the four brands on a 1–5 Likert-type scale (1 = None, 5 = Full understanding). See the brand role table in [§6.2](#sec-brand-design) for the experimental design.
+
+### How to Read the Likert Plot {#sec-brand-howto}
+
+The Likert plot below is a **diverging stacked bar chart** centered at the scale midpoint. Bars extending left indicate lower familiarity (None, Little); bars extending right indicate higher familiarity (Good, Full). A brand with bars mostly extending right is well-known.
+
+## Brand Familiarity Analysis {#sec-brand-analysis}
+
+### Familiarity Plot {#sec-brand-likert}
+
+```{r}
+#| label: fig-brand-likert
+#| column: page-right
+#| fig-height: 3.5
+#| fig-cap: "Brand Familiarity Distribution. Stacked bars show the distribution of familiarity ratings (1–5 scale) for each brand. Creative Commons (brand of interest), Microsoft (high-recognition baseline), Mozilla (moderate-recognition comparison), Byteyield (fabricated attention check)"
+
+# Prepare labeled factor data for custom styling
+brand_plot_data <- survey_data
+brand_cols_plot <- c("BRANDSKILLS_1", "BRANDSKILLS_2", "BRANDSKILLS_3", "BRANDSKILLS_4")
+brand_names <- c("BRANDSKILLS_1" = "CC", "BRANDSKILLS_2" = "Byteyield",
+                 "BRANDSKILLS_3" = "Microsoft", "BRANDSKILLS_4" = "Mozilla")
+familiarity_levels <- c("None", "Little", "Some", "Good", "Full")
+
+for (col in brand_cols_plot) {
+  brand_plot_data[[col]] <- factor(brand_plot_data[[col]],
+                                   levels = 1:5,
+                                   labels = familiarity_levels)
+  attr(brand_plot_data[[col]], "label") <- brand_names[[col]]
+}
+
+# Light gray → dark purple gradient (5 steps)
+purple_gray <- colorRampPalette(c("#E0DCE4", "#2E1760"))(5)
+
+p <- ggstats::gglikert(brand_plot_data, include = all_of(brand_cols_plot),
+                       sort = "descending") +
+  scale_fill_manual(values = purple_gray) +
+  labs(title = "**Brand Familiarity Distribution**") +
+  ggthemes::theme_tufte(base_family = PLOT_FONT, base_size = 11) +
+  theme(
+    text               = element_text(family = PLOT_FONT),
+    axis.text.y        = element_text(size = 12, family = PLOT_FONT),
+    axis.text.x        = element_text(size = 11, family = PLOT_FONT),
+    plot.title         = ggtext::element_markdown(size = 14, family = PLOT_FONT,
+                                                  hjust = 0, margin = margin(b = 8)),
+    plot.title.position = "plot",
+    plot.margin        = margin(t = 5, r = 15, b = 5, l = 0, unit = "pt"),
+    plot.background    = element_rect(fill = "transparent", colour = NA),
+    panel.background   = element_rect(fill = "transparent", colour = NA),
+    legend.position    = "bottom",
+    legend.text        = element_text(size = 11, family = PLOT_FONT),
+    legend.background  = element_rect(fill = "transparent", colour = NA),
+    legend.key         = element_rect(fill = "transparent", colour = NA),
+    legend.key.size    = unit(0.5, "cm")
+  )
+
+# Set in-bar percentage labels to PLOT_FONT
+for (i in seq_along(p$layers)) {
+  if (inherits(p$layers[[i]]$geom, "GeomText")) {
+    p$layers[[i]]$aes_params$family <- PLOT_FONT
+    p$layers[[i]]$aes_params$size   <- 4
+  }
+}
+p
+```
+
+```{r}
+#| label: tbl-brand-familiarity-detail
+#| column: page-right
+#| tbl-cap: "Brand Familiarity Distribution Corresponding to Figure 6.5.1.1. Counts and percentages at each familiarity level (1–5 scale) for all four brands"
+
+brand_detail <- do.call(rbind, lapply(
+  c("BRANDSKILLS_3", "BRANDSKILLS_4", "BRANDSKILLS_1", "BRANDSKILLS_2"),
+  function(col) {
+    label <- c(BRANDSKILLS_1 = "Creative Commons", BRANDSKILLS_2 = "Byteyield",
+               BRANDSKILLS_3 = "Microsoft", BRANDSKILLS_4 = "Mozilla")[[col]]
+    counts <- table(factor(survey_data[[col]], levels = 1:5))
+    pcts   <- round(100 * counts / sum(counts), 1)
+    fmt_col <- function(n, p) paste0(n, " [", p, "%]")
+    data.frame(
+      Brand  = label,
+      None   = fmt_col(as.integer(counts[1]), pcts[1]),
+      Little = fmt_col(as.integer(counts[2]), pcts[2]),
+      Some   = fmt_col(as.integer(counts[3]), pcts[3]),
+      Good   = fmt_col(as.integer(counts[4]), pcts[4]),
+      Full   = fmt_col(as.integer(counts[5]), pcts[5]),
+      check.names = FALSE, row.names = NULL
+    )
+  }
+))
+knitr::kable(brand_detail, align = c("l", rep("r", 5)))
+```
+
+The plot confirms the expected brand recognition ordering. Microsoft anchors the high end, with the vast majority of respondents rating their familiarity at "Good" or "Full" (mean = `r fmt(ms_mean)`, `r ms_level`). Mozilla occupies the middle — recognizable to most respondents but with more spread across the familiarity scale (mean = `r fmt(mz_mean)`, `r mz_level`). Creative Commons clusters heavily on the left side of the chart: `r cc_none_pct`% of respondents reported *no* familiarity whatsoever, and only `r cc_some_plus_pct`% rated their understanding at "Some" or better (mean = `r fmt(cc_mean)`, `r cc_level`). Byteyield, the fabricated brand, anchors the lowest end (mean = `r fmt(by_mean)`, `r by_level`), confirming that respondents were not indiscriminately inflating their claimed knowledge.
+
+### Summary Statistics {#sec-brand-summary}
+
+```{r}
+#| label: tbl-brand-summary
+#| column: page-right
+#| tbl-cap: "Brand Familiarity Summary Statistics. Mean, SD, median, and qualitative recognition level for each brand on the 1–5 scale (None / Little / Some / Good / Full)"
+
+knitr::kable(brand_results$summary, digits = 2)
+```
+
+The CC familiarity distribution is heavily left-skewed, with a median of `r cc_median` and a mean of `r fmt(cc_mean)`. Most members of the general public have little to no familiarity with Creative Commons licensing. For the experimental design, this low baseline means that most respondents encounter the CC license markings *for the first time* during the treatment scenarios, strengthening the interpretation that between-group differences in the scenario analyses reflect the treatment information rather than prior knowledge.
+
+## Attention Check {#sec-brand-attention}
+
+The fabricated brand Byteyield provides an embedded attention check. Because no real brand exists under this name, any reported familiarity beyond the floor suggests either inattentive responding or strategic overclaiming. A meaningful gap between CC familiarity and Byteyield familiarity provides evidence that respondents' CC familiarity ratings reflect genuine self-assessment rather than random or inflated responses.
+
+```{r brand-attention}
+if (brand_results$attention_check) {
+  cat("✓ Attention check passed: fabricated brand (Byteyield) has appropriately low recognition.\n")
+} else {
+  cat("⚠ Attention check flag: Byteyield has unexpectedly high recognition. ",
+      "Review may be needed for inattentive respondents.\n")
+}
+```
+
+The CC–Byteyield gap in mean familiarity is `r fmt(cc_by_gap)` points (CC mean = `r fmt(cc_mean)` vs. Byteyield mean = `r fmt(by_mean)`). This gap confirms that the modest CC familiarity observed above reflects genuine variation in brand awareness, not response noise. Respondents can and do distinguish between brands they have some awareness of and brands they have never encountered.
+
+## CC Familiarity by Group {#sec-brand-by-group}
+
+If randomization succeeded, CC familiarity should not differ systematically across the three treatment groups. The brand familiarity question precedes treatment exposure in the survey flow, so any between-group difference would indicate a pre-treatment confound — a threat to internal validity independent of the demographic balance confirmed in [Chapter 4](04-randomization.qmd). This test parallels the covariate balance logic applied to demographics: just as age, income, and education should be balanced across groups, so too should pre-existing brand awareness.
+
+```{r}
+#| label: fig-brand-cc-by-group
+#| column: page-right
+#| fig-height: 4.5
+#| fig-cap: "CC Brand Familiarity by Treatment Group. The brand question precedes treatment exposure; a non-significant result confirms that pre-existing CC awareness does not confound the experimental design"
+
+cc_by_group <- ggstatsplot::ggbetweenstats(
+  data  = survey_data,
+  x     = GROUP,
+  y     = BRANDSKILLS_1,
+  type  = "np",
+  title = "CC Brand Familiarity by Treatment Group",
+  ylab  = "CC Familiarity Rating",
+  xlab  = "Treatment Group",
+  pairwise.display = "none",
+  centrality.point.args = list(size = 4, color = "#2E1760"),
+  ggtheme = ggthemes::theme_tufte(base_family = PLOT_FONT, base_size = 11),
+  point.args = list(alpha = 0)
+) +
+  theme(
+    plot.title         = element_text(size = 14, face = "bold", family = PLOT_FONT,
+                                      hjust = 0, margin = margin(b = 8)),
+    plot.title.position = "plot",
+    plot.subtitle      = element_text(size = 9, family = PLOT_FONT),
+    axis.text          = element_text(size = 11, family = PLOT_FONT),
+    axis.title         = element_text(size = 11, family = PLOT_FONT),
+    plot.margin        = margin(t = 5, r = 15, b = 5, l = 0, unit = "pt"),
+    plot.background    = element_rect(fill = "transparent", colour = NA),
+    panel.background   = element_rect(fill = "transparent", colour = NA)
+  )
+print(cc_by_group)
+```
+
+::: {.callout-note collapse="true"}
+**CC familiarity by group interpretation.** Kruskal-Wallis *p* = `r fmtp(cc_kw$p.value)`. `r if (cc_kw$p.value > 0.05) "The three treatment groups do not differ significantly in pre-existing CC familiarity, confirming that brand awareness is balanced across conditions. This result, combined with the demographic balance confirmed in [Chapter 4](04-randomization.qmd), supports a causal interpretation of between-group differences in the scenario analyses." else "**Warning:** The groups show a statistically significant difference in pre-existing CC familiarity (*p* < .05). This pre-treatment imbalance should be considered when interpreting between-group differences in the scenario analyses. Consider controlling for baseline CC familiarity as a covariate."`
+:::
+
+## Summary {#sec-brand-summary-findings}
+
+::: {.callout-tip}
+## Key Findings — Brand Recognition
+
+1. **CC familiarity is low.** `r cc_none_pct`% of respondents reported no familiarity with Creative Commons (BRANDSKILLS_1 = 1, "None"), and only `r cc_some_plus_pct`% rated their understanding at "Some" or better (mean = `r fmt(cc_mean)`, recognition level: `r cc_level`).
+
+2. **Logo recognition confirms low awareness.** Only `r cc_correct_pct`% of respondents correctly identified the Creative Commons logo — roughly `r round(cc_wrong_pct)`% of those who *claimed* to recognize it were mistaken. Common misidentifications (Closed Captioning, Comedy Central, Chanel) reveal the visual ambiguity of the "CC" mark. True logo recognition is even lower than self-reported brand name familiarity.
+
+3. **The fabricated brand test passes.** Byteyield, the fabricated attention check brand, shows appropriately low familiarity (mean = `r fmt(by_mean)`, `r by_level`). The CC–Byteyield gap of `r fmt(cc_by_gap)` points confirms that respondents' CC familiarity ratings reflect genuine self-assessment rather than random or inflated responses.
+
+4. **Microsoft anchors the ceiling; Mozilla occupies the middle.** Microsoft achieves near-universal recognition (mean = `r fmt(ms_mean)`, `r ms_level`), while Mozilla occupies a credible middle position (mean = `r fmt(mz_mean)`, `r mz_level`). These reference points confirm that the 1–5 scale discriminates meaningfully across the recognition spectrum.
+
+5. **CC familiarity is balanced across treatment groups.** Kruskal-Wallis *p* = `r fmtp(cc_kw$p.value)`, confirming that pre-existing CC awareness does not differ significantly across Groups A, B, and C. Combined with [Chapter 4](04-randomization.qmd)'s demographic balance results, this supports a causal interpretation of between-group differences in the [scenario analyses](07-scenarios.qmd).
+
+6. **Implications for the scenario analyses.** The low baseline means that most respondents encounter the CC license notice for the first time during the experimental scenarios. Treatment effects therefore operate on a largely uninformed population — a condition that strengthens the ecological validity of the study (most real-world encounters with CC-licensed content likely involve users with little prior CC knowledge) but also means the results reflect *first impressions* rather than informed judgments.
+:::

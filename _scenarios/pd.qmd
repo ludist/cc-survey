@@ -1,0 +1,309 @@
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+# 7.1 Public Domain {.unnumbered #sec-pd}
+
+## 7.1.0 Scenario Presentation
+
+Respondents saw the following scenario. The text and image were identical across conditions; only the **caption** beneath the image varied.
+
+::: {.callout-important appearance="simple" icon=false}
+
+An advertising executive at a large company wants to use a picture of Planet Earth for an advertisement. The executive goes to NASA.gov and finds the following image and caption and uses only the image in a full-page print advertisement printed in nationally distributed magazines and newspapers.
+
+:::
+
+::: {#pd-instrument}
+
+::: {.panel-tabset}
+
+### Control (C)
+
+![](../data/survey-images/Vignette%20Images/The%20Blue%20Marble.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+U.S. Government Work
+:::
+
+### Short (A)
+
+![](../data/survey-images/Vignette%20Images/The%20Blue%20Marble.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+![](../data/survey-images/Vignette%20Images/PD%20Mark.png){height="20px"} The Blue Marble by NASA
+:::
+
+### Full + Primer (B)
+
+Full + Primer (B) respondents first reviewed a **CC Education** page explaining all six Creative Commons license types and the CC0 Public Domain Dedication before seeing this scenario.
+
+![](../data/survey-images/Vignette%20Images/The%20Blue%20Marble.jpg){fig-align="center" width="95%"}
+
+::: {.scenario-caption}
+![](../data/survey-images/Vignette%20Images/PD%20Mark.png){height="20px"} This work (The Blue Marble, by NASA) is free of known copyright restrictions.
+:::
+
+:::
+
+::: {.panel-tabset}
+
+### Q1: Likelihood
+
+**In your opinion, how likely is the executive's company to face legal consequences for this use?**
+<br><br>Extremely unlikely (1) *to* Extremely likely (7)
+
+### Q2: Current Law
+
+**In your opinion, if the executive's company were sued for these actions, what legal consequences do you think it *would* face?**
+<br><br>No consequences (1) *—* Some negative consequences, such as a court order to stop and/or a moderate fine (4) *—* Very negative consequences, such as incarceration and/or a large fine (7)
+
+### Q3: Normative
+
+**In your opinion, what legal consequences *should* the executive's company face for these actions?**
+<br><br>No consequences (1) *—* Some negative consequences, such as a court order to stop and/or a moderate fine (4) *—* Very negative consequences, such as incarceration and/or a large fine (7)
+
+### Q4: License Price
+
+**Now imagine that *before* the use described above, the executive's company and the owner of this work agreed on a price for a non-exclusive license. In your opinion, what do you think would be a reasonable price for that license?**
+<br><br>Open response in US dollars
+
+:::
+
+:::
+
+::: {.callout-note}
+## Scenario Context
+
+**Legal Context:** Works created by the U.S. federal government are not subject to copyright protection under 17 U.S.C. § 105. The depicted use is **non-infringing across all conditions**. There is no copyright to infringe regardless of whether the caption says "U.S. Government Work," bears a public domain mark, or explains the absence of copyright restrictions. This makes the Public Domain scenario the study's **baseline**. Any between-group differences reflect informational framing effects rather than differences in legal status.
+
+**Expected Pattern:** Low scores across all groups, with the pre-registered ordering C > A > B. The explicit statement that the work is "free of known copyright restrictions" (Full + Primer (B)) should produce the strongest floor effect, driving responses toward the minimum of the scale.
+
+**Design Note:** The scenario deliberately does not include attribution credit for the NASA photograph. Some respondents may perceive the omission of attribution as relevant, even though attribution has no bearing on copyright infringement for a public domain work.
+:::
+
+```{r pd-analysis}
+pd_results <- analyze_full_scenario(
+  data         = survey_data,
+  scenario_code = "PD",
+  scenario_name = "Public Domain",
+  questions    = c("q1", "q2", "q3", "delta", "price"),
+  export_tiffs = TRUE
+)
+```
+
+```{r pd-extract, include=FALSE}
+list2env(extract_scenario_inline(pd_results, "PD", survey_data), envir = environment())
+```
+
+## 7.1.1 Q1: Likelihood of Legal Consequences {#sec-pd-q1}
+
+Do respondents correctly perceive that public domain use carries no legal risk?
+
+```{r}
+#| label: tbl-pd-q1-stats
+#| tbl-cap: "Public Domain Q1: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pd_results$statistics$q1, dunn = pd_results$dunn$q1), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pd-q1-vda
+#| tbl-cap: "Public Domain Q1: Pairwise Effect Sizes"
+
+knitr::kable(pd_vda_q1)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pd-q1
+#| fig-height: 5
+#| fig-cap: "Public Domain Q1: Likelihood of Legal Consequences by Group"
+
+print(pd_results$plots$q1)
+```
+
+
+Q1 asks respondents how likely the advertising executive's company is to face legal consequences for using the Blue Marble photograph without permission. Because the photograph is a U.S. government work not subject to copyright the correct answer is that legal consequences are very unlikely regardless of the caption.
+
+The results confirm the pre-registered C > A > B ordering: Control respondents rated the likelihood of legal consequences highest (M = `r pd_q1_c`, SD = `r pd_q1_sd_c`), followed by Short (A) (M = `r pd_q1_a`, SD = `r pd_q1_sd_a`) and Full + Primer (B) (M = `r pd_q1_b`, SD = `r pd_q1_sd_b`). Short (A) respondents estimated a likelihood approximately 15% lower than the Control, while Full + Primer (B) respondents estimated a likelihood more than 50% lower. As visible in @fig-pd-q1, the Kruskal-Wallis test is highly significant with a large effect size, and all pairwise comparisons are significant (*p* < 0.001). Pairwise VDA effect sizes are reported in @tbl-pd-q1-vda.
+
+These results demonstrate that the American public generally understands that U.S. government work is free from copyright infringement and, as a result, the perceived likelihood of legal consequences is low. Respondents who are told that a work is in the public domain perceive legal consequences as even less likely, and respondents' understanding of the likelihood of legal consequences is lowest when an explicit statement that the work is free from copyright restrictions is included. Despite Public Domain being a baseline scenario, the significant between-group differences indicate that even for non-infringing use, the *framing* of copyright information materially affects risk perception.
+
+## 7.1.2 Q2: Perceived Legal Consequences Under Current Law {#sec-pd-q2}
+
+What consequences do respondents believe would follow from using a public domain work?
+
+```{r}
+#| label: tbl-pd-q2-stats
+#| tbl-cap: "Public Domain Q2: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pd_results$statistics$q2, dunn = pd_results$dunn$q2), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pd-q2-vda
+#| tbl-cap: "Public Domain Q2: Pairwise Effect Sizes"
+
+knitr::kable(pd_vda_q2)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pd-q2
+#| fig-height: 5
+#| fig-cap: "Public Domain Q2: Estimated Legal Consequences (Current) by Group"
+
+print(pd_results$plots$q2)
+```
+
+
+Q2 shifts from likelihood to *severity*: if the executive's company were sued, what legal consequences do respondents believe would result under the current law? The response scale runs from 1 ("No consequences") to 7 ("Very negative consequences, such as incarceration and/or a large fine"), with 4 anchored at "Some negative consequences, such as a court order to stop and/or a moderate fine."
+
+The C > A > B pattern holds with even stronger effect. As reported in @tbl-pd-q2-stats, the Control mean is `r pd_q2_c` (SD = `r pd_q2_sd_c`), Short (A) is `r pd_q2_a` (SD = `r pd_q2_sd_a`), and Full + Primer (B) is `r pd_q2_b` (SD = `r pd_q2_sd_b`). The most explicit explanation of the work's copyright status produces the lowest estimate of legal consequences: Full + Primer (B)'s mean is approximately 50% lower than the Control. The Kruskal-Wallis test returns a large effect size, and all pairwise comparisons are significant (*p* < 0.001). Pairwise VDA effect sizes are reported in @tbl-pd-q2-vda.
+
+Full + Primer (B)'s violin plot in @fig-pd-q2 is particularly instructive: the wide base at the bottom of the scale and few selections above it make clear that respondents recognized re-using the public domain work, even for commercial purposes, is not infringement. The explicit statement that a work is "free of known copyright restrictions" collapses uncertainty. Full + Primer (B)'s standard deviation (`r pd_q2_sd_b`) is roughly 40% smaller than the Control's (`r pd_q2_sd_c`), indicating not just a lower mean but substantially greater consensus among respondents.
+
+## 7.1.3 Q3: Normative Preferences {#sec-pd-q3}
+
+What consequences do respondents believe *should* follow from public domain use? For a true public domain scenario, Q3 should closely track Q2.
+
+```{r}
+#| label: tbl-pd-q3-stats
+#| tbl-cap: "Public Domain Q3: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pd_results$statistics$q3, dunn = pd_results$dunn$q3), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pd-q3-vda
+#| tbl-cap: "Public Domain Q3: Pairwise Effect Sizes"
+
+knitr::kable(pd_vda_q3)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pd-q3
+#| fig-height: 5
+#| fig-cap: "Public Domain Q3: Estimated Legal Consequences (Preferred) by Group"
+
+print(pd_results$plots$q3)
+```
+
+
+Q3 uses the same severity scale as Q2 but asks what consequences respondents think *should* follow, measuring normative preferences rather than perceptions of current law. For the Public Domain scenario, where the use is non-infringing under all conditions, Q3 responses should closely mirror Q2: respondents who believe there are no legal consequences under current law should also believe there should be none.
+
+The results confirm this pattern. Full + Primer (B) again anchors the bottom of the scale (M = `r pd_q3_b`, SD = `r pd_q3_sd_b`), approximately 47% lower than the Control (M = `r pd_q3_c`, SD = `r pd_q3_sd_c`). Short (A) falls between (M = `r pd_q3_a`, SD = `r pd_q3_sd_a`), approximately 15% lower than the Control. The ordering C > A > B is maintained, and the means track Q2 closely --- explaining that a work is free from copyright restrictions leads respondents to estimate lesser punishment to a moderate degree for Short (A) and to a moderate-to-large degree for Full + Primer (B). The pairwise effect sizes mirror Q2: all comparisons are significant (*p* < 0.001), with VDA values indicating a consistent treatment gradient (see @tbl-pd-q3-vda).
+
+The close correspondence between Q2 and Q3 is itself a finding: for the Public Domain scenario, respondents' perceptions of current law align with their normative preferences. This is exactly what one would expect for a baseline scenario where the use does not infringe. There is no tension between "what the law says" and "what respondents think the law should say."
+
+## 7.1.4 Delta (Q2 - Q3): Law--Preference Gap {#sec-pd-delta}
+
+Is there a gap between what respondents believe the law says (Q2) and what they believe it should say (Q3)?
+
+{{< include ../_includes/delta-definition.qmd >}}
+
+```{r}
+#| label: tbl-pd-delta-stats
+#| tbl-cap: "Public Domain Delta: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pd_results$statistics$delta, dunn = pd_results$dunn$delta), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pd-delta-vda
+#| tbl-cap: "Public Domain Delta: Pairwise Effect Sizes"
+
+knitr::kable(pd_vda_delta)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pd-delta
+#| fig-height: 5
+#| fig-cap: "Public Domain Delta: Current\u2013Preferred Legal Consequences by Group"
+
+print(pd_results$plots$delta)
+```
+
+
+```{r}
+#| label: tbl-pd-delta-wilcox
+#| tbl-cap: "Public Domain Delta: Within-Group Wilcoxon Signed-Rank Tests — Does Each Group's Delta Differ Significantly from Zero?"
+
+knitr::kable(format_wilcoxon_table(pd_results), row.names = FALSE)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+For the Public Domain baseline, Delta should be near zero: if respondents correctly identify the use as non-infringing, their estimate of what the law *is* (Q2) and what it *should be* (Q3) should converge. Comparing the delta between respondents' estimates of the current law (Q2) versus their own preferences (Q3) reveals no meaningful difference between groups. The between-group Kruskal-Wallis test is not significant (see @fig-pd-delta), and the pairwise VDA comparisons are all non-significant.
+
+The Control (C) and Short (A) respondents indicated they would prefer consequences be slightly lower on average. By law, there is no penalty to lower. This confirms that the Public Domain scenario functions as the intended baseline: law and preferences align, and the treatment conditions do not create a gap between how respondents perceive the law and what they think the law should be.
+
+## 7.1.5 Q4: License Price Estimate {#sec-pd-price}
+
+What do respondents estimate a non-exclusive license would cost? For a public domain work, the rational price is \$0.
+
+```{r}
+#| label: tbl-pd-price-stats
+#| tbl-cap: "Public Domain Q4: Descriptive Statistics by Group"
+
+knitr::kable(fmt_stats_table(pd_results$statistics$price, dunn = pd_results$dunn$price), align = "lrrr")
+```
+
+{{< include ../_includes/sig-legend.qmd >}}
+
+```{r}
+#| label: tbl-pd-price-vda
+#| tbl-cap: "Public Domain Q4: Pairwise Effect Sizes"
+
+knitr::kable(pd_vda_price)
+```
+
+{{< include ../_includes/sig-legend-long.qmd >}}
+
+```{r}
+#| label: fig-pd-price
+#| fig-height: 5
+#| fig-cap: "Public Domain Q4: License Price Estimate by Group"
+
+print(pd_results$plots$price)
+```
+
+
+For a public domain work, the economically rational license price is $0. There are no copyright restrictions to license around. Any nonzero price estimates reflect residual confusion about the work's copyright status or a willingness to pay for convenience, attribution, or perceived quality assurance.
+
+The results follow the C > A > B pattern. As shown in @fig-pd-price and @tbl-pd-price-stats, the means differ by roughly $1,000 between groups, with Full + Primer (B) producing the lowest estimates and the Control the highest. The plot makes clear that a large concentration of respondents, particularly in Full + Primer (B), correctly priced the license at $0 (visible as the dense cluster at the bottom of the violin). The between-group differences are statistically significant with all pairwise comparisons reaching significance (*p* < 0.001). Providing explicit information that works in the public domain do not have copyright resulted in the lowest license price estimate at about a third of the Control. Simply listing the work as public domain (Short (A)) had about half the effect of the explicit information treatment (Full + Primer (B)). VDA pairwise comparisons are reported in @tbl-pd-price-vda.
+
+## 7.1.6 Summary {#sec-pd-summary}
+
+::: {.callout-tip}
+## Key Findings --- Public Domain
+
+The Public Domain scenario serves as the study's baseline. Because the Blue Marble photograph is a U.S. government work not subject to copyright (17 U.S.C. § 105), the depicted use is non-infringing across all treatment conditions. The key findings are:
+
+1. **Baseline partially confirmed.** All group means fall in the low range of the 7-point scale (`r pd_q3_b`--`r pd_q1_c` for Q1--Q3), confirming that respondents generally perceive low legal risk for public domain use. However, significant between-group differences exist across all ordinal questions. The Public Domain scenario is not as "flat" as a pure baseline would predict.
+
+2. **C > A > B pattern confirmed.** The pre-registered ordering holds consistently across Q1, Q2, Q3, and price. Control (C) respondents perceive the highest risk and estimate the highest license prices; Full + Primer (B) respondents perceive the lowest risk and estimate the lowest prices.
+
+3. **Full + Primer (B) produces near-consensus.** The explicit statement that the work is "free of known copyright restrictions" drives Full + Primer (B) means to approximately `r pd_q2_b` on the 7-point scale with standard deviations near `r pd_q2_sd_b`. The narrow distributions in the violin plots indicate strong respondent agreement, not just lower means.
+
+4. **Law--preference gap is zero.** Delta (Q2 - Q3) is near zero across all groups, and the between-group Kruskal-Wallis test is not significant. This confirms that the Public Domain scenario functions as intended: respondents' perceptions of current law match their normative preferences. There is no systematic tension between "what the law says" and "what it should say."
+
+5. **Residual confusion persists.** Despite non-infringing use, Control (C) and Short (A) respondents still report moderate perceived risk (means of `r pd_q1_a`--`r pd_q1_c`), well above the scale minimum of 1. This suggests incomplete public understanding of public domain status. Many respondents in these groups do not fully appreciate that U.S. government works carry no copyright restrictions.
+
+6. **Framing matters even for clear cases.** The central implication is that *how* copyright information is presented materially affects risk perception, even when the underlying legal question is straightforward. For a non-infringing baseline, moving from "U.S. Government Work" to an explicit statement of copyright-free status reduces perceived risk by approximately 50% and license price estimates by roughly two-thirds.
+:::

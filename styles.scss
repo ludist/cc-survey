@@ -1,0 +1,680 @@
+/*-- scss:defaults --*/
+// ================================================================
+// CC Survey Online Appendix — Design Tokens
+// ================================================================
+// Tufte-inspired academic theme with Equity A serif typography,
+// dark purple accent, and alabaster background.
+//
+// Migrated from styles.css (2026-02-23) to leverage SCSS variable
+// precedence over Bootstrap !default declarations.
+//
+// Architecture: cosmo (Bootswatch base) → styles.scss (this file)
+// Variables here override cosmo and Bootstrap defaults automatically.
+// ================================================================
+
+// -- Color Palette ------------------------------------------------
+$purple:       #5B2C6F;                    // Primary accent
+$purple-light: #E8D5F5;                    // Mermaid nodes, light fills
+$purple-mid:   #9B7DB8;                    // Mermaid node foreground
+$gold:         #C4A038;                    // Callout-important (scenarios)
+$alabaster:    #FAFAFA;                    // Background (warm off-white)
+
+// -- Bootstrap: Body ----------------------------------------------
+$body-bg:    $alabaster;
+$body-color: #000;
+$link-color: $purple;
+
+// -- Typography ---------------------------------------------------
+// Equity A (Butterick): lining figures, designed for extended reading.
+// Falls back through Century Schoolbook -> Century -> Georgia -> TNR.
+// WOFF2 web fonts self-hosted in fonts/ for GitHub Pages deployment.
+$font-family-sans-serif: "Equity A", "Century Schoolbook", "Century",
+                          "Georgia", "Times New Roman", serif;
+
+// -- Navigation ---------------------------------------------------
+$sidebar-bg: $alabaster;
+$sidebar-fg: #000;
+$sidebar-hl: $purple;
+$toc-color:  #000;
+$toc-active-border: $purple;
+
+// -- Tables -------------------------------------------------------
+$table-striped-bg:    rgba(0, 0, 0, 0.03);
+$table-hover-bg:      rgba(0, 0, 0, 0.06);
+$table-caption-color: #000;
+
+// -- Callouts -----------------------------------------------------
+$callout-color-note:      $purple;
+$callout-color-important: $gold;
+
+// -- Code ---------------------------------------------------------
+$code-font-size: 0.88em;
+
+// -- Bootstrap Utility Overrides ----------------------------------
+// Forces .text-muted to black (Bootstrap applies !important internally,
+// so overriding the variable is the only clean way to change it).
+$text-muted: #000;
+
+
+/*-- scss:rules --*/
+
+// ================================================================
+// @font-face: Equity A (self-hosted WOFF2)
+// ================================================================
+// Web fonts for GitHub Pages deployment. System-installed OTF used
+// automatically during local Positron preview (font-display: swap
+// shows fallback immediately, swaps when loaded).
+
+@font-face {
+  font-family: "Equity A";
+  src: url("fonts/equity_a_regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Equity A";
+  src: url("fonts/equity_a_bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Equity A";
+  src: url("fonts/equity_a_italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Equity A";
+  src: url("fonts/equity_a_bold_italic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+// ================================================================
+// Body & Global
+// ================================================================
+// $body-bg and $body-color set in defaults; these rules handle
+// properties without SCSS variable equivalents.
+
+body {
+  font-size: 1.27rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+// Paragraph indent — consecutive paragraphs get indented;
+// solo paragraphs (no adjacent sibling <p>) stay flush left.
+// :has(+ p) = paragraph followed by another paragraph (first in group)
+// p + p     = paragraph preceded by another paragraph (2nd+ in group)
+p:has(+ p),
+p + p {
+  text-indent: 1.5em;
+}
+
+// Reset indent inside callouts — not body prose
+.callout-body p {
+  text-indent: 0;
+}
+
+// Extend alabaster background to all chrome elements
+.quarto-body-content,
+.sidebar,
+#quarto-sidebar,
+.quarto-title-block,
+.navbar,
+.quarto-title-banner {
+  background-color: $alabaster;
+}
+
+// ================================================================
+// Running Header
+// ================================================================
+
+#title-block-header::before {
+  content: "Online Appendix";
+  display: block;
+  font-variant: small-caps;
+  font-size: 1.76rem;
+  letter-spacing: 0.06em;
+  color: $purple;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+// ================================================================
+// Tables -- Tufte-Inspired
+// ================================================================
+// Minimal borders, clear headers, tabular figures for numeric data.
+// $table-striped-bg and $table-hover-bg set in defaults.
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95em;
+}
+
+table thead th {
+  border-bottom: 2px solid $purple;
+  padding: 0.5em 1.25em;
+  text-align: left;
+  font-weight: 600;
+  color: $purple;
+  background-color: rgba($purple, 0.06);
+}
+
+// First column gets 40%; remaining columns split the rest equally.
+// For 4-col tables: 40% + 3 × 20% = 100%.
+table thead th:first-child,
+table tbody td:first-child {
+  width: 40%;
+}
+
+// Table text alignment: first column left (labels), rest right (numeric).
+// Right-align + tabular-nums + consistent sprintf decimals = decimal alignment.
+// !important needed to defeat knitr's inline style attributes.
+table thead th:first-child,
+table tbody td:first-child {
+  text-align: left !important;
+}
+
+table thead th:not(:first-child),
+table tbody td:not(:first-child) {
+  text-align: right !important;
+}
+
+// Utility: justify specific columns in tables with long prose.
+// Apply to a wrapper div: ::: {.justify-last} or .justify-col-N
+// Headers remain left-aligned; only td cells get justified.
+.justify-last td:last-child,
+.justify-col-2 td:nth-child(2),
+.justify-col-3 td:nth-child(3),
+.justify-col-4 td:nth-child(4),
+.justify-col-5 td:nth-child(5) {
+  text-align: justify !important;
+}
+
+table tbody td {
+  padding: 0.4em 1.25em;
+  border-bottom: 1px solid #ddd;
+  font-variant-numeric: tabular-nums;
+}
+
+table thead th:last-child,
+table tbody td:last-child {
+  padding-right: 1.5em;
+}
+
+// Wilcoxon table: extra space between V and Sig. columns
+#tbl-sum-wilcoxon table td:nth-child(4),
+#tbl-sum-wilcoxon table th:nth-child(4) {
+  padding-right: 2em;
+}
+
+// ================================================================
+// Captions
+// ================================================================
+
+.table caption,
+.quarto-figure figcaption {
+  font-size: 0.99em;
+  color: #000;
+  padding-top: 0.5em;
+}
+
+// Table captions — justified to match body text alignment.
+// Quarto's .quarto-figure-center on the float container sets text-align: center;
+// must use !important to override. Target the figcaption class directly so
+// the rule wins regardless of parent specificity.
+figcaption.quarto-float-tbl,
+figcaption.quarto-float-tbl p,
+table caption {
+  text-align: justify !important;
+}
+
+// ================================================================
+// Scenario Captions
+// ================================================================
+// Caption text beneath survey instrument images in scenario chapters.
+// Tightened spacing pulls caption flush under the image; smaller size
+// and center alignment distinguish it from body prose.
+
+// Kill bottom margin on image containers inside tab panes so
+// the caption sits flush beneath the image.
+.tab-pane p:has(> img),
+.tab-pane .quarto-figure,
+.tab-pane figure {
+  margin-bottom: 0;
+}
+
+.scenario-caption {
+  text-align: left;
+  font-size: 0.95em;
+  color: #444;
+  margin-top: -0.1em;
+  margin-bottom: 0;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Prevent paragraph spacing inside caption div
+.scenario-caption p {
+  margin-bottom: 0;
+}
+
+// ================================================================
+// Panel Tabset Panes
+// ================================================================
+// Equal padding on all four sides for a balanced frame.
+
+.panel-tabset .tab-pane {
+  padding: 1em;
+}
+
+// ================================================================
+// Sidenotes & Margin Content
+// ================================================================
+// Match table font-size (0.95em) — both slightly smaller than body text.
+
+.column-margin,
+.aside,
+.margin-aside,
+aside[role="doc-endnote"],
+.quarto-margin-sidebar .quarto-margin-content,
+.footnote-back,
+.margin-caption {
+  font-size: 0.95em;
+  color: #000;
+  text-align: justify;
+}
+
+// Bluebook journal/source names — small caps instead of bold.
+// All **bold** text in margin notes is journal abbreviations or
+// institutional source names (audited 2026-02-24, 9 instances).
+// Capitals stay at cap height; lowercase renders as small capitals.
+.column-margin strong {
+  font-variant: small-caps;
+  font-weight: normal;
+}
+
+// ================================================================
+// Footnotes
+// ================================================================
+
+// Reference numbers -- dark purple, bold
+// Inline: <a class="footnote-ref"><sup>1</sup></a>
+// Must style both the <a> and the <sup> to ensure cascade wins.
+sup a[role="doc-noteref"],
+a.footnote-ref,
+.footnote-ref {
+  color: $purple;
+  font-weight: 700;
+  text-decoration: none;
+}
+a.footnote-ref sup,
+sup a[role="doc-noteref"] {
+  color: $purple;
+  font-weight: 700;
+}
+
+// Back-reference arrow in margin
+.footnote-back {
+  color: $purple;
+  font-weight: 700;
+}
+
+// Margin sidenote number labels
+// Quarto renders margin notes as <div class="column-margin"><div id="fn1"><p><sup>N</sup>...
+// (not <aside>), so target both structures.
+aside[role="doc-endnote"] sup,
+.column-margin .footnote-ref,
+aside[role="doc-endnote"] a[role="doc-noteref"],
+.margin-aside sup,
+.column-margin sup {
+  color: $purple;
+  font-weight: 700;
+}
+
+// ================================================================
+// Callouts
+// ================================================================
+// $callout-color-note and $callout-color-important set in defaults.
+// These rules handle sub-element styling and font-size overrides
+// that Quarto's SCSS variables don't fully control.
+
+// Purple accent for note callouts
+div.callout-note.callout {
+  --callout-color: 91, 44, 111;
+  border-left-color: $purple;
+  background-color: rgba($purple, 0.06);
+}
+div.callout-note.callout .callout-icon::before {
+  background-color: $purple;
+}
+div.callout-note.callout .callout-header {
+  background-color: rgba($purple, 0.12);
+}
+div.callout-note.callout .callout-toggle::before {
+  background-color: $purple;
+}
+
+// Gold accent for important callouts (scenario context boxes)
+div.callout-important.callout {
+  --callout-color: 196, 160, 56;
+  border-left-color: $gold;
+  background-color: rgba($gold, 0.06);
+}
+div.callout-important.callout .callout-icon::before {
+  background-color: $gold;
+}
+
+// Body text sizing -- override Quarto/Bootstrap callout reduction
+.callout-body-container {
+  font-size: 1.27rem;
+}
+.callout {
+  font-size: 1.27rem !important;
+}
+.callout p,
+.callout li,
+.callout .callout-body {
+  font-size: 1.27rem !important;
+}
+// Header -- slightly larger than body
+div.callout .callout-header {
+  font-size: 1.38rem;
+  font-weight: 600;
+}
+
+// ================================================================
+// Text Color Overrides
+// ================================================================
+// Quarto/Bootstrap grays various elements; force black for legibility.
+// $text-muted set to #000 in defaults (handles .text-muted globally).
+
+.breadcrumb-item,
+.quarto-secondary-nav,
+.quarto-title .quarto-categories .quarto-category,
+figcaption,
+caption {
+  color: #000 !important;
+}
+
+// Title meta labels (Author, Published) -- bold dark purple
+.quarto-title-meta-heading {
+  color: $purple !important;
+  font-weight: 700 !important;
+}
+
+// Section & chapter numbers -- bold dark purple accent
+.header-section-number,
+.chapter-number {
+  color: $purple;
+  font-weight: 700;
+}
+
+// Table/Figure caption labels (e.g., "Table 3.1" / "Figure 7.1.1")
+// Span injected by section-numbering.html
+.float-label {
+  color: $purple;
+  font-weight: 700;
+}
+
+// Blockquotes -- black text, not Bootstrap gray
+blockquote, blockquote p {
+  color: #000 !important;
+}
+
+// ================================================================
+// Mermaid Diagrams
+// ================================================================
+// Quarto injects CSS-variable-based styles that override %%{init}%%
+// blocks. Override the CSS custom properties here instead.
+
+:root {
+  --mermaid-font-family: "Equity A", "Century Schoolbook", Georgia, serif;
+  --mermaid-font-weight: normal;
+  --mermaid-fg-color: #000;
+  --mermaid-node-bg-color: #{$purple-light};
+  --mermaid-node-fg-color: #{$purple-mid};
+  --mermaid-edge-color: #555;
+  --mermaid-label-fg-color: #000;
+  --mermaid-label-bg-color: #{$alabaster};
+  --mermaid-bg-color: #{$alabaster};
+  --mermaid-fg-color--lightest: #F0F0F0;
+  --mermaid-fg-color--lighter: #CCC;
+}
+
+// ================================================================
+// Table-Adjacent Margin Notes — Vertical Centering
+// ================================================================
+// Quarto's .no-row-height uses height: 1em + overflow: visible, so the
+// margin container isn't a true grid-row participant. align-self won't
+// work. Instead, push the content down with margin-top so the legend
+// floats roughly mid-table rather than pinned to the top.
+
+.no-row-height.column-margin.column-container > div {
+  margin-top: 3em;
+}
+
+// ================================================================
+// Code
+// ================================================================
+// $code-font-size handles inline <code>; this rule normalizes
+// <pre> and .sourceCode blocks to match.
+
+pre, code, .sourceCode {
+  font-size: 0.88em;
+}
+
+// ================================================================
+// Content Constraints
+// ================================================================
+// Tables, callouts, prose stay in body column; prevent horizontal overflow.
+
+.callout, .cell-output, .cell-output-display:not(.column-page-right) {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+// ================================================================
+// Panel Tabset Tabs
+// ================================================================
+// Quarto panel-tabset tabs inherit the enlarged body font; tighten
+// font-size and padding so Q1–Q4 labels fit on a single row.
+
+.panel-tabset .nav-tabs .nav-link {
+  font-size: 1.12rem;
+  padding: 0.4rem 0.75rem;
+}
+
+// ================================================================
+// Grid Override
+// ================================================================
+// Quarto's bootstrap theme hardcodes body.docked body width at 1050px,
+// ignoring grid.body-width (850px) and grid.margin-width (325px).
+// This override restores configured proportions. Figures with
+// column: page-right still extend via grid-column override.
+// Must use !important to override Quarto's hardcoded grid template.
+
+@media (min-width: 992px) {
+  body.docked .page-columns {
+    grid-template-columns:
+      [screen-start] 1.5rem
+      [screen-start-inset page-start] minmax(55px, 110px)
+      [page-start-inset] 55px
+      [body-start-outset] 55px
+      [body-start] 1.5rem
+      [body-content-start] minmax(500px, calc(850px - 3rem))
+      [body-content-end] 1.5rem
+      [body-end] 65px
+      [body-end-outset] minmax(65px, 325px)
+      [page-end-inset] 65px
+      [page-end] 5fr
+      [screen-end-inset] 1.5rem
+      [screen-end] !important;
+  }
+}
+
+// ================================================================
+// Sidebar Navigation
+// ================================================================
+
+// Override body justification for navigation text
+.sidebar,
+#quarto-sidebar,
+#quarto-sidebar-toc-left,
+nav#TOC,
+.sidebar-navigation {
+  text-align: left;
+  hyphens: none;
+}
+
+// Hide Quarto's left TOC -- JS (sidebar-toc.html) repositions the links.
+// Must use !important to prevent flash of unstyled content before JS runs.
+#quarto-sidebar nav#TOC {
+  display: none !important;
+}
+
+// Hanging indent for chapter items -- wrapped lines align with title text
+#quarto-sidebar .sidebar-item a span.menu-text {
+  display: block;
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+}
+
+// Sidebar author line -- injected by sidebar-toc.html
+.sidebar-author {
+  font-size: 0.94rem;
+  color: #000;
+  padding: 0.19rem 0.5rem 1.31rem 0.5rem;
+  line-height: 1.3;
+  text-align: center;
+}
+
+// "inquiry by" label above author name
+.sidebar-author-label {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+
+// Sidebar title block
+#quarto-sidebar {
+  .sidebar-title {
+    line-height: 1.35;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  // Pull GitHub icon row tight under title text
+  .sidebar-tools-main {
+    margin-top: -0.4rem;
+    margin-bottom: 0;
+  }
+  .sidebar-subtitle {
+    line-height: 1.35;
+  }
+
+  // Chapter listings -- legible sizing, tighter vertical rhythm
+  .sidebar-link {
+    font-size: 1.16rem;
+    line-height: 1.35;
+    padding-top: 0.10rem;
+    padding-bottom: 0.10rem;
+    color: #000;
+
+    &.active {
+      color: $purple;
+      font-weight: 700;
+    }
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  // Chapter/section numbers in sidebar -- bold purple accent
+  .chapter-number,
+  .header-section-number {
+    color: $purple;
+    font-weight: 700;
+  }
+
+  // Scenario chapters (nested sub-items) -- match top-level size
+  .sidebar-item .sidebar-item {
+    a.sidebar-link {
+      font-size: 1.16rem;
+    }
+    a span.menu-text {
+      font-size: 1.16rem;
+    }
+  }
+}
+
+// Nested section list -- appears after the active chapter <li>
+ul.sidebar-sections {
+  margin: 0.2rem 0 0.6rem 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-section-item {
+  margin: 0;
+  padding: 0;
+}
+
+a.sidebar-section-link {
+  display: block;
+  // Hanging indent: "2.1em" ~ width of "N.N " (section number + space)
+  padding: 0.13rem 0.25rem 0.13rem 2.1em;
+  text-indent: -2.1em;
+  font-size: 1.16rem;
+  color: #000;
+  text-decoration: none !important;
+  line-height: 1.5;
+  white-space: normal;
+  overflow: visible;
+
+  &:hover {
+    color: $purple;
+    text-decoration: none !important;
+  }
+  &.active {
+    color: $purple;
+    font-weight: 600;
+  }
+}
+
+// ================================================================
+// Chapter Navigation (Previous / Next)
+// ================================================================
+// Bottom-of-page nav panels linking to adjacent chapters.
+// Default Quarto sizing is too small relative to 1.27rem body text.
+
+.page-navigation {
+  font-size: 1.20rem;
+  padding: 1.5rem 0;
+}
+
+.page-navigation .nav-page-text {
+  font-size: 1.20rem;
+}
+
+// Chapter numbers in nav links
+.page-navigation .chapter-number {
+  color: $purple;
+  font-weight: 700;
+}
+
+// Arrow icons
+.page-navigation .bi {
+  font-size: 1.4rem;
+}

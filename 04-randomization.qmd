@@ -1,0 +1,279 @@
+---
+title: "Randomization Check"
+---
+
+```{r setup, include=FALSE}
+source(here::here("_common.R"))
+```
+
+## Overview {#sec-rand-overview}
+
+Random assignment is the foundation of experimental causal inference. When participants are randomly assigned to treatment conditions, every pre-existing characteristic, observed or unknown, has an equal probability of appearing in each group. With sufficiently large samples, this probabilistic equivalence translates into actual balance: the groups become statistically indistinguishable on covariates that were not manipulated by the experimenter. The larger the sample, the more likely randomization equalizes groups across the full space of participant characteristics, including characteristics that were never measured. With *n* = 1,222 participants spread across three conditions (~400 per group), this section demonstrates that this experiment has sufficient power to achieve close balance on the five demographic covariates measured here.
+
+Randomization checks verify that this equalization actually occurred and that group assignment was independent of pre-treatment participant characteristics. This Chapter reports covariate balance tests for Age, Income, Educational Attainment, Race, and Gender.
+
+For each **continuous or ordinal** variable, we report a violin + box plot with group means and the corresponding omnibus test. Age and Income are tested with one-way ANOVA (parametric); Educational Attainment, an ordinal scale, is tested with the Kruskal-Wallis rank-sum test (non-parametric). For each **categorical** variable (Race, Gender), we report a contingency table and a Pearson chi-square test of independence.
+
+Significance threshold: *α* = 0.05. A non-significant result (*p* > 0.05) means we fail to reject the null hypothesis that the groups are equivalent on that covariate. 
+
+While a null result is often disappointing in hypothesis testing, here it is the desired outcome: it indicates the experimental instrument is working as intended.
+
+::: {.callout-note}
+**Scope and sample.** This Chapter tests covariate balance across Groups A, B, and C (*n* = 1,222). The B1 Educational Use supplement (*n* = 97) is excluded because B1 participants were recruited in a separate wave after the main data collection and did not complete the demographic battery; including them would confound the randomization check with between-wave differences. For details on the B1 supplement, see [Codebook §2.1.3](02-codebook.qmd#sec-b1).
+
+Randomization was performed by Qualtrics's built-in survey flow randomizer, which assigned each participant to exactly one treatment condition at the start of the survey. The same randomization governed all seven scenarios — participants saw the same condition (C, A, or B) throughout. The scenarios themselves were also presented in a random order to prevent order effects. For the full experimental design, *see* [Chapter 1 (Methods)](01-methods.qmd).
+:::
+
+::: {.callout-note}
+**Relationship to population analysis.** This chapter assesses **internal validity**, or whether the three treatment groups are comparable to *each other*. [Chapter 5 (Sample v. Population)](05-population.qmd) assesses **external validity**, or how the combined sample compares to the U.S. adult population via contemporaneous American Community Survey benchmarks. Both analyses examine the same five demographic variables but answer different questions.
+:::
+
+### How to Read These Graphs {#sec-rand-howto}
+
+The continuous-variable sections below display violin + box plots styled to match the scenario analyses in [Chapter 7](07-scenarios.qmd). Each plot layers several visual elements:
+
+- **Violin** (the outer curved shape): Shows the probability density of responses at different values. Wider sections indicate more observations clustered at that value.
+- **Box plot** (the inner rectangle): The bottom edge marks Q1 (25th percentile), the top edge marks Q3 (75th percentile), and the horizontal line inside is the median. Whiskers extend to 1.5× the interquartile range beyond Q1 and Q3.
+- **Mean point and label** (the purple dot with a number): Shows the group mean for each treatment condition.
+- **Caption**: Reports the omnibus test results, including the test statistic, degrees of freedom, *p*-value, and sample size. ANOVA is used for age and income; the Kruskal-Wallis rank-sum test is used for educational attainment (ordinal).
+
+**Quick interpretation:** If the *p*-value in the caption exceeds 0.05, the groups are balanced on that variable. The collapsible interpretation box below each section confirms the result in plain language.
+
+---
+
+```{r randomization-all, include=FALSE}
+rand_results <- run_all_randomization_checks(
+  data             = survey_data,
+  continuous_vars  = c("AGE", "INCOME", "EDU"),
+  categorical_vars = c("RACE", "GENDER"),
+  group_var        = "GROUP",
+  create_plots     = FALSE
+)
+```
+
+```{r rand-helpers, include=FALSE}
+# All helper functions (rand_p, rand_stat, rand_df, rand_test_label,
+# create_rand_plot, race_labels, decode_race, gender_labels, decode_gender)
+# are now loaded from shared modules via _common.R:
+#   - randomization_checks.R (rand_p/stat/df/test_label)
+#   - plotting_themes.R (create_rand_plot)
+#   - data_prep.R (race_labels, decode_race, gender_labels, decode_gender)
+```
+
+---
+
+## Age {#sec-rand-age}
+
+Age was collected as a continuous integer (self-reported current age in years). *See* [Codebook §2.4.1](02-codebook.qmd#sec-age) for the question text.
+
+```{r}
+#| label: fig-rand-age
+#| fig-height: 5
+#| fig-cap: "Age by treatment group. A non-significant result indicates successful randomization"
+
+create_rand_plot(survey_data, "AGE",
+                 title = "**Age by Treatment Group**",
+                 test_type = "parametric")
+```
+
+```{r}
+#| label: tbl-rand-age
+#| tbl-cap: "Age — Covariate Balance Test (One-Way ANOVA)"
+
+data.frame(
+  Variable  = "Age",
+  Test      = rand_test_label(rand_results$continuous$AGE),
+  Statistic = round(rand_stat(rand_results$continuous$AGE), 3),
+  df        = rand_df(rand_results$continuous$AGE),
+  p         = round(rand_p(rand_results$continuous$AGE), 4),
+  Balanced  = rand_results$continuous$AGE$balanced
+) |> knitr::kable()
+```
+
+::: {.callout-note collapse="true"}
+**Age interpretation:** `r rand_test_label(rand_results$continuous$AGE)` *p* = `r fmtp(rand_p(rand_results$continuous$AGE))`. `r if (rand_results$continuous$AGE$balanced) "The three treatment groups do not differ significantly in age distribution, confirming successful randomization on this covariate." else "**Warning:** The groups show a statistically significant difference in age. Consider controlling for age in the scenario analyses."` For a comparison of the overall sample's age distribution against ACS population benchmarks, see [Chapter 5, §5.1](05-population.qmd#sec-pop-age).
+:::
+
+---
+
+## Income {#sec-rand-income}
+
+Household income was collected as an ordinal scale with six income brackets plus a "Prefer not to say" option. *See* [Codebook §2.4.6](02-codebook.qmd#sec-income) for the question text and response categories. Income is treated as approximately continuous here for the ANOVA test, consistent with common practice for ordinal income brackets with roughly equal-width intervals.
+
+```{r}
+#| label: fig-rand-income
+#| fig-height: 5
+#| fig-cap: "Household income by treatment group. A non-significant omnibus ANOVA test indicates the income distribution does not differ across conditions"
+
+create_rand_plot(survey_data, "INCOME",
+                 title = "**Household Income by Treatment Group**",
+                 test_type = "parametric")
+```
+
+```{r}
+#| label: tbl-rand-income
+#| tbl-cap: "Income — Covariate Balance Test (One-Way ANOVA)"
+
+data.frame(
+  Variable  = "Income",
+  Test      = rand_test_label(rand_results$continuous$INCOME),
+  Statistic = round(rand_stat(rand_results$continuous$INCOME), 3),
+  df        = rand_df(rand_results$continuous$INCOME),
+  p         = round(rand_p(rand_results$continuous$INCOME), 4),
+  Balanced  = rand_results$continuous$INCOME$balanced
+) |> knitr::kable()
+```
+
+::: {.callout-note collapse="true"}
+**Income interpretation:** `r rand_test_label(rand_results$continuous$INCOME)` *p* = `r fmtp(rand_p(rand_results$continuous$INCOME))`. `r if (rand_results$continuous$INCOME$balanced) "The three treatment groups do not differ significantly in household income, confirming successful randomization on this covariate." else "**Warning:** The groups show a statistically significant difference in income. Consider controlling for income in the scenario analyses."` For a comparison of the sample's income distribution against ACS benchmarks, *see* [Chapter 5, §5.5](05-population.qmd#sec-pop-income).
+:::
+
+---
+
+## Educational Attainment {#sec-rand-edu}
+
+::: {.callout-note}
+**Measurement note.** Educational attainment is a six-level ordinal variable (from "Some high school or less" to "Graduate or professional degree") plus a "Prefer not to say" option. *See* [Codebook §2.4.5](02-codebook.qmd#sec-edu) for the full education scale. Because the variable is ordinal with unequal conceptual intervals between levels, the Kruskal-Wallis rank-sum test (non-parametric) is used rather than ANOVA.
+:::
+
+```{r}
+#| label: fig-rand-edu
+#| fig-height: 5
+#| fig-cap: "Educational attainment by treatment group. The non-parametric Kruskal-Wallis test is used because educational attainment is an ordinal scale with unequal intervals"
+
+create_rand_plot(survey_data, "EDU",
+                 title = "**Educational Attainment by Treatment Group**",
+                 test_type = "np")
+```
+
+```{r}
+#| label: tbl-rand-edu
+#| tbl-cap: "Educational Attainment — Covariate Balance Test (Kruskal-Wallis)"
+
+data.frame(
+  Variable  = "Education",
+  Test      = rand_test_label(rand_results$continuous$EDU),
+  Statistic = round(rand_stat(rand_results$continuous$EDU), 3),
+  df        = rand_df(rand_results$continuous$EDU),
+  p         = round(rand_p(rand_results$continuous$EDU), 4),
+  Balanced  = rand_results$continuous$EDU$balanced
+) |> knitr::kable()
+```
+
+::: {.callout-note collapse="true"}
+**Education interpretation:** Kruskal-Wallis *p* = `r fmtp(rand_p(rand_results$continuous$EDU))`. `r if (rand_results$continuous$EDU$balanced) "The three treatment groups do not differ significantly in educational attainment, confirming successful randomization on this covariate." else "**Warning:** The groups show a statistically significant difference in educational attainment. Consider controlling for education in the scenario analyses."` Note that the sample as a whole is heavily college-educated relative to the general population (70.5% Bachelor's or higher vs. 35.7% ACS) — *see* [Chapter 5, §5.4](05-population.qmd#sec-pop-edu) — but the relevant point here is that this education skew is distributed *equally across treatment groups*, preserving internal validity.
+:::
+
+---
+
+## Race {#sec-rand-race}
+
+::: {.callout-note}
+**Measurement note.** Race was collected as a "select all that apply" question with seven options: White, Black, American Indian/Alaska Native, Asian, Native Hawaiian/Pacific Islander, Other, and Prefer not to say. Multi-selection responses are stored as comma-separated strings in the dataset. For this balance test, the raw `RACE` column values are used directly. Each unique response pattern is treated as a separate category. *See* [Codebook §2.4.4](02-codebook.qmd#sec-race) for the full question text and coding.
+:::
+
+The RACE column stores Qualtrics numeric codes. Multi-selection responses (e.g., respondents selecting both White and Asian) are stored as comma-separated values. See [Codebook §2.4.4](02-codebook.qmd#sec-race) for the full code key.
+
+```{r}
+#| label: tbl-rand-race-contingency
+#| tbl-cap: "Race — Contingency Table (Counts by Treatment Group)"
+
+# Decode race values for display
+race_decoded <- survey_data
+race_decoded$RACE <- decode_race(race_decoded$RACE)
+race_tbl <- table(race_decoded$RACE, race_decoded$GROUP)
+knitr::kable(race_tbl)
+```
+
+```{r}
+#| label: tbl-rand-race-test
+#| tbl-cap: "Race — Chi-Square Test of Independence Across Treatment Groups"
+
+race_test <- rand_results$categorical$RACE$test
+data.frame(
+  Variable  = "Race",
+  Test      = "Chi-square",
+  Statistic = round(race_test$statistic, 2),
+  df        = race_test$parameter,
+  p         = round(race_test$p.value, 4),
+  Balanced  = rand_results$categorical$RACE$balanced
+) |> knitr::kable()
+```
+
+::: {.callout-note collapse="true"}
+**Race interpretation:** χ²(`r race_test$parameter`) = `r fmt(race_test$statistic)`, *p* = `r fmtp(race_test$p.value)`. `r if (rand_results$categorical$RACE$balanced) "The racial composition of the three treatment groups does not differ significantly, confirming successful randomization on this covariate." else "**Warning:** The groups show a statistically significant difference in racial composition. Consider controlling for race in the scenario analyses."` The overall sample's racial distribution relative to Census benchmarks, including the effect of CloudResearch Connect's preset quotas, is examined in [Chapter 5, §5.3](05-population.qmd#sec-pop-race).
+:::
+
+---
+
+## Gender {#sec-rand-gender}
+
+::: {.callout-note}
+**Measurement note.** The survey offered four response options: Male, Female, a write-in gender identity, and Prefer not to say. All four response categories are included in the balance test below. Note that [Chapter 5](05-population.qmd#sec-pop-gender) restricts its ACS comparison to male/female only (matching Census categories), but here the purpose is to confirm that *all* gender categories are distributed evenly across treatment groups. *See* [Codebook §2.4.2](02-codebook.qmd#sec-gender) for the question text.
+:::
+
+```{r}
+#| label: tbl-rand-gender-contingency
+#| tbl-cap: "Gender — Contingency Table (Counts by Treatment Group)"
+
+# Decode gender values and build a clean table with explicit Gender column
+gender_decoded <- survey_data
+gender_decoded$GENDER <- decode_gender(gender_decoded$GENDER)
+gender_tbl <- as.data.frame.matrix(table(gender_decoded$GENDER, gender_decoded$GROUP))
+gender_tbl <- cbind(Gender = rownames(gender_tbl), gender_tbl)
+rownames(gender_tbl) <- NULL
+knitr::kable(gender_tbl, align = c("l", rep("r", ncol(gender_tbl) - 1)))
+```
+
+```{r}
+#| label: tbl-rand-gender-test
+#| tbl-cap: "Gender — Chi-Square Test of Independence Across Treatment Groups"
+
+gender_test <- rand_results$categorical$GENDER$test
+data.frame(
+  Variable  = "Gender",
+  Test      = "Chi-square",
+  Statistic = round(gender_test$statistic, 2),
+  df        = gender_test$parameter,
+  p         = round(gender_test$p.value, 4),
+  Balanced  = rand_results$categorical$GENDER$balanced
+) |> knitr::kable()
+```
+
+::: {.callout-note collapse="true"}
+**Gender interpretation:** χ²(`r gender_test$parameter`) = `r fmt(gender_test$statistic)`, *p* = `r fmtp(gender_test$p.value)`. `r if (rand_results$categorical$GENDER$balanced) "The gender composition of the three treatment groups does not differ significantly, confirming successful randomization on this covariate." else "**Warning:** The groups show a statistically significant difference in gender composition. Consider controlling for gender in the scenario analyses."` For a comparison of the sample's gender distribution against ACS benchmarks, *see* [Chapter 5, §5.2](05-population.qmd#sec-pop-gender).
+:::
+
+---
+
+## Summary {#sec-rand-summary}
+
+```{r}
+#| label: tbl-rand-summary
+#| tbl-cap: "Randomization Check Summary — Covariate Balance Across Treatment Groups (A, B, C; n = 1,222)"
+
+rand_summary <- summarize_randomization_checks(rand_results)
+
+# Reformat for display
+rand_display <- data.frame(
+  Variable = paste0("`", rand_summary$Variable, "`"),
+  Type     = rand_summary$Type,
+  Test     = rand_summary$Test,
+  `P Value`  = sprintf("%.4f", rand_summary$P_Value),
+  Sig.     = ifelse(rand_summary$Significant, "\\*", "n.s."),
+  Status   = rand_summary$Status,
+  check.names = FALSE,
+  stringsAsFactors = FALSE
+)
+knitr::kable(rand_display, align = c("l", "l", "l", "r", "c", "l"))
+```
+
+::: {.callout-note collapse="true"}
+**Summary interpretation.** `r sprintf("%d of %d", sum(!rand_summary$Significant), nrow(rand_summary))` covariates show balanced distributions (*p* > .05) across the three treatment groups (all marked "n.s." in the Sig. column).
+
+All five demographic covariates (age, household income, educational attainment, race, and gender) pass the balance test at *α* = .05. Three continuous/ordinal variables were tested with omnibus comparison tests (ANOVA for age and income; Kruskal-Wallis for educational attainment), and two categorical variables were tested with Pearson chi-square tests of independence (race and gender). None reached statistical significance, confirming that Qualtrics's survey-flow randomizer successfully distributed participants across conditions without systematic demographic confounds.
+
+The balance documented here supports a causal interpretation of between-group differences in the scenario analyses ([Chapter 7](07-scenarios.qmd)): because the groups were demographically equivalent before treatment exposure, observed differences in infringement perceptions or licensing valuations can be attributed to the experimental manipulation (license notice format) rather than to pre-existing demographic differences between groups.
+
+This Chapter confirms **internal validity**, or comparability between treatment groups. For **external validity**, or how the pooled sample compares to the U.S. adult population. *See* [Chapter 5 (Sample v. Population Analysis)](05-population.qmd).
+:::
